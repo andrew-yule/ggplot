@@ -29,6 +29,8 @@ isDiscreteDataQ[data_] := If[MatchQ[DeleteDuplicates[data], {_?StringQ ..}], Tru
 getDiscreteKeys[data_] := Sort[DeleteDuplicates[data]];
 getContinuousRange[data_] := MinMax[data];
 
+(* Functions to determine aesthetics *)
+
 ggplotColorsFunc[1] := Black;
 ggplotColorsFunc[numberOfSeries_?IntegerQ] /; numberOfSeries > 1 := Drop[LCHColor[0.65, 0.6, #] & /@ (Subdivide[30, 390, numberOfSeries]/390), -1];
 ggplotColorsFunc[___] := ggplotColorsFunc[1];
@@ -49,15 +51,31 @@ determineColorFunc[dataset_, key_] := Module[{data, colorFunc, discreteDataQ, ke
 ];
 determineColorFunc[dataset_, Null] := Function[Black];
 
-determineSizeFunc[] := Function[10];
+determineSizeFunc[dataset_, key_] := Module[{data, sizeFunc, discreteDataQ, keys, minMax},
+  data = dataset[[All, key]];
+  discreteDataQ = isDiscreteDataQ[data];
+  (* TODO: We don't really care about discrete data for the size (I think??)*)
+  If[discreteDataQ,
+    sizeFunc = Function[10];
+  ];
+  If[!discreteDataQ,
+    minMax = getContinuousRange[data];
+    sizeFunc = With[{minMax = minMax}, Function[x, Rescale[x, minMax, {5, 20}]]];
+  ];
+  sizeFunc
+];
+determineSizeFunc[dataset_, Null] := Function[10];
+
 determineAlphaFunc[] := Function[Opacity[1]];
 determineShapeFunc[] := Function["\[FilledCircle]"];
+
+(* geomPoint implementation *)
 
 Options[geomPoint] = {"color" -> Null, "size" -> Null, "alpha" -> Null, "shape" -> Null};
 geomPoint[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPattern[]] := Module[{colorFunc, sizeFunc, alphaFunc, shapeFunc, output},
   (* Gather keys that are needed (should be smart enough to recognize a key in the dataset) *)  (* For each key necessary, get functions to be used to specify the aesthetic *)
   colorFunc = determineColorFunc[dataset, OptionValue["color"]];
-  sizeFunc = determineSizeFunc[];
+  sizeFunc = determineSizeFunc[dataset, OptionValue["size"]];
   alphaFunc = determineAlphaFunc[];
   shapeFunc = determineShapeFunc[];
 
