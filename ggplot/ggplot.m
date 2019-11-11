@@ -18,16 +18,20 @@ geomPoint::usage  = "TBD";
 Begin["`Private`"];
 
 ggPlotGraphics = Graphics;
-SetOptions[ggPlotGraphics, Frame -> True, PlotRange -> All, GridLines -> Automatic, AspectRatio -> 7/10];
+SetOptions[ggPlotGraphics, Frame -> True, PlotRange -> All, GridLines -> Automatic, AspectRatio -> 7/10, PlotRangeClipping -> True];
 
 ggPlot[dataset_, geoms:(geomPoint[__] | {geomPoint[__]..}), opts : OptionsPattern[]] := Module[{graphic},
-  graphic = Cases[geoms, geomPoint[aesthetics__]:> geomPoint[dataset, aesthetics], {0, Infinity}] // ggPlotGraphics;
+  graphic = Cases[geoms, geomPoint[aesthetics__]:> geomPoint[dataset, aesthetics], {0, Infinity}] // ggPlotGraphics[#, FilterRules[{opts}, Options[Graphics]]]&;
   graphic
 ];
 
 isDiscreteDataQ[data_] := If[MatchQ[DeleteDuplicates[data], {_?StringQ ..}], True, False];
 getDiscreteKeys[data_] := Sort[DeleteDuplicates[data]];
 getContinuousRange[data_] := MinMax[data];
+
+ggplotColorsFunc[1] := Black;
+ggplotColorsFunc[numberOfSeries_?IntegerQ] /; numberOfSeries > 1 := Drop[LCHColor[0.65, 0.6, #] & /@ (Subdivide[30, 390, numberOfSeries]/390), -1];
+ggplotColorsFunc[___] := ggplotColorsFunc[1];
 
 determineColorFunc[dataset_, key_] := Module[{data, colorFunc, discreteDataQ, keys, minMax},
   data = dataset[[All, key]];
@@ -43,6 +47,7 @@ determineColorFunc[dataset_, key_] := Module[{data, colorFunc, discreteDataQ, ke
   ];
   colorFunc
 ];
+determineColorFunc[dataset_, Null] := Function[Black];
 
 determineSizeFunc[] := Function[10];
 determineAlphaFunc[] := Function[Opacity[1]];
