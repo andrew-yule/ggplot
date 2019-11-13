@@ -14,14 +14,18 @@ BeginPackage["ggplot`"];
 
 ggPlot::usage     = "TBD";
 geomPoint::usage  = "TBD";
+geomLine::usage   = "TBD";
 
 Begin["`Private`"];
 
-ggPlotGraphics = Graphics;
-SetOptions[ggPlotGraphics, Frame -> True, PlotRange -> All, GridLines -> Automatic, AspectRatio -> 7/10, PlotRangeClipping -> True];
+(*ggPlotGraphics = Graphics;*)
+(*SetOptions[ggPlotGraphics, Frame -> True, PlotRange -> All, GridLines -> Automatic, AspectRatio -> 7/10, PlotRangeClipping -> True];*)
 
-ggPlot[dataset_, geoms:(geomPoint[__] | {geomPoint[__]..}), opts : OptionsPattern[]] := Module[{graphic},
-  graphic = Cases[geoms, geomPoint[aesthetics__]:> geomPoint[dataset, aesthetics], {0, Infinity}] // ggPlotGraphics[#, FilterRules[{opts}, Options[Graphics]]]&;
+ggPlot[dataset_, geoms : (geomPoint[__] | geomLine[__] | {(geomPoint[__] | geomLine[__])..}), opts : OptionsPattern[]] := Module[{points, lines, graphic},
+  points = Cases[geoms, geomPoint[aesthetics__]:> geomPoint[dataset, aesthetics], {0, Infinity}];
+  lines = Cases[geoms, geomLine[aesthetics__]:> geomLine[dataset, aesthetics], {0, Infinity}];
+
+  graphic = {points, lines} // Apply[Join] // Graphics[#, FilterRules[{opts}, Options[Graphics]], Frame -> True, PlotRange -> All, GridLines -> Automatic, AspectRatio -> 7/10, PlotRangeClipping -> True] &;
   graphic
 ];
 
@@ -66,14 +70,18 @@ determineSizeFunc[dataset_, key_] := Module[{data, sizeFunc, discreteDataQ, keys
 ];
 determineSizeFunc[dataset_, Null] := Function[10];
 
+(* TODO: Implement actual logic for these functions below *)
+
 determineAlphaFunc[] := Function[Opacity[1]];
 determineShapeFunc[] := Function["\[FilledCircle]"];
+determineThicknessFunc[___] := Function[Thick];
+determineLineTypeFunc[] := Function[Dashing[1]];
 
 (* geomPoint implementation *)
 
 Options[geomPoint] = {"color" -> Null, "size" -> Null, "alpha" -> Null, "shape" -> Null};
 geomPoint[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPattern[]] := Module[{colorFunc, sizeFunc, alphaFunc, shapeFunc, output},
-  (* Gather keys that are needed (should be smart enough to recognize a key in the dataset) *)  (* For each key necessary, get functions to be used to specify the aesthetic *)
+  (* For each key necessary, get functions to be used to specify the aesthetic *)
   colorFunc = determineColorFunc[dataset, OptionValue["color"]];
   sizeFunc = determineSizeFunc[dataset, OptionValue["size"]];
   alphaFunc = determineAlphaFunc[];
@@ -90,6 +98,29 @@ geomPoint[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPatt
    of the output (since graphics will apply the same forms to following expressions)
   *)
   output = output // GroupBy[Most -> Last] // Normal // ReplaceAll[Rule -> List] // Flatten;
+  output
+];
+
+(* geomLine implementation *)
+
+Options[geomLine] = {"color" -> Null, "thickness" -> Null, "alpha" -> Null, "linetype" -> Null};
+geomLine[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPattern[]] := Module[{groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
+  (* For each key necessary, get functions to be used to specify the aesthetic *)
+  colorFunc = determineColorFunc[dataset, OptionValue["color"]];
+  thicknessFunc = determineThicknessFunc[];
+  alphaFunc = determineAlphaFunc[];
+  lineTypeFunc = determineLineTypeFunc[];
+
+  (* Group the data and apply correct aesthetics while making a line primitive *)
+  groupbyKeys = DeleteCases[{OptionValue["color"], OptionValue["thickness"], OptionValue["alpha"], OptionValue["linetype"]}, Null];
+  output = dataset // GroupBy[((# /@ groupbyKeys) &)] // Map[{
+    colorFunc[Quiet@#[[1, OptionValue["color"]]]],
+    thicknessFunc[Quiet@#[[1, OptionValue["thickness"]]]],
+    alphaFunc[Quiet@#[[1, OptionValue["alpha"]]]],
+    lineTypeFunc[Quiet@#[[1, OptionValue["linetype"]]]],
+    Line@Sort@Transpose[{#[[All, xKey]], #[[All, yKey]]}]
+  } &] // Values;
+
   output
 ];
 
