@@ -75,7 +75,7 @@ determineSizeFunc[dataset_, Null] := Function[10];
 determineAlphaFunc[] := Function[Opacity[1]];
 determineShapeFunc[] := Function["\[FilledCircle]"];
 determineThicknessFunc[___] := Function[Thick];
-determineLineTypeFunc[] := Function[Dashing[1]];
+(* determineLineTypeFunc[] := Function[Dashing[1]]; *) (* Need to disable for now as Dashing[1] causes a known Graphics issue with lines flickering. Bug has been reported to Wolfram. *)
 
 (* geomPoint implementation *)
 
@@ -109,7 +109,7 @@ geomLine[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPatte
   colorFunc = determineColorFunc[dataset, OptionValue["color"]];
   thicknessFunc = determineThicknessFunc[];
   alphaFunc = determineAlphaFunc[];
-  lineTypeFunc = determineLineTypeFunc[];
+  (*lineTypeFunc = determineLineTypeFunc[];*)
 
   (* Group the data and apply correct aesthetics while making a line primitive *)
   groupbyKeys = DeleteCases[{OptionValue["color"], OptionValue["thickness"], OptionValue["alpha"], OptionValue["linetype"]}, Null];
@@ -117,7 +117,7 @@ geomLine[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPatte
     colorFunc[Quiet@#[[1, OptionValue["color"]]]],
     thicknessFunc[Quiet@#[[1, OptionValue["thickness"]]]],
     alphaFunc[Quiet@#[[1, OptionValue["alpha"]]]],
-    lineTypeFunc[Quiet@#[[1, OptionValue["linetype"]]]],
+    (*lineTypeFunc[Quiet@#[[1, OptionValue["linetype"]]]],*)
     Line@Sort@Transpose[{#[[All, xKey]], #[[All, yKey]]}]
   } &] // Values;
 
