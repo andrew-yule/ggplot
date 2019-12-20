@@ -21,11 +21,25 @@ Begin["`Private`"];
 (*ggPlotGraphics = Graphics;*)
 (*SetOptions[ggPlotGraphics, Frame -> True, PlotRange -> All, GridLines -> Automatic, AspectRatio -> 7/10, PlotRangeClipping -> True];*)
 
-ggPlot[dataset_, geoms : (geomPoint[__] | geomLine[__] | {(geomPoint[__] | geomLine[__])..}), opts : OptionsPattern[]] := Module[{points, lines, graphic},
+(*
+  NOTE: Originally I was using Graphics object directly, however, Graphics does not have Options support for ScalingFunction therefore we need to use
+  something like ListPlot, but set PlotStyle to be None, then apply the geom's as Epilog functions
+*)
+
+ggPlot[dataset_, geoms : (geomPoint[__] | geomLine[__] | {(geomPoint[__] | geomLine[__])..}), opts : OptionsPattern[]] := Module[{points, lines, graphicsForEpilog, dataForListPlot, graphic},
   points = Cases[geoms, geomPoint[aesthetics__]:> geomPoint[dataset, aesthetics], {0, Infinity}];
   lines = Cases[geoms, geomLine[aesthetics__]:> geomLine[dataset, aesthetics], {0, Infinity}];
 
-  graphic = {points, lines} // Apply[Join] // Graphics[#, FilterRules[{opts}, Options[Graphics]], Frame -> True, PlotRange -> All, GridLines -> Automatic, AspectRatio -> 7/10, PlotRangeClipping -> True] &;
+  graphicsForEpilog = {Cases[opts, (Epilog -> epi__) :> epi, {0, Infinity}], points, lines} // Flatten;
+
+  dataForListPlot = Cases[graphicsForEpilog, {x_?NumericQ, y_?NumericQ}, {0, Infinity}];
+
+  graphic = ListPlot[dataForListPlot, PlotStyle -> None,
+    PlotRange -> All, Frame -> True, GridLines -> Automatic, AspectRatio -> 7/10,
+    Epilog -> graphicsForEpilog,
+    FilterRules[{opts} /. (Epilog -> __) :> Nothing, Options[ListPlot]]
+  ];
+
   graphic
 ];
 
