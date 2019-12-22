@@ -26,13 +26,18 @@ Begin["`Private`"];
   something like ListPlot, but set PlotStyle to be None, then apply the geom's as Epilog functions
 *)
 
-ggPlot[dataset_, geoms : (geomPoint[__] | geomLine[__] | {(geomPoint[__] | geomLine[__])..}), opts : OptionsPattern[]] := Module[{points, lines, graphicsForEpilog, dataForListPlot, graphic},
+Options[ggPlot] = Prepend[Options[ListPlot], ScalingFunctions -> {Identity, Identity}];
+ggPlot[dataset_, geoms : (geomPoint[__] | geomLine[__] | {(geomPoint[__] | geomLine[__])..}), opts : OptionsPattern[]] := Module[{points, lines, scalingFunctionX, scalingFunctionY, graphicsForEpilog, dataForListPlot, graphic},
   points = Cases[geoms, geomPoint[aesthetics__]:> geomPoint[dataset, aesthetics], {0, Infinity}];
   lines = Cases[geoms, geomLine[aesthetics__]:> geomLine[dataset, aesthetics], {0, Infinity}];
 
   graphicsForEpilog = {Cases[opts, (Epilog -> epi__) :> epi, {0, Infinity}], points, lines} // Flatten;
-
   dataForListPlot = Cases[graphicsForEpilog, {x_?NumericQ, y_?NumericQ}, {0, Infinity}];
+
+  scalingFunctionX = With[{f = (OptionValue[ScalingFunctions][[1]] //. {s_?StringQ :> ToExpression[s], None -> Identity})}, Function[f[#]]];
+  scalingFunctionY = With[{f = (OptionValue[ScalingFunctions][[2]] //. {s_?StringQ :> ToExpression[s], None -> Identity})}, Function[f[#]]];
+  graphicsForEpilog = graphicsForEpilog // ReplaceAll[{x_?NumericQ, y_?NumericQ} :> {scalingFunctionX[x], scalingFunctionY[y]}];
+
 
   graphic = ListPlot[dataForListPlot, PlotStyle -> None,
     PlotRange -> All, Frame -> True, GridLines -> Automatic, AspectRatio -> 7/10,
