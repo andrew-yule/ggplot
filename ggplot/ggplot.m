@@ -24,6 +24,8 @@ Begin["`Private`"];
 (*
   NOTE: Originally I was using Graphics object directly, however, Graphics does not have Options support for ScalingFunction therefore we need to use
   something like ListPlot, but set PlotStyle to be None, then apply the geom's as Epilog functions
+
+  New UPDATE: It may still be better to use Graphics and then we'll write our own ability to do a scaling function.
 *)
 
 Options[ggPlot] = Prepend[Options[ListPlot], ScalingFunctions -> {Identity, Identity}];
@@ -32,16 +34,16 @@ ggPlot[dataset_, geoms : (geomPoint[__] | geomLine[__] | {(geomPoint[__] | geomL
   lines = Cases[geoms, geomLine[aesthetics__]:> geomLine[dataset, aesthetics], {0, Infinity}];
 
   graphicsForEpilog = {Cases[opts, (Epilog -> epi__) :> epi, {0, Infinity}], points, lines} // Flatten;
-  dataForListPlot = Cases[graphicsForEpilog, {x_?NumericQ, y_?NumericQ}, {0, Infinity}];
+  (*dataForListPlot = Cases[graphicsForEpilog, {x_?NumericQ, y_?NumericQ}, {0, Infinity}];*)
 
   scalingFunctionX = With[{f = (OptionValue[ScalingFunctions][[1]] //. {s_?StringQ :> ToExpression[s], None -> Identity})}, Function[f[#]]];
   scalingFunctionY = With[{f = (OptionValue[ScalingFunctions][[2]] //. {s_?StringQ :> ToExpression[s], None -> Identity})}, Function[f[#]]];
   graphicsForEpilog = graphicsForEpilog // ReplaceAll[{x_?NumericQ, y_?NumericQ} :> {scalingFunctionX[x], scalingFunctionY[y]}];
 
-
-  graphic = ListPlot[dataForListPlot, PlotStyle -> None,
+  graphic = Graphics[graphicsForEpilog,
     PlotRange -> All, Frame -> True, GridLines -> Automatic, AspectRatio -> 7/10,
-    Epilog -> graphicsForEpilog,
+    (*For use with ListLinePlot and Epilog if we don't want to use Graphics*)
+    (*PlotStyle -> None, Epilog -> graphicsForEpilog,*)
     FilterRules[{opts} /. (Epilog -> __) :> Nothing, Options[ListPlot]]
   ];
 
