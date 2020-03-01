@@ -117,13 +117,13 @@ determineColorFunc[dataset_, Null] := Function[Black];
 determineSizeFunc[dataset_, key_] := Module[{data, sizeFunc, discreteDataQ, keys, minMax},
   data = dataset[[All, key]];
   discreteDataQ = isDiscreteDataQ[data];
-  (* TODO: We don't really care about discrete data for the size (I think??)*)
   If[discreteDataQ,
-    sizeFunc = Function[10];
+    keys = getDiscreteKeys[data];
+    sizeFunc = Function[AssociationThread[keys, Subdivide[10, 25, Length[keys] - 1]][#]];
   ];
   If[!discreteDataQ,
     minMax = getContinuousRange[data];
-    sizeFunc = With[{minMax = minMax}, Function[x, Rescale[x, minMax, {5, 20}]]];
+    sizeFunc = With[{minMax = minMax}, Function[x, Rescale[x, minMax, {10, 25}]]];
   ];
   sizeFunc
 ];
