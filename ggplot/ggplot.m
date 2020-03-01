@@ -104,11 +104,11 @@ determineColorFunc[dataset_, key_] := Module[{data, colorFunc, discreteDataQ, ke
   discreteDataQ = isDiscreteDataQ[data];
   If[discreteDataQ,
     keys = getDiscreteKeys[data];
-    colorFunc = AssociationThread[keys -> ggplotColorsFunc[Length[keys]]];
+    colorFunc = Function[AssociationThread[keys -> ggplotColorsFunc[Length[keys]]][#]];
   ];
   If[!discreteDataQ,
     minMax = getContinuousRange[data];
-    colorFunc = With[{minMax = minMax}, Function[x, Blend[{Red, Blue}, Rescale[x, minMax]]]]
+    colorFunc = With[{minMax = minMax}, Function[Blend[{Red, Blue}, Rescale[#, minMax]]]]
   ];
   colorFunc
 ];
@@ -129,8 +129,6 @@ determineSizeFunc[dataset_, key_] := Module[{data, sizeFunc, discreteDataQ, keys
 ];
 determineSizeFunc[dataset_, Null] := Function[10];
 
-determineAlphaFunc[] := Function[Opacity[1]];
-
 determineAlphaFunc[dataset_, key_] := Module[{data, alphaFunc, discreteDataQ, keys, minMax},
   data = dataset[[All, key]];
   discreteDataQ = isDiscreteDataQ[data];
@@ -144,7 +142,7 @@ determineAlphaFunc[dataset_, key_] := Module[{data, alphaFunc, discreteDataQ, ke
   ];
   alphaFunc
 ];
-determineAlphaFunc[dataset_, Null] := Function[10];
+determineAlphaFunc[dataset_, Null] := Function[Opacity[1]];
 
 (* TODO: Implement actual logic for these functions below *)
 
