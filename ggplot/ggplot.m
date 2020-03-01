@@ -129,9 +129,25 @@ determineSizeFunc[dataset_, key_] := Module[{data, sizeFunc, discreteDataQ, keys
 ];
 determineSizeFunc[dataset_, Null] := Function[10];
 
+determineAlphaFunc[] := Function[Opacity[1]];
+
+determineAlphaFunc[dataset_, key_] := Module[{data, alphaFunc, discreteDataQ, keys, minMax},
+  data = dataset[[All, key]];
+  discreteDataQ = isDiscreteDataQ[data];
+  If[discreteDataQ,
+    keys = Sort[getDiscreteKeys[data]];
+    alphaFunc = Function[Opacity[AssociationThread[keys, Subdivide[0.1, 1, Length[keys] - 1]][#]]];
+  ];
+  If[!discreteDataQ,
+    minMax = getContinuousRange[data];
+    alphaFunc = With[{minMax = minMax}, Function[Opacity[Rescale[#, minMax, {0.1, 1}]]]];
+  ];
+  alphaFunc
+];
+determineAlphaFunc[dataset_, Null] := Function[10];
+
 (* TODO: Implement actual logic for these functions below *)
 
-determineAlphaFunc[] := Function[Opacity[1]];
 determineShapeFunc[] := Function["\[FilledCircle]"];
 determineThicknessFunc[___] := Function[Thick];
 (* determineLineTypeFunc[] := Function[Dashing[1]]; *) (* Need to disable for now as Dashing[1] causes a known Graphics issue with lines flickering. Bug has been reported to Wolfram. *)
@@ -143,7 +159,7 @@ geomPoint[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPatt
   (* For each key necessary, get functions to be used to specify the aesthetic *)
   colorFunc = determineColorFunc[dataset, OptionValue["color"]];
   sizeFunc = determineSizeFunc[dataset, OptionValue["size"]];
-  alphaFunc = determineAlphaFunc[];
+  alphaFunc = determineAlphaFunc[dataset, OptionValue["alpha"]];
   shapeFunc = determineShapeFunc[];
 
   (*Grab the point data and for each Point apply the correct aesthetic*)
