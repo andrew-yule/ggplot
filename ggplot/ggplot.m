@@ -18,8 +18,9 @@ geomLine::usage   = "TBD";
 
 Begin["`Private`"];
 
+ggplot::xOrYNotGiven    = "A geom was given without specifying the x or y mapping";
 ggplot::shapecontinuous = "A continuous variable can not be mapped to a shape";
-ggplot::shapecount = "More than 5 discrete shapes are present, aborting... (this should be fixed)";
+ggplot::shapecount      = "More than 5 discrete shapes are present, aborting... (this should be fixed)";
 
 (*ggPlotGraphics = Graphics;*)
 (*SetOptions[ggPlotGraphics, Frame -> True, PlotRange -> All, GridLines -> Automatic, AspectRatio -> 7/10, PlotRangeClipping -> True];*)
@@ -97,7 +98,7 @@ getContinuousRange[data_] := MinMax[data];
 
 (* Functions to determine aesthetics *)
 
-(* Default values if not aesthetic is mapped *)
+(* Default values if not being used as an aesthetic *)
 reconcileGeomPointAesthetics[dataset_, Null, "color"] := Function[Black];
 reconcileGeomPointAesthetics[dataset_, Null, "size"]  := Function[10];
 reconcileGeomPointAesthetics[dataset_, Null, "alpha"] := Function[Opacity[1]];
@@ -122,7 +123,7 @@ reconcileGeomPointAesthetics[dataset_, key_, aes_] := Module[{data, func, discre
       "color",  With[{minMax = minMax}, Function[Blend[{Red, Blue}, Rescale[#, minMax]]]],
       "size",   With[{minMax = minMax}, Function[x, Rescale[x, minMax, {10, 25}]]],
       "alpha",  With[{minMax = minMax}, Function[Opacity[Rescale[#, minMax, {0.1, 1}]]]],
-      "shape",  Message[ggplot::shapecontinuous];Throw[Null];
+      "shape",  Message[ggplot::shapecontinuous]; Throw[Null];
     ];
   ];
   func
@@ -140,8 +141,11 @@ determineThicknessFunc[___] := Function[Thick];
 
 (* geomPoint implementation *)
 
-Options[geomPoint] = {"color" -> Null, "size" -> Null, "alpha" -> Null, "shape" -> Null};
-geomPoint[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPattern[]] := Module[{colorFunc, sizeFunc, alphaFunc, shapeFunc, output},
+Options[geomPoint] = {"x" -> Null, "y" -> Null, "color" -> Null, "size" -> Null, "alpha" -> Null, "shape" -> Null};
+geomPoint[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{colorFunc, sizeFunc, alphaFunc, shapeFunc, output},
+  (* Ensure X/Y has been given *)
+  If[OptionValue["x"] === Null || OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
+
   (* For each key necessary, get functions to be used to specify the aesthetic *)
   colorFunc = reconcileGeomPointAesthetics[dataset, OptionValue["color"], "color"];
   sizeFunc  = reconcileGeomPointAesthetics[dataset, OptionValue["size"], "size"];
@@ -152,7 +156,7 @@ geomPoint[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPatt
   output = dataset // Map[{
     colorFunc[#[OptionValue["color"]]],
     alphaFunc[#[OptionValue["alpha"]]],
-    Inset[Style[shapeFunc[#[OptionValue["shape"]]], sizeFunc[#[OptionValue["size"]]]], {#[xKey], #[yKey]}]
+    Inset[Style[shapeFunc[#[OptionValue["shape"]]], sizeFunc[#[OptionValue["size"]]]], {#[OptionValue["x"]], #[OptionValue["y"]]}]
   } &];
   (*
    Group the data by similar aesthetics and then just apply to the first one so we reduce the memory size
@@ -164,12 +168,15 @@ geomPoint[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPatt
 
 (* geomLine implementation *)
 
-Options[geomLine] = {"color" -> Null, "thickness" -> Null, "alpha" -> Null, "linetype" -> Null};
-geomLine[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPattern[]] := Module[{groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
+Options[geomLine] = {"x" -> Null, "y" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "linetype" -> Null};
+geomLine[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
+  (* Ensure X/Y has been given *)
+  If[OptionValue["x"] === Null || OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
+
   (* For each key necessary, get functions to be used to specify the aesthetic *)
-  colorFunc = determineColorFunc[dataset, OptionValue["color"]];
+  colorFunc     = determineColorFunc[dataset, OptionValue["color"]];
   thicknessFunc = determineThicknessFunc[];
-  alphaFunc = determineAlphaFunc[];
+  alphaFunc     = determineAlphaFunc[];
   (*lineTypeFunc = determineLineTypeFunc[];*)
 
   (* Group the data and apply correct aesthetics while making a line primitive *)
@@ -179,7 +186,7 @@ geomLine[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPatte
     thicknessFunc[Quiet@#[[1, OptionValue["thickness"]]]],
     alphaFunc[Quiet@#[[1, OptionValue["alpha"]]]],
     (*lineTypeFunc[Quiet@#[[1, OptionValue["linetype"]]]],*)
-    Line@Sort@Transpose[{#[[All, xKey]], #[[All, yKey]]}]
+    Line@Sort@Transpose[{#[[All, OptionValue["x"]]], #[[All, OptionValue["y"]]]}]
   } &] // Values;
 
   output
