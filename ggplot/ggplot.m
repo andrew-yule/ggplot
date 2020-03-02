@@ -97,71 +97,41 @@ getContinuousRange[data_] := MinMax[data];
 
 (* Functions to determine aesthetics *)
 
+(* Default values if not aesthetic is mapped *)
+reconcileGeomPointAesthetics[dataset_, Null, "color"] := Function[Black];
+reconcileGeomPointAesthetics[dataset_, Null, "size"]  := Function[10];
+reconcileGeomPointAesthetics[dataset_, Null, "alpha"] := Function[Opacity[1]];
+reconcileGeomPointAesthetics[dataset_, Null, "shape"] := Function["\[FilledCircle]"];
+
+(* More complex logic if aesthetic is used*)
+reconcileGeomPointAesthetics[dataset_, key_, aes_] := Module[{data, func, discreteDataQ, keys, minMax},
+  data = dataset[[All, key]];
+  discreteDataQ = isDiscreteDataQ[data];
+  If[discreteDataQ,
+    keys = Sort[getDiscreteKeys[data]];
+    func = Switch[aes,
+      "color",  Function[AssociationThread[keys, ggplotColorsFunc[Length[keys]]][#]],
+      "size",   Function[AssociationThread[keys, Subdivide[10, 25, Length[keys] - 1]][#]],
+      "alpha",  Function[Opacity[AssociationThread[keys, Subdivide[0.1, 1, Length[keys] - 1]][#]]],
+      "shape",  If[Length[keys] > 5, Message[ggplot::shapecount]; Throw[Null];, Function[AssociationThread[keys, Take[{"\[FilledCircle]", "\[FilledUpTriangle]", "\[FilledSquare]", "\[FivePointedStar]", "\[FilledDiamond]"}, Length[keys]]][#]]]
+    ];
+  ];
+  If[!discreteDataQ,
+    minMax = getContinuousRange[data];
+    func = Switch[aes,
+      "color",  With[{minMax = minMax}, Function[Blend[{Red, Blue}, Rescale[#, minMax]]]],
+      "size",   With[{minMax = minMax}, Function[x, Rescale[x, minMax, {10, 25}]]],
+      "alpha",  With[{minMax = minMax}, Function[Opacity[Rescale[#, minMax, {0.1, 1}]]]],
+      "shape",  Message[ggplot::shapecontinuous];Throw[Null];
+    ];
+  ];
+  func
+];
+
+(* Helper functions for colors *)
 ggplotColorsFunc[1] := Black;
 ggplotColorsFunc[numberOfSeries_?IntegerQ] /; numberOfSeries > 1 := Drop[LCHColor[0.65, 0.6, #] & /@ (Subdivide[30, 390, numberOfSeries]/390), -1];
 ggplotColorsFunc[___] := ggplotColorsFunc[1];
-
-determineColorFunc[dataset_, key_] := Module[{data, colorFunc, discreteDataQ, keys, minMax},
-  data = dataset[[All, key]];
-  colorFunc = Function[Black];
-  discreteDataQ = isDiscreteDataQ[data];
-  If[discreteDataQ,
-    keys = getDiscreteKeys[data];
-    colorFunc = Function[AssociationThread[keys, ggplotColorsFunc[Length[keys]]][#]];
-  ];
-  If[!discreteDataQ,
-    minMax = getContinuousRange[data];
-    colorFunc = With[{minMax = minMax}, Function[Blend[{Red, Blue}, Rescale[#, minMax]]]]
-  ];
-  colorFunc
-];
-determineColorFunc[dataset_, Null] := Function[Black];
-
-determineSizeFunc[dataset_, key_] := Module[{data, sizeFunc, discreteDataQ, keys, minMax},
-  data = dataset[[All, key]];
-  discreteDataQ = isDiscreteDataQ[data];
-  If[discreteDataQ,
-    keys = getDiscreteKeys[data];
-    sizeFunc = Function[AssociationThread[keys, Subdivide[10, 25, Length[keys] - 1]][#]];
-  ];
-  If[!discreteDataQ,
-    minMax = getContinuousRange[data];
-    sizeFunc = With[{minMax = minMax}, Function[x, Rescale[x, minMax, {10, 25}]]];
-  ];
-  sizeFunc
-];
-determineSizeFunc[dataset_, Null] := Function[10];
-
-determineAlphaFunc[dataset_, key_] := Module[{data, alphaFunc, discreteDataQ, keys, minMax},
-  data = dataset[[All, key]];
-  discreteDataQ = isDiscreteDataQ[data];
-  If[discreteDataQ,
-    keys = Sort[getDiscreteKeys[data]];
-    alphaFunc = Function[Opacity[AssociationThread[keys, Subdivide[0.1, 1, Length[keys] - 1]][#]]];
-  ];
-  If[!discreteDataQ,
-    minMax = getContinuousRange[data];
-    alphaFunc = With[{minMax = minMax}, Function[Opacity[Rescale[#, minMax, {0.1, 1}]]]];
-  ];
-  alphaFunc
-];
-determineAlphaFunc[dataset_, Null] := Function[Opacity[1]];
-
-determineShapeFunc[dataset_, key_] := Module[{data, shapeFunc, discreteDataQ, keys, minMax},
-  data = dataset[[All, key]];
-  discreteDataQ = isDiscreteDataQ[data];
-  If[discreteDataQ,
-    keys = Sort[getDiscreteKeys[data]];
-    If[Length[keys] > 5, Message[ggplot::shapecount]; Throw[Null]];
-    shapeFunc = Function[AssociationThread[keys, Take[{"\[FilledCircle]", "\[FilledUpTriangle]", "\[FilledSquare]", "\[FivePointedStar]", "\[FilledDiamond]"}, Length[keys]]][#]];
-  ];
-  If[!discreteDataQ,
-    Message[ggplot::shapecontinuous];
-    Throw[Null];
-  ];
-  shapeFunc
-];
-determineShapeFunc[dataset_, Null] := Function["\[FilledCircle]"];
 
 (* TODO: Implement actual logic for these functions below *)
 
@@ -173,10 +143,10 @@ determineThicknessFunc[___] := Function[Thick];
 Options[geomPoint] = {"color" -> Null, "size" -> Null, "alpha" -> Null, "shape" -> Null};
 geomPoint[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPattern[]] := Module[{colorFunc, sizeFunc, alphaFunc, shapeFunc, output},
   (* For each key necessary, get functions to be used to specify the aesthetic *)
-  colorFunc = determineColorFunc[dataset, OptionValue["color"]];
-  sizeFunc = determineSizeFunc[dataset, OptionValue["size"]];
-  alphaFunc = determineAlphaFunc[dataset, OptionValue["alpha"]];
-  shapeFunc = determineShapeFunc[dataset, OptionValue["shape"]];
+  colorFunc = reconcileGeomPointAesthetics[dataset, OptionValue["color"], "color"];
+  sizeFunc  = reconcileGeomPointAesthetics[dataset, OptionValue["size"], "size"];
+  alphaFunc = reconcileGeomPointAesthetics[dataset, OptionValue["alpha"], "alpha"];
+  shapeFunc = reconcileGeomPointAesthetics[dataset, OptionValue["shape"], "shape"];
 
   (*Grab the point data and for each Point apply the correct aesthetic*)
   output = dataset // Map[{
