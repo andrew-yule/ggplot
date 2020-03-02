@@ -92,8 +92,9 @@ ggplot[dataset_, geoms : (geomPoint[__] | geomLine[__] | {(geomPoint[__] | geomL
   graphic
 ]];
 
-isDiscreteDataQ[data_] := If[MatchQ[DeleteDuplicates[data], {_?StringQ ..}], True, False];
-getDiscreteKeys[data_] := Sort[DeleteDuplicates[data]];
+isDiscreteDataQ[data_]    := If[MatchQ[DeleteDuplicates[data], {_?StringQ ..}], True, False];
+getAllKeys[data_]         := data // Keys /* Flatten /* DeleteDuplicates;
+getDiscreteKeys[data_]    := Sort[DeleteDuplicates[data]];
 getContinuousRange[data_] := MinMax[data];
 
 (* Functions to determine aesthetics *)
@@ -105,7 +106,14 @@ reconcileAesthetics[dataset_, Null, "alpha"]     := Function[Opacity[1]];
 reconcileAesthetics[dataset_, Null, "shape"]     := Function["\[FilledCircle]"];
 reconcileAesthetics[dataset_, Null, "thickness"] := Function[Thick];
 
-(* More complex logic if aesthetic is used*)
+(* If an aesthetic is used but does not match a key, then assume it's a user directly specifying *)
+reconcileAesthetics[dataset_, val_Function, aes_]  := val;
+(* Note there is a bug with KeyExists as it won't accept Key["string"] in order to see if the key does exist *)
+(*reconcileAesthetics[dataset_, val_, aes_] /; !(dataset // Map[KeyExistsQ[Key[val]]] /* ContainsAny[{True}]) := Function[val];*)
+(* Using Lookup instead *)
+reconcileAesthetics[dataset_, val_, aes_] /; (dataset // Map[Lookup[#, Key[val], False] &] /* ContainsAny[{False}]) := Function[val];
+
+(* More complex logic if aesthetic is used and mapped to a key *)
 reconcileAesthetics[dataset_, key_, aes_] := Module[{data, func, discreteDataQ, keys, minMax},
   data = dataset[[All, key]];
   discreteDataQ = isDiscreteDataQ[data];
