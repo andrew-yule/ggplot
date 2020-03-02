@@ -18,6 +18,9 @@ geomLine::usage   = "TBD";
 
 Begin["`Private`"];
 
+ggplot::shapecontinuous = "A continuous variable can not be mapped to a shape";
+ggplot::shapecount = "More than 5 discrete shapes are present, aborting... (this should be fixed)";
+
 (*ggPlotGraphics = Graphics;*)
 (*SetOptions[ggPlotGraphics, Frame -> True, PlotRange -> All, GridLines -> Automatic, AspectRatio -> 7/10, PlotRangeClipping -> True];*)
 
@@ -30,7 +33,7 @@ Begin["`Private`"];
 
 Options[ggplot] = Join[Options[ListLinePlot], Options[Alex`Plotting`linearTicks], Options[Alex`Plotting`linearGridLines], {DateTicksFormat -> Automatic}];
 SetOptions[ggplot,
-  ImageSize -> 400, AspectRatio -> 7/10, Frame -> True, Axes -> False,
+  ImageSize -> 400, AspectRatio -> 2/3, Frame -> True, Axes -> False,
   ImageMargins -> Automatic,
   LabelStyle -> Directive[12, FontFamily -> "Arial"],
   FrameStyle -> Directive[GrayLevel[0.6], Thickness[0.0008`]],
@@ -38,7 +41,7 @@ SetOptions[ggplot,
   FrameTicks -> Automatic, GridLines -> Automatic,  Background -> White,
   PlotRange -> All
 ];
-ggplot[dataset_, geoms : (geomPoint[__] | geomLine[__] | {(geomPoint[__] | geomLine[__])..}), opts : OptionsPattern[]] := Module[{points, lines, scalingFunctionX, scalingFunctionY, graphicsPrimitives, dataForListPlot, graphic},
+ggplot[dataset_, geoms : (geomPoint[__] | geomLine[__] | {(geomPoint[__] | geomLine[__])..}), opts : OptionsPattern[]] := Catch[Module[{points, lines, scalingFunctionX, scalingFunctionY, graphicsPrimitives, dataForListPlot, graphic},
   points = Cases[geoms, geomPoint[aesthetics__]:> geomPoint[dataset, aesthetics], {0, Infinity}];
   lines = Cases[geoms, geomLine[aesthetics__]:> geomLine[dataset, aesthetics], {0, Infinity}];
 
@@ -86,7 +89,7 @@ ggplot[dataset_, geoms : (geomPoint[__] | geomLine[__] | {(geomPoint[__] | geomL
   ];
 
   graphic
-];
+]];
 
 isDiscreteDataQ[data_] := If[MatchQ[DeleteDuplicates[data], {_?StringQ ..}], True, False];
 getDiscreteKeys[data_] := Sort[DeleteDuplicates[data]];
@@ -104,7 +107,7 @@ determineColorFunc[dataset_, key_] := Module[{data, colorFunc, discreteDataQ, ke
   discreteDataQ = isDiscreteDataQ[data];
   If[discreteDataQ,
     keys = getDiscreteKeys[data];
-    colorFunc = Function[AssociationThread[keys -> ggplotColorsFunc[Length[keys]]][#]];
+    colorFunc = Function[AssociationThread[keys, ggplotColorsFunc[Length[keys]]][#]];
   ];
   If[!discreteDataQ,
     minMax = getContinuousRange[data];
@@ -144,9 +147,24 @@ determineAlphaFunc[dataset_, key_] := Module[{data, alphaFunc, discreteDataQ, ke
 ];
 determineAlphaFunc[dataset_, Null] := Function[Opacity[1]];
 
+determineShapeFunc[dataset_, key_] := Module[{data, shapeFunc, discreteDataQ, keys, minMax},
+  data = dataset[[All, key]];
+  discreteDataQ = isDiscreteDataQ[data];
+  If[discreteDataQ,
+    keys = Sort[getDiscreteKeys[data]];
+    If[Length[keys] > 5, Message[ggplot::shapecount]; Throw[Null]];
+    shapeFunc = Function[AssociationThread[keys, Take[{"\[FilledCircle]", "\[FilledUpTriangle]", "\[FilledSquare]", "\[FivePointedStar]", "\[FilledDiamond]"}, Length[keys]]][#]];
+  ];
+  If[!discreteDataQ,
+    Message[ggplot::shapecontinuous];
+    Throw[Null];
+  ];
+  shapeFunc
+];
+determineShapeFunc[dataset_, Null] := Function["\[FilledCircle]"];
+
 (* TODO: Implement actual logic for these functions below *)
 
-determineShapeFunc[] := Function["\[FilledCircle]"];
 determineThicknessFunc[___] := Function[Thick];
 (* determineLineTypeFunc[] := Function[Dashing[1]]; *) (* Need to disable for now as Dashing[1] causes a known Graphics issue with lines flickering. Bug has been reported to Wolfram. *)
 
@@ -158,7 +176,7 @@ geomPoint[dataset_, "x" -> xKey_, "y" -> yKey_, optionalAesthetics : OptionsPatt
   colorFunc = determineColorFunc[dataset, OptionValue["color"]];
   sizeFunc = determineSizeFunc[dataset, OptionValue["size"]];
   alphaFunc = determineAlphaFunc[dataset, OptionValue["alpha"]];
-  shapeFunc = determineShapeFunc[];
+  shapeFunc = determineShapeFunc[dataset, OptionValue["shape"]];
 
   (*Grab the point data and for each Point apply the correct aesthetic*)
   output = dataset // Map[{
