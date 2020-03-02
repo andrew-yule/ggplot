@@ -161,12 +161,20 @@ geomPoint[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{colorFunc, s
     alphaFunc[#[OptionValue["alpha"]]],
     Inset[Style[shapeFunc[#[OptionValue["shape"]]], sizeFunc[#[OptionValue["size"]]]], {#[OptionValue["x"]], #[OptionValue["y"]]}]
   } &];
+
+  (* Grouping data but doing a GeometricTransformation on similar Inset values to speed up the plotting once inside Graphics *)
+  output = output // GroupBy[Function[{#[[1]], #[[2]], Inset[#[[3, 1]], {0, 0}]}] -> Function[#[[3, 2]]]] // Normal // Map[{#[[1, 1]], #[[1, 2]], GeometricTransformation[#[[1, 3]], List /@ #[[2]]]} &];
+  output
+
+  (*Original version*)
   (*
    Group the data by similar aesthetics and then just apply to the first one so we reduce the memory size
    of the output (since graphics will apply the same forms to following expressions)
   *)
+  (*
   output = output // GroupBy[Most -> Last] // Normal // ReplaceAll[Rule -> List] // Flatten;
   output
+  *)
 ];
 
 (* geomLine implementation *)
