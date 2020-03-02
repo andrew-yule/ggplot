@@ -99,31 +99,34 @@ getContinuousRange[data_] := MinMax[data];
 (* Functions to determine aesthetics *)
 
 (* Default values if not being used as an aesthetic *)
-reconcileGeomPointAesthetics[dataset_, Null, "color"] := Function[Black];
-reconcileGeomPointAesthetics[dataset_, Null, "size"]  := Function[10];
-reconcileGeomPointAesthetics[dataset_, Null, "alpha"] := Function[Opacity[1]];
-reconcileGeomPointAesthetics[dataset_, Null, "shape"] := Function["\[FilledCircle]"];
+reconcileAesthetics[dataset_, Null, "color"]     := Function[Black];
+reconcileAesthetics[dataset_, Null, "size"]      := Function[10];
+reconcileAesthetics[dataset_, Null, "alpha"]     := Function[Opacity[1]];
+reconcileAesthetics[dataset_, Null, "shape"]     := Function["\[FilledCircle]"];
+reconcileAesthetics[dataset_, Null, "thickness"] := Function[Thick];
 
 (* More complex logic if aesthetic is used*)
-reconcileGeomPointAesthetics[dataset_, key_, aes_] := Module[{data, func, discreteDataQ, keys, minMax},
+reconcileAesthetics[dataset_, key_, aes_] := Module[{data, func, discreteDataQ, keys, minMax},
   data = dataset[[All, key]];
   discreteDataQ = isDiscreteDataQ[data];
   If[discreteDataQ,
     keys = Sort[getDiscreteKeys[data]];
     func = Switch[aes,
-      "color",  Function[AssociationThread[keys, ggplotColorsFunc[Length[keys]]][#]],
-      "size",   Function[AssociationThread[keys, Subdivide[10, 25, Length[keys] - 1]][#]],
-      "alpha",  Function[Opacity[AssociationThread[keys, Subdivide[0.1, 1, Length[keys] - 1]][#]]],
-      "shape",  If[Length[keys] > 5, Message[ggplot::shapecount]; Throw[Null];, Function[AssociationThread[keys, Take[{"\[FilledCircle]", "\[FilledUpTriangle]", "\[FilledSquare]", "\[FivePointedStar]", "\[FilledDiamond]"}, Length[keys]]][#]]]
+      "color",      Function[AssociationThread[keys, ggplotColorsFunc[Length[keys]]][#]],
+      "size",       Function[AssociationThread[keys, Subdivide[10, 25, Length[keys] - 1]][#]],
+      "alpha",      Function[Opacity[AssociationThread[keys, Subdivide[0.1, 1, Length[keys] - 1]][#]]],
+      "shape",      If[Length[keys] > 5, Message[ggplot::shapecount]; Throw[Null];, Function[AssociationThread[keys, Take[{"\[FilledCircle]", "\[FilledUpTriangle]", "\[FilledSquare]", "\[FivePointedStar]", "\[FilledDiamond]"}, Length[keys]]][#]]],
+      "thickness",  Function[Thick]
     ];
   ];
   If[!discreteDataQ,
     minMax = getContinuousRange[data];
     func = Switch[aes,
-      "color",  With[{minMax = minMax}, Function[Blend[{Red, Blue}, Rescale[#, minMax]]]],
-      "size",   With[{minMax = minMax}, Function[x, Rescale[x, minMax, {10, 25}]]],
-      "alpha",  With[{minMax = minMax}, Function[Opacity[Rescale[#, minMax, {0.1, 1}]]]],
-      "shape",  Message[ggplot::shapecontinuous]; Throw[Null];
+      "color",      With[{minMax = minMax}, Function[Blend[{Red, Blue}, Rescale[#, minMax]]]],
+      "size",       With[{minMax = minMax}, Function[x, Rescale[x, minMax, {10, 25}]]],
+      "alpha",      With[{minMax = minMax}, Function[Opacity[Rescale[#, minMax, {0.1, 1}]]]],
+      "shape",      Message[ggplot::shapecontinuous]; Throw[Null];,
+      "thickness",  Function[Thick]
     ];
   ];
   func
@@ -147,10 +150,10 @@ geomPoint[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{colorFunc, s
   If[OptionValue["x"] === Null || OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
 
   (* For each key necessary, get functions to be used to specify the aesthetic *)
-  colorFunc = reconcileGeomPointAesthetics[dataset, OptionValue["color"], "color"];
-  sizeFunc  = reconcileGeomPointAesthetics[dataset, OptionValue["size"], "size"];
-  alphaFunc = reconcileGeomPointAesthetics[dataset, OptionValue["alpha"], "alpha"];
-  shapeFunc = reconcileGeomPointAesthetics[dataset, OptionValue["shape"], "shape"];
+  colorFunc = reconcileAesthetics[dataset, OptionValue["color"], "color"];
+  sizeFunc  = reconcileAesthetics[dataset, OptionValue["size"], "size"];
+  alphaFunc = reconcileAesthetics[dataset, OptionValue["alpha"], "alpha"];
+  shapeFunc = reconcileAesthetics[dataset, OptionValue["shape"], "shape"];
 
   (*Grab the point data and for each Point apply the correct aesthetic*)
   output = dataset // Map[{
@@ -168,23 +171,23 @@ geomPoint[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{colorFunc, s
 
 (* geomLine implementation *)
 
-Options[geomLine] = {"x" -> Null, "y" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "linetype" -> Null};
+Options[geomLine] = {"x" -> Null, "y" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null};
 geomLine[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
   (* Ensure X/Y has been given *)
   If[OptionValue["x"] === Null || OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
 
   (* For each key necessary, get functions to be used to specify the aesthetic *)
-  colorFunc     = determineColorFunc[dataset, OptionValue["color"]];
-  thicknessFunc = determineThicknessFunc[];
-  alphaFunc     = determineAlphaFunc[];
-  (*lineTypeFunc = determineLineTypeFunc[];*)
+  colorFunc     = reconcileAesthetics[dataset, OptionValue["color"], "color"];
+  alphaFunc     = reconcileAesthetics[dataset, OptionValue["alpha"], "alpha"];
+  thicknessFunc = reconcileAesthetics[dataset, OptionValue["thickness"], "thickness"];
+  (*dashingFunc = reconcileAesthetics[dataset, OptionValue["dashing"], "dashing"];*)
 
   (* Group the data and apply correct aesthetics while making a line primitive *)
-  groupbyKeys = DeleteCases[{OptionValue["color"], OptionValue["thickness"], OptionValue["alpha"], OptionValue["linetype"]}, Null];
+  groupbyKeys = DeleteCases[{OptionValue["color"], OptionValue["thickness"], OptionValue["alpha"], OptionValue["thickness"], OptionValue["dashing"]}, Null];
   output = dataset // GroupBy[((# /@ groupbyKeys) &)] // Map[{
     colorFunc[Quiet@#[[1, OptionValue["color"]]]],
-    thicknessFunc[Quiet@#[[1, OptionValue["thickness"]]]],
     alphaFunc[Quiet@#[[1, OptionValue["alpha"]]]],
+    thicknessFunc[Quiet@#[[1, OptionValue["thickness"]]]],
     (*lineTypeFunc[Quiet@#[[1, OptionValue["linetype"]]]],*)
     Line@Sort@Transpose[{#[[All, OptionValue["x"]]], #[[All, OptionValue["y"]]]}]
   } &] // Values;
