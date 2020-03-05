@@ -15,6 +15,7 @@ BeginPackage["ggplot`"];
 ggplot::usage     = "TBD";
 geomPoint::usage  = "TBD";
 geomLine::usage   = "TBD";
+geomCol::usage    = "TBD";
 
 Begin["`Private`"];
 
@@ -42,11 +43,12 @@ SetOptions[ggplot,
   FrameTicks -> Automatic, GridLines -> Automatic,  Background -> White,
   PlotRange -> All
 ];
-ggplot[dataset_, geoms : (geomPoint[__] | geomLine[__] | {(geomPoint[__] | geomLine[__])..}), opts : OptionsPattern[]] := Catch[Module[{points, lines, scalingFunctionX, scalingFunctionY, graphicsPrimitives, dataForListPlot, graphic},
+ggplot[dataset_, geoms : (geomPoint[__] | geomLine[__] | geomCol[__] | {(geomPoint[__] | geomLine[__] | geomCol[__])..}), opts : OptionsPattern[]] := Catch[Module[{points, lines, columns, scalingFunctionX, scalingFunctionY, graphicsPrimitives, dataForListPlot, graphic},
   points = Cases[geoms, geomPoint[aesthetics__]:> geomPoint[dataset, aesthetics], {0, Infinity}];
   lines = Cases[geoms, geomLine[aesthetics__]:> geomLine[dataset, aesthetics], {0, Infinity}];
+  columns = Cases[geoms, geomCol[aesthetics__]:> geomCol[dataset, aesthetics], {0, Infinity}];
 
-  graphicsPrimitives = {points, lines} // Flatten;
+  graphicsPrimitives = {points, lines, columns} // Flatten;
   (*dataForListPlot = Cases[graphicsForEpilog, {x_?NumericQ, y_?NumericQ}, {0, Infinity}];*)
 
   (*
@@ -211,6 +213,26 @@ geomLine[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{groupbyKeys, 
   output
 ];
 
-End[]; (* `Private` *)
+Options[geomCol] = {"x" -> Null, "y" -> Null, "color" -> Null};
+geomCol[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{groupbyKeys, colorFunc, output},
+  (* Ensure X/Y has been given *)
+  If[OptionValue["x"] === Null || OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
+
+  (* For each key necessary, get functions to be used to specify the aesthetic *)
+  colorFunc = reconcileAesthetics[dataset, OptionValue["color"], "color"];
+
+  (*Grab the point data and for each Point apply the correct aesthetic*)
+  output = dataset // Map[{
+    colorFunc[#[OptionValue["color"]]],
+    Rectangle[{#[OptionValue["x"]] - 0.05, 0}, {#[OptionValue["x"]] + 0.05 , #[OptionValue["y"]]}]
+  } &];
+
+  (*output = output // ReverseSortBy[#[[&]*)
+
+  (* TODO: Add a group function to remove duplicated primitives*)
+  output
+];
+
+End[];
 
 EndPackage[]
