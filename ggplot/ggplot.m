@@ -9,6 +9,7 @@ BeginPackage["ggplot`"];
 ggplot::usage         = "TBD";
 geomPoint::usage      = "TBD";
 geomLine::usage       = "TBD";
+geomSmooth::usage     = "TBD";
 geomCol::usage        = "TBD";
 geomParityLine::usage = "TBD";
 geomHLine::usage      = "TBD";
@@ -30,7 +31,7 @@ ggplot::shapecount      = "More than 5 discrete shapes are present, aborting... 
   New UPDATE: It may still be better to use Graphics and then we'll write our own ability to do a scaling function.
 *)
 
-geomsPattern = (geomPoint[__] | geomLine[__] | geomCol[__] | geomParityLine[___] | geomHLine[__] | geomVLine[__] | {(geomPoint[__] | geomLine[__] | geomCol[__] | geomParityLine[___] | geomHLine[__] | geomVLine[__])..});
+geomsPattern = (geomPoint[__] | geomLine[__] | geomSmooth[__] | geomCol[__] | geomParityLine[___] | geomHLine[__] | geomVLine[__] | {(geomPoint[__] | geomLine[__] | geomSmooth[__] | geomCol[__] | geomParityLine[___] | geomHLine[__] | geomVLine[__])..});
 
 Options[ggplot] = Join[Options[ListLinePlot], Options[Alex`Plotting`linearTicks], Options[Alex`Plotting`linearGridLines], {DateTicksFormat -> Automatic}];
 SetOptions[ggplot,
@@ -43,16 +44,17 @@ SetOptions[ggplot,
   PlotRange -> All,
   numberOfMinorTicksPerMajorTick -> 0
 ];
-ggplot[dataset_, geoms : geomsPattern, opts : OptionsPattern[]] := Catch[Module[{points, lines, columns, abLines, hLines, vLines, graphicsPrimitives, dataForListPlot, graphic},
+ggplot[dataset_, geoms : geomsPattern, opts : OptionsPattern[]] := Catch[Module[{points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, dataForListPlot, graphic},
   (* Compile all geom data *)
-  points  = Cases[geoms, geomPoint[aesthetics__] :> geomPoint[dataset, aesthetics], {0, Infinity}];
-  lines   = Cases[geoms, geomLine[aesthetics__] :> geomLine[dataset, aesthetics], {0, Infinity}];
-  columns = Cases[geoms, geomCol[aesthetics__] :> geomCol[dataset, aesthetics], {0, Infinity}];
-  abLines = Cases[geoms, geomParityLine[aesthetics___] :> geomParityLine[dataset, aesthetics], {0, Infinity}];
-  hLines  = Cases[geoms, geomHLine[aesthetics__] :> geomHLine[dataset, aesthetics], {0, Infinity}];
-  vLines  = Cases[geoms, geomVLine[aesthetics__] :> geomVLine[dataset, aesthetics], {0, Infinity}];
+  points      = Cases[geoms, geomPoint[aesthetics__] :> geomPoint[dataset, aesthetics], {0, Infinity}];
+  lines       = Cases[geoms, geomLine[aesthetics__] :> geomLine[dataset, aesthetics], {0, Infinity}];
+  smoothLines = Cases[geoms, geomSmooth[aesthetics__] :> geomSmooth[dataset, aesthetics], {0, Infinity}];
+  columns     = Cases[geoms, geomCol[aesthetics__] :> geomCol[dataset, aesthetics], {0, Infinity}];
+  abLines     = Cases[geoms, geomParityLine[aesthetics___] :> geomParityLine[dataset, aesthetics], {0, Infinity}];
+  hLines      = Cases[geoms, geomHLine[aesthetics__] :> geomHLine[dataset, aesthetics], {0, Infinity}];
+  vLines      = Cases[geoms, geomVLine[aesthetics__] :> geomVLine[dataset, aesthetics], {0, Infinity}];
 
-  graphicsPrimitives = {points, lines, columns, abLines, hLines, vLines} // Flatten;
+  graphicsPrimitives = {points, lines, smoothLines, columns, abLines, hLines, vLines} // Flatten;
 
   (* TODO: Address scaling functions *)
 
