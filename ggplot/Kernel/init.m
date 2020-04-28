@@ -1,7 +1,14 @@
 (* Mathematica Init file    *)
 (* Created by Mathematica Plugin for IntelliJ IDEA *)
 Get["ggplot`ggplot`"];
-Get["ggplot`reconcileAesthetics`"];
+
+Get["ggplot`aes`"];
+Get["ggplot`aesColor`"];
+Get["ggplot`aesSize`"];
+Get["ggplot`aesAlpha`"];
+Get["ggplot`aesShape`"];
+Get["ggplot`aesThickness`"];
+
 Get["ggplot`geomPoint`"];
 Get["ggplot`geomLine`"];
 Get["ggplot`geomCol`"];
