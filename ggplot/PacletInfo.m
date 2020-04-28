@@ -3,16 +3,14 @@
 (* :Author: andrewyule *)
 (* :Date: 2019-11-10 *)
 
-Paclet[
-  Name -> "ggplot",
-  Version -> "0.1",
-  MathematicaVersion -> "11.3+",
-  Description -> "",
-  Creator -> "andrewyule",
-  Extensions ->
-      {
-        {"Kernel", Root -> "Kernel", Context -> "ggplot`"}
-      }
-]
-
+PacletObject[<|
+  "Name" -> "ggplot",
+  "Version" -> "0.1",
+  "WolframVersion" -> "12.0+",
+  "Description" -> "A grammar of graphics library for Mathematica",
+  "Creator" -> "andrewyule",
+  "Extensions" -> {
+      {"Kernel", Root -> "."(*use '.' here so that we don't have to put main files under Kernel*), Context -> "ggplot`"}
+  }
+|>]
 
