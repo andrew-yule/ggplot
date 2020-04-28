@@ -31,11 +31,11 @@ ggplot::shapecount      = "More than 5 discrete shapes are present, aborting... 
   New UPDATE: It may still be better to use Graphics and then we'll write our own ability to do a scaling function.
 *)
 
-geomsPattern = (geomPoint[__] | geomLine[__] | geomSmooth[__] | geomCol[__] | geomParityLine[___] | geomHLine[__] | geomVLine[__] | {(geomPoint[__] | geomLine[__] | geomSmooth[__] | geomCol[__] | geomParityLine[___] | geomHLine[__] | geomVLine[__])..});
+validDatasetQ[dataset_] := MatchQ[dataset, {_?AssociationQ..}];
 
 Options[ggplot] = Join[Options[ListLinePlot], Options[Alex`Plotting`linearTicks], Options[Alex`Plotting`linearGridLines], {DateTicksFormat -> Automatic}];
 SetOptions[ggplot,
-  ImageSize -> 400, AspectRatio -> 2/3, Frame -> True, Axes -> False,
+  ImageSize -> 400, AspectRatio -> 7/10, Frame -> True, Axes -> False,
   ImageMargins -> Automatic,
   LabelStyle -> Directive[12, FontFamily -> "Arial"],
   FrameStyle -> Directive[GrayLevel[0.6], Thickness[0.0008`]],
@@ -44,15 +44,15 @@ SetOptions[ggplot,
   PlotRange -> All,
   numberOfMinorTicksPerMajorTick -> 0
 ];
-ggplot[dataset_, geoms : geomsPattern, opts : OptionsPattern[]] := Catch[Module[{points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, dataForListPlot, graphic},
+ggplot[dataset_?validDatasetQ, geoms__, opts : OptionsPattern[]] := Catch[Module[{points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, dataForListPlot, graphic},
   (* Compile all geom data *)
-  points      = Cases[geoms, geomPoint[aesthetics__] :> geomPoint[dataset, aesthetics], {0, Infinity}];
-  lines       = Cases[geoms, geomLine[aesthetics__] :> geomLine[dataset, aesthetics], {0, Infinity}];
-  smoothLines = Cases[geoms, geomSmooth[aesthetics__] :> geomSmooth[dataset, aesthetics], {0, Infinity}];
-  columns     = Cases[geoms, geomCol[aesthetics__] :> geomCol[dataset, aesthetics], {0, Infinity}];
-  abLines     = Cases[geoms, geomParityLine[aesthetics___] :> geomParityLine[dataset, aesthetics], {0, Infinity}];
-  hLines      = Cases[geoms, geomHLine[aesthetics__] :> geomHLine[dataset, aesthetics], {0, Infinity}];
-  vLines      = Cases[geoms, geomVLine[aesthetics__] :> geomVLine[dataset, aesthetics], {0, Infinity}];
+  points      = Cases[{geoms}, geomPoint[aesthetics__] :> geomPoint[dataset, aesthetics], {0, Infinity}];
+  lines       = Cases[{geoms}, geomLine[aesthetics__] :> geomLine[dataset, aesthetics], {0, Infinity}];
+  smoothLines = Cases[{geoms}, geomSmooth[aesthetics__] :> geomSmooth[dataset, aesthetics], {0, Infinity}];
+  columns     = Cases[{geoms}, geomCol[aesthetics__] :> geomCol[dataset, aesthetics], {0, Infinity}];
+  abLines     = Cases[{geoms}, geomParityLine[aesthetics___] :> geomParityLine[dataset, aesthetics], {0, Infinity}];
+  hLines      = Cases[{geoms}, geomHLine[aesthetics__] :> geomHLine[dataset, aesthetics], {0, Infinity}];
+  vLines      = Cases[{geoms}, geomVLine[aesthetics__] :> geomVLine[dataset, aesthetics], {0, Infinity}];
 
   graphicsPrimitives = {points, lines, smoothLines, columns, abLines, hLines, vLines} // Flatten;
 
@@ -94,8 +94,7 @@ ggplot[dataset_, geoms : geomsPattern, opts : OptionsPattern[]] := Catch[Module[
 
   graphic
 ]];
-ggplot[geoms : geomsPattern, opts : OptionsPattern[]][dataset_] := ggplot[dataset, geoms, opts]
-
+ggplot[geoms__, opts : OptionsPattern[]][dataset_?validDatasetQ] := ggplot[dataset, geoms, opts];
 
 End[];
 
