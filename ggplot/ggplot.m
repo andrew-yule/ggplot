@@ -3,19 +3,16 @@
 (* :Author: andrewyule *)
 (* :Date: 2019-11-10 *)
 
-(* :Package Version: 0.1 *)
-(* :Mathematica Version: 11.3 *)
-(* :Copyright: (c) 2019 andrewyule *)
-(* :Keywords: *)
-(* :Discussion: *)
-
 BeginPackage["ggplot`"];
 (* Exported symbols added here with SymbolName::usage *)
 
-ggplot::usage     = "TBD";
-geomPoint::usage  = "TBD";
-geomLine::usage   = "TBD";
-geomCol::usage    = "TBD";
+ggplot::usage         = "TBD";
+geomPoint::usage      = "TBD";
+geomLine::usage       = "TBD";
+geomCol::usage        = "TBD";
+geomParityLine::usage = "TBD";
+geomHLine::usage      = "TBD";
+geomVLine::usage      = "TBD";
 
 Begin["`Private`"];
 
@@ -33,7 +30,7 @@ ggplot::shapecount      = "More than 5 discrete shapes are present, aborting... 
   New UPDATE: It may still be better to use Graphics and then we'll write our own ability to do a scaling function.
 *)
 
-geomsPattern = (geomPoint[__] | geomLine[__] | geomCol[__] | {(geomPoint[__] | geomLine[__] | geomCol[__])..});
+geomsPattern = (geomPoint[__] | geomLine[__] | geomCol[__] | geomParityLine[___] | geomHLine[__] | geomVLine[__] | {(geomPoint[__] | geomLine[__] | geomCol[__] | geomParityLine[___] | geomHLine[__] | geomVLine[__])..});
 
 Options[ggplot] = Join[Options[ListLinePlot], Options[Alex`Plotting`linearTicks], Options[Alex`Plotting`linearGridLines], {DateTicksFormat -> Automatic}];
 SetOptions[ggplot,
@@ -43,21 +40,21 @@ SetOptions[ggplot,
   FrameStyle -> Directive[GrayLevel[0.6], Thickness[0.0008`]],
   FrameTicksStyle -> Directive[Black, Opacity[1]],
   FrameTicks -> Automatic, GridLines -> Automatic,  Background -> White,
-  PlotRange -> All
+  PlotRange -> All,
+  numberOfMinorTicksPerMajorTick -> 0
 ];
-ggplot[dataset_, geoms : geomsPattern, opts : OptionsPattern[]] := Catch[Module[{points, lines, columns, scalingFunctionX, scalingFunctionY, graphicsPrimitives, dataForListPlot, graphic},
-  points = Cases[geoms, geomPoint[aesthetics__]:> geomPoint[dataset, aesthetics], {0, Infinity}];
-  lines = Cases[geoms, geomLine[aesthetics__]:> geomLine[dataset, aesthetics], {0, Infinity}];
-  columns = Cases[geoms, geomCol[aesthetics__]:> geomCol[dataset, aesthetics], {0, Infinity}];
+ggplot[dataset_, geoms : geomsPattern, opts : OptionsPattern[]] := Catch[Module[{points, lines, columns, abLines, hLines, vLines, graphicsPrimitives, dataForListPlot, graphic},
+  (* Compile all geom data *)
+  points  = Cases[geoms, geomPoint[aesthetics__] :> geomPoint[dataset, aesthetics], {0, Infinity}];
+  lines   = Cases[geoms, geomLine[aesthetics__] :> geomLine[dataset, aesthetics], {0, Infinity}];
+  columns = Cases[geoms, geomCol[aesthetics__] :> geomCol[dataset, aesthetics], {0, Infinity}];
+  abLines = Cases[geoms, geomParityLine[aesthetics___] :> geomParityLine[dataset, aesthetics], {0, Infinity}];
+  hLines  = Cases[geoms, geomHLine[aesthetics__] :> geomHLine[dataset, aesthetics], {0, Infinity}];
+  vLines  = Cases[geoms, geomVLine[aesthetics__] :> geomVLine[dataset, aesthetics], {0, Infinity}];
 
-  graphicsPrimitives = {points, lines, columns} // Flatten;
-  (*dataForListPlot = Cases[graphicsForEpilog, {x_?NumericQ, y_?NumericQ}, {0, Infinity}];*)
+  graphicsPrimitives = {points, lines, columns, abLines, hLines, vLines} // Flatten;
 
-  (*
-  scalingFunctionX = With[{f = (OptionValue[ScalingFunctions][[1]] //. {s_?StringQ :> ToExpression[s], None -> Identity})}, Function[f[#]]];
-  scalingFunctionY = With[{f = (OptionValue[ScalingFunctions][[2]] //. {s_?StringQ :> ToExpression[s], None -> Identity})}, Function[f[#]]];
-  graphicsPrimitives = graphicsPrimitives // ReplaceAll[{x_?NumericQ, y_?NumericQ} :> {scalingFunctionX[x], scalingFunctionY[y]}];
-  *)
+  (* TODO: Address scaling functions *)
 
   graphic = Graphics[graphicsPrimitives,
     FrameLabel ->

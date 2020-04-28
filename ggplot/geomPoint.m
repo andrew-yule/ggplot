@@ -6,8 +6,6 @@
 BeginPackage["ggplot`"];
 (* Exported symbols added here with SymbolName::usage *)
 
-
-
 Begin["`Private`"];
 
 (* geomPoint implementation *)
