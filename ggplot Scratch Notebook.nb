@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    313972,       7561]
-NotebookOptionsPosition[    303027,       7370]
-NotebookOutlinePosition[    303462,       7387]
-CellTagsIndexPosition[    303419,       7384]
+NotebookDataLength[    332925,       8034]
+NotebookOptionsPosition[    321645,       7838]
+NotebookOutlinePosition[    322080,       7855]
+CellTagsIndexPosition[    322037,       7852]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -32,7 +32,7 @@ Code/ggplot/ggplot\>\"", ",", "\"\<Downloads\>\""}], "]"}], "\n",
   3.797066092136805*^9, 3.797066098918149*^9}, {3.797066134918249*^9, 
   3.797066135717765*^9}, {3.797066429253196*^9, 3.79706642969862*^9}, {
   3.797069537267611*^9, 3.7970695375478373`*^9}},
- CellLabel->"In[32]:=",ExpressionUUID->"ddfcc8d6-fd7d-4d54-9b99-9a2ae2ec34db"],
+ CellLabel->"In[33]:=",ExpressionUUID->"ddfcc8d6-fd7d-4d54-9b99-9a2ae2ec34db"],
 
 Cell[BoxData["\<\"/Users/andrewyule/Downloads/ggplot-0.1.paclet\"\>"], \
 "Output",
@@ -49,8 +49,14 @@ Cell[BoxData["\<\"/Users/andrewyule/Downloads/ggplot-0.1.paclet\"\>"], \
    3.7970891600699177`*^9, 3.7970892665824537`*^9, 3.797089325826017*^9, 
    3.797089368649097*^9, 3.797089413204117*^9, 3.797089499446742*^9, 
    3.797089532645885*^9, 3.797089572247305*^9, 3.7970902430604343`*^9, 
-   3.7970905749714813`*^9, 3.797090723064705*^9},
- CellLabel->"Out[32]=",ExpressionUUID->"ffb8d8b0-9a64-4066-967e-76469eba6c22"],
+   3.7970905749714813`*^9, 3.797090723064705*^9, 3.797162261350479*^9, 
+   3.7971625030370483`*^9, 3.797162533277874*^9, 3.797162687709004*^9, 
+   3.797163008385408*^9, 3.797163056659824*^9, 3.797164456919909*^9, 
+   3.797164510957453*^9, 3.797164571376874*^9, {3.797164649248652*^9, 
+   3.797164665330456*^9}, 3.797164701556608*^9, 3.7971648362995996`*^9, 
+   3.797166159629737*^9, 3.797166315488854*^9, 3.797166519259295*^9, 
+   3.797166802649712*^9},
+ CellLabel->"Out[33]=",ExpressionUUID->"b99e6d80-e4f4-4197-82c3-c5abee517095"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -456,14 +462,20 @@ ggplot-0.1\"", "SummaryItem"]}]}, {
    3.7970891600699177`*^9, 3.7970892665824537`*^9, 3.797089325826017*^9, 
    3.797089368649097*^9, 3.797089413204117*^9, 3.797089499446742*^9, 
    3.797089532645885*^9, 3.797089572247305*^9, 3.7970902430604343`*^9, 
-   3.7970905749714813`*^9, 3.797090723252338*^9},
- CellLabel->"Out[33]=",ExpressionUUID->"57b28d8d-8765-43ff-a266-1f09da057175"]
+   3.7970905749714813`*^9, 3.797090723064705*^9, 3.797162261350479*^9, 
+   3.7971625030370483`*^9, 3.797162533277874*^9, 3.797162687709004*^9, 
+   3.797163008385408*^9, 3.797163056659824*^9, 3.797164456919909*^9, 
+   3.797164510957453*^9, 3.797164571376874*^9, {3.797164649248652*^9, 
+   3.797164665330456*^9}, 3.797164701556608*^9, 3.7971648362995996`*^9, 
+   3.797166159629737*^9, 3.797166315488854*^9, 3.797166519259295*^9, 
+   3.797166802940336*^9},
+ CellLabel->"Out[34]=",ExpressionUUID->"6d181275-4658-4fc9-843f-5a781a629722"]
 }, Open  ]],
 
 Cell[BoxData[
  RowBox[{"Quit", "[", "]"}]], "Input",
  CellChangeTimes->{{3.792106312147422*^9, 3.79210631359129*^9}},
- CellLabel->"In[34]:=",ExpressionUUID->"d48058b5-d98b-4859-be2a-5f5560cf4684"],
+ CellLabel->"In[35]:=",ExpressionUUID->"d48058b5-d98b-4859-be2a-5f5560cf4684"],
 
 Cell[CellGroupData[{
 
@@ -472,16 +484,25 @@ Cell[BoxData["2"], "Input",
  CellLabel->"In[1]:=",ExpressionUUID->"2abf42e7-6529-465b-ada2-a13d3d5a4db1"],
 
 Cell[BoxData["2"], "Output",
- CellChangeTimes->CompressedData["
-1:eJxTTMoPSmVkYGDQAWKFijvN9xzeOHas+9MBou3WHp0Nok+u1V8NoicfjzoM
-oq2YuM6D6Atf/K6DaOv6R49BtIHQa677QDrAyb8HRJc8zNoFog8yXol4AKT/
-3LN7C6LNe1j4HgLpLRNYNEC0YY2KA4h+ZLjEA0Q3V2/vBdEV56q7Yh3fOL50
-yw4M9Xrj2NZXFw6iLxy4fRdE20S3/gTRc5QddoUD6QptrtMguvikmnkEkA7d
-pJ0WC6QLRF/nguhj+z9Vgmip7LbDIDps0okHYJr3sEYckLZdYesDoq1UmpJA
-dJHf8XwQ7bJ5TQ2Itll8/QCIVtTb9xsi7q8bD6QvJVQXgmidbafqQPT2B21t
-IFreVugniJ6RXaCUAKQBVXWxcA==
-  "],
- CellLabel->"Out[1]=",ExpressionUUID->"f1a3ec22-df39-4d14-9d56-db80c2b9567b"]
+ CellChangeTimes->{
+  3.7921065268896637`*^9, 3.792106567896305*^9, 3.7921067181773977`*^9, 
+   3.792106841489964*^9, 3.792107034836862*^9, 3.792107128312772*^9, 
+   3.7921071944673843`*^9, 3.792107295078031*^9, 3.79210760734597*^9, 
+   3.792108642476845*^9, 3.792109011340021*^9, 3.792110278625214*^9, 
+   3.79211146596472*^9, 3.792111728142116*^9, 3.792111936142664*^9, 
+   3.79211212914016*^9, 3.792112197131089*^9, 3.792112749733827*^9, 
+   3.7923666758689537`*^9, 3.797068427352406*^9, 3.797068475954898*^9, 
+   3.7970695508672867`*^9, 3.797069772167387*^9, 3.797073362004347*^9, 
+   3.7970734963178062`*^9, 3.797074361212091*^9, 3.797084977365519*^9, 
+   3.797085039346367*^9, 3.79708513558591*^9, 3.797085724200574*^9, 
+   3.7970859582678633`*^9, 3.797086534095378*^9, 3.797086817926787*^9, 
+   3.797086996066922*^9, 3.797087102228326*^9, 3.797087205396883*^9, 
+   3.797087750738676*^9, 3.797088221943131*^9, 3.797088618490633*^9, 
+   3.797089163855569*^9, 3.797089270334738*^9, 3.797089332214931*^9, 
+   3.797090248569961*^9, 3.797090579513134*^9, {3.797164678513097*^9, 
+   3.797164705770203*^9}, 3.797164840768594*^9, 3.7971661647202587`*^9, 
+   3.797166523682375*^9, 3.797166807426445*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"9bdf63e0-6521-42be-af79-248807fc7cc1"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -491,19 +512,19 @@ Cell[BoxData[{
  RowBox[{"Get", "[", "\"\<ggplot`\>\"", "]"}]}], "Input",
  CellChangeTimes->{{3.797066662721579*^9, 3.797066666322404*^9}, {
   3.797068498727825*^9, 3.797068500797306*^9}},
- CellLabel->"In[34]:=",ExpressionUUID->"a565ab5e-e970-4234-9783-222b2a891bd7"],
+ CellLabel->"In[2]:=",ExpressionUUID->"a565ab5e-e970-4234-9783-222b2a891bd7"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData["\<\"Assured Flow Solutions' Alex v2020.4.13\"\>"], "Echo",
  CellChangeTimes->{
-  3.797090726235702*^9},ExpressionUUID->"124a85bc-a228-4706-928e-\
-fab01816109b"],
+  3.797166810767597*^9},ExpressionUUID->"cfd509c2-9235-4e86-a8b4-\
+f1567557765d"],
 
 Cell[BoxData["\<\"ggplot v0.1\"\>"], "Echo",
  CellChangeTimes->{
-  3.797090726256802*^9},ExpressionUUID->"cbbbcbfb-6aef-45e5-8955-\
-7667025a79f9"]
+  3.797166810818359*^9},ExpressionUUID->"5fcd1c92-0eeb-4cbc-a7f4-\
+8c7bba84bea2"]
 }, Open  ]]
 }, Open  ]],
 
@@ -523,15 +544,15 @@ Cell[BoxData[{
        "\"\<mpg.csv\>\""}], "}"}], "]"}], "//", "importToDataset"}]}], 
   ";"}], "\n", 
  RowBox[{
-  RowBox[{"mtcars", "=", 
-   RowBox[{
-    RowBox[{"FileNameJoin", "[", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data\>\"", ",", 
-       "\"\<mtcars.csv\>\""}], "}"}], "]"}], "//", "importToDataset"}]}], 
-  ";"}], "\n", 
- RowBox[{
+  RowBox[{
+   RowBox[{"mtcars", "=", 
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data\>\"", ",", 
+        "\"\<mtcars.csv\>\""}], "}"}], "]"}], "//", "importToDataset"}]}], 
+   ";"}], "\n", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"diamonds", "=", 
@@ -541,12 +562,27 @@ Cell[BoxData[{
         RowBox[{
          RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data\>\"", ",", 
          "\"\<diamonds.csv\>\""}], "}"}], "]"}], "//", "importToDataset"}]}], 
-    ";"}], "*)"}]}]}], "Input",
+    ";"}], "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"dates", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<date\>\"", "\[Rule]", 
+        RowBox[{"Now", "+", 
+         RowBox[{"Quantity", "[", 
+          RowBox[{"x", ",", "\"\<Days\>\""}], "]"}]}]}], ",", 
+       RowBox[{"\"\<val\>\"", "\[Rule]", 
+        RowBox[{"RandomReal", "[", "]"}]}]}], "|>"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "10"}], "}"}]}], "]"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.792367180807433*^9, 3.7923671939585*^9}, {
   3.797069564424305*^9, 3.797069567337613*^9}, {3.79706965540551*^9, 
   3.79706965808039*^9}, {3.797070513182523*^9, 3.797070537325594*^9}, {
-  3.797089273932197*^9, 3.797089277578108*^9}},
- CellLabel->"In[4]:=",ExpressionUUID->"da49e7bc-10e2-444f-bc5b-480f227cb620"],
+  3.797089273932197*^9, 3.797089277578108*^9}, {3.79716657932683*^9, 
+  3.797166662370934*^9}, {3.797166843367387*^9, 3.797166849186734*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"da49e7bc-10e2-444f-bc5b-480f227cb620"],
 
 Cell[CellGroupData[{
 
@@ -925,7 +961,7 @@ Cell[BoxData[
  RowBox[{"mtcars", "[", 
   RowBox[{"[", "1", "]"}], "]"}]], "Input",
  CellChangeTimes->{{3.792088665163251*^9, 3.792088666565056*^9}},
- CellLabel->"In[6]:=",ExpressionUUID->"06e81848-92b2-4205-8f89-d443d22a7475"],
+ CellLabel->"In[7]:=",ExpressionUUID->"06e81848-92b2-4205-8f89-d443d22a7475"],
 
 Cell[BoxData[
  RowBox[{"\[LeftAssociation]", 
@@ -942,17 +978,439 @@ Cell[BoxData[
    RowBox[{"\<\"gear\"\>", "\[Rule]", "4"}], ",", 
    RowBox[{"\<\"carb\"\>", "\[Rule]", "4"}]}], 
   "\[RightAssociation]"}]], "Output",
- CellChangeTimes->CompressedData["
-1:eJwdzE0og3EAx/EtasqaiNZGsRFjWtoOSK09isPS8raZ2vvaTmLJjDgMk9qM
-C/bksh0pDrtpOKhp5UnWChdsqx1W9tRqJS3K/+fw7XP7ShxL0y4uh8NRkYIP
-JuZZU6IanZECFKhSn3DzLPIN078i2TtRGM6W4exli/aDWORWAlC8vhKEyjU6
-Bh8l3gvoiBVe4SqfLkDTWIifJRqiU2EoKYqu4Un9qCpH3NFE52F1JsfCF3la
-kCd+HcZlsNs4QP2ruNXCIanlAEppR8hMkd8Ny+q1Jap/XF2FGXvZaiAqm9jE
-HFFoOGXgZIUZNBJ1esZtJv7YtxZhm5O3ARNHw/vwuM+VhEq/Nw874s5eCzHW
-lZ2AI620EyaLHg8s16Z2odsSuIPq0kKNlXjf0KOAPh9vGb7JbX4ovhLswUz7
-UwjqtpursO7c2mkj/gFgXso9
-  "],
- CellLabel->"Out[6]=",ExpressionUUID->"7dde16c0-ef2a-4372-969e-6faa4ca606c5"]
+ CellChangeTimes->{
+  3.792088666899724*^9, 3.792088868730843*^9, 3.7920889262249823`*^9, 
+   3.792089028739317*^9, 3.792103744812233*^9, 3.792105350985973*^9, 
+   3.792106064677408*^9, 3.7921065355939827`*^9, 3.792106579639783*^9, 
+   3.7921067567646723`*^9, 3.792106851660376*^9, 3.792107199144578*^9, 
+   3.792107300751521*^9, 3.7921076203522167`*^9, 3.7921086505507*^9, 
+   3.792109016809586*^9, 3.7921099780639143`*^9, 3.792110284976625*^9, 
+   3.792111471010251*^9, 3.792111734505351*^9, 3.7921119415488234`*^9, 
+   3.7921121375107603`*^9, 3.7921122139118834`*^9, 3.792112754941677*^9, 
+   3.792366683081071*^9, 3.797069679429215*^9, 3.797069777946066*^9, 
+   3.797070591511941*^9, 3.797073367408471*^9, 3.797073500823009*^9, 
+   3.797074366373451*^9, 3.797084982354163*^9, 3.797085044043211*^9, 
+   3.7970851442308483`*^9, 3.797085281799405*^9, 3.797085731161448*^9, 
+   3.797085963671899*^9, 3.7970865391153717`*^9, 3.797086822973221*^9, 
+   3.797087004753324*^9, 3.797087107528414*^9, 3.7970872782193527`*^9, 
+   3.7970877561365232`*^9, 3.797088283403838*^9, 3.797088625220675*^9, 
+   3.797089168233333*^9, 3.797089283005354*^9, 3.7970893364599733`*^9, 
+   3.7970893744726343`*^9, 3.7970902566409063`*^9, 3.7970905869893837`*^9, 
+   3.797164464946184*^9, {3.797164685152749*^9, 3.797164710107683*^9}, 
+   3.797164845778944*^9, 3.79716616970613*^9, 3.797166528627309*^9, 
+   3.7971668125383863`*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"6bd3061b-ac03-4f5b-9a3f-f5fab0e5af6b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"dates", "//", "\n", "\t", 
+  RowBox[{"ggplot", "[", 
+   RowBox[{
+    RowBox[{"geomPoint", "[", 
+     RowBox[{
+      RowBox[{"\"\<x\>\"", "\[Rule]", "\"\<date\>\""}], ",", 
+      RowBox[{"\"\<y\>\"", "\[Rule]", "\"\<val\>\""}]}], "]"}], ",", 
+    RowBox[{"scaleXDate", "[", "]"}]}], "]"}]}], "\n", 
+ RowBox[{"dates", "//", "\n", "\t", 
+  RowBox[{"ggplot", "[", 
+   RowBox[{
+    RowBox[{"geomPoint", "[", 
+     RowBox[{
+      RowBox[{"\"\<x\>\"", "\[Rule]", "\"\<val\>\""}], ",", 
+      RowBox[{"\"\<y\>\"", "\[Rule]", "\"\<date\>\""}]}], "]"}], ",", 
+    RowBox[{"scaleYDate", "[", "]"}]}], "]"}]}], "\n", 
+ RowBox[{"\t\t"}]}], "Input",
+ CellChangeTimes->{{3.797166642472369*^9, 3.797166672237439*^9}, {
+  3.797166822799231*^9, 3.797166874223669*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"76f37988-ca96-431b-9f6a-96f7f21f398c"],
+
+Cell[BoxData[
+ GraphicsBox[
+  {GrayLevel[0], Opacity[1], GeometricTransformationBox[InsetBox[
+     StyleBox["\<\"\[FilledCircle]\"\>",
+      StripOnInput->False,
+      FontSize->10], {0, 0}], {{{3.797235249775511*^9, 
+    0.4906682043365207}}, {{3.797321649776107*^9, 0.499494001479623}}, {{
+    3.797408049776578*^9, 0.5407831070148639}}, {{3.797494449777106*^9, 
+    0.29865847303036275`}}, {{3.797580849777571*^9, 0.4547206421286154}}, {{
+    3.797667249778087*^9, 0.055265449407209344`}}, {{3.797753649778567*^9, 
+    0.8923143700851615}}, {{3.79784004977902*^9, 0.944977251893593}}, {{
+    3.79792644977945*^9, 0.7269485580455137}}, {{3.798012849779879*^9, 
+    0.2043073639652493}}}]},
+  PlotStyle -> Automatic,
+  AspectRatio->NCache[
+    Rational[7, 10], 0.7],
+  Axes->False,
+  Background->GrayLevel[1],
+  Frame->True,
+  FrameLabel->None,
+  FrameStyle->Directive[
+    GrayLevel[0.6], 
+    Thickness[0.0008]],
+  FrameTicks->FrontEndValueCache[{{
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
+        FilterRules[
+         Join[{}, 
+          Options[ggplot`ggplot]], 
+         Options[Alex`Plotting`linearTicks]]]], False}, {
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearDateTicks[ggplot`Private`min$, ggplot`Private`max$, 
+        FilterRules[
+         Join[{}, 
+          Options[ggplot`ggplot]], 
+         Options[Alex`Plotting`linearDateTicks]]]], False}}, {{{{0., 
+        FormBox[
+         TagBox[
+          InterpretationBox["\"0.0\"", 0., AutoDelete -> True], NumberForm[#, {
+            DirectedInfinity[1], 1}, NumberSeparator -> "", DigitBlock -> 
+           3]& ], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {0.2, 
+        FormBox[
+         TagBox[
+          InterpretationBox["\"0.2\"", 0.2, AutoDelete -> True], 
+          NumberForm[#, {
+            DirectedInfinity[1], 1}, NumberSeparator -> "", DigitBlock -> 
+           3]& ], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {0.4, 
+        FormBox[
+         TagBox[
+          InterpretationBox["\"0.4\"", 0.4, AutoDelete -> True], 
+          NumberForm[#, {
+            DirectedInfinity[1], 1}, NumberSeparator -> "", DigitBlock -> 
+           3]& ], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {0.6, 
+        FormBox[
+         TagBox[
+          InterpretationBox["\"0.6\"", 0.6, AutoDelete -> True], 
+          NumberForm[#, {
+            DirectedInfinity[1], 1}, NumberSeparator -> "", DigitBlock -> 
+           3]& ], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {0.8, 
+        FormBox[
+         TagBox[
+          InterpretationBox["\"0.8\"", 0.8, AutoDelete -> True], 
+          NumberForm[#, {
+            DirectedInfinity[1], 1}, NumberSeparator -> "", DigitBlock -> 
+           3]& ], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {1., 
+        FormBox[
+         TagBox[
+          InterpretationBox["\"1.0\"", 1., AutoDelete -> True], NumberForm[#, {
+            DirectedInfinity[1], 1}, NumberSeparator -> "", DigitBlock -> 
+           3]& ], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}}, False}, {{{3.7970208*^9, 
+        FormBox["\"Apr 28\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.7971936*^9, 
+        FormBox["\"Apr 30\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.7973664*^9, 
+        FormBox["\"May 02\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.7975392*^9, 
+        FormBox["\"May 04\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.797712*^9, 
+        FormBox["\"May 06\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.7978848*^9, 
+        FormBox["\"May 08\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.7980576*^9, 
+        FormBox["\"May 10\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.7982304*^9, 
+        FormBox["\"May 12\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}}, False}}],
+  FrameTicksStyle->Directive[
+    GrayLevel[0], 
+    Opacity[1]],
+  GridLines->FrontEndValueCache[{
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+      Alex`Plotting`linearDateGridLines[
+      ggplot`Private`min$, ggplot`Private`max$, 
+       FilterRules[
+        Join[{}, 
+         Options[ggplot`ggplot]], 
+        Join[
+         Options[Alex`Plotting`linearDateTicks], 
+         Options[Alex`Plotting`linearDateGridLines]]]]], 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+      Alex`Plotting`linearGridLines[
+      ggplot`Private`min$, ggplot`Private`max$, 
+       FilterRules[
+        Join[{}, 
+         Options[ggplot`ggplot]], 
+        Join[
+         Options[Alex`Plotting`linearTicks], 
+         Options[Alex`Plotting`linearGridLines]]]]]}, {{{3.7970208*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.7971936*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.7973664*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.7975392*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.797712*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.7978848*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.7980576*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.7982304*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}}, {{0., 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {0.2, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {0.4, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {0.6, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {0.8, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {1., 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}}}],
+  GridLinesStyle->Automatic,
+  ImageMargins->Automatic,
+  ImageSize->400,
+  LabelStyle->Directive[12, FontFamily -> "Arial"]]], "Output",
+ CellChangeTimes->{
+  3.797166672767893*^9, {3.797166814273603*^9, 3.797166827492239*^9}, {
+   3.797166868453656*^9, 3.797166874767531*^9}},
+ CellLabel->"Out[15]=",ExpressionUUID->"c11f0c0a-2fa2-4913-b579-601af168adf9"],
+
+Cell[BoxData[
+ GraphicsBox[
+  {GrayLevel[0], Opacity[1], GeometricTransformationBox[InsetBox[
+     StyleBox["\<\"\[FilledCircle]\"\>",
+      StripOnInput->False,
+      FontSize->10], {0, 0}], {{{0.4906682043365207, 
+    3.797235249775511*^9}}, {{0.499494001479623, 3.797321649776107*^9}}, {{
+    0.5407831070148639, 3.797408049776578*^9}}, {{0.29865847303036275`, 
+    3.797494449777106*^9}}, {{0.4547206421286154, 3.797580849777571*^9}}, {{
+    0.055265449407209344`, 3.797667249778087*^9}}, {{0.8923143700851615, 
+    3.797753649778567*^9}}, {{0.944977251893593, 3.79784004977902*^9}}, {{
+    0.7269485580455137, 3.79792644977945*^9}}, {{0.2043073639652493, 
+    3.798012849779879*^9}}}]},
+  PlotStyle -> Automatic,
+  AspectRatio->NCache[
+    Rational[7, 10], 0.7],
+  Axes->False,
+  Background->GrayLevel[1],
+  Frame->True,
+  FrameLabel->None,
+  FrameStyle->Directive[
+    GrayLevel[0.6], 
+    Thickness[0.0008]],
+  FrameTicks->FrontEndValueCache[{{
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearDateTicks[ggplot`Private`min$, ggplot`Private`max$, 
+        FilterRules[
+         Join[{}, 
+          Options[ggplot`ggplot]], 
+         Options[Alex`Plotting`linearDateTicks]]]], False}, {
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
+        FilterRules[
+         Join[{}, 
+          Options[ggplot`ggplot]], 
+         Options[Alex`Plotting`linearTicks]]]], False}}, {{{{3.7970208*^9, 
+        FormBox["\"Apr 28\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.7971936*^9, 
+        FormBox["\"Apr 30\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.7973664*^9, 
+        FormBox["\"May 02\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.7975392*^9, 
+        FormBox["\"May 04\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.797712*^9, 
+        FormBox["\"May 06\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.7978848*^9, 
+        FormBox["\"May 08\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.7980576*^9, 
+        FormBox["\"May 10\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.7982304*^9, 
+        FormBox["\"May 12\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}}, False}, {{{0., 
+        FormBox[
+         TagBox[
+          InterpretationBox["\"0.0\"", 0., AutoDelete -> True], NumberForm[#, {
+            DirectedInfinity[1], 1}, NumberSeparator -> "", DigitBlock -> 
+           3]& ], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {0.2, 
+        FormBox[
+         TagBox[
+          InterpretationBox["\"0.2\"", 0.2, AutoDelete -> True], 
+          NumberForm[#, {
+            DirectedInfinity[1], 1}, NumberSeparator -> "", DigitBlock -> 
+           3]& ], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {0.4, 
+        FormBox[
+         TagBox[
+          InterpretationBox["\"0.4\"", 0.4, AutoDelete -> True], 
+          NumberForm[#, {
+            DirectedInfinity[1], 1}, NumberSeparator -> "", DigitBlock -> 
+           3]& ], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {0.6, 
+        FormBox[
+         TagBox[
+          InterpretationBox["\"0.6\"", 0.6, AutoDelete -> True], 
+          NumberForm[#, {
+            DirectedInfinity[1], 1}, NumberSeparator -> "", DigitBlock -> 
+           3]& ], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {0.8, 
+        FormBox[
+         TagBox[
+          InterpretationBox["\"0.8\"", 0.8, AutoDelete -> True], 
+          NumberForm[#, {
+            DirectedInfinity[1], 1}, NumberSeparator -> "", DigitBlock -> 
+           3]& ], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {1., 
+        FormBox[
+         TagBox[
+          InterpretationBox["\"1.0\"", 1., AutoDelete -> True], NumberForm[#, {
+            DirectedInfinity[1], 1}, NumberSeparator -> "", DigitBlock -> 
+           3]& ], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}}, False}}],
+  FrameTicksStyle->Directive[
+    GrayLevel[0], 
+    Opacity[1]],
+  GridLines->FrontEndValueCache[{
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+      Alex`Plotting`linearGridLines[
+      ggplot`Private`min$, ggplot`Private`max$, 
+       FilterRules[
+        Join[{}, 
+         Options[ggplot`ggplot]], 
+        Join[
+         Options[Alex`Plotting`linearTicks], 
+         Options[Alex`Plotting`linearGridLines]]]]], 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+      Alex`Plotting`linearDateGridLines[
+      ggplot`Private`min$, ggplot`Private`max$, 
+       FilterRules[
+        Join[{}, 
+         Options[ggplot`ggplot]], 
+        Join[
+         Options[Alex`Plotting`linearDateTicks], 
+         Options[Alex`Plotting`linearDateGridLines]]]]]}, {{{0., 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {0.2, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {0.4, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {0.6, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {0.8, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {1., 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}}, {{3.7970208*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.7971936*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.7973664*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.7975392*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.797712*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.7978848*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.7980576*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.7982304*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}}}],
+  GridLinesStyle->Automatic,
+  ImageMargins->Automatic,
+  ImageSize->400,
+  LabelStyle->Directive[12, FontFamily -> "Arial"]]], "Output",
+ CellChangeTimes->{
+  3.797166672767893*^9, {3.797166814273603*^9, 3.797166827492239*^9}, {
+   3.797166868453656*^9, 3.797166874799885*^9}},
+ CellLabel->"Out[16]=",ExpressionUUID->"21cefe23-4577-4ce6-8c16-6bd280e9af94"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -973,8 +1431,10 @@ Cell[BoxData[
    "]"}]}]], "Input",
  CellChangeTimes->{{3.797090277675899*^9, 3.797090291714785*^9}, {
   3.797090596523391*^9, 3.797090596869789*^9}, {3.797090627517481*^9, 
-  3.79709065704597*^9}},
- CellLabel->"In[36]:=",ExpressionUUID->"7734a5e2-f9df-4a1d-b302-23bf74201ddb"],
+  3.79709065704597*^9}, {3.79716471463752*^9, 3.797164718110388*^9}, {
+  3.797164850323814*^9, 3.797164877266487*^9}, {3.797166176001871*^9, 
+  3.7971661772938004`*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"7734a5e2-f9df-4a1d-b302-23bf74201ddb"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -1161,14 +1621,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -1313,18 +1773,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -1384,8 +1844,11 @@ Cell[BoxData[
   ImageSize->400,
   LabelStyle->Directive[12, FontFamily -> "Arial"]]], "Output",
  CellChangeTimes->{{3.7970906496874933`*^9, 3.7970906574834414`*^9}, 
-   3.797090731625139*^9},
- CellLabel->"Out[36]=",ExpressionUUID->"696a8b56-7390-4bab-afa0-45059c0be136"]
+   3.797090731625139*^9, 3.797164466563602*^9, 3.797164515829877*^9, 
+   3.797164574511014*^9, {3.79716466071459*^9, 3.797164719067919*^9}, {
+   3.797164847392137*^9, 3.7971648777927017`*^9}, {3.7971661712311573`*^9, 
+   3.797166177910674*^9}, 3.797166536519541*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"63847de3-3df8-4151-b828-58e580f70e9d"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1430,7 +1893,7 @@ Cell[BoxData[{
   3.797089286577207*^9, 3.7970893058270903`*^9}, {3.797089337630516*^9, 
   3.797089339026598*^9}, {3.7970895817448053`*^9, 3.797089650850729*^9}, {
   3.7970896942899017`*^9, 3.797089754847291*^9}},
- CellLabel->"In[37]:=",ExpressionUUID->"2fb68eba-4628-4f11-a329-c50fd7713aa2"],
+ CellLabel->"In[9]:=",ExpressionUUID->"2fb68eba-4628-4f11-a329-c50fd7713aa2"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -1617,14 +2080,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -1769,18 +2232,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -1845,8 +2308,8 @@ Cell[BoxData[
    3.797089575446135*^9, 3.797089598661138*^9}, {3.797089632042741*^9, 
    3.797089651520664*^9}, 3.7970897200571632`*^9, 3.797089755210063*^9, {
    3.797090259868095*^9, 3.797090268103113*^9}, 3.797090676140448*^9, 
-   3.797090736225812*^9},
- CellLabel->"Out[37]=",ExpressionUUID->"b190fe64-fa0e-462f-aae9-f2b2db48d818"],
+   3.797090736225812*^9, 3.797166183452587*^9, 3.797166537216634*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"7874e454-d6be-4bf1-a7d5-0c2cff1d65cc"],
 
 Cell[BoxData[
  TemplateBox[{
@@ -1854,13 +2317,13 @@ Cell[BoxData[
    "\"The rank of the design matrix \\!\\(\\*RowBox[{\\\"1\\\"}]\\) is less \
 than the number of terms \\!\\(\\*RowBox[{\\\"2\\\"}]\\) in the model. The \
 model and results based upon it may contain significant numerical error.\"", 
-   2, 38, 2, 30567290067789527471, "Local"},
+   2, 10, 1, 30567787774621695449, "Local"},
   "MessageTemplate"]], "Message", "MSG",
  CellChangeTimes->{3.79709026817347*^9, 3.7970906762331667`*^9, 
-  3.797090736303461*^9},
+  3.797090736303461*^9, 3.797166183523308*^9, 3.7971665372842903`*^9},
  CellLabel->
   "During evaluation of \
-In[37]:=",ExpressionUUID->"1fa01df1-96ef-4f0e-a2bf-381cc8a94113"],
+In[9]:=",ExpressionUUID->"0a6751f5-7c29-40b3-9a0f-5caf68ba6867"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -2081,14 +2544,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -2233,18 +2696,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -2309,8 +2772,8 @@ Cell[BoxData[
    3.797089575446135*^9, 3.797089598661138*^9}, {3.797089632042741*^9, 
    3.797089651520664*^9}, 3.7970897200571632`*^9, 3.797089755210063*^9, {
    3.797090259868095*^9, 3.797090268103113*^9}, 3.797090676140448*^9, 
-   3.797090736336135*^9},
- CellLabel->"Out[38]=",ExpressionUUID->"b086dce7-6f6d-4c61-87e5-b9f315bd0244"]
+   3.797090736225812*^9, 3.797166183452587*^9, 3.797166537299653*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"5c77bee2-1413-4f7b-9107-e9ebf98de3e3"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2323,7 +2786,7 @@ Cell[BoxData[
      RowBox[{"\"\<x\>\"", "\[Rule]", "\"\<disp\>\""}], ",", 
      RowBox[{"\"\<y\>\"", "\[Rule]", "\"\<mpg\>\""}]}], "]"}]}], 
   "]"}]], "Input",
- CellLabel->"In[39]:=",ExpressionUUID->"4ba586c2-1799-419c-9e85-e93705a9eae4"],
+ CellLabel->"In[11]:=",ExpressionUUID->"4ba586c2-1799-419c-9e85-e93705a9eae4"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -2350,14 +2813,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -2481,18 +2944,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -2546,8 +3009,9 @@ Cell[BoxData[
   3.7970865393619423`*^9, 3.7970868254246902`*^9, 3.797087006851513*^9, 
   3.7970871087325*^9, 3.7970872798158503`*^9, 3.797087459458929*^9, 
   3.7970883013308268`*^9, 3.797088373550376*^9, 3.797088625276614*^9, 
-  3.79709067640345*^9, 3.797090736418902*^9},
- CellLabel->"Out[39]=",ExpressionUUID->"0ee6f877-3a3d-466b-934b-d63f5e891f0d"]
+  3.79709067640345*^9, 3.797090736418902*^9, 3.7971662060296717`*^9, 
+  3.797166539252421*^9},
+ CellLabel->"Out[11]=",ExpressionUUID->"86021a8c-230b-49ab-bcf6-d81d9cf768b7"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2647,7 +3111,7 @@ Cell[BoxData[
    3.797074402193428*^9, 3.797074408974962*^9}, {3.79707450147729*^9, 
    3.797074539466909*^9}, {3.7970799283488626`*^9, 3.797079932313027*^9}, {
    3.7970802990450783`*^9, 3.797080330823305*^9}},
- CellLabel->"In[41]:=",ExpressionUUID->"80115178-65db-421c-9cce-71e9812b0090"],
+ CellLabel->"In[12]:=",ExpressionUUID->"80115178-65db-421c-9cce-71e9812b0090"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -2683,14 +3147,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -2832,18 +3296,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -2903,8 +3367,9 @@ Cell[BoxData[
    3.7970799326112633`*^9, {3.797080304769161*^9, 3.797080331244555*^9}, 
    3.797085156109907*^9, 3.797085285512171*^9, 3.797086031775092*^9, 
    3.79708683085078*^9, 3.797088380615597*^9, 3.797088625364902*^9, 
-   3.797090676504291*^9, 3.797090736699748*^9},
- CellLabel->"Out[41]=",ExpressionUUID->"5d4d132f-22d4-4a00-9e2d-973045fa5b2a"]
+   3.797090676504291*^9, 3.797090736699748*^9, 3.797166208712207*^9, 
+   3.7971665417680387`*^9},
+ CellLabel->"Out[12]=",ExpressionUUID->"f49fd5be-62c1-4100-ac2f-470e4199362c"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2930,7 +3395,7 @@ Cell[BoxData[{
    3.792111739686221*^9, 3.792111740094235*^9}, {3.792112005156447*^9, 
    3.7921120104230547`*^9}, {3.797010981192748*^9, 3.7970110549000807`*^9}, 
    3.797069713615075*^9},
- CellLabel->"In[42]:=",ExpressionUUID->"33fd9bb7-2613-4e68-9081-966ae4e3f1d4"],
+ CellLabel->"In[13]:=",ExpressionUUID->"33fd9bb7-2613-4e68-9081-966ae4e3f1d4"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -2957,14 +3422,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -3088,18 +3553,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -3159,8 +3624,8 @@ Cell[BoxData[
    3.797011055360549*^9}, 3.797069682096463*^9, 3.797069714828581*^9, 
    3.797069779329817*^9, 3.7970705923108473`*^9, 3.7970722301873293`*^9, 
    3.797088383561223*^9, 3.797088625431933*^9, 3.797090676560738*^9, 
-   3.7970907367704277`*^9},
- CellLabel->"Out[42]=",ExpressionUUID->"7e30d4ab-77cb-4243-b9ce-5e1818fd9ee0"]
+   3.7970907367704277`*^9, 3.797166211600053*^9, 3.7971665437454243`*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"2bd2f240-e078-407b-891d-295658aa7f7f"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3191,7 +3656,7 @@ Cell[BoxData[
    "]"}]}]], "Input",
  CellChangeTimes->{{3.7970111573208513`*^9, 3.797011272417734*^9}, {
   3.797011657965374*^9, 3.7970116601911173`*^9}},
- CellLabel->"In[43]:=",ExpressionUUID->"474ecf60-1056-4127-85bd-480afa17dace"],
+ CellLabel->"In[14]:=",ExpressionUUID->"474ecf60-1056-4127-85bd-480afa17dace"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -3211,14 +3676,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -3371,18 +3836,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -3444,8 +3909,9 @@ Cell[BoxData[
  CellChangeTimes->{{3.797011195821795*^9, 3.797011237036501*^9}, 
    3.797011272839027*^9, 3.7970116626301947`*^9, 3.797069789063183*^9, 
    3.797072234775909*^9, 3.79708838690624*^9, 3.797088625465186*^9, 
-   3.79709067659196*^9, 3.797090736807292*^9},
- CellLabel->"Out[43]=",ExpressionUUID->"d1928786-a345-40af-ac08-76fe5658296d"]
+   3.79709067659196*^9, 3.797090736807292*^9, 3.797166213335472*^9, 
+   3.79716654562848*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"35ce122c-27ef-41cd-ac36-540ac76e4534"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -3501,7 +3967,7 @@ Cell[BoxData[
   3.7921035997815733`*^9, 3.792103605605455*^9}, {3.792103760015522*^9, 
   3.792103766189704*^9}, {3.792105373674095*^9, 3.792105373966669*^9}, {
   3.797069810736022*^9, 3.797069836122059*^9}},
- CellLabel->"In[45]:=",ExpressionUUID->"77c534a0-f9e6-4e70-84a7-08465f7c3d01"],
+ CellLabel->"In[15]:=",ExpressionUUID->"77c534a0-f9e6-4e70-84a7-08465f7c3d01"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -3545,14 +4011,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -3676,18 +4142,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -3744,8 +4210,9 @@ Cell[BoxData[
    3.7921106065140133`*^9, 3.7921114814326553`*^9, 3.7921122904631033`*^9, 
    3.792112766849284*^9, 3.79236672352802*^9, 3.797010597805962*^9, 
    3.797069837482564*^9, 3.797072234844583*^9, 3.7970883890310707`*^9, 
-   3.797088625530772*^9, 3.797090676659833*^9, 3.797090736871852*^9},
- CellLabel->"Out[45]=",ExpressionUUID->"56511d04-1fd4-4f15-b4fd-67cf5afe1143"]
+   3.797088625530772*^9, 3.797090676659833*^9, 3.797090736871852*^9, 
+   3.797166216003193*^9, 3.797166548053372*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"59f3357e-004f-4879-967b-24dfefdd633e"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3762,7 +4229,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.7920879569108257`*^9, 3.792087960858388*^9}, {
   3.7920881718068666`*^9, 3.792088187395097*^9}, {3.792112383558646*^9, 
   3.7921123950855007`*^9}, {3.797069853178837*^9, 3.797069871199348*^9}},
- CellLabel->"In[46]:=",ExpressionUUID->"3def1b9d-8fe1-47b3-81d0-62cf854e0b35"],
+ CellLabel->"In[16]:=",ExpressionUUID->"3def1b9d-8fe1-47b3-81d0-62cf854e0b35"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -3797,14 +4264,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -3928,18 +4395,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -3996,8 +4463,9 @@ Cell[BoxData[
    3.792110607577218*^9, 3.79211230438448*^9, 3.792112387171052*^9, 
    3.7921127713973618`*^9, 3.79236672504453*^9, 3.797069872661456*^9, 
    3.7970722349164658`*^9, 3.7970883919452553`*^9, 3.7970886255870733`*^9, 
-   3.797090676712496*^9, 3.797090736931065*^9},
- CellLabel->"Out[46]=",ExpressionUUID->"2dd4f7a6-fc85-424b-83a1-5ef1a51ac981"]
+   3.797090676712496*^9, 3.797090736931065*^9, 3.797166234982071*^9, 
+   3.797166549837578*^9},
+ CellLabel->"Out[16]=",ExpressionUUID->"2433022e-4099-4cb9-b539-dc7a4cf09eb9"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4012,7 +4480,7 @@ Cell[BoxData[
      RowBox[{"\"\<size\>\"", "\[Rule]", "\"\<cyl\>\""}]}], "]"}], 
    "]"}]}]], "Input",
  CellChangeTimes->{{3.7970698884017143`*^9, 3.7970698898072243`*^9}},
- CellLabel->"In[47]:=",ExpressionUUID->"a0068a9d-4958-4c01-8f89-f03336699afd"],
+ CellLabel->"In[17]:=",ExpressionUUID->"a0068a9d-4958-4c01-8f89-f03336699afd"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -4047,14 +4515,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -4178,18 +4646,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -4241,8 +4709,8 @@ Cell[BoxData[
   LabelStyle->Directive[12, FontFamily -> "Arial"]]], "Output",
  CellChangeTimes->{3.797069890266074*^9, 3.7970722349764442`*^9, 
   3.797088394021002*^9, 3.797088625643664*^9, 3.7970906767657957`*^9, 
-  3.797090736985486*^9},
- CellLabel->"Out[47]=",ExpressionUUID->"a2d2bfff-d1f7-4a2a-bd3e-0f83ab3f1e9d"]
+  3.797090736985486*^9, 3.7971665514836082`*^9},
+ CellLabel->"Out[17]=",ExpressionUUID->"0def2ae1-bdee-4dc5-9491-e67e2bfb7deb"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4262,7 +4730,7 @@ Cell[BoxData[
      RowBox[{"\"\<color\>\"", "\[Rule]", "\"\<cyl\>\""}], ",", 
      RowBox[{"\"\<size\>\"", "\[Rule]", "20"}]}], "]"}], "]"}]}]], "Input",
  CellChangeTimes->{{3.797069929937289*^9, 3.797069938576893*^9}},
- CellLabel->"In[48]:=",ExpressionUUID->"40fe7d5a-78ea-4954-8084-501076e121db"],
+ CellLabel->"In[18]:=",ExpressionUUID->"40fe7d5a-78ea-4954-8084-501076e121db"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -4306,14 +4774,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -4437,18 +4905,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -4500,8 +4968,8 @@ Cell[BoxData[
   LabelStyle->Directive[12, FontFamily -> "Arial"]]], "Output",
  CellChangeTimes->{3.797069939833886*^9, 3.797072235031345*^9, 
   3.7970883961219997`*^9, 3.797088625701734*^9, 3.797090676818769*^9, 
-  3.7970907370405207`*^9},
- CellLabel->"Out[48]=",ExpressionUUID->"5b087301-13da-44d0-be8e-22c7e65ca379"]
+  3.7970907370405207`*^9, 3.79716655301478*^9},
+ CellLabel->"Out[18]=",ExpressionUUID->"a16cc2c6-3d93-4ff9-be5f-eb0408499e2a"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4525,7 +4993,7 @@ Cell[BoxData[
     "\t", "}"}], "]"}]}]], "Input",
  CellChangeTimes->{{3.792083821691087*^9, 3.79208382663682*^9}, {
   3.797069970572217*^9, 3.797069992935261*^9}},
- CellLabel->"In[49]:=",ExpressionUUID->"c45f343e-0447-4a4c-b1ba-76bfb1325e0b"],
+ CellLabel->"In[19]:=",ExpressionUUID->"c45f343e-0447-4a4c-b1ba-76bfb1325e0b"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -4579,14 +5047,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -4710,18 +5178,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -4775,8 +5243,8 @@ Cell[BoxData[
   3.792110304510275*^9, 3.792112780570718*^9, 3.7923667341300373`*^9, 
   3.797010792346789*^9, 3.797069994297805*^9, 3.79707223508998*^9, 
   3.797088398516094*^9, 3.79708862576385*^9, 3.797090676873706*^9, 
-  3.797090737096407*^9},
- CellLabel->"Out[49]=",ExpressionUUID->"9a6e00d1-de35-4c3a-a43a-c79071fd5394"]
+  3.797090737096407*^9, 3.797166554653187*^9},
+ CellLabel->"Out[19]=",ExpressionUUID->"b1e357ce-169a-4a01-b4c3-dab554227ef1"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4805,7 +5273,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.792112806571821*^9, 3.792112816045383*^9}, {
   3.7970700012613173`*^9, 3.7970700115538063`*^9}, {3.797072260264759*^9, 
   3.797072265472324*^9}, {3.797072463632452*^9, 3.797072468862246*^9}},
- CellLabel->"In[50]:=",ExpressionUUID->"08f68d46-5b4e-4eb8-9d0f-500ef74b8d0a"],
+ CellLabel->"In[20]:=",ExpressionUUID->"08f68d46-5b4e-4eb8-9d0f-500ef74b8d0a"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -4860,14 +5328,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{FrameLabel -> {"X", "Y"}}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{FrameLabel -> {"X", "Y"}}, 
           Options[ggplot`ggplot]], 
@@ -4991,18 +5459,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{FrameLabel -> {"X", "Y"}}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{FrameLabel -> {"X", "Y"}}, 
          Options[ggplot`ggplot]], 
@@ -5056,8 +5524,8 @@ Cell[BoxData[
    3.7923667349820833`*^9, 3.797010809829257*^9, 3.797070012265592*^9, 
    3.7970722351623507`*^9, 3.797072265915086*^9, {3.79707246450106*^9, 
    3.79707246922445*^9}, 3.797088400004524*^9, 3.797088625821376*^9, 
-   3.797090676937024*^9, 3.797090737158387*^9},
- CellLabel->"Out[50]=",ExpressionUUID->"a8623c9e-1987-462f-9af2-06810e86ee63"]
+   3.797090676937024*^9, 3.797090737158387*^9, 3.797166556246565*^9},
+ CellLabel->"Out[20]=",ExpressionUUID->"1ad2d58a-9711-489a-b64a-33f3f7e3bdfc"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -5072,7 +5540,7 @@ Cell[BoxData[
      RowBox[{"\"\<color\>\"", "\[Rule]", "\"\<class\>\""}]}], "]"}], 
    "]"}]}]], "Input",
  CellChangeTimes->{{3.797070787117021*^9, 3.7970707884678707`*^9}},
- CellLabel->"In[51]:=",ExpressionUUID->"d7d4ea2f-aa13-4790-b917-aa9f02b2d4c3"],
+ CellLabel->"In[21]:=",ExpressionUUID->"d7d4ea2f-aa13-4790-b917-aa9f02b2d4c3"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -5186,14 +5654,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -5338,18 +5806,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -5410,8 +5878,8 @@ Cell[BoxData[
   LabelStyle->Directive[12, FontFamily -> "Arial"]]], "Output",
  CellChangeTimes->{3.797070790568227*^9, 3.79707223522701*^9, 
   3.7970884015586643`*^9, 3.79708862588332*^9, 3.797090676999353*^9, 
-  3.797090737222224*^9},
- CellLabel->"Out[51]=",ExpressionUUID->"d07dc6f6-414e-42ee-8419-de86894d1d4d"]
+  3.797090737222224*^9, 3.797166557698895*^9},
+ CellLabel->"Out[21]=",ExpressionUUID->"a9a5a6aa-8a28-45b4-b570-316191820259"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -5428,8 +5896,8 @@ Cell[BoxData[
   3.792368443462432*^9, 3.792368448959118*^9}, {3.7970700468808537`*^9, 
   3.7970700509402733`*^9}, {3.797071698726445*^9, 3.797071722231491*^9}, {
   3.797071772323455*^9, 3.797071799046019*^9}, {3.79707206927295*^9, 
-  3.797072091544725*^9}},
- CellLabel->"In[52]:=",ExpressionUUID->"925b96bf-573f-4339-967c-1b2b81deb95e"],
+  3.797072091544725*^9}, {3.797166559133191*^9, 3.797166559940084*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"925b96bf-573f-4339-967c-1b2b81deb95e"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -5678,14 +6146,14 @@ Cell[BoxData[
     GrayLevel[0.6], 
     Thickness[0.0008]],
   FrameTicks->FrontEndValueCache[{{
-      Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minY$, ggplot`Private`maxY$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
          Options[Alex`Plotting`linearTicks]]]], False}, {
-      Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
-       Alex`Plotting`linearTicks[ggplot`Private`minX$, ggplot`Private`maxX$, 
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       Alex`Plotting`linearTicks[ggplot`Private`min$, ggplot`Private`max$, 
         FilterRules[
          Join[{}, 
           Options[ggplot`ggplot]], 
@@ -5820,18 +6288,18 @@ Cell[BoxData[
     GrayLevel[0], 
     Opacity[1]],
   GridLines->FrontEndValueCache[{
-     Function[{ggplot`Private`minX$, ggplot`Private`maxX$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minX$, ggplot`Private`maxX$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
         Join[
          Options[Alex`Plotting`linearTicks], 
          Options[Alex`Plotting`linearGridLines]]]]], 
-     Function[{ggplot`Private`minY$, ggplot`Private`maxY$}, 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       Alex`Plotting`linearGridLines[
-      ggplot`Private`minY$, ggplot`Private`maxY$, 
+      ggplot`Private`min$, ggplot`Private`max$, 
        FilterRules[
         Join[{}, 
          Options[ggplot`ggplot]], 
@@ -5892,8 +6360,8 @@ Cell[BoxData[
    3.797070054478001*^9, {3.797071699548174*^9, 3.7970717225644827`*^9}, {
    3.797071777267805*^9, 3.7970717999966993`*^9}, 3.797072092069499*^9, 
    3.7970722353626204`*^9, 3.797088403571217*^9, 3.7970886259594307`*^9, 
-   3.797090677068227*^9, 3.797090737299202*^9},
- CellLabel->"Out[52]=",ExpressionUUID->"2eddb426-1979-4a9d-9507-0b78c54dedb6"]
+   3.797090677068227*^9, 3.797090737299202*^9, 3.797166560320918*^9},
+ CellLabel->"Out[22]=",ExpressionUUID->"eff27a90-1ed9-4bce-84a9-67637f6cd28f"]
 }, Open  ]]
 }, Open  ]],
 
@@ -7369,7 +7837,7 @@ Cell[BoxData["ImageForwardTransformation"], "Input",
 }, Open  ]]
 },
 WindowSize->{1650, 829},
-WindowMargins->{{Automatic, 53}, {Automatic, 28}},
+WindowMargins->{{Automatic, 30}, {Automatic, 10}},
 TaggingRules->{"TryRealOnly" -> False},
 FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (March 13, 2020)",
 StyleDefinitions->"Default.nb",
@@ -7388,180 +7856,185 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 654, 12, 52, "Input",ExpressionUUID->"ddfcc8d6-fd7d-4d54-9b99-9a2ae2ec34db"],
-Cell[1237, 36, 1091, 16, 34, "Output",ExpressionUUID->"ffb8d8b0-9a64-4066-967e-76469eba6c22"],
-Cell[2331, 54, 23061, 405, 62, "Output",ExpressionUUID->"57b28d8d-8765-43ff-a266-1f09da057175"]
+Cell[1237, 36, 1495, 22, 34, "Output",ExpressionUUID->"b99e6d80-e4f4-4197-82c3-c5abee517095"],
+Cell[2735, 60, 23465, 411, 62, "Output",ExpressionUUID->"6d181275-4658-4fc9-843f-5a781a629722"]
 }, Open  ]],
-Cell[25407, 462, 196, 3, 30, "Input",ExpressionUUID->"d48058b5-d98b-4859-be2a-5f5560cf4684"],
+Cell[26215, 474, 196, 3, 30, "Input",ExpressionUUID->"d48058b5-d98b-4859-be2a-5f5560cf4684"],
 Cell[CellGroupData[{
-Cell[25628, 469, 149, 2, 30, "Input",ExpressionUUID->"2abf42e7-6529-465b-ada2-a13d3d5a4db1"],
-Cell[25780, 473, 544, 10, 34, "Output",ExpressionUUID->"f1a3ec22-df39-4d14-9d56-db80c2b9567b"]
+Cell[26436, 481, 149, 2, 30, "Input",ExpressionUUID->"2abf42e7-6529-465b-ada2-a13d3d5a4db1"],
+Cell[26588, 485, 1307, 19, 34, "Output",ExpressionUUID->"9bdf63e0-6521-42be-af79-248807fc7cc1"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[26361, 488, 318, 5, 52, "Input",ExpressionUUID->"a565ab5e-e970-4234-9783-222b2a891bd7"],
+Cell[27932, 509, 317, 5, 52, "Input",ExpressionUUID->"a565ab5e-e970-4234-9783-222b2a891bd7"],
 Cell[CellGroupData[{
-Cell[26704, 497, 174, 3, 25, "Echo",ExpressionUUID->"124a85bc-a228-4706-928e-fab01816109b"],
-Cell[26881, 502, 146, 3, 25, "Echo",ExpressionUUID->"cbbbcbfb-6aef-45e5-8955-7667025a79f9"]
+Cell[28274, 518, 174, 3, 25, "Echo",ExpressionUUID->"cfd509c2-9235-4e86-a8b4-f1567557765d"],
+Cell[28451, 523, 146, 3, 25, "Echo",ExpressionUUID->"5fcd1c92-0eeb-4cbc-a7f4-8c7bba84bea2"]
 }, Open  ]]
 }, Open  ]],
-Cell[27054, 509, 155, 3, 35, "Text",ExpressionUUID->"f1d32814-a856-4c85-91b9-d0cc05aee266"],
-Cell[27212, 514, 1250, 34, 73, "Input",ExpressionUUID->"da49e7bc-10e2-444f-bc5b-480f227cb620"],
+Cell[28624, 530, 155, 3, 35, "Text",ExpressionUUID->"f1d32814-a856-4c85-91b9-d0cc05aee266"],
+Cell[28782, 535, 1818, 49, 94, "Input",ExpressionUUID->"da49e7bc-10e2-444f-bc5b-480f227cb620"],
 Cell[CellGroupData[{
-Cell[28487, 552, 202, 3, 45, "Subsubsection",ExpressionUUID->"31c0f46a-b20e-4014-98af-b1aa733504b8"],
-Cell[28692, 557, 259, 6, 35, "Text",ExpressionUUID->"7879877f-a50d-4acf-88ac-7bfef096d8ce"],
+Cell[30625, 588, 202, 3, 45, "Subsubsection",ExpressionUUID->"31c0f46a-b20e-4014-98af-b1aa733504b8"],
+Cell[30830, 593, 259, 6, 35, "Text",ExpressionUUID->"7879877f-a50d-4acf-88ac-7bfef096d8ce"],
 Cell[CellGroupData[{
-Cell[28976, 567, 1030, 29, 73, "Input",ExpressionUUID->"49349785-adf6-487b-909d-f977e020475d"],
-Cell[30009, 598, 424, 8, 376, "Output",ExpressionUUID->"ea4766d4-fdc9-440a-aa30-50830bfee631"]
+Cell[31114, 603, 1030, 29, 73, "Input",ExpressionUUID->"49349785-adf6-487b-909d-f977e020475d"],
+Cell[32147, 634, 424, 8, 376, "Output",ExpressionUUID->"ea4766d4-fdc9-440a-aa30-50830bfee631"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[30470, 611, 1348, 34, 115, "Input",ExpressionUUID->"7de8c32d-864b-4dab-8c25-546bae1ffdb6"],
-Cell[31821, 647, 426, 11, 117, "Output",ExpressionUUID->"efbd2a1b-5ed7-4834-b6ee-ed7293cb1b7f"]
+Cell[32608, 647, 1348, 34, 115, "Input",ExpressionUUID->"7de8c32d-864b-4dab-8c25-546bae1ffdb6"],
+Cell[33959, 683, 426, 11, 117, "Output",ExpressionUUID->"efbd2a1b-5ed7-4834-b6ee-ed7293cb1b7f"]
 }, Open  ]],
-Cell[32262, 661, 177, 3, 29, "Input",ExpressionUUID->"29febc38-66de-4168-8e0d-3da980823ae6"],
+Cell[34400, 697, 177, 3, 29, "Input",ExpressionUUID->"29febc38-66de-4168-8e0d-3da980823ae6"],
 Cell[CellGroupData[{
-Cell[32464, 668, 480, 13, 29, "Input",ExpressionUUID->"df135893-4224-42d0-90b4-c6a9a2bd6c6c"],
-Cell[32947, 683, 9335, 226, 648, "Output",ExpressionUUID->"e9f59a51-4ffb-4e07-a993-d39c98d6904d"]
+Cell[34602, 704, 480, 13, 29, "Input",ExpressionUUID->"df135893-4224-42d0-90b4-c6a9a2bd6c6c"],
+Cell[35085, 719, 9335, 226, 648, "Output",ExpressionUUID->"e9f59a51-4ffb-4e07-a993-d39c98d6904d"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[42331, 915, 233, 4, 37, "Subsubsection",ExpressionUUID->"df6968c3-0099-4d94-be20-8dca1844582d"],
+Cell[44469, 951, 233, 4, 37, "Subsubsection",ExpressionUUID->"df6968c3-0099-4d94-be20-8dca1844582d"],
 Cell[CellGroupData[{
-Cell[42589, 923, 226, 4, 30, "Input",ExpressionUUID->"06e81848-92b2-4205-8f89-d443d22a7475"],
-Cell[42818, 929, 1232, 25, 37, "Output",ExpressionUUID->"7dde16c0-ef2a-4372-969e-6faa4ca606c5"]
+Cell[44727, 959, 226, 4, 30, "Input",ExpressionUUID->"06e81848-92b2-4205-8f89-d443d22a7475"],
+Cell[44956, 965, 2145, 36, 37, "Output",ExpressionUUID->"6bd3061b-ac03-4f5b-9a3f-f5fab0e5af6b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[44087, 959, 749, 17, 115, "Input",ExpressionUUID->"7734a5e2-f9df-4a1d-b302-23bf74201ddb"],
-Cell[44839, 978, 18944, 409, 303, "Output",ExpressionUUID->"696a8b56-7390-4bab-afa0-45059c0be136"]
+Cell[47138, 1006, 854, 20, 115, "Input",ExpressionUUID->"76f37988-ca96-431b-9f6a-96f7f21f398c"],
+Cell[47995, 1028, 6964, 191, 302, "Output",ExpressionUUID->"c11f0c0a-2fa2-4913-b579-601af168adf9"],
+Cell[54962, 1221, 6964, 191, 285, "Output",ExpressionUUID->"21cefe23-4577-4ce6-8c16-6bd280e9af94"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[63820, 1392, 1712, 40, 241, "Input",ExpressionUUID->"2fb68eba-4628-4f11-a329-c50fd7713aa2"],
-Cell[65535, 1434, 19255, 414, 303, "Output",ExpressionUUID->"b190fe64-fa0e-462f-aae9-f2b2db48d818"],
-Cell[84793, 1850, 571, 12, 24, "Message",ExpressionUUID->"1fa01df1-96ef-4f0e-a2bf-381cc8a94113"],
-Cell[85367, 1864, 20484, 448, 303, "Output",ExpressionUUID->"b086dce7-6f6d-4c61-87e5-b9f315bd0244"]
+Cell[61963, 1417, 893, 19, 115, "Input",ExpressionUUID->"7734a5e2-f9df-4a1d-b302-23bf74201ddb"],
+Cell[62859, 1438, 19168, 412, 303, "Output",ExpressionUUID->"63847de3-3df8-4151-b828-58e580f70e9d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[105888, 2317, 332, 8, 30, "Input",ExpressionUUID->"4ba586c2-1799-419c-9e85-e93705a9eae4"],
-Cell[106223, 2327, 8159, 222, 303, "Output",ExpressionUUID->"0ee6f877-3a3d-466b-934b-d63f5e891f0d"]
+Cell[82064, 1855, 1711, 40, 241, "Input",ExpressionUUID->"2fb68eba-4628-4f11-a329-c50fd7713aa2"],
+Cell[83778, 1897, 19282, 414, 303, "Output",ExpressionUUID->"7874e454-d6be-4bf1-a7d5-0c2cff1d65cc"],
+Cell[103063, 2313, 616, 12, 24, "Message",ExpressionUUID->"0a6751f5-7c29-40b3-9a0f-5caf68ba6867"],
+Cell[103682, 2327, 20512, 448, 303, "Output",ExpressionUUID->"5c77bee2-1413-4f7b-9107-e9ebf98de3e3"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[114419, 2554, 328, 6, 30, "Input",ExpressionUUID->"56997035-d89a-4258-a4ca-fc6cc4d956e8"],
-Cell[114750, 2562, 2302, 60, 34, "Output",ExpressionUUID->"70fcb46a-7853-47b8-88b0-a16370050531"]
+Cell[124231, 2780, 332, 8, 30, "Input",ExpressionUUID->"4ba586c2-1799-419c-9e85-e93705a9eae4"],
+Cell[124566, 2790, 8192, 223, 303, "Output",ExpressionUUID->"86021a8c-230b-49ab-bcf6-d81d9cf768b7"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[117089, 2627, 1022, 22, 30, "Input",ExpressionUUID->"80115178-65db-421c-9cce-71e9812b0090"],
-Cell[118114, 2651, 9400, 255, 300, "Output",ExpressionUUID->"5d4d132f-22d4-4a00-9e2d-973045fa5b2a"]
+Cell[132795, 3018, 328, 6, 30, "Input",ExpressionUUID->"56997035-d89a-4258-a4ca-fc6cc4d956e8"],
+Cell[133126, 3026, 2302, 60, 34, "Output",ExpressionUUID->"70fcb46a-7853-47b8-88b0-a16370050531"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[127551, 2911, 864, 21, 52, "Input",ExpressionUUID->"33fd9bb7-2613-4e68-9081-966ae4e3f1d4"],
-Cell[128418, 2934, 8533, 228, 303, "Output",ExpressionUUID->"7e30d4ab-77cb-4243-b9ce-5e1818fd9ee0"]
+Cell[135465, 3091, 1022, 22, 30, "Input",ExpressionUUID->"80115178-65db-421c-9cce-71e9812b0090"],
+Cell[136490, 3115, 9434, 256, 300, "Output",ExpressionUUID->"f49fd5be-62c1-4100-ac2f-470e4199362c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[136988, 3167, 1039, 26, 115, "Input",ExpressionUUID->"474ecf60-1056-4127-85bd-480afa17dace"],
-Cell[138030, 3195, 8925, 252, 303, "Output",ExpressionUUID->"d1928786-a345-40af-ac08-76fe5658296d"]
-}, Open  ]],
-Cell[146970, 3450, 1155, 23, 73, "Input",ExpressionUUID->"9ef7c964-2d29-42b8-a7f2-9552bc9d0437"],
-Cell[CellGroupData[{
-Cell[148150, 3477, 1163, 26, 94, "Input",ExpressionUUID->"77c534a0-f9e6-4e70-84a7-08465f7c3d01"],
-Cell[149316, 3505, 8920, 242, 303, "Output",ExpressionUUID->"56511d04-1fd4-4f15-b4fd-67cf5afe1143"]
+Cell[145961, 3376, 864, 21, 52, "Input",ExpressionUUID->"33fd9bb7-2613-4e68-9081-966ae4e3f1d4"],
+Cell[146828, 3399, 8563, 228, 303, "Output",ExpressionUUID->"2bd2f240-e078-407b-891d-295658aa7f7f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[158273, 3752, 626, 12, 52, "Input",ExpressionUUID->"3def1b9d-8fe1-47b3-81d0-62cf854e0b35"],
-Cell[158902, 3766, 8700, 233, 303, "Output",ExpressionUUID->"2dd4f7a6-fc85-424b-83a1-5ef1a51ac981"]
+Cell[155428, 3632, 1039, 26, 115, "Input",ExpressionUUID->"474ecf60-1056-4127-85bd-480afa17dace"],
+Cell[156470, 3660, 8956, 253, 303, "Output",ExpressionUUID->"35ce122c-27ef-41cd-ac36-540ac76e4534"]
+}, Open  ]],
+Cell[165441, 3916, 1155, 23, 73, "Input",ExpressionUUID->"9ef7c964-2d29-42b8-a7f2-9552bc9d0437"],
+Cell[CellGroupData[{
+Cell[166621, 3943, 1163, 26, 94, "Input",ExpressionUUID->"77c534a0-f9e6-4e70-84a7-08465f7c3d01"],
+Cell[167787, 3971, 8952, 243, 303, "Output",ExpressionUUID->"59f3357e-004f-4879-967b-24dfefdd633e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[167639, 4004, 479, 10, 52, "Input",ExpressionUUID->"a0068a9d-4958-4c01-8f89-f03336699afd"],
-Cell[168121, 4016, 8368, 228, 302, "Output",ExpressionUUID->"a2d2bfff-d1f7-4a2a-bd3e-0f83ab3f1e9d"]
+Cell[176776, 4219, 626, 12, 52, "Input",ExpressionUUID->"3def1b9d-8fe1-47b3-81d0-62cf854e0b35"],
+Cell[177405, 4233, 8732, 234, 303, "Output",ExpressionUUID->"2433022e-4099-4cb9-b539-dc7a4cf09eb9"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[176526, 4249, 692, 15, 73, "Input",ExpressionUUID->"40fe7d5a-78ea-4954-8084-501076e121db"],
-Cell[177221, 4266, 8568, 237, 308, "Output",ExpressionUUID->"5b087301-13da-44d0-be8e-22c7e65ca379"]
+Cell[186174, 4472, 479, 10, 52, "Input",ExpressionUUID->"a0068a9d-4958-4c01-8f89-f03336699afd"],
+Cell[186656, 4484, 8376, 228, 302, "Output",ExpressionUUID->"0def2ae1-bdee-4dc5-9491-e67e2bfb7deb"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[185826, 4508, 866, 19, 115, "Input",ExpressionUUID->"c45f343e-0447-4a4c-b1ba-76bfb1325e0b"],
-Cell[186695, 4529, 9336, 249, 303, "Output",ExpressionUUID->"9a6e00d1-de35-4c3a-a43a-c79071fd5394"]
+Cell[195069, 4717, 692, 15, 73, "Input",ExpressionUUID->"40fe7d5a-78ea-4954-8084-501076e121db"],
+Cell[195764, 4734, 8573, 237, 308, "Output",ExpressionUUID->"a16cc2c6-3d93-4ff9-be5f-eb0408499e2a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[196068, 4783, 1107, 24, 115, "Input",ExpressionUUID->"08f68d46-5b4e-4eb8-9d0f-500ef74b8d0a"],
-Cell[197178, 4809, 9505, 250, 309, "Output",ExpressionUUID->"a8623c9e-1987-462f-9af2-06810e86ee63"]
+Cell[204374, 4976, 866, 19, 115, "Input",ExpressionUUID->"c45f343e-0447-4a4c-b1ba-76bfb1325e0b"],
+Cell[205243, 4997, 9342, 249, 303, "Output",ExpressionUUID->"b1e357ce-169a-4a01-b4c3-dab554227ef1"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[206720, 5064, 478, 10, 52, "Input",ExpressionUUID->"d7d4ea2f-aa13-4790-b917-aa9f02b2d4c3"],
-Cell[207201, 5076, 13424, 337, 303, "Output",ExpressionUUID->"d07dc6f6-414e-42ee-8419-de86894d1d4d"]
+Cell[214622, 5251, 1107, 24, 115, "Input",ExpressionUUID->"08f68d46-5b4e-4eb8-9d0f-500ef74b8d0a"],
+Cell[215732, 5277, 9511, 250, 309, "Output",ExpressionUUID->"1ad2d58a-9711-489a-b64a-33f3f7e3bdfc"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[220662, 5418, 653, 13, 52, "Input",ExpressionUUID->"925b96bf-573f-4339-967c-1b2b81deb95e"],
-Cell[221318, 5433, 23016, 462, 303, "Output",ExpressionUUID->"2eddb426-1979-4a9d-9507-0b78c54dedb6"]
+Cell[225280, 5532, 478, 10, 52, "Input",ExpressionUUID->"d7d4ea2f-aa13-4790-b917-aa9f02b2d4c3"],
+Cell[225761, 5544, 13430, 337, 303, "Output",ExpressionUUID->"a9a5a6aa-8a28-45b4-b570-316191820259"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[239228, 5886, 699, 13, 52, "Input",ExpressionUUID->"925b96bf-573f-4339-967c-1b2b81deb95e"],
+Cell[239930, 5901, 23022, 462, 303, "Output",ExpressionUUID->"eff27a90-1ed9-4bce-84a9-67637f6cd28f"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[244383, 5901, 203, 3, 45, "Subsubsection",ExpressionUUID->"a242e120-2efd-4350-abd3-272ab0c62560"],
-Cell[244589, 5906, 171, 3, 30, "Input",ExpressionUUID->"a11a2e2b-2c4d-470c-8540-7603a14c89c8"],
-Cell[244763, 5911, 170, 3, 30, "Input",ExpressionUUID->"eb7632a6-901d-4402-ab46-a707d8cca02d"],
-Cell[244936, 5916, 168, 3, 30, "Input",ExpressionUUID->"ecd17830-92f2-4d62-a983-ede694c96a75"],
-Cell[245107, 5921, 484, 13, 30, "Input",ExpressionUUID->"2c4e9e08-a74a-46e0-8163-a4ca40b1b3ca"],
+Cell[263001, 6369, 203, 3, 45, "Subsubsection",ExpressionUUID->"a242e120-2efd-4350-abd3-272ab0c62560"],
+Cell[263207, 6374, 171, 3, 30, "Input",ExpressionUUID->"a11a2e2b-2c4d-470c-8540-7603a14c89c8"],
+Cell[263381, 6379, 170, 3, 30, "Input",ExpressionUUID->"eb7632a6-901d-4402-ab46-a707d8cca02d"],
+Cell[263554, 6384, 168, 3, 30, "Input",ExpressionUUID->"ecd17830-92f2-4d62-a983-ede694c96a75"],
+Cell[263725, 6389, 484, 13, 30, "Input",ExpressionUUID->"2c4e9e08-a74a-46e0-8163-a4ca40b1b3ca"],
 Cell[CellGroupData[{
-Cell[245616, 5938, 178, 3, 30, "Input",ExpressionUUID->"16e8f1d0-f366-4adf-b228-28a41e66bfaa"],
-Cell[245797, 5943, 4889, 106, 140, "Output",ExpressionUUID->"c267719b-c56b-497f-a3f7-7f4a09a4ccbe"]
+Cell[264234, 6406, 178, 3, 30, "Input",ExpressionUUID->"16e8f1d0-f366-4adf-b228-28a41e66bfaa"],
+Cell[264415, 6411, 4889, 106, 140, "Output",ExpressionUUID->"c267719b-c56b-497f-a3f7-7f4a09a4ccbe"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[250723, 6054, 360, 8, 30, "Input",ExpressionUUID->"894662c3-377d-4a5b-9e64-a55187297930"],
-Cell[251086, 6064, 1416, 27, 342, "Output",ExpressionUUID->"3aabfe78-d3ff-4a4e-abbe-f6fdc846f55c"]
+Cell[269341, 6522, 360, 8, 30, "Input",ExpressionUUID->"894662c3-377d-4a5b-9e64-a55187297930"],
+Cell[269704, 6532, 1416, 27, 342, "Output",ExpressionUUID->"3aabfe78-d3ff-4a4e-abbe-f6fdc846f55c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[252539, 6096, 760, 20, 30, "Input",ExpressionUUID->"a2840189-d1e9-4e5f-a660-b5e1b5fdea55"],
-Cell[253302, 6118, 1519, 27, 234, "Output",ExpressionUUID->"c7f8522c-e62b-4257-99b9-9f8b7fe46de8"]
+Cell[271157, 6564, 760, 20, 30, "Input",ExpressionUUID->"a2840189-d1e9-4e5f-a660-b5e1b5fdea55"],
+Cell[271920, 6586, 1519, 27, 234, "Output",ExpressionUUID->"c7f8522c-e62b-4257-99b9-9f8b7fe46de8"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[254858, 6150, 391, 8, 30, "Input",ExpressionUUID->"18022a57-67cf-431a-a488-bfbbba8c578a"],
-Cell[255252, 6160, 5623, 158, 77, "Output",ExpressionUUID->"8abc62ed-abaa-4718-9973-3b681f35a203"]
+Cell[273476, 6618, 391, 8, 30, "Input",ExpressionUUID->"18022a57-67cf-431a-a488-bfbbba8c578a"],
+Cell[273870, 6628, 5623, 158, 77, "Output",ExpressionUUID->"8abc62ed-abaa-4718-9973-3b681f35a203"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[260912, 6323, 336, 7, 30, "Input",ExpressionUUID->"4241fbab-ffe7-4170-9384-a15bd31b534a"],
-Cell[261251, 6332, 982, 19, 379, "Output",ExpressionUUID->"6037a959-4e2c-4b7e-88c7-0dabaefa4aea"]
+Cell[279530, 6791, 336, 7, 30, "Input",ExpressionUUID->"4241fbab-ffe7-4170-9384-a15bd31b534a"],
+Cell[279869, 6800, 982, 19, 379, "Output",ExpressionUUID->"6037a959-4e2c-4b7e-88c7-0dabaefa4aea"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[262270, 6356, 720, 18, 30, "Input",ExpressionUUID->"12d28baa-fbca-4660-8082-4f34041f6dae"],
-Cell[262993, 6376, 1124, 22, 360, "Output",ExpressionUUID->"ae905221-8d35-4046-bb3b-47b26e46c59b"]
+Cell[280888, 6824, 720, 18, 30, "Input",ExpressionUUID->"12d28baa-fbca-4660-8082-4f34041f6dae"],
+Cell[281611, 6844, 1124, 22, 360, "Output",ExpressionUUID->"ae905221-8d35-4046-bb3b-47b26e46c59b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[264154, 6403, 392, 9, 30, "Input",ExpressionUUID->"244eff9b-7d48-46d4-a401-2c6348410fa5"],
-Cell[264549, 6414, 465, 11, 34, "Output",ExpressionUUID->"6124d71b-ead9-4956-92ed-23bfabbcdac0"]
+Cell[282772, 6871, 392, 9, 30, "Input",ExpressionUUID->"244eff9b-7d48-46d4-a401-2c6348410fa5"],
+Cell[283167, 6882, 465, 11, 34, "Output",ExpressionUUID->"6124d71b-ead9-4956-92ed-23bfabbcdac0"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[265051, 6430, 152, 3, 30, "Input",ExpressionUUID->"11b54353-b9d5-4630-9090-a93a7e55597f"],
-Cell[265206, 6435, 4850, 106, 140, "Output",ExpressionUUID->"4e8bdd81-1430-460c-9b85-4da5eb96d75b"]
+Cell[283669, 6898, 152, 3, 30, "Input",ExpressionUUID->"11b54353-b9d5-4630-9090-a93a7e55597f"],
+Cell[283824, 6903, 4850, 106, 140, "Output",ExpressionUUID->"4e8bdd81-1430-460c-9b85-4da5eb96d75b"]
 }, Open  ]],
-Cell[270071, 6544, 3637, 106, 73, "Input",ExpressionUUID->"a7ee2f94-7f74-4ced-a644-ecb22befc1a9"],
+Cell[288689, 7012, 3637, 106, 73, "Input",ExpressionUUID->"a7ee2f94-7f74-4ced-a644-ecb22befc1a9"],
 Cell[CellGroupData[{
-Cell[273733, 6654, 530, 13, 30, "Input",ExpressionUUID->"704517e9-5026-4a02-b007-deb83e411402"],
-Cell[274266, 6669, 2164, 38, 216, "Output",ExpressionUUID->"616395f4-a6cc-469a-9105-6acbe5d3455d"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[276467, 6712, 1522, 38, 52, "Input",ExpressionUUID->"800bf275-79f8-4c59-be39-ddb329e5dd7a"],
-Cell[277992, 6752, 1036, 19, 219, "Output",ExpressionUUID->"cfb47cb2-e4a0-4ada-a40a-0721a38c7f87"],
-Cell[279031, 6773, 1176, 22, 219, "Output",ExpressionUUID->"80eb9c29-f744-4a19-9dc5-af118e3f37f4"]
+Cell[292351, 7122, 530, 13, 30, "Input",ExpressionUUID->"704517e9-5026-4a02-b007-deb83e411402"],
+Cell[292884, 7137, 2164, 38, 216, "Output",ExpressionUUID->"616395f4-a6cc-469a-9105-6acbe5d3455d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[280244, 6800, 433, 9, 52, "Input",ExpressionUUID->"0a8a1aca-3bb9-445a-8ac1-026c9c249b62"],
-Cell[280680, 6811, 2722, 61, 240, "Output",ExpressionUUID->"96feda5b-cdb0-48af-a474-c0baa8471c66"],
-Cell[283405, 6874, 8411, 204, 235, "Output",ExpressionUUID->"3d3331d4-d94d-4895-9b3b-168e0ce9259a"]
+Cell[295085, 7180, 1522, 38, 52, "Input",ExpressionUUID->"800bf275-79f8-4c59-be39-ddb329e5dd7a"],
+Cell[296610, 7220, 1036, 19, 219, "Output",ExpressionUUID->"cfb47cb2-e4a0-4ada-a40a-0721a38c7f87"],
+Cell[297649, 7241, 1176, 22, 219, "Output",ExpressionUUID->"80eb9c29-f744-4a19-9dc5-af118e3f37f4"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[291853, 7083, 449, 11, 30, "Input",ExpressionUUID->"a2156775-896a-4e55-9101-7bf30e92b500"],
-Cell[292305, 7096, 388, 11, 34, "Output",ExpressionUUID->"bbbfe607-1f44-4fa9-b9f4-54b31eed5ae0"]
+Cell[298862, 7268, 433, 9, 52, "Input",ExpressionUUID->"0a8a1aca-3bb9-445a-8ac1-026c9c249b62"],
+Cell[299298, 7279, 2722, 61, 240, "Output",ExpressionUUID->"96feda5b-cdb0-48af-a474-c0baa8471c66"],
+Cell[302023, 7342, 8411, 204, 235, "Output",ExpressionUUID->"3d3331d4-d94d-4895-9b3b-168e0ce9259a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[292730, 7112, 234, 4, 30, "Input",ExpressionUUID->"4e52f786-5be9-4a72-a174-28441d39ee6f"],
-Cell[292967, 7118, 209, 4, 34, "Output",ExpressionUUID->"bf0c0fd7-a8a9-4d79-839c-dc310cd453ff"]
+Cell[310471, 7551, 449, 11, 30, "Input",ExpressionUUID->"a2156775-896a-4e55-9101-7bf30e92b500"],
+Cell[310923, 7564, 388, 11, 34, "Output",ExpressionUUID->"bbbfe607-1f44-4fa9-b9f4-54b31eed5ae0"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[293213, 7127, 1524, 39, 73, "Input",ExpressionUUID->"f026becd-59f6-486c-93be-88f99560b6dd"],
-Cell[294740, 7168, 3975, 84, 203, "Output",ExpressionUUID->"b0069aaf-c232-4207-b4bc-09e7d4413bdd"]
+Cell[311348, 7580, 234, 4, 30, "Input",ExpressionUUID->"4e52f786-5be9-4a72-a174-28441d39ee6f"],
+Cell[311585, 7586, 209, 4, 34, "Output",ExpressionUUID->"bf0c0fd7-a8a9-4d79-839c-dc310cd453ff"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[298752, 7257, 315, 7, 30, "Input",ExpressionUUID->"b835c0e0-93b7-44bb-93cb-331f5b3208a5"],
-Cell[299070, 7266, 3750, 95, 1412, "Output",ExpressionUUID->"b957f182-a59e-4aaa-bf06-3358ea7c8246"]
+Cell[311831, 7595, 1524, 39, 73, "Input",ExpressionUUID->"f026becd-59f6-486c-93be-88f99560b6dd"],
+Cell[313358, 7636, 3975, 84, 203, "Output",ExpressionUUID->"b0069aaf-c232-4207-b4bc-09e7d4413bdd"]
 }, Open  ]],
-Cell[302835, 7364, 176, 3, 30, "Input",ExpressionUUID->"570b3353-fdb7-408d-a138-706b359c5f83"]
+Cell[CellGroupData[{
+Cell[317370, 7725, 315, 7, 30, "Input",ExpressionUUID->"b835c0e0-93b7-44bb-93cb-331f5b3208a5"],
+Cell[317688, 7734, 3750, 95, 1412, "Output",ExpressionUUID->"b957f182-a59e-4aaa-bf06-3358ea7c8246"]
+}, Open  ]],
+Cell[321453, 7832, 176, 3, 30, "Input",ExpressionUUID->"570b3353-fdb7-408d-a138-706b359c5f83"]
 }, Open  ]]
 }
 ]

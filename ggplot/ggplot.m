@@ -7,6 +7,8 @@ BeginPackage["ggplot`"];
 (* Exported symbols added here with SymbolName::usage *)
 
 ggplot::usage         = "TBD";
+
+(* Geoms *)
 geomPoint::usage      = "TBD";
 geomLine::usage       = "TBD";
 geomSmooth::usage     = "TBD";
@@ -14,6 +16,14 @@ geomCol::usage        = "TBD";
 geomParityLine::usage = "TBD";
 geomHLine::usage      = "TBD";
 geomVLine::usage      = "TBD";
+
+(* Scales *)
+scaleXLinear::usage   = "TBD";
+scaleYLinear::usage   = "TBD";
+scaleXDate::usage     = "TBD";
+scaleYDate::usage     = "TBD";
+scaleXLog::usage      = "TBD";
+scaleYLog::usage      = "TBD";
 
 Begin["`Private`"];
 
@@ -44,8 +54,11 @@ SetOptions[ggplot,
   PlotRange -> All,
   numberOfMinorTicksPerMajorTick -> 0
 ];
-ggplot[dataset_?validDatasetQ, geoms__, opts : OptionsPattern[]] := Catch[Module[{points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, dataForListPlot, graphic},
-  (* Compile all geom data *)
+ggplot[inputDataset_?validDatasetQ, geoms__, opts : OptionsPattern[]] := Catch[Module[{dataset, points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, scaleX, scaleY, linearTicksFunc, linearDateTicksFunc, linearGridLinesFunc, linearDateGridLinesFunc, graphic},
+
+  dataset = inputDataset /. d_?DateObjectQ :> AbsoluteTime[d];
+
+  (* Compile all geom information *)
   points      = Cases[{geoms}, geomPoint[aesthetics__] :> geomPoint[dataset, aesthetics], {0, Infinity}];
   lines       = Cases[{geoms}, geomLine[aesthetics__] :> geomLine[dataset, aesthetics], {0, Infinity}];
   smoothLines = Cases[{geoms}, geomSmooth[aesthetics__] :> geomSmooth[dataset, aesthetics], {0, Infinity}];
@@ -55,6 +68,17 @@ ggplot[dataset_?validDatasetQ, geoms__, opts : OptionsPattern[]] := Catch[Module
   vLines      = Cases[{geoms}, geomVLine[aesthetics__] :> geomVLine[dataset, aesthetics], {0, Infinity}];
 
   graphicsPrimitives = {points, lines, smoothLines, columns, abLines, hLines, vLines} // Flatten;
+
+  (* Compile all scaling information *)
+  scaleX = reconcileXScales[geoms]; (* returns Linear / Date / Log *)
+  scaleY = reconcileYScales[geoms]; (* returns Linear / Date / Log *)
+
+  (* TODO: Move this somewhere else *)
+  linearTicksFunc = Function[{min, max}, Alex`Plotting`linearTicks[min, max, FilterRules[Join[{opts}, Options[ggplot]], Options[Alex`Plotting`linearTicks]]]];
+  linearDateTicksFunc = Function[{min, max}, Alex`Plotting`linearDateTicks[min, max, FilterRules[Join[{opts}, Options[ggplot]], Options[Alex`Plotting`linearDateTicks]]]];
+
+  linearGridLinesFunc = Function[{min, max}, Alex`Plotting`linearGridLines[min, max, FilterRules[Join[{opts}, Options[ggplot]], Join[Options[Alex`Plotting`linearTicks], Options[Alex`Plotting`linearGridLines]]]]];
+  linearDateGridLinesFunc = Function[{min, max}, Alex`Plotting`linearDateGridLines[min, max, FilterRules[Join[{opts}, Options[ggplot]], Join[Options[Alex`Plotting`linearDateTicks], Options[Alex`Plotting`linearDateGridLines]]]]];
 
   (* TODO: Address scaling functions *)
 
@@ -74,15 +98,15 @@ ggplot[dataset_?validDatasetQ, geoms__, opts : OptionsPattern[]] := Catch[Module
     FrameTicksStyle -> OptionValue[FrameTicksStyle],
     FrameTicks -> If[OptionValue[FrameTicks] === Automatic,
       {
-        {Function[{minY, maxY}, Alex`Plotting`linearTicks[minY, maxY, FilterRules[Join[{opts}, Options[ggplot]], Options[Alex`Plotting`linearTicks]]]], False},
-        {Function[{minX, maxX}, Alex`Plotting`linearTicks[minX, maxX, FilterRules[Join[{opts}, Options[ggplot]], Options[Alex`Plotting`linearTicks]]]], False}
+        {Switch[scaleY, "Linear", linearTicksFunc, "Date", linearDateTicksFunc], False},
+        {Switch[scaleX, "Linear", linearTicksFunc, "Date", linearDateTicksFunc], False}
       },
       OptionValue[FrameTicks]
     ],
     GridLines -> If[OptionValue[GridLines] === Automatic,
       {
-        Function[{minX, maxX}, Alex`Plotting`linearGridLines[minX, maxX, FilterRules[Join[{opts}, Options[ggplot]], Join[Options[Alex`Plotting`linearTicks], Options[Alex`Plotting`linearGridLines]]]]],
-        Function[{minY, maxY}, Alex`Plotting`linearGridLines[minY, maxY, FilterRules[Join[{opts}, Options[ggplot]], Join[Options[Alex`Plotting`linearTicks], Options[Alex`Plotting`linearGridLines]]]]]
+        Switch[scaleX, "Linear", linearGridLinesFunc, "Date", linearDateGridLinesFunc],
+        Switch[scaleY, "Linear", linearGridLinesFunc, "Date", linearDateGridLinesFunc]
       },
       OptionValue[GridLines]
     ],

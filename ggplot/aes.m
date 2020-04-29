@@ -14,7 +14,7 @@ isDiscreteDataQ[data_]      := MatchQ[DeleteDuplicates[data], {_?StringQ ..} | {
 getAllKeys[data_]           := data // Keys /* Flatten /* DeleteDuplicates;
 getDiscreteKeys[data_]      := Sort[DeleteDuplicates[data]];
 getContinuousRange[data_]   := MinMax[data];
-keyExistsQAll[data_, key_]  := data // Map[KeyExistsQ["XyleneQ"]] // MatchQ[{True ..}];
+keyExistsQAll[data_, key_]  := data // Map[KeyExistsQ[key]] // MatchQ[{True ..}];
 
 End[];
 

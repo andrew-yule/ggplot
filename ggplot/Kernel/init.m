@@ -17,6 +17,8 @@ Get["ggplot`geomParityLine`"];
 Get["ggplot`geomHLine`"];
 Get["ggplot`geomVLine`"];
 
-Get["ggplot`scaleLog10`"];
+Get["ggplot`scales`"];
+Get["ggplot`scaleDate`"];
+Get["ggplot`scaleLog`"];
 
 Echo[Style["ggplot v" <> ToString[PacletFind["ggplot"][[1]]["Version"]]]];
