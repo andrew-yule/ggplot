@@ -4,8 +4,6 @@
 (* :Date: 2020-04-28 *)
 
 BeginPackage["ggplot`"];
-(* Exported symbols added here with SymbolName::usage *)
-
 
 Begin["`Private`"];
 

@@ -1,6 +1,11 @@
 (* Mathematica Init file    *)
 (* Created by Mathematica Plugin for IntelliJ IDEA *)
+
+Get["ggplot`ggplotSymbolDeclaration`"];
 Get["ggplot`ggplot`"];
+
+Get["ggplot`ticks`"];
+Get["ggplot`gridLines`"];
 
 Get["ggplot`aes`"];
 Get["ggplot`aesColor`"];
