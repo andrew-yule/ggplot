@@ -10,12 +10,11 @@ Begin["`Private`"];
 
 (* Helper functions for aesthetics *)
 
-isDiscreteDataQ[data_]      := If[MatchQ[DeleteDuplicates[data], {_?StringQ ..}], True, False];
+isDiscreteDataQ[data_]      := MatchQ[DeleteDuplicates[data], {_?StringQ ..} | {_?BooleanQ ..}];
 getAllKeys[data_]           := data // Keys /* Flatten /* DeleteDuplicates;
 getDiscreteKeys[data_]      := Sort[DeleteDuplicates[data]];
 getContinuousRange[data_]   := MinMax[data];
-keyExistsQAll[data_, key_]  := Lookup[data, Key[key], False] // ContainsAny[{False}] // Not;
-
+keyExistsQAll[data_, key_]  := data // Map[KeyExistsQ["XyleneQ"]] // MatchQ[{True ..}];
 
 End[];
 
