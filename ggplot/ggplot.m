@@ -25,6 +25,15 @@ scaleYDate::usage     = "TBD";
 scaleXLog::usage      = "TBD";
 scaleYLog::usage      = "TBD";
 
+(* Ticks / GridLines *)
+ticks::usage                            = "TBD";
+gridLines::usage                        = "TBD";
+numberOfMajorTicks2::usage              = "TBD";
+numberOfMinorTicksPerMajorTick2::usage  = "TBD";
+tickStyle2::usage                       = "TBD";
+majorTickLength2::usage                 = "TBD";
+minorTickLength2::usage                 = "TBD";
+
 Begin["`Private`"];
 
 ggplot::xOrYNotGiven    = "A geom was given without specifying the x or y mapping";
@@ -43,7 +52,21 @@ ggplot::shapecount      = "More than 5 discrete shapes are present, aborting... 
 
 validDatasetQ[dataset_] := MatchQ[dataset, {_?AssociationQ..}];
 
-Options[ggplot] = Join[Options[ListLinePlot], Options[Alex`Plotting`linearTicks], Options[Alex`Plotting`linearGridLines], {DateTicksFormat -> Automatic}];
+(* Main tick creation function *)
+(* TODO: the options here are still created and referenced in Alex, need to reconcile that *)
+Options[ticks] = {numberOfMajorTicks2 -> 8, numberOfMinorTicksPerMajorTick2 -> 1, tickStyle2 -> Directive[GrayLevel[0], Thickness[0.001`]], majorTickLength2 -> {0., 0.}, minorTickLength2 -> {0., 0.}};
+ticks[list_?ListQ, opts : OptionsPattern[]] := ReplaceAll[list, {
+  (*Major ticks*)
+  {value_, display : (_?NumericQ | _NumberForm), tickDistance_} :> {value, display, OptionValue[majorTickLength2], OptionValue[tickStyle2]},
+  (*Minor ticks*)
+  {value_, display : (_?StringQ | _Spacer), tickDistance_} :> {value, display, OptionValue[minorTickLength2], OptionValue[tickStyle2]}
+}];
+ticks[min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := ticks[Charting`ScaledTicks["Identity"][min, max, {OptionValue[numberOfMajorTicks2], OptionValue[numberOfMinorTicksPerMajorTick2]}], opts];
+ticks[func_?StringQ, min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := ticks[Charting`ScaledTicks[func][min, max, {OptionValue[numberOfMajorTicks2], OptionValue[numberOfMinorTicksPerMajorTick2]}], opts];
+
+
+(* Main ggplot method and entry point *)
+Options[ggplot] = Join[Options[ListLinePlot], Options[ticks](*, Options[Alex`Plotting`linearGridLines],*) (*{DateTicksFormat -> Automatic}*)];
 SetOptions[ggplot,
   ImageSize -> 400, AspectRatio -> 7/10, Frame -> True, Axes -> False,
   ImageMargins -> Automatic,
@@ -51,10 +74,9 @@ SetOptions[ggplot,
   FrameStyle -> Directive[GrayLevel[0.6], Thickness[0.0008`]],
   FrameTicksStyle -> Directive[Black, Opacity[1]],
   FrameTicks -> Automatic, GridLines -> Automatic,  Background -> White,
-  PlotRange -> All,
-  numberOfMinorTicksPerMajorTick -> 0
+  PlotRange -> All
 ];
-ggplot[inputDataset_?validDatasetQ, geoms__, opts : OptionsPattern[]] := Catch[Module[{dataset, points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, scaleX, scaleY, linearTicksFunc, linearDateTicksFunc, linearGridLinesFunc, linearDateGridLinesFunc, graphic},
+ggplot[inputDataset_?validDatasetQ, geoms__, opts : OptionsPattern[]] := Catch[Module[{dataset, points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, scaleX, scaleY, xTickFunc, yTickFunc, linearGridLinesFunc, linearDateGridLinesFunc, graphic},
 
   dataset = inputDataset /. d_?DateObjectQ :> AbsoluteTime[d];
 
@@ -70,17 +92,21 @@ ggplot[inputDataset_?validDatasetQ, geoms__, opts : OptionsPattern[]] := Catch[M
   graphicsPrimitives = {points, lines, smoothLines, columns, abLines, hLines, vLines} // Flatten;
 
   (* Compile all scaling information *)
-  scaleX = reconcileXScales[geoms]; (* returns Linear / Date / Log *)
-  scaleY = reconcileYScales[geoms]; (* returns Linear / Date / Log *)
+  scaleX = reconcileXScales[geoms]; (* returns Linear / Date / Log / Log10 / Log2 *)
+  scaleY = reconcileYScales[geoms]; (* returns Linear / Date / Log / Log10 / Log2 *)
 
-  (* TODO: Move this somewhere else *)
-  linearTicksFunc = Function[{min, max}, Alex`Plotting`linearTicks[min, max, FilterRules[Join[{opts}, Options[ggplot]], Options[Alex`Plotting`linearTicks]]]];
-  linearDateTicksFunc = Function[{min, max}, Alex`Plotting`linearDateTicks[min, max, FilterRules[Join[{opts}, Options[ggplot]], Options[Alex`Plotting`linearDateTicks]]]];
+  (* TODO: Address scaling functions (must be done before creating tick functions as min/max should already be scaled *)
 
+  (* Tick functions passed into ggplot FrameTicks -> _ call *)
+  With[{options = FilterRules[Join[{opts}, Options[ggplot]], Options[ticks]]},
+    xTickFunc = Function[{min, max}, ticks[scaleX, min, max, options]];
+    yTickFunc = Function[{min, max}, ticks[scaleY, min, max, options]];
+  ];
+
+  (*
   linearGridLinesFunc = Function[{min, max}, Alex`Plotting`linearGridLines[min, max, FilterRules[Join[{opts}, Options[ggplot]], Join[Options[Alex`Plotting`linearTicks], Options[Alex`Plotting`linearGridLines]]]]];
   linearDateGridLinesFunc = Function[{min, max}, Alex`Plotting`linearDateGridLines[min, max, FilterRules[Join[{opts}, Options[ggplot]], Join[Options[Alex`Plotting`linearDateTicks], Options[Alex`Plotting`linearDateGridLines]]]]];
-
-  (* TODO: Address scaling functions *)
+  *)
 
   graphic = Graphics[graphicsPrimitives,
     FrameLabel ->
@@ -97,19 +123,16 @@ ggplot[inputDataset_?validDatasetQ, geoms__, opts : OptionsPattern[]] := Catch[M
     FrameStyle -> OptionValue[FrameStyle],
     FrameTicksStyle -> OptionValue[FrameTicksStyle],
     FrameTicks -> If[OptionValue[FrameTicks] === Automatic,
-      {
-        {Switch[scaleY, "Linear", linearTicksFunc, "Date", linearDateTicksFunc], False},
-        {Switch[scaleX, "Linear", linearTicksFunc, "Date", linearDateTicksFunc], False}
-      },
+      {{yTickFunc, False}, {xTickFunc, False}},
       OptionValue[FrameTicks]
     ],
-    GridLines -> If[OptionValue[GridLines] === Automatic,
+    GridLines -> None(*TODO: Fix*)(*If[OptionValue[GridLines] === Automatic,
       {
         Switch[scaleX, "Linear", linearGridLinesFunc, "Date", linearDateGridLinesFunc],
         Switch[scaleY, "Linear", linearGridLinesFunc, "Date", linearDateGridLinesFunc]
       },
       OptionValue[GridLines]
-    ],
+    ]*),
     GridLinesStyle -> Automatic, (* shouldn't need this but do for some reason *)
     Background -> OptionValue[Background],
     ImageMargins -> OptionValue[ImageMargins],

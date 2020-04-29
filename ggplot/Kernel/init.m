@@ -17,7 +17,7 @@ Get["ggplot`geomParityLine`"];
 Get["ggplot`geomHLine`"];
 Get["ggplot`geomVLine`"];
 
-Get["ggplot`scales`"];
+Get["ggplot`scale`"];
 Get["ggplot`scaleDate`"];
 Get["ggplot`scaleLog`"];
 
