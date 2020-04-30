@@ -7,9 +7,11 @@ BeginPackage["ggplot`"];
 
 Begin["`Private`"];
 
-ggplot::xOrYNotGiven    = "A geom was given without specifying the x or y mapping";
-ggplot::shapecontinuous = "A continuous variable can not be mapped to a shape";
-ggplot::shapecount      = "More than 5 discrete shapes are present, aborting... (this should be fixed)";
+ggplot::xOrYNotGiven        = "A geom was given without specifying the x or y mapping";
+ggplot::xInterceptNotGiven  = "No xIntercept value was given for geomHLine";
+ggplot::yInterceptNotGiven  = "No yIntercept value was given for geomHLine";
+ggplot::shapeContinuous     = "A continuous variable can not be mapped to a shape";
+ggplot::shapeCount          = "More than 5 discrete shapes are present, aborting... (this should be fixed)";
 
 validDatasetQ[dataset_] := MatchQ[dataset, {_?AssociationQ..}];
 
@@ -24,35 +26,38 @@ SetOptions[ggplot,
   FrameTicks -> Automatic, GridLines -> Automatic,  Background -> White,
   PlotRange -> All
 ];
-ggplot[inputDataset_?validDatasetQ, geoms__, opts : OptionsPattern[]] := Catch[Module[{dataset, points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, scaleX, scaleY, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
+ggplot[inputDataset_?validDatasetQ, geoms__, opts : OptionsPattern[]] := Catch[Module[{dataset, points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
 
   (* Switch dates to absolute times *)
   dataset = Replace[inputDataset, d_?DateObjectQ :> AbsoluteTime[d], Infinity];
 
+  (* Get all scaling information *)
+  xScaleType = reconcileXScales[geoms]; (* returns Linear / Date / Log / Log10 / Log2 *)
+  yScaleType = reconcileYScales[geoms]; (* returns Linear / Date / Log / Log10 / Log2 *)
+
+  (* Creating scaling functions to use for x and y *)
+  xScaleFunc = With[{f = ToExpression[xScaleType /. "Linear" | "Date" -> "Identity"]}, Function[f[#]]];
+  yScaleFunc = With[{f = ToExpression[yScaleType /. "Linear" | "Date" -> "Identity"]}, Function[f[#]]];
+
   (* Compile all geom information *)
-  points      = Cases[{geoms}, geomPoint[aesthetics__] :> geomPoint[dataset, aesthetics], {0, Infinity}];
-  lines       = Cases[{geoms}, geomLine[aesthetics__] :> geomLine[dataset, aesthetics], {0, Infinity}];
-  smoothLines = Cases[{geoms}, geomSmooth[aesthetics__] :> geomSmooth[dataset, aesthetics], {0, Infinity}];
-  columns     = Cases[{geoms}, geomCol[aesthetics__] :> geomCol[dataset, aesthetics], {0, Infinity}];
-  abLines     = Cases[{geoms}, geomParityLine[aesthetics___] :> geomParityLine[dataset, aesthetics], {0, Infinity}];
-  hLines      = Cases[{geoms}, geomHLine[aesthetics__] :> geomHLine[dataset, aesthetics], {0, Infinity}];
-  vLines      = Cases[{geoms}, geomVLine[aesthetics__] :> geomVLine[dataset, aesthetics], {0, Infinity}];
+  points      = Cases[{geoms}, geomPoint[aesthetics__] :> geomPoint[dataset, aesthetics, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  lines       = Cases[{geoms}, geomLine[aesthetics__] :> geomLine[dataset, aesthetics, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  smoothLines = Cases[{geoms}, geomSmooth[aesthetics__] :> geomSmooth[dataset, aesthetics, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  abLines     = Cases[{geoms}, geomParityLine[aesthetics___] :> geomParityLine[dataset, aesthetics, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  hLines      = Cases[{geoms}, geomHLine[aesthetics__] :> geomHLine[dataset, aesthetics, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  vLines      = Cases[{geoms}, geomVLine[aesthetics__] :> geomVLine[dataset, aesthetics, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  (* columns need a lot more work to sort through *)
+  (*columns     = Cases[{geoms}, geomCol[aesthetics__] :> geomCol[dataset, aesthetics, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];*)
 
-  graphicsPrimitives = {points, lines, smoothLines, columns, abLines, hLines, vLines} // Flatten;
-
-  (* Compile all scaling information *)
-  scaleX = reconcileXScales[geoms]; (* returns Linear / Date / Log / Log10 / Log2 *)
-  scaleY = reconcileYScales[geoms]; (* returns Linear / Date / Log / Log10 / Log2 *)
-
-  (* TODO: Address scaling functions (must be done before creating tick functions as min/max should already be scaled *)
+  graphicsPrimitives = {points, lines, smoothLines, abLines, hLines, vLines} // Flatten;
 
   (* Tick / GridLine functions passed into ggplot FrameTicks -> _ call *)
   With[{tickOptions = FilterRules[{opts}, Options[ticks]], gridLineOptions = FilterRules[{opts}, Options[gridLines]]},
-    xTickFunc = Function[{min, max}, ticks[scaleX, min, max, tickOptions]];
-    yTickFunc = Function[{min, max}, ticks[scaleY, min, max, tickOptions]];
+    xTickFunc = Function[{min, max}, ticks[xScaleType, min, max, tickOptions]];
+    yTickFunc = Function[{min, max}, ticks[yScaleType, min, max, tickOptions]];
 
-    xGridLineFunc = Function[{min, max}, gridLines[scaleX, min, max, gridLineOptions]];
-    yGridLineFunc = Function[{min, max}, gridLines[scaleY, min, max, gridLineOptions]]
+    xGridLineFunc = Function[{min, max}, gridLines[xScaleType, min, max, gridLineOptions]];
+    yGridLineFunc = Function[{min, max}, gridLines[yScaleType, min, max, gridLineOptions]]
   ];
 
   graphic = Graphics[graphicsPrimitives,

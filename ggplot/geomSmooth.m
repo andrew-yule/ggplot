@@ -9,7 +9,7 @@ Begin["`Private`"];
 
 (* geomSmooth implementation *)
 
-Options[geomSmooth] = {"x" -> Null, "y" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null};
+Options[geomSmooth] = {"x" -> Null, "y" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
 geomSmooth[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
   (* Ensure X/Y has been given *)
   If[OptionValue["x"] === Null || OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
@@ -27,7 +27,8 @@ geomSmooth[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{groupbyKeys
     alphaFunc[Quiet@#[[1, OptionValue["alpha"]]]],
     thicknessFunc[Quiet@#[[1, OptionValue["thickness"]]]],
     (*lineTypeFunc[Quiet@#[[1, OptionValue["linetype"]]]],*)
-    Line@lmFit@Sort@Transpose[{#[[All, OptionValue["x"]]], #[[All, OptionValue["y"]]]}]
+    (* IMPORTANT NOTE: according to ggplot2 in R, statistics transforms occur AFTER the scaling changes *)
+    Line@lmFit@Map[Function[point, {OptionValue["xScaleFunc"]@point[[1]], OptionValue["yScaleFunc"]@point[[2]]}]]@Sort@Transpose[{#[[All, OptionValue["x"]]], #[[All, OptionValue["y"]]]}]
   } &] // Values;
 
   output

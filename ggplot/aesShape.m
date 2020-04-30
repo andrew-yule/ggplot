@@ -21,11 +21,11 @@ reconcileAesthetics[dataset_, key_, "shape"] := Module[{data, func, discreteData
   discreteDataQ = isDiscreteDataQ[data];
   If[discreteDataQ,
     keys = Sort[getDiscreteKeys[data]];
-    func = If[Length[keys] > 5, Message[ggplot::shapecount]; Throw[Null];, Function[AssociationThread[keys, Take[{"\[FilledCircle]", "\[FilledUpTriangle]", "\[FilledSquare]", "\[FivePointedStar]", "\[FilledDiamond]"}, Length[keys]]][#]]];
+    func = If[Length[keys] > 5, Message[ggplot::shapeCount]; Throw[Null];, Function[AssociationThread[keys, Take[{"\[FilledCircle]", "\[FilledUpTriangle]", "\[FilledSquare]", "\[FivePointedStar]", "\[FilledDiamond]"}, Length[keys]]][#]]];
   ];
   If[!discreteDataQ,
     minMax = getContinuousRange[data];
-    func = Message[ggplot::shapecontinuous]; Throw[Null];
+    func = Message[ggplot::shapeContinuous]; Throw[Null];
   ];
   func
 ];

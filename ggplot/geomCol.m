@@ -7,7 +7,7 @@ BeginPackage["ggplot`"];
 
 Begin["`Private`"];
 
-Options[geomCol] = {"x" -> Null, "y" -> Null, "color" -> Null};
+Options[geomCol] = {"x" -> Null, "y" -> Null, "color" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
 geomCol[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{groupbyKeys, colorFunc, output},
   (* Ensure X/Y has been given *)
   If[OptionValue["x"] === Null || OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];

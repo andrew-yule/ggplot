@@ -8,11 +8,11 @@ BeginPackage["ggplot`"];
 Begin["`Private`"];
 
 (* geomVLine implementation *)
-Options[geomVLine] = {"x" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null};
+Options[geomVLine] = {"xIntercept" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
 geomVLine[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
 
   (* Ensure X has been given *)
-  If[OptionValue["x"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
+  If[OptionValue["xIntercept"] === Null, Message[ggplot::xInterceptNotGiven]; Throw[Null];];
 
   (* For each key necessary, get functions to be used to specify the aesthetic *)
   colorFunc     = reconcileAesthetics[dataset, OptionValue["color"], "color"];
@@ -27,7 +27,8 @@ geomVLine[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{groupbyKeys,
     alphaFunc[Quiet@#[[1, OptionValue["alpha"]]]],
     thicknessFunc[Quiet@#[[1, OptionValue["thickness"]]]],
     (*lineTypeFunc[Quiet@#[[1, OptionValue["linetype"]]]],*)
-    InfiniteLine[{{OptionValue["x"], 0}, {OptionValue["x"], 1}}]
+    (* Note: using 2 and 3 for case when Log scale functions are being used *)
+    InfiniteLine[{{OptionValue["xScaleFunc"][OptionValue["xIntercept"]], OptionValue["yScaleFunc"][2]}, {OptionValue["xScaleFunc"][OptionValue["xIntercept"]], OptionValue["yScaleFunc"][3]}}]
   } &] // Values;
 
   output

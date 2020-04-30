@@ -8,11 +8,11 @@ BeginPackage["ggplot`"];
 Begin["`Private`"];
 
 (* geomHLine implementation *)
-Options[geomHLine] = {"y" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null};
+Options[geomHLine] = {"yIntercept" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
 geomHLine[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
 
   (* Ensure Y has been given *)
-  If[OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
+  If[OptionValue["yIntercept"] === Null, Message[ggplot::yInterceptNotGiven]; Throw[Null];];
 
   (* For each key necessary, get functions to be used to specify the aesthetic *)
   colorFunc     = reconcileAesthetics[dataset, OptionValue["color"], "color"];
@@ -27,7 +27,8 @@ geomHLine[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{groupbyKeys,
     alphaFunc[Quiet@#[[1, OptionValue["alpha"]]]],
     thicknessFunc[Quiet@#[[1, OptionValue["thickness"]]]],
     (*lineTypeFunc[Quiet@#[[1, OptionValue["linetype"]]]],*)
-    InfiniteLine[{{0, OptionValue["y"]}, {1, OptionValue["y"]}}]
+    (* Note: using 2 and 3 for case when Log scale functions are being used *)
+    InfiniteLine[{{OptionValue["xScaleFunc"][2], OptionValue["yScaleFunc"][OptionValue["yIntercept"]]}, {OptionValue["xScaleFunc"][3], OptionValue["yScaleFunc"][OptionValue["yIntercept"]]}}]
   } &] // Values;
 
   output

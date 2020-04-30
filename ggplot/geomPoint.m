@@ -9,7 +9,7 @@ Begin["`Private`"];
 
 (* geomPoint implementation *)
 
-Options[geomPoint] = {"x" -> Null, "y" -> Null, "color" -> Null, "size" -> Null, "alpha" -> Null, "shape" -> Null};
+Options[geomPoint] = {"x" -> Null, "y" -> Null, "color" -> Null, "size" -> Null, "alpha" -> Null, "shape" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
 geomPoint[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{colorFunc, sizeFunc, alphaFunc, shapeFunc, output},
   (* Ensure X/Y has been given *)
   If[OptionValue["x"] === Null || OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
@@ -24,7 +24,7 @@ geomPoint[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{colorFunc, s
   output = dataset // Map[{
     colorFunc[#[OptionValue["color"]]],
     alphaFunc[#[OptionValue["alpha"]]],
-    Inset[Style[shapeFunc[#[OptionValue["shape"]]], sizeFunc[#[OptionValue["size"]]]], {#[OptionValue["x"]], #[OptionValue["y"]]}]
+    Inset[Style[shapeFunc[#[OptionValue["shape"]]], sizeFunc[#[OptionValue["size"]]]], {OptionValue["xScaleFunc"][#[OptionValue["x"]]], OptionValue["yScaleFunc"][#[OptionValue["y"]]]}]
   } &];
 
   (* Grouping data but doing a GeometricTransformation on similar Inset values to speed up the plotting once inside Graphics *)
