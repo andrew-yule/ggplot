@@ -31,13 +31,13 @@ SetOptions[ggplot,
 Attributes[ggplot] = {HoldAllComplete};
 (*ggplot[dataset_?validDatasetQ, geomsAndScales : geomsAndScalesPattern, options: OptionsPattern[]] := ggplot[geomsAndScales, "data" -> dataset, options];*)
 (*ggplot[geomsAndScales : geomsAndScalesPattern, options: OptionsPattern[]][dataset_?validDatasetQ] := ggplot[geomsAndScales, "data" -> dataset, options];*)
-ggplot[args___] := Catch[Module[{rules, dataset, x, y, points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
+ggplot[args___] := Catch[Module[{rules, dataset, points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
 
   rules = Cases[Hold@{args}, _Rule, {2}];
 
   dataset = Lookup[rules, "data", {}];
-  x = Lookup[rules, "x", Null];
-  y = Lookup[rules, "y", Null];
+
+  rules = Join[rules, {"data" -> dataset, "x" -> Lookup[rules, "x", Null], "y" -> Lookup[rules, "y", Null]}];
 
   (* Switch dates to absolute times *)
   dataset = Replace[dataset, d_?DateObjectQ :> AbsoluteTime[d], Infinity];
@@ -51,12 +51,12 @@ ggplot[args___] := Catch[Module[{rules, dataset, x, y, points, lines, smoothLine
   yScaleFunc = With[{f = ToExpression[yScaleType /. "Linear" | "Date" -> "Identity"]}, Function[f[#]]];
 
   (* Compile all geom information *)
-  points      = Cases[Hold@{args}, geomPoint[opts___]      :> geomPoint[opts,      "data" -> dataset, "x" -> x, "y" -> y, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
-  lines       = Cases[Hold@{args}, geomLine[opts___]       :> geomLine[opts,       "data" -> dataset, "x" -> x, "y" -> y, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
-  smoothLines = Cases[Hold@{args}, geomSmooth[opts___]     :> geomSmooth[opts,     "data" -> dataset, "x" -> x, "y" -> y, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
-  abLines     = Cases[Hold@{args}, geomParityLine[opts___] :> geomParityLine[opts, "data" -> dataset, "x" -> x, "y" -> y, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
-  hLines      = Cases[Hold@{args}, geomHLine[opts___]      :> geomHLine[opts,      "data" -> dataset, "x" -> x, "y" -> y, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
-  vLines      = Cases[Hold@{args}, geomVLine[opts___]      :> geomVLine[opts,      "data" -> dataset, "x" -> x, "y" -> y, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  points      = Cases[Hold@{args}, geomPoint[opts___]      :> geomPoint[opts,      FilterRules[rules, Options[geomPoint]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  lines       = Cases[Hold@{args}, geomLine[opts___]       :> geomLine[opts,       FilterRules[rules, Options[geomLine]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  smoothLines = Cases[Hold@{args}, geomSmooth[opts___]     :> geomSmooth[opts,     FilterRules[rules, Options[geomSmooth]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  abLines     = Cases[Hold@{args}, geomParityLine[opts___] :> geomParityLine[opts, FilterRules[rules, Options[geomParityLine]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  hLines      = Cases[Hold@{args}, geomHLine[opts___]      :> geomHLine[opts,      FilterRules[rules, Options[geomHLine]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  vLines      = Cases[Hold@{args}, geomVLine[opts___]      :> geomVLine[opts,      FilterRules[rules, Options[geomVLine]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
   (* columns need a lot more work to sort through *)
   (*columns     = Cases[{geoms}, geomCol[aesthetics__] :> geomCol[dataset, aesthetics, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];*)
 
