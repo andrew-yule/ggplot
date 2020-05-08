@@ -8,27 +8,46 @@ BeginPackage["ggplot`"];
 Begin["`Private`"];
 
 (* Default function if size is not being used as an aesthetic *)
-reconcileAesthetics[dataset_, Null, "size"] := Function[10];
+reconcileAesthetics[dataset_, Null, "size"] := Module[{newDataset},
+  newDataset = dataset;
+  newDataset = newDataset // Map[Append[#, "size_aes" -> 10] &];
+  newDataset
+];
 
-(* If an aesthetic is used but does not match a key, then assume it's a user directly specifying what they want. *)
-(* Users can either specify a function directly or some kind of return value for what function i.e. 'Black' or 'Function[Black]' *)
-reconcileAesthetics[dataset_, func_Function, "size"] := func;
-reconcileAesthetics[dataset_, val_, "size"] /; !keyExistsQAll[dataset, val] := Function[val];
+(* If size is given as an actual size, then assume that's the size the user wants everything to be *)
+reconcileAesthetics[dataset_, size_?NumericQ, "size"] := Module[{newDataset},
+  newDataset = dataset;
+  newDataset = newDataset // Map[Append[#, "size_aes" -> size] &];
+  newDataset
+];
 
-(* More complex logic if aesthetic is used and mapped to a key *)
-reconcileAesthetics[dataset_, key_, "size"] := Module[{data, func, discreteDataQ, keys, minMax},
-  data = dataset[[All, key]];
+(* If a string is passed in, then assume that's the key in the dataset on how to size the data. Then must determine whether the data is discrete or not *)
+reconcileAesthetics[dataset_, key_?StringQ, "size"] /; keyExistsQAll[dataset, key] := Module[{newDataset, data, sizeFunc, discreteDataQ, keys, minMax},
+  newDataset = dataset;
+  data = newDataset[[All, key]];
   discreteDataQ = isDiscreteDataQ[data];
   If[discreteDataQ,
     keys = Sort[getDiscreteKeys[data]];
-    func = Function[AssociationThread[keys, Subdivide[10, 25, Length[keys] - 1]][#]];
+    sizeFunc = Function[AssociationThread[keys, Subdivide[10, 25, Length[keys] - 1]][#]];
   ];
   If[!discreteDataQ,
     minMax = getContinuousRange[data];
-    func = With[{minMax = minMax}, Function[x, Rescale[x, minMax, {10, 25}]]];
+    sizeFunc = With[{minMax = minMax}, Function[x, Rescale[x, minMax, {10, 25}]]];
   ];
-  func
+  newDataset = newDataset // Map[Append[#, "size_aes" -> sizeFunc[#[key]]] &];
+  newDataset
 ];
+
+(* If a function is passed in, then use it to determine how to size the data assuming the function will be applied "row-wise" to the dataset, as an example "size" -> Function[#somegroup < 10] *)
+reconcileAesthetics[dataset_, func_Function, "size"] := Module[{newDataset, groupedDataset, sizes},
+  newDataset = dataset;
+  groupedDataset = GroupBy[dataset, func] // KeySort;
+  sizes = Range[Length[groupedDataset]] // Map[Rescale[#, {1, Length[groupedDataset]}, {10, 25}] &];
+  newDataset = groupedDataset // Values // MapIndexed[Function[{group, index}, Map[Function[row, Append[row, "size_aes" -> sizes[[First@index]]]], group]]] // Flatten;
+  newDataset
+];
+
+reconcileAesthetics[dataset_, _, "size"] := Throw[Echo["Unclear on how to determine the size"];Null];
 
 End[];
 

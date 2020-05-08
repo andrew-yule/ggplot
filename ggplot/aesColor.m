@@ -8,27 +8,46 @@ BeginPackage["ggplot`"];
 Begin["`Private`"];
 
 (* Default function if color is not being used as an aesthetic *)
-reconcileAesthetics[dataset_, Null, "color"]  := Function[Black];
+reconcileAesthetics[dataset_, Null, "color"] := Module[{newDataset},
+  newDataset = dataset;
+  newDataset = newDataset // Map[Append[#, "color_aes" -> Black] &];
+  newDataset
+];
 
-(* If an aesthetic is used but does not match a key, then assume it's a user directly specifying what they want. *)
-(* Users can either specify a function directly or some kind of return value for what function i.e. 'Black' or 'Function[Black]' *)
-reconcileAesthetics[dataset_, func_Function, "color"] := func;
-reconcileAesthetics[dataset_, val_, "color"] /; !keyExistsQAll[dataset, val] := Function[val];
+(* If color is given as an actual color, then assume that's the color the user wants everything to be *)
+reconcileAesthetics[dataset_, color_?ColorQ, "color"] := Module[{newDataset},
+  newDataset = dataset;
+  newDataset = newDataset // Map[Append[#, "color_aes" -> color] &];
+  newDataset
+];
 
-(* More complex logic if aesthetic is used and mapped to a key *)
-reconcileAesthetics[dataset_, key_, "color"] := Module[{data, func, discreteDataQ, keys, minMax},
-  data = dataset[[All, key]];
+(* If a string is passed in, then assume that's the key in the dataset on how to color the data. Then must determine whether the data is discrete or not *)
+reconcileAesthetics[dataset_, key_?StringQ, "color"] /; keyExistsQAll[dataset, key] := Module[{newDataset, data, colorFunc, discreteDataQ, keys, minMax},
+  newDataset = dataset;
+  data = newDataset[[All, key]];
   discreteDataQ = isDiscreteDataQ[data];
   If[discreteDataQ,
     keys = Sort[getDiscreteKeys[data]];
-    func = Function[AssociationThread[keys, ggplotColorsFunc[Length[keys]]][#]];
+    colorFunc = Function[AssociationThread[keys, ggplotColorsFunc[Length[keys]]][#]];
   ];
   If[!discreteDataQ,
     minMax = getContinuousRange[data];
-    func = With[{minMax = minMax}, Function[Blend[{Red, Blue}, Rescale[#, minMax]]]];
+    colorFunc = With[{minMax = minMax}, Function[Blend[{Red, Blue}, Rescale[#, minMax]]]];
   ];
-  func
+  newDataset = newDataset // Map[Append[#, "color_aes" -> colorFunc[#[key]]] &];
+  newDataset
 ];
+
+(* If a function is passed in, then use it to determine how to color the data assuming the function will be applied "row-wise" to the dataset, as an example "color" -> Function[#somegroup < 10] *)
+reconcileAesthetics[dataset_, func_Function, "color"] := Module[{newDataset, groupedDataset, colors},
+  newDataset = dataset;
+  groupedDataset = GroupBy[dataset, func] // KeySort;
+  colors = ggplotColorsFunc[Length[groupedDataset]];
+  newDataset = groupedDataset // Values // MapIndexed[Function[{group, index}, Map[Function[row, Append[row, "color_aes" -> colors[[First@index]]]], group]]] // Flatten;
+  newDataset
+];
+
+reconcileAesthetics[dataset_, _, "color"] := Throw[Echo["Unclear on how to determine the color"];Null];
 
 (* Helper functions for colors *)
 ggplotColorsFunc[1] := Black;

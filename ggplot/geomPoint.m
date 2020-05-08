@@ -10,21 +10,23 @@ Begin["`Private`"];
 (* geomPoint implementation *)
 
 Options[geomPoint] = {"x" -> Null, "y" -> Null, "color" -> Null, "size" -> Null, "alpha" -> Null, "shape" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
-geomPoint[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{colorFunc, sizeFunc, alphaFunc, shapeFunc, output},
+geomPoint[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{newDataset, colorFunc, sizeFunc, alphaFunc, shapeFunc, output},
   (* Ensure X/Y has been given *)
   If[OptionValue["x"] === Null || OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
 
-  (* For each key necessary, get functions to be used to specify the aesthetic *)
-  colorFunc = reconcileAesthetics[dataset, OptionValue["color"], "color"];
-  sizeFunc  = reconcileAesthetics[dataset, OptionValue["size"], "size"];
-  alphaFunc = reconcileAesthetics[dataset, OptionValue["alpha"], "alpha"];
-  shapeFunc = reconcileAesthetics[dataset, OptionValue["shape"], "shape"];
+  newDataset = dataset;
+
+  (* For each key necessary, reconcile the aesthetics and append them to the dataset as a column name i.e. "color_aes" -> somecolor *)
+  newDataset = reconcileAesthetics[newDataset, OptionValue["color"], "color"];
+  newDataset = reconcileAesthetics[newDataset, OptionValue["size"], "size"];
+  newDataset = reconcileAesthetics[newDataset, OptionValue["alpha"], "alpha"];
+  newDataset = reconcileAesthetics[newDataset, OptionValue["shape"], "shape"];
 
   (*Grab the point data and for each Point apply the correct aesthetic*)
-  output = dataset // Map[{
-    colorFunc[#[OptionValue["color"]]],
-    alphaFunc[#[OptionValue["alpha"]]],
-    Inset[Style[shapeFunc[#[OptionValue["shape"]]], sizeFunc[#[OptionValue["size"]]]], {OptionValue["xScaleFunc"][#[OptionValue["x"]]], OptionValue["yScaleFunc"][#[OptionValue["y"]]]}]
+  output = newDataset // Map[{
+    #["color_aes"],
+    #["alpha_aes"],
+    Inset[Style[#["shape_aes"], #["size_aes"]], {OptionValue["xScaleFunc"][#[OptionValue["x"]]], OptionValue["yScaleFunc"][#[OptionValue["y"]]]}]
   } &];
 
   (* Grouping data but doing a GeometricTransformation on similar Inset values to speed up the plotting once inside Graphics *)

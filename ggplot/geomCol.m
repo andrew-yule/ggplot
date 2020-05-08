@@ -8,16 +8,18 @@ BeginPackage["ggplot`"];
 Begin["`Private`"];
 
 Options[geomCol] = {"x" -> Null, "y" -> Null, "color" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
-geomCol[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{groupbyKeys, colorFunc, output},
+geomCol[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{newDataset, groupbyKeys, colorFunc, output},
   (* Ensure X/Y has been given *)
   If[OptionValue["x"] === Null || OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
 
-  (* For each key necessary, get functions to be used to specify the aesthetic *)
-  colorFunc = reconcileAesthetics[dataset, OptionValue["color"], "color"];
+  newDataset = dataset;
 
-  (*Grab the point data and for each Point apply the correct aesthetic*)
-  output = dataset // Map[{
-    colorFunc[#[OptionValue["color"]]],
+  (* For each key necessary, reconcile the aesthetics and append them to the dataset as a column name i.e. "color_aes" -> somecolor *)
+  newDataset = reconcileAesthetics[newDataset, OptionValue["color"], "color"];
+
+  (*Grab the rectangles and for each apply the correct aesthetic*)
+  output = newDataset // Map[{
+    #["color_aes"],
     Rectangle[{#[OptionValue["x"]] - 0.05, 0}, {#[OptionValue["x"]] + 0.05 , #[OptionValue["y"]]}]
   } &];
 

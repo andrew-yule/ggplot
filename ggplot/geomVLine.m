@@ -9,27 +9,28 @@ Begin["`Private`"];
 
 (* geomVLine implementation *)
 Options[geomVLine] = {"xIntercept" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
-geomVLine[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
+geomVLine[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{newDataset, groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
 
-  (* Ensure X has been given *)
-  If[OptionValue["xIntercept"] === Null, Message[ggplot::xInterceptNotGiven]; Throw[Null];];
+  newDataset = dataset;
 
-  (* For each key necessary, get functions to be used to specify the aesthetic *)
-  colorFunc     = reconcileAesthetics[dataset, OptionValue["color"], "color"];
-  alphaFunc     = reconcileAesthetics[dataset, OptionValue["alpha"], "alpha"];
-  thicknessFunc = reconcileAesthetics[dataset, OptionValue["thickness"], "thickness"];
-  (*dashingFunc = reconcileAesthetics[dataset, OptionValue["dashing"], "dashing"];*)
+  (* For each key necessary, reconcile the aesthetics and append them to the dataset as a column name i.e. "color_aes" -> somecolor *)
+  newDataset = reconcileAesthetics[newDataset, OptionValue["color"], "color"];
+  newDataset = reconcileAesthetics[newDataset, OptionValue["alpha"], "alpha"];
+  newDataset = reconcileAesthetics[newDataset, OptionValue["thickness"], "thickness"];
+  (*newDataset = reconcileAesthetics[newDataset, OptionValue["dashing"], "dashing"];*) (* bug here with Dashing and Graphics that has been reported to Wolfram *)
 
-  (* Group the data and apply correct aesthetics while making a line primitive *)
-  groupbyKeys = DeleteCases[{OptionValue["color"], OptionValue["thickness"], OptionValue["alpha"], OptionValue["thickness"], OptionValue["dashing"]}, Null];
-  output = dataset // GroupBy[((# /@ groupbyKeys) &)] // Map[{
-    colorFunc[Quiet@#[[1, OptionValue["color"]]]],
-    alphaFunc[Quiet@#[[1, OptionValue["alpha"]]]],
-    thicknessFunc[Quiet@#[[1, OptionValue["thickness"]]]],
-    (*lineTypeFunc[Quiet@#[[1, OptionValue["linetype"]]]],*)
-    (* Note: using 2 and 3 for case when Log scale functions are being used *)
-    InfiniteLine[{{OptionValue["xScaleFunc"][OptionValue["xIntercept"]], OptionValue["yScaleFunc"][2]}, {OptionValue["xScaleFunc"][OptionValue["xIntercept"]], OptionValue["yScaleFunc"][3]}}]
-  } &] // Values;
+  (* Group the data based on their aesthetic keys and then apply correct aesthetics while making a line primitive *)
+  groupbyKeys = Function[{#["color_aes"], #["alpha_aes"], #["thickness_aes"]}];
+  output =  newDataset //
+      GroupBy[groupbyKeys] //
+      Values //
+      Map[{
+        #[[1, "color_aes"]],
+        #[[1, "alpha_aes"]],
+        #[[1, "thickness_aes"]],
+        (* Note: using 2 and 3 for case when Log scale functions are being used *)
+        InfiniteLine[{{OptionValue["xScaleFunc"][OptionValue["xIntercept"]], OptionValue["yScaleFunc"][2]}, {OptionValue["xScaleFunc"][OptionValue["xIntercept"]], OptionValue["yScaleFunc"][3]}}]
+      } &];
 
   output
 ];

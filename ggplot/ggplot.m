@@ -24,7 +24,7 @@ SetOptions[ggplot,
   FrameStyle -> Directive[GrayLevel[0.6], Thickness[0.0008`]],
   FrameTicksStyle -> Directive[Black, Opacity[1]],
   FrameTicks -> Automatic, GridLines -> Automatic,  Background -> White,
-  PlotRange -> All
+  PlotRange -> All, PlotRangeClipping -> True
 ];
 ggplot[inputDataset_?validDatasetQ, geoms__, opts : OptionsPattern[]] := Catch[Module[{dataset, points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
 
@@ -85,6 +85,7 @@ ggplot[inputDataset_?validDatasetQ, geoms__, opts : OptionsPattern[]] := Catch[M
     GridLinesStyle -> Automatic, (* shouldn't need this but do for some reason *)
     Background -> OptionValue[Background],
     ImageMargins -> OptionValue[ImageMargins],
+    PlotRangeClipping -> OptionValue[PlotRangeClipping],
     FilterRules[{opts}, Options[ListPlot]]
   ];
 

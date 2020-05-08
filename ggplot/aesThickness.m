@@ -8,28 +8,48 @@ BeginPackage["ggplot`"];
 Begin["`Private`"];
 
 (* Default function if thickness is not being used as an aesthetic *)
-reconcileAesthetics[dataset_, Null, "thickness"] := Function[Thick]; (* Need to disable any Dashing function for now as Dashing[1] causes a known Graphics issue with lines flickering. Bug has been reported to Wolfram. *)
+reconcileAesthetics[dataset_, Null, "thickness"] := Module[{newDataset},
+  newDataset = dataset;
+  newDataset = newDataset // Map[Append[#, "thickness_aes" -> Thick] &];
+  newDataset
+];
 
-(* If an aesthetic is used but does not match a key, then assume it's a user directly specifying what they want. *)
-(* Users can either specify a function directly or some kind of return value for what function i.e. 'Black' or 'Function[Black]' *)
-reconcileAesthetics[dataset_, func_Function, "thickness"] := func;
-reconcileAesthetics[dataset_, val_, "thickness"] /; !keyExistsQAll[dataset, val] := Function[val];
+(* If thickness is given as an actual thickness, then assume that's the thickness the user wants everything to be *)
+reconcileAesthetics[dataset_, thickness_Thickness, "thickness"] := Module[{newDataset},
+  newDataset = dataset;
+  newDataset = newDataset // Map[Append[#, "thickness_aes" -> thickness] &];
+  newDataset
+];
 
 (* TODO: Add more logic into handling of thickness *)
-(* More complex logic if aesthetic is used and mapped to a key *)
-reconcileAesthetics[dataset_, key_, "thickness"] := Module[{data, func, discreteDataQ, keys, minMax},
-  data = dataset[[All, key]];
+(* If a string is passed in, then assume that's the key in the dataset on how to thickness the data. Then must determine whether the data is discrete or not *)
+reconcileAesthetics[dataset_, key_?StringQ, "thickness"] /; keyExistsQAll[dataset, key] := Module[{newDataset, data, thicknessFunc, discreteDataQ, keys, minMax},
+  newDataset = dataset;
+  data = newDataset[[All, key]];
   discreteDataQ = isDiscreteDataQ[data];
   If[discreteDataQ,
     keys = Sort[getDiscreteKeys[data]];
-    func = Function[Thick];
+    thicknessFunc = Function[Thick];
   ];
   If[!discreteDataQ,
     minMax = getContinuousRange[data];
-    func = Function[Thick];
+    thicknessFunc = Function[Thick];
   ];
-  func
+  newDataset = newDataset // Map[Append[#, "thickness_aes" -> thicknessFunc[#[key]]] &];
+  newDataset
 ];
+
+(* TODO: Add more logic into handling of thickness *)
+(* If a function is passed in, then use it to determine how to thickness the data assuming the function will be applied "row-wise" to the dataset, as an example "thickness" -> Function[#somegroup < 10] *)
+reconcileAesthetics[dataset_, func_Function, "thickness"] := Module[{newDataset, groupedDataset, thicknesss},
+  newDataset = dataset;
+  groupedDataset = GroupBy[dataset, func] // KeySort;
+  thicknesss = ConstantArray[Thick, Length[groupedDataset]];
+  newDataset = groupedDataset // Values // MapIndexed[Function[{group, index}, Map[Function[row, Append[row, "thickness_aes" -> thicknesss[[First@index]]]], group]]] // Flatten;
+  newDataset
+];
+
+reconcileAesthetics[dataset_, _, "thickness"] := Throw[Echo["Unclear on how to determine the thickness"];Null];
 
 End[];
 
