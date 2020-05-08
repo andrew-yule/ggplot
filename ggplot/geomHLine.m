@@ -8,10 +8,10 @@ BeginPackage["ggplot`"];
 Begin["`Private`"];
 
 (* geomHLine implementation *)
-Options[geomHLine] = {"yIntercept" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
-geomHLine[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{newDataset, groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
+Options[geomHLine] = {"data" -> {}, "yIntercept" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
+geomHLine[opts : OptionsPattern[]] := Module[{newDataset, groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
 
-  newDataset = dataset;
+  newDataset = OptionValue["data"];
 
   (* For each key necessary, reconcile the aesthetics and append them to the dataset as a column name i.e. "color_aes" -> somecolor *)
   newDataset = reconcileAesthetics[newDataset, OptionValue["color"], "color"];

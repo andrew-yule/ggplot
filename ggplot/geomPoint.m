@@ -9,12 +9,12 @@ Begin["`Private`"];
 
 (* geomPoint implementation *)
 
-Options[geomPoint] = {"x" -> Null, "y" -> Null, "color" -> Null, "size" -> Null, "alpha" -> Null, "shape" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
-geomPoint[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{newDataset, colorFunc, sizeFunc, alphaFunc, shapeFunc, output},
+Options[geomPoint] = {"data" -> {}, "x" -> Null, "y" -> Null, "color" -> Null, "size" -> Null, "alpha" -> Null, "shape" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
+geomPoint[opts : OptionsPattern[]] := Module[{newDataset, colorFunc, sizeFunc, alphaFunc, shapeFunc, output},
   (* Ensure X/Y has been given *)
   If[OptionValue["x"] === Null || OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
 
-  newDataset = dataset;
+  newDataset = OptionValue["data"];
 
   (* For each key necessary, reconcile the aesthetics and append them to the dataset as a column name i.e. "color_aes" -> somecolor *)
   newDataset = reconcileAesthetics[newDataset, OptionValue["color"], "color"];
