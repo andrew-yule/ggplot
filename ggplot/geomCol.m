@@ -14,6 +14,9 @@ geomCol[dataset_?ListQ, aesthetics : OptionsPattern[]] := Module[{newDataset, gr
 
   newDataset = dataset;
 
+  (* Switch dates to absolute times *)
+  newDataset = Replace[newDataset, d_?DateObjectQ :> AbsoluteTime[d], Infinity];
+
   (* For each key necessary, reconcile the aesthetics and append them to the dataset as a column name i.e. "color_aes" -> somecolor *)
   newDataset = reconcileAesthetics[newDataset, OptionValue["color"], "color"];
 

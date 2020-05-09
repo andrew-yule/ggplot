@@ -10,11 +10,14 @@ Begin["`Private`"];
 (* geomLine implementation *)
 
 Options[geomLine] = {"data" -> {}, "x" -> Null, "y" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
-geomLine[opts : OptionsPattern[]] := Module[{newDataset, groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
+geomLine[opts : OptionsPattern[]] /; Count[Hold[opts], ("data" -> _), {0, Infinity}] > 0 := Module[{newDataset, groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
   (* Ensure X/Y has been given *)
   If[OptionValue["x"] === Null || OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
 
   newDataset = OptionValue["data"];
+
+  (* Switch dates to absolute times *)
+  newDataset = Replace[newDataset, d_?DateObjectQ :> AbsoluteTime[d], Infinity];
 
   (* For each key necessary, reconcile the aesthetics and append them to the dataset as a column name i.e. "color_aes" -> somecolor *)
   newDataset = reconcileAesthetics[newDataset, OptionValue["color"], "color"];

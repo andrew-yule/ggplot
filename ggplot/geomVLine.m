@@ -9,9 +9,12 @@ Begin["`Private`"];
 
 (* geomVLine implementation *)
 Options[geomVLine] = {"data" -> {}, "xIntercept" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
-geomVLine[opts : OptionsPattern[]] := Module[{newDataset, groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
+geomVLine[opts : OptionsPattern[]] /; Count[Hold[opts], ("data" -> _), {0, Infinity}] > 0 := Module[{newDataset, groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
 
   newDataset = OptionValue["data"];
+
+  (* Switch dates to absolute times *)
+  newDataset = Replace[newDataset, d_?DateObjectQ :> AbsoluteTime[d], Infinity];
 
   (* For each key necessary, reconcile the aesthetics and append them to the dataset as a column name i.e. "color_aes" -> somecolor *)
   newDataset = reconcileAesthetics[newDataset, OptionValue["color"], "color"];

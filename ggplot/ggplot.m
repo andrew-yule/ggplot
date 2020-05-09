@@ -15,7 +15,8 @@ ggplot::shapeCount          = "More than 5 discrete shapes are present, aborting
 
 validDatasetQ[dataset_] := MatchQ[dataset, {_?AssociationQ..}];
 
-argPattern = (_Rule | geomPoint) ...;
+Attributes[argPatternQ] = {HoldAllComplete};
+argPatternQ[expr___] := MatchQ[Hold[expr], Hold[(_Rule | geomPoint[___] | geomLine[___] | geomSmooth[___] | geomVLine[___] | geomHLine[___] | geomParityLine[___] | geomCol[___] | scaleXDate[___] | scaleXLinear[___] | scaleXLog[___] | scaleYDate[___] | scaleYLinear[___] | scaleYLog[___]) ...]];
 
 (* Main ggplot method and entry point *)
 Options[ggplot] = Join[{"data" -> {}}, Options[ListLinePlot], Options[ticks], Options[gridLines] (*{DateTicksFormat -> Automatic}*)];
@@ -29,18 +30,15 @@ SetOptions[ggplot,
   PlotRange -> All, PlotRangeClipping -> True
 ];
 Attributes[ggplot] = {HoldAllComplete};
-ggplot[ds_?validDatasetQ, args___] := ggplot["data" -> ds, args];
-ggplot[args___][ds_?validDatasetQ] := ggplot["data" -> ds, args];
-ggplot[args___] := Catch[Module[{options, dataset, points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
+ggplot[ds_?validDatasetQ, args___?argPatternQ] := ggplot["data" -> ds, args];
+ggplot[args___?argPatternQ][ds_?validDatasetQ] := ggplot["data" -> ds, args];
+ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] > 0 := Catch[Module[{options, dataset, points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
 
   options = Cases[Hold@{args}, _Rule, {2}];
 
   dataset = Lookup[options, "data", {}];
 
   options = Join[options, {"data" -> dataset, "x" -> Lookup[options, "x", Null], "y" -> Lookup[options, "y", Null]}];
-
-  (* Switch dates to absolute times *)
-  dataset = Replace[dataset, d_?DateObjectQ :> AbsoluteTime[d], Infinity];
 
   (* Get all scaling information *)
   xScaleType = reconcileXScales[Hold@{args}]; (* returns Linear / Date / Log / Log10 / Log2 *)
@@ -71,11 +69,11 @@ ggplot[args___] := Catch[Module[{options, dataset, points, lines, smoothLines, c
     yGridLineFunc = Function[{min, max}, gridLines[yScaleType, min, max, gridLineOptions]]
   ];
 
-  graphic = Graphics[graphicsPrimitives, Frame -> True, AspectRatio -> 0.7,
+  graphic = Graphics[graphicsPrimitives,
     FrameLabel ->
-        If[MatchQ[Lookup[options, PlotStyle, OptionValue[ggplot, FrameLabel]], {{_?StringQ, _?StringQ}, {_?StringQ, _?StringQ}} | {_?StringQ, _?StringQ} | _?StringQ],
-          (Lookup[options, PlotStyle, OptionValue[ggplot, FrameLabel]] /. str_?StringQ :> Style[str, Opacity[1], FontColor -> Black]),
-          Lookup[options, PlotStyle, OptionValue[ggplot, FrameLabel]]
+        If[MatchQ[Lookup[options, FrameLabel, OptionValue[ggplot, FrameLabel]], {{_?StringQ, _?StringQ}, {_?StringQ, _?StringQ}} | {_?StringQ, _?StringQ} | _?StringQ],
+          (Lookup[options, FrameLabel, OptionValue[ggplot, FrameLabel]] /. str_?StringQ :> Style[str, Opacity[1], FontColor -> Black]),
+          Lookup[options, FrameLabel, OptionValue[ggplot, FrameLabel]]
         ],
     PlotStyle         -> Lookup[options, PlotStyle, OptionValue[ggplot, PlotStyle]],
     ImageSize         -> Lookup[options, ImageSize, OptionValue[ggplot, ImageSize]],
