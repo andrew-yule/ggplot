@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    887711,      22424]
-NotebookOptionsPosition[    867307,      22080]
-NotebookOutlinePosition[    867774,      22098]
-CellTagsIndexPosition[    867731,      22095]
+NotebookDataLength[    892330,      22638]
+NotebookOptionsPosition[    871506,      22286]
+NotebookOutlinePosition[    871971,      22304]
+CellTagsIndexPosition[    871928,      22301]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -33,7 +33,7 @@ Code/ggplot/ggplot\>\"", ",", "\"\<Downloads\>\""}], "]"}], "\n",
   3.797066135717765*^9}, {3.797066429253196*^9, 3.79706642969862*^9}, {
   3.797069537267611*^9, 3.7970695375478373`*^9}, {3.797245716547298*^9, 
   3.797245716957232*^9}},
- CellLabel->"In[33]:=",ExpressionUUID->"ddfcc8d6-fd7d-4d54-9b99-9a2ae2ec34db"],
+ CellLabel->"In[78]:=",ExpressionUUID->"ddfcc8d6-fd7d-4d54-9b99-9a2ae2ec34db"],
 
 Cell[BoxData["\<\"/Users/andrewyule/Downloads/ggplot-0.2.paclet\"\>"], \
 "Output",
@@ -121,8 +121,10 @@ Cell[BoxData["\<\"/Users/andrewyule/Downloads/ggplot-0.2.paclet\"\>"], \
    3.798042371786189*^9, 3.7981028769382143`*^9, 3.798103113833054*^9, 
    3.798103718596813*^9, 3.798129417860774*^9, 3.798129493886381*^9, {
    3.798129586469679*^9, 3.798129603682756*^9}, 3.79812965571586*^9, 
-   3.79812969154431*^9, 3.7981298304465103`*^9},
- CellLabel->"Out[33]=",ExpressionUUID->"5eddd86b-53c3-406d-ab2e-5cf836f663a2"],
+   3.79812969154431*^9, 3.7981298304465103`*^9, 3.7981313227290277`*^9, 
+   3.798131365588777*^9, 3.7981314037107563`*^9, 3.798131437178796*^9, 
+   3.798131483861493*^9},
+ CellLabel->"Out[78]=",ExpressionUUID->"4a57b1ab-8cea-479a-b599-206d95e3dd30"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -599,8 +601,10 @@ ggplot-0.2\"", "SummaryItem"]}]}, {
    3.798042371786189*^9, 3.7981028769382143`*^9, 3.798103113833054*^9, 
    3.798103718596813*^9, 3.798129417860774*^9, 3.798129493886381*^9, {
    3.798129586469679*^9, 3.798129603682756*^9}, 3.79812965571586*^9, 
-   3.79812969154431*^9, 3.798129830614502*^9},
- CellLabel->"Out[34]=",ExpressionUUID->"92883b0e-08f6-4bff-8606-50de9c368e75"]
+   3.79812969154431*^9, 3.7981298304465103`*^9, 3.7981313227290277`*^9, 
+   3.798131365588777*^9, 3.7981314037107563`*^9, 3.798131437178796*^9, 
+   3.7981314840320377`*^9},
+ CellLabel->"Out[79]=",ExpressionUUID->"7dfbf8f7-3f68-49e9-befa-8d424cae87e7"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -688,19 +692,19 @@ Cell[BoxData[{
  CellChangeTimes->{{3.797066662721579*^9, 3.797066666322404*^9}, {
   3.797068498727825*^9, 3.797068500797306*^9}, {3.797245273464402*^9, 
   3.7972452761169033`*^9}},
- CellLabel->"In[2]:=",ExpressionUUID->"a565ab5e-e970-4234-9783-222b2a891bd7"],
+ CellLabel->"In[80]:=",ExpressionUUID->"a565ab5e-e970-4234-9783-222b2a891bd7"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData["\<\"Assured Flow Solutions' Alex v2020.5.3\"\>"], "Echo",
  CellChangeTimes->{
-  3.798129839281694*^9},ExpressionUUID->"45dd102a-1fc5-4b99-a30f-\
-1b54374aa5c7"],
+  3.798131487071714*^9},ExpressionUUID->"01034b69-6c34-4124-b2d1-\
+6720c6287e32"],
 
 Cell[BoxData["\<\"ggplot v0.2\"\>"], "Echo",
  CellChangeTimes->{
-  3.798129839330079*^9},ExpressionUUID->"dda2c334-c6aa-4e9b-97d9-\
-855ec768ad56"]
+  3.7981314871163597`*^9},ExpressionUUID->"ac8bb778-08ef-4114-9778-\
+7acd00ffef49"]
 }, Open  ]]
 }, Open  ]],
 
@@ -720,14 +724,23 @@ Cell[BoxData[{
        "\"\<mpg.csv\>\""}], "}"}], "]"}], "//", "importToDataset"}]}], 
   ";"}], "\n", 
  RowBox[{
+  RowBox[{"mtcars", "=", 
+   RowBox[{
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data\>\"", ",", 
+       "\"\<mtcars.csv\>\""}], "}"}], "]"}], "//", "importToDataset"}]}], 
+  ";"}], "\n", 
+ RowBox[{
   RowBox[{
-   RowBox[{"mtcars", "=", 
+   RowBox[{"economics", "=", 
     RowBox[{
      RowBox[{"FileNameJoin", "[", 
       RowBox[{"{", 
        RowBox[{
         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Data\>\"", ",", 
-        "\"\<mtcars.csv\>\""}], "}"}], "]"}], "//", "importToDataset"}]}], 
+        "\"\<economics.csv\>\""}], "}"}], "]"}], "//", "importToDataset"}]}], 
    ";"}], "\n", 
   RowBox[{"(*", 
    RowBox[{
@@ -758,8 +771,10 @@ Cell[BoxData[{
   3.79706965808039*^9}, {3.797070513182523*^9, 3.797070537325594*^9}, {
   3.797089273932197*^9, 3.797089277578108*^9}, {3.79716657932683*^9, 
   3.797166662370934*^9}, {3.797166843367387*^9, 3.797166849186734*^9}, {
-  3.797241236024284*^9, 3.7972412528953733`*^9}},
- CellLabel->"In[4]:=",ExpressionUUID->"da49e7bc-10e2-444f-bc5b-480f227cb620"],
+  3.797241236024284*^9, 3.7972412528953733`*^9}, {3.798132201086488*^9, 
+  3.798132210539226*^9}},
+ CellLabel->
+  "In[122]:=",ExpressionUUID->"da49e7bc-10e2-444f-bc5b-480f227cb620"],
 
 Cell[CellGroupData[{
 
@@ -1135,31 +1150,236 @@ Cell["Experimenting for aesthetics", "Subsubsection",
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"mtcars", "//", 
-  RowBox[{"ggplot", "[", 
-   RowBox[{"geomPoint", "[", 
-    RowBox[{
-     RowBox[{"\"\<x\>\"", "\[Rule]", "\"\<disp\>\""}], ",", 
-     RowBox[{"\"\<y\>\"", "\[Rule]", "\"\<mpg\>\""}]}], "]"}], 
-   "]"}]}]], "Input",
- CellChangeTimes->{{3.7981029441675167`*^9, 3.7981029623863783`*^9}, {
-  3.798130170179146*^9, 3.79813021691549*^9}},
- CellLabel->"In[50]:=",ExpressionUUID->"b6027324-e261-4621-906a-86afd547800d"],
+ RowBox[{"economics", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.798132267984282*^9, 3.7981322718568974`*^9}},
+ CellLabel->
+  "In[128]:=",ExpressionUUID->"4a4107af-c8f0-442d-9726-b9a560db16d9"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"date\"\>", "\[Rule]", "\<\"1967-07-01\"\>"}], ",", 
+   RowBox[{"\<\"pce\"\>", "\[Rule]", "506.7`"}], ",", 
+   RowBox[{"\<\"pop\"\>", "\[Rule]", "198712"}], ",", 
+   RowBox[{"\<\"psavert\"\>", "\[Rule]", "12.6`"}], ",", 
+   RowBox[{"\<\"uempmed\"\>", "\[Rule]", "4.5`"}], ",", 
+   RowBox[{"\<\"unemploy\"\>", "\[Rule]", "2944"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.798132269053134*^9, 3.7981322721578417`*^9}},
+ CellLabel->
+  "Out[128]=",ExpressionUUID->"f24abfba-dfad-4888-9600-3a1eb3844285"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"economics", "//", "\n", "\t", 
+   RowBox[{"MapAt", "[", 
+    RowBox[{"DateObject", ",", 
+     RowBox[{"{", 
+      RowBox[{"All", ",", "\"\<date\>\""}], "}"}]}], "]"}]}], "//", "\n", 
+  "\t", 
+  RowBox[{"ggplot", "[", "\n", "\t\t", 
+   RowBox[{
+    RowBox[{"\"\<x\>\"", "\[Rule]", "\"\<date\>\""}], ",", 
+    RowBox[{"\"\<y\>\"", "\[Rule]", "\"\<uempmed\>\""}], ",", 
+    RowBox[{"geomLine", "[", "]"}], ",", 
+    RowBox[{"scaleXDate", "[", "]"}]}], "\n", "\t", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7981322207883053`*^9, 3.798132320667322*^9}, 
+   3.798132491961557*^9},
+ CellLabel->
+  "In[131]:=",ExpressionUUID->"85be8148-db0d-42b8-b08f-577d3edbe70d"],
 
 Cell[BoxData[
  GraphicsBox[
-  {GrayLevel[0], Opacity[1], GeometricTransformationBox[InsetBox[
-     StyleBox["\<\"\[FilledCircle]\"\>",
-      StripOnInput->False,
-      FontSize->10], {0, 0}], {{{160, 21}}, {{160, 
-     21}}, {{108, 22.8}}, {{258, 21.4}}, {{360, 18.7}}, {{225, 18.1}}, {{
-      360, 14.3}}, {{146.7, 24.4}}, {{140.8, 22.8}}, {{167.6, 19.2}}, {{167.6,
-      17.8}}, {{275.8, 16.4}}, {{275.8, 17.3}}, {{275.8, 
-     15.2}}, {{472, 10.4}}, {{460, 10.4}}, {{440, 14.7}}, {{78.7, 32.4}}, {{
-     75.7, 30.4}}, {{71.1, 33.9}}, {{120.1, 
-     21.5}}, {{318, 15.5}}, {{304, 15.2}}, {{350, 13.3}}, {{400, 19.2}}, {{
-      79, 27.3}}, {{120.3, 26}}, {{95.1, 
-     30.4}}, {{351, 15.8}}, {{145, 19.7}}, {{301, 15}}, {{121, 21.4}}}]},
+  {GrayLevel[0], Thickness[Large], Opacity[1], 
+   LineBox[{{2129932800, 4.5}, {2132611200, 4.7}, {2135289600, 4.6}, {
+     2137881600, 4.9}, {2140560000, 4.7}, {2143152000, 4.8}, {
+     2145830400, 5.1}, {2148508800, 4.5}, {2151014400, 4.1}, {
+     2153692800, 4.6}, {2156284800, 4.4}, {2158963200, 4.4}, {
+     2161555200, 4.5}, {2164233600, 4.2}, {2166912000, 4.6}, {
+     2169504000, 4.8}, {2172182400, 4.4}, {2174774400, 4.4}, {
+     2177452800, 4.4}, {2180131200, 4.9}, {2182550400, 4}, {2185228800, 4}, {
+     2187820800, 4.2}, {2190499200, 4.4}, {2193091200, 4.4}, {
+     2195769600, 4.4}, {2198448000, 4.7}, {2201040000, 4.5}, {
+     2203718400, 4.8}, {2206310400, 4.6}, {2208988800, 4.6}, {
+     2211667200, 4.5}, {2214086400, 4.6}, {2216764800, 4.1}, {
+     2219356800, 4.7}, {2222035200, 4.9}, {2224627200, 5.1}, {
+     2227305600, 5.4}, {2229984000, 5.2}, {2232576000, 5.2}, {
+     2235254400, 5.6}, {2237846400, 5.9}, {2240524800, 6.2}, {
+     2243203200, 6.3}, {2245622400, 6.4}, {2248300800, 6.5}, {
+     2250892800, 6.7}, {2253571200, 5.7}, {2256163200, 6.2}, {
+     2258841600, 6.4}, {2261520000, 5.8}, {2264112000, 6.5}, {
+     2266790400, 6.4}, {2269382400, 6.2}, {2272060800, 6.2}, {
+     2274739200, 6.6}, {2277244800, 6.6}, {2279923200, 6.7}, {
+     2282515200, 6.6}, {2285193600, 5.4}, {2287785600, 6.1}, {2290464000, 
+     6}, {2293142400, 5.6}, {2295734400, 5.7}, {2298412800, 5.7}, {
+     2301004800, 6.1}, {2303683200, 5.7}, {2306361600, 5.2}, {
+     2308780800, 5.5}, {2311459200, 5}, {2314051200, 4.9}, {2316729600, 5}, {
+     2319321600, 5.2}, {2322000000, 4.9}, {2324678400, 5.4}, {
+     2327270400, 5.5}, {2329948800, 5.1}, {2332540800, 4.7}, {2335219200, 
+     5}, {2337897600, 5.1}, {2340316800, 4.8}, {2342995200, 5}, {
+     2345587200, 4.6}, {2348265600, 5.3}, {2350857600, 5.7}, {2353536000, 
+     5}, {2356214400, 5.3}, {2358806400, 5.5}, {2361484800, 5.2}, {
+     2364076800, 5.7}, {2366755200, 6.3}, {2369433600, 7.1}, {
+     2371852800, 7.2}, {2374531200, 8.7}, {2377123200, 9.4}, {
+     2379801600, 8.8}, {2382393600, 8.6}, {2385072000, 9.2}, {
+     2387750400, 9.2}, {2390342400, 8.6}, {2393020800, 9.5}, {2395612800, 
+     9}, {2398291200, 9}, {2400969600, 8.2}, {2403475200, 8.7}, {
+     2406153600, 8.2}, {2408745600, 8.3}, {2411424000, 7.8}, {
+     2414016000, 7.7}, {2416694400, 7.9}, {2419372800, 7.8}, {
+     2421964800, 7.7}, {2424643200, 8.4}, {2427235200, 8}, {
+     2429913600, 7.5}, {2432592000, 7.2}, {2435011200, 7.2}, {
+     2437689600, 7.3}, {2440281600, 7.9}, {2442960000, 6.2}, {
+     2445552000, 7.1}, {2448230400, 7}, {2450908800, 6.7}, {
+     2453500800, 6.9}, {2456179200, 7}, {2458771200, 6.8}, {
+     2461449600, 6.5}, {2464128000, 6.7}, {2466547200, 6.2}, {
+     2469225600, 6.1}, {2471817600, 5.7}, {2474496000, 6}, {
+     2477088000, 5.8}, {2479766400, 5.8}, {2482444800, 5.6}, {
+     2485036800, 5.9}, {2487715200, 5.5}, {2490307200, 5.6}, {
+     2492985600, 5.9}, {2495664000, 5.9}, {2498083200, 5.9}, {
+     2500761600, 5.4}, {2503353600, 5.6}, {2506032000, 5.6}, {
+     2508624000, 5.9}, {2511302400, 4.8}, {2513980800, 5.5}, {
+     2516572800, 5.5}, {2519251200, 5.3}, {2521843200, 5.7}, {
+     2524521600, 5.3}, {2527200000, 5.8}, {2529705600, 6}, {
+     2532384000, 5.8}, {2534976000, 5.7}, {2537654400, 6.4}, {2540246400, 
+     7}, {2542924800, 7.5}, {2545603200, 7.7}, {2548195200, 7.5}, {
+     2550873600, 7.7}, {2553465600, 7.5}, {2556144000, 7.4}, {
+     2558822400, 7.1}, {2561241600, 7.1}, {2563920000, 7.4}, {
+     2566512000, 6.9}, {2569190400, 6.6}, {2571782400, 7.1}, {
+     2574460800, 7.2}, {2577139200, 6.8}, {2579731200, 6.8}, {
+     2582409600, 6.9}, {2585001600, 6.9}, {2587680000, 7.1}, {
+     2590358400, 7.5}, {2592777600, 7.7}, {2595456000, 8.1}, {
+     2598048000, 8.5}, {2600726400, 9.5}, {2603318400, 8.5}, {
+     2605996800, 8.7}, {2608675200, 9.5}, {2611267200, 9.7}, {2613945600, 
+     10}, {2616537600, 10.2}, {2619216000, 11.1}, {2621894400, 9.8}, {
+     2624313600, 10.4}, {2626992000, 10.9}, {2629584000, 12.3}, {
+     2632262400, 11.3}, {2634854400, 10.1}, {2637532800, 9.3}, {
+     2640211200, 9.3}, {2642803200, 9.4}, {2645481600, 9.3}, {
+     2648073600, 8.7}, {2650752000, 9.1}, {2653430400, 8.3}, {
+     2655936000, 8.3}, {2658614400, 8.2}, {2661206400, 9.1}, {
+     2663884800, 7.5}, {2666476800, 7.5}, {2669155200, 7.3}, {
+     2671833600, 7.6}, {2674425600, 7.2}, {2677104000, 7.2}, {
+     2679696000, 7.3}, {2682374400, 6.8}, {2685052800, 7.1}, {
+     2687472000, 7.1}, {2690150400, 6.9}, {2692742400, 6.9}, {
+     2695420800, 6.6}, {2698012800, 6.9}, {2700691200, 7.1}, {
+     2703369600, 6.9}, {2705961600, 7.1}, {2708640000, 7}, {
+     2711232000, 6.8}, {2713910400, 6.7}, {2716588800, 6.9}, {
+     2719008000, 6.8}, {2721686400, 6.7}, {2724278400, 6.8}, {2726956800, 
+     7}, {2729548800, 6.9}, {2732227200, 7.1}, {2734905600, 7.4}, {2737497600,
+      7}, {2740176000, 7.1}, {2742768000, 7.1}, {2745446400, 6.9}, {
+     2748124800, 6.6}, {2750544000, 6.6}, {2753222400, 7.1}, {
+     2755814400, 6.6}, {2758492800, 6.5}, {2761084800, 6.5}, {
+     2763763200, 6.4}, {2766441600, 6}, {2769033600, 6.3}, {
+     2771712000, 6.2}, {2774304000, 6}, {2776982400, 6.2}, {
+     2779660800, 6.3}, {2782166400, 6.4}, {2784844800, 5.9}, {
+     2787436800, 5.9}, {2790115200, 5.8}, {2792707200, 6.1}, {
+     2795385600, 5.9}, {2798064000, 5.7}, {2800656000, 5.6}, {
+     2803334400, 5.7}, {2805926400, 5.9}, {2808604800, 5.6}, {
+     2811283200, 5.4}, {2813702400, 5.4}, {2816380800, 5.4}, {
+     2818972800, 5.3}, {2821651200, 5.4}, {2824243200, 5.6}, {2826921600, 
+     5}, {2829600000, 4.9}, {2832192000, 4.9}, {2834870400, 4.8}, {
+     2837462400, 4.9}, {2840140800, 5.1}, {2842819200, 5.3}, {
+     2845238400, 5.1}, {2847916800, 4.8}, {2850508800, 5.2}, {
+     2853187200, 5.2}, {2855779200, 5.4}, {2858457600, 5.4}, {
+     2861136000, 5.6}, {2863728000, 5.8}, {2866406400, 5.7}, {
+     2868998400, 5.9}, {2871676800, 6}, {2874355200, 6.2}, {
+     2876774400, 6.7}, {2879452800, 6.6}, {2882044800, 6.4}, {
+     2884723200, 6.9}, {2887315200, 7}, {2889993600, 7.3}, {
+     2892672000, 6.8}, {2895264000, 7.2}, {2897942400, 7.5}, {
+     2900534400, 7.8}, {2903212800, 8.1}, {2905891200, 8.2}, {
+     2908396800, 8.3}, {2911075200, 8.5}, {2913667200, 8.8}, {
+     2916345600, 8.7}, {2918937600, 8.6}, {2921616000, 8.8}, {
+     2924294400, 8.6}, {2926886400, 9}, {2929564800, 9}, {2932156800, 9.3}, {
+     2934835200, 8.6}, {2937513600, 8.5}, {2939932800, 8.5}, {
+     2942611200, 8.4}, {2945203200, 8.1}, {2947881600, 8.3}, {
+     2950473600, 8.2}, {2953152000, 8.2}, {2955830400, 8.3}, {2958422400, 
+     8}, {2961100800, 8.3}, {2963692800, 8.3}, {2966371200, 8.6}, {
+     2969049600, 9.2}, {2971468800, 9.3}, {2974147200, 9.1}, {
+     2976739200, 9.2}, {2979417600, 9.3}, {2982009600, 9}, {
+     2984688000, 8.9}, {2987366400, 9.2}, {2989958400, 10}, {2992636800, 9}, {
+     2995228800, 8.7}, {2997907200, 8}, {3000585600, 8.1}, {
+     3003004800, 8.3}, {3005683200, 8.3}, {3008275200, 9.1}, {
+     3010953600, 7.9}, {3013545600, 8.5}, {3016224000, 8.3}, {
+     3018902400, 7.9}, {3021494400, 8.2}, {3024172800, 8}, {
+     3026764800, 8.3}, {3029443200, 8.3}, {3032121600, 7.8}, {
+     3034627200, 8.3}, {3037305600, 8.6}, {3039897600, 8.6}, {
+     3042576000, 8.3}, {3045168000, 8.3}, {3047846400, 8.4}, {
+     3050524800, 8.5}, {3053116800, 8.3}, {3055795200, 7.7}, {
+     3058387200, 7.8}, {3061065600, 7.8}, {3063744000, 8.1}, {
+     3066163200, 7.9}, {3068841600, 8.3}, {3071433600, 8}, {3074112000, 8}, {
+     3076704000, 8.3}, {3079382400, 7.8}, {3082060800, 8.2}, {
+     3084652800, 7.7}, {3087331200, 7.6}, {3089923200, 7.5}, {
+     3092601600, 7.4}, {3095280000, 7}, {3097699200, 6.8}, {
+     3100377600, 6.7}, {3102969600, 6}, {3105648000, 6.9}, {
+     3108240000, 6.7}, {3110918400, 6.8}, {3113596800, 6.7}, {
+     3116188800, 5.8}, {3118867200, 6.6}, {3121459200, 6.8}, {
+     3124137600, 6.9}, {3126816000, 6.8}, {3129235200, 6.8}, {
+     3131913600, 6.2}, {3134505600, 6.5}, {3137184000, 6.3}, {
+     3139776000, 5.8}, {3142454400, 6.5}, {3145132800, 6}, {
+     3147724800, 6.1}, {3150403200, 6.2}, {3152995200, 5.8}, {
+     3155673600, 5.8}, {3158352000, 6.1}, {3160857600, 6}, {
+     3163536000, 6.1}, {3166128000, 5.8}, {3168806400, 5.7}, {3171398400, 
+     6}, {3174076800, 6.3}, {3176755200, 5.2}, {3179347200, 6.1}, {
+     3182025600, 6.1}, {3184617600, 6}, {3187296000, 5.8}, {
+     3189974400, 6.1}, {3192393600, 6.6}, {3195072000, 5.9}, {
+     3197664000, 6.3}, {3200342400, 6}, {3202934400, 6.8}, {
+     3205612800, 6.9}, {3208291200, 7.2}, {3210883200, 7.3}, {
+     3213561600, 7.7}, {3216153600, 8.2}, {3218832000, 8.4}, {
+     3221510400, 8.3}, {3223929600, 8.4}, {3226608000, 8.9}, {
+     3229200000, 9.5}, {3231878400, 11}, {3234470400, 8.9}, {3237148800, 9}, {
+     3239827200, 9.5}, {3242419200, 9.6}, {3245097600, 9.3}, {
+     3247689600, 9.6}, {3250368000, 9.6}, {3253046400, 9.5}, {
+     3255465600, 9.7}, {3258144000, 10.2}, {3260736000, 9.9}, {
+     3263414400, 11.5}, {3266006400, 10.3}, {3268684800, 10.1}, {
+     3271363200, 10.2}, {3273955200, 10.4}, {3276633600, 10.3}, {
+     3279225600, 10.4}, {3281904000, 10.6}, {3284582400, 10.2}, {
+     3287088000, 10.2}, {3289766400, 9.5}, {3292358400, 9.9}, {3295036800, 
+     11}, {3297628800, 8.9}, {3300307200, 9.2}, {3302985600, 9.6}, {
+     3305577600, 9.5}, {3308256000, 9.7}, {3310848000, 9.5}, {
+     3313526400, 9.4}, {3316204800, 9.2}, {3318624000, 9.3}, {3321302400, 
+     9}, {3323894400, 9.1}, {3326572800, 9}, {3329164800, 8.8}, {
+     3331843200, 9.2}, {3334521600, 8.4}, {3337113600, 8.6}, {
+     3339792000, 8.5}, {3342384000, 8.7}, {3345062400, 8.6}, {
+     3347740800, 9.1}, {3350160000, 8.7}, {3352838400, 8.4}, {
+     3355430400, 8.5}, {3358108800, 7.3}, {3360700800, 8}, {
+     3363379200, 8.4}, {3366057600, 8}, {3368649600, 7.9}, {
+     3371328000, 8.3}, {3373920000, 7.5}, {3376598400, 8.3}, {
+     3379276800, 8.5}, {3381696000, 9.1}, {3384374400, 8.6}, {
+     3386966400, 8.2}, {3389644800, 7.7}, {3392236800, 8.7}, {
+     3394915200, 8.8}, {3397593600, 8.7}, {3400185600, 8.4}, {
+     3402864000, 8.6}, {3405456000, 8.4}, {3408134400, 9}, {
+     3410812800, 8.7}, {3413318400, 8.7}, {3415996800, 9.4}, {
+     3418588800, 7.9}, {3421267200, 9}, {3423859200, 9.7}, {
+     3426537600, 9.7}, {3429216000, 10.2}, {3431808000, 10.4}, {
+     3434486400, 9.8}, {3437078400, 10.5}, {3439756800, 10.7}, {
+     3442435200, 11.7}, {3444854400, 12.3}, {3447532800, 13.1}, {
+     3450124800, 14.2}, {3452803200, 17.2}, {3455395200, 16}, {
+     3458073600, 16.3}, {3460752000, 17.8}, {3463344000, 18.9}, {
+     3466022400, 19.8}, {3468614400, 20.1}, {3471292800, 20}, {
+     3473971200, 19.9}, {3476390400, 20.4}, {3479068800, 22.1}, {
+     3481660800, 22.3}, {3484339200, 25.2}, {3486931200, 22.3}, {3489609600, 
+     21}, {3492288000, 20.3}, {3494880000, 21.2}, {3497558400, 21}, {
+     3500150400, 21.9}, {3502828800, 21.5}, {3505507200, 21.1}, {
+     3507926400, 21.5}, {3510604800, 20.9}, {3513196800, 21.6}, {
+     3515875200, 22.4}, {3518467200, 22}, {3521145600, 22.4}, {3523824000, 
+     22}, {3526416000, 20.6}, {3529094400, 20.8}, {3531686400, 20.5}, {
+     3534364800, 20.8}, {3537043200, 19.7}, {3539548800, 19.2}, {
+     3542227200, 19.1}, {3544819200, 19.9}, {3547497600, 20.4}, {
+     3550089600, 17.5}, {3552768000, 18.4}, {3555446400, 18.8}, {
+     3558038400, 19.9}, {3560716800, 18.6}, {3563308800, 17.7}, {
+     3565987200, 15.8}, {3568665600, 17.2}, {3571084800, 17.6}, {
+     3573763200, 17.1}, {3576355200, 17.1}, {3579033600, 17}, {
+     3581625600, 16.2}, {3584304000, 16.5}, {3586982400, 16.5}, {
+     3589574400, 16.3}, {3592252800, 17.1}, {3594844800, 17.3}, {
+     3597523200, 15.4}, {3600201600, 15.9}, {3602620800, 15.8}, {
+     3605299200, 15.7}, {3607891200, 14.6}, {3610569600, 13.8}, {
+     3613161600, 13.1}, {3615840000, 12.9}, {3618518400, 13.4}, {
+     3621110400, 13.6}, {3623788800, 13}, {3626380800, 12.9}, {
+     3629059200, 13.2}, {3631737600, 12.9}, {3634156800, 12}, {
+     3636835200, 11.5}}]},
   PlotStyle -> Automatic,
   AspectRatio->NCache[
     Rational[7, 10], 0.7],
@@ -1168,11 +1388,11 @@ Cell[BoxData[
   Frame->True,
   FrameLabel->{
     FormBox[
-     StyleBox["\"disp\"", 
+     StyleBox["\"date\"", 
       Opacity[1], FontColor -> GrayLevel[0], StripOnInput -> False], 
      TraditionalForm], 
     FormBox[
-     StyleBox["\"mpg\"", 
+     StyleBox["\"uempmed\"", 
       Opacity[1], FontColor -> GrayLevel[0], StripOnInput -> False], 
      TraditionalForm]},
   FrameStyle->Directive[
@@ -1181,11 +1401,292 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$10647, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$40427, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$10647, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$40427, ggplot`Private`min$, 
+        ggplot`Private`max$, {}]], False}}, {{{{5., 
+        FormBox["5", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {10., 
+        FormBox["10", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {15., 
+        FormBox["15", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {20., 
+        FormBox["20", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {25., 
+        FormBox["25", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {0., 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {30., 
+        FormBox[
+         TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}}, False}, {{{1.5778368*^9, 
+        FormBox["\"1950\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {1.8933696*^9, 
+        FormBox["\"1960\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {2.2089888*^9, 
+        FormBox["\"1970\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {2.5245216*^9, 
+        FormBox["\"1980\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {2.8401408*^9, 
+        FormBox["\"1990\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.1556736*^9, 
+        FormBox["\"2000\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.4712928*^9, 
+        FormBox["\"2010\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {3.7868256*^9, 
+        FormBox["\"2020\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}, {4.1024448*^9, 
+        FormBox["\"2030\"", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
+         Thickness[0.001]]}}, False}}],
+  FrameTicksStyle->Directive[
+    GrayLevel[0], 
+    Opacity[1]],
+  GridLines->FrontEndValueCache[{
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+      ggplot`gridLines[
+      ggplot`Private`xScaleType$40427, ggplot`Private`min$, 
+       ggplot`Private`max$, {}]], 
+     Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+      ggplot`gridLines[
+      ggplot`Private`yScaleType$40427, ggplot`Private`min$, 
+       ggplot`Private`max$, {}]]}, {{{1.5778368*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {1.8933696*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {2.2089888*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {2.5245216*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {2.8401408*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.1556736*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.4712928*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {3.7868256*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {4.1024448*^9, 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}}, {{5., 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {10., 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {15., 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {20., 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {25., 
+       Directive[
+        GrayLevel[0.6], 
+        Thickness[0.0008]]}, {0., 
+       Directive[
+        GrayLevel[0.85], 
+        Thickness[0.0008]]}, {30., 
+       Directive[
+        GrayLevel[0.85], 
+        Thickness[0.0008]]}}}],
+  GridLinesStyle->Automatic,
+  ImageMargins->Automatic,
+  ImageSize->400,
+  LabelStyle->Directive[12, FontFamily -> "Arial"],
+  PlotRangeClipping->True]], "Output",
+ CellChangeTimes->{3.7981322580745583`*^9, 3.7981323121539707`*^9, 
+  3.798132384499175*^9, 3.798132493164783*^9},
+ CellLabel->
+  "Out[131]=",ExpressionUUID->"be474bad-fd92-415d-b1ef-fb2aad7b3bd8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mpg", "//", 
+  RowBox[{"ggplot", "[", 
+   RowBox[{"geomPoint", "[", 
+    RowBox[{
+     RowBox[{"\"\<x\>\"", "\[Rule]", "\"\<displ\>\""}], ",", 
+     RowBox[{"\"\<y\>\"", "\[Rule]", "\"\<cty\>\""}], ",", 
+     RowBox[{"\"\<color\>\"", "\[Rule]", "\"\<class\>\""}]}], "]"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.7981029441675167`*^9, 3.7981029623863783`*^9}, {
+  3.798130170179146*^9, 3.79813021691549*^9}, {3.798131245122295*^9, 
+  3.7981312606216917`*^9}, {3.7981317250588017`*^9, 3.7981317441239634`*^9}},
+ CellLabel->
+  "In[121]:=",ExpressionUUID->"b6027324-e261-4621-906a-86afd547800d"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {LCHColor[0.65, 0.6, 
+     NCache[
+      Rational[19, 91], 0.2087912087912088]], Opacity[1], 
+    GeometricTransformationBox[InsetBox[
+      StyleBox["\<\"\[FilledCircle]\"\>",
+       StripOnInput->False,
+       FontSize->10], {0, 0}], {{{1.8, 18}}, {{1.8, 21}}, {{2, 20}}, {{2, 
+      21}}, {{2.8, 16}}, {{2.8, 18}}, {{3.1, 18}}, {{1.8, 18}}, {{
+       1.8, 16}}, {{2, 20}}, {{2, 
+      19}}, {{2.8, 15}}, {{2.8, 17}}, {{3.1, 17}}, {{3.1, 15}}, {{
+       2.4, 21}}, {{2.4, 19}}, {{2.5, 20}}, {{2.5, 20}}, {{2.5, 19}}, {{
+       2.5, 20}}, {{2.2, 21}}, {{2.2, 21}}, {{2.4, 21}}, {{2.4, 22}}, {{3, 
+      18}}, {{3, 
+      18}}, {{3.3, 18}}, {{1.8, 24}}, {{1.8, 24}}, {{1.8, 26}}, {{
+       1.8, 28}}, {{1.8, 26}}, {{2, 21}}, {{2, 19}}, {{2, 21}}, {{2, 
+      22}}, {{2.8, 17}}, {{1.9, 33}}, {{2, 21}}, {{2, 19}}, {{2, 22}}, {{2, 
+      21}}, {{2.5, 21}}, {{2.5, 21}}, {{2.8, 16}}, {{2.8, 17}}}]}, 
+   {LCHColor[0.65, 0.6, 
+     NCache[
+      Rational[31, 91], 0.34065934065934067`]], Opacity[1], 
+    GeometricTransformationBox[InsetBox[
+      StyleBox["\<\"\[FilledCircle]\"\>",
+       StripOnInput->False,
+       FontSize->10], {0, 0}], {{{2.8, 15}}, {{3.1, 17}}, {{4.2, 16}}, {{
+       2.4, 19}}, {{2.4, 22}}, {{3.1, 18}}, {{3.5, 18}}, {{3.6, 17}}, {{
+       2.4, 18}}, {{2.4, 18}}, {{2.4, 21}}, {{2.4, 21}}, {{2.5, 18}}, {{
+       2.5, 18}}, {{3.3, 19}}, {{2.5, 23}}, {{2.5, 23}}, {{3.5, 19}}, {{
+       3.5, 19}}, {{3, 18}}, {{3, 
+      19}}, {{3.5, 19}}, {{3.1, 18}}, {{3.8, 16}}, {{3.8, 17}}, {{
+       3.8, 18}}, {{5.3, 16}}, {{2.2, 21}}, {{2.2, 21}}, {{2.4, 21}}, {{
+       2.4, 21}}, {{3, 18}}, {{3, 
+      18}}, {{3.5, 19}}, {{1.8, 21}}, {{1.8, 18}}, {{2, 19}}, {{2, 
+      21}}, {{2.8, 16}}, {{2.8, 18}}, {{3.6, 17}}}]}, 
+   {LCHColor[0.65, 0.6, 
+     NCache[
+      Rational[79, 91], 0.8681318681318682]], Opacity[1], 
+    GeometricTransformationBox[InsetBox[
+      StyleBox["\<\"\[FilledCircle]\"\>",
+       StripOnInput->False,
+       FontSize->10], {0, 0}], {{{5.3, 14}}, {{5.3, 11}}, {{5.3, 14}}, {{
+       5.7, 13}}, {{6, 
+      12}}, {{5.3, 14}}, {{5.3, 11}}, {{5.7, 11}}, {{6.5, 14}}, {{
+       3.9, 13}}, {{4.7, 13}}, {{4.7, 9}}, {{4.7, 13}}, {{5.2, 11}}, {{
+       5.7, 13}}, {{5.9, 11}}, {{4.6, 11}}, {{5.4, 11}}, {{5.4, 12}}, {{4, 
+      14}}, {{4, 15}}, {{4, 14}}, {{4, 13}}, {{4.6, 13}}, {{5, 13}}, {{3, 
+      17}}, {{3.7, 15}}, {{4, 
+      15}}, {{4.7, 14}}, {{4.7, 9}}, {{4.7, 14}}, {{5.7, 13}}, {{6.1, 11}}, {{
+      4, 11}}, {{4.2, 12}}, {{4.4, 12}}, {{4.6, 11}}, {{5.4, 11}}, {{
+       5.4, 11}}, {{5.4, 12}}, {{4, 14}}, {{4, 13}}, {{4.6, 13}}, {{5, 
+      13}}, {{3.3, 14}}, {{3.3, 15}}, {{4, 
+      14}}, {{5.6, 12}}, {{2.5, 18}}, {{2.5, 18}}, {{2.5, 20}}, {{
+       2.5, 19}}, {{2.5, 20}}, {{2.5, 18}}, {{2.7, 15}}, {{2.7, 16}}, {{
+       3.4, 15}}, {{3.4, 15}}, {{4, 
+      16}}, {{4.7, 14}}, {{4.7, 11}}, {{5.7, 13}}}]}, 
+   {LCHColor[0.65, 0.6, 
+     NCache[
+      Rational[1, 13], 0.07692307692307693]], Opacity[1], 
+    GeometricTransformationBox[InsetBox[
+      StyleBox["\<\"\[FilledCircle]\"\>",
+       StripOnInput->False,
+       FontSize->10], {0, 0}], {{{5.7, 16}}, {{5.7, 15}}, {{6.2, 16}}, {{
+       6.2, 15}}, {{7, 15}}}]}, 
+   {LCHColor[0.65, 0.6, 
+     NCache[
+      Rational[43, 91], 0.4725274725274725]], Opacity[1], 
+    GeometricTransformationBox[InsetBox[
+      StyleBox["\<\"\[FilledCircle]\"\>",
+       StripOnInput->False,
+       FontSize->10], {0, 0}], {{{2.4, 18}}, {{3, 
+      17}}, {{3.3, 16}}, {{3.3, 16}}, {{3.3, 17}}, {{3.3, 17}}, {{
+       3.3, 11}}, {{3.8, 15}}, {{3.8, 15}}, {{3.8, 16}}, {{4, 16}}}]}, 
+   {LCHColor[0.65, 0.6, 
+     NCache[
+      Rational[55, 91], 0.6043956043956044]], Opacity[1], 
+    GeometricTransformationBox[InsetBox[
+      StyleBox["\<\"\[FilledCircle]\"\>",
+       StripOnInput->False,
+       FontSize->10], {0, 0}], {{{3.7, 15}}, {{3.7, 14}}, {{3.9, 13}}, {{
+       3.9, 14}}, {{4.7, 14}}, {{4.7, 14}}, {{4.7, 9}}, {{5.2, 11}}, {{
+       5.2, 11}}, {{4.7, 12}}, {{4.7, 9}}, {{4.7, 13}}, {{4.7, 13}}, {{
+       4.7, 12}}, {{4.7, 9}}, {{5.2, 11}}, {{5.2, 11}}, {{5.7, 13}}, {{
+       5.9, 11}}, {{4.2, 14}}, {{4.2, 14}}, {{4.6, 13}}, {{4.6, 13}}, {{
+       4.6, 13}}, {{5.4, 11}}, {{5.4, 13}}, {{2.7, 15}}, {{2.7, 16}}, {{
+       2.7, 17}}, {{3.4, 15}}, {{3.4, 15}}, {{4, 15}}, {{4, 16}}}]}, 
+   {LCHColor[0.65, 0.6, 
+     NCache[
+      Rational[67, 91], 0.7362637362637363]], Opacity[1], 
+    GeometricTransformationBox[InsetBox[
+      StyleBox["\<\"\[FilledCircle]\"\>",
+       StripOnInput->False,
+       FontSize->10], {0, 0}], {{{3.8, 18}}, {{3.8, 18}}, {{4, 17}}, {{4, 
+      16}}, {{4.6, 15}}, {{4.6, 15}}, {{4.6, 15}}, {{4.6, 15}}, {{
+       5.4, 14}}, {{1.6, 28}}, {{1.6, 24}}, {{1.6, 25}}, {{1.6, 23}}, {{
+       1.6, 24}}, {{1.8, 26}}, {{1.8, 25}}, {{1.8, 24}}, {{2, 21}}, {{2, 
+      19}}, {{2, 19}}, {{2, 20}}, {{2, 
+      20}}, {{2.7, 17}}, {{2.7, 16}}, {{2.7, 17}}, {{2.2, 21}}, {{
+       2.2, 19}}, {{2.5, 19}}, {{2.5, 19}}, {{1.9, 35}}, {{1.9, 29}}, {{2, 
+      21}}, {{2, 19}}, {{2.5, 20}}, {{2.5, 20}}}]}},
+  PlotStyle -> Automatic,
+  AspectRatio->NCache[
+    Rational[7, 10], 0.7],
+  Axes->False,
+  Background->GrayLevel[1],
+  Frame->True,
+  FrameLabel->{
+    FormBox[
+     StyleBox["\"displ\"", 
+      Opacity[1], FontColor -> GrayLevel[0], StripOnInput -> False], 
+     TraditionalForm], 
+    FormBox[
+     StyleBox["\"cty\"", 
+      Opacity[1], FontColor -> GrayLevel[0], StripOnInput -> False], 
+     TraditionalForm]},
+  FrameStyle->Directive[
+    GrayLevel[0.6], 
+    Thickness[0.0008]],
+  FrameTicks->FrontEndValueCache[{{
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       ggplot`ticks[
+       ggplot`Private`yScaleType$27847, ggplot`Private`min$, 
+        ggplot`Private`max$, {}]], False}, {
+      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
+       ggplot`ticks[
+       ggplot`Private`xScaleType$27847, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -1206,54 +1707,50 @@ Cell[BoxData[
         FormBox["30", TraditionalForm], {0., 0.}, 
         Directive[
          GrayLevel[0.], 
+         Thickness[0.001]]}, {35., 
+        FormBox["35", TraditionalForm], {0., 0.}, 
+        Directive[
+         GrayLevel[0.], 
          Thickness[0.001]]}, {5., 
         FormBox[
          TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {0., 0.}, 
         Directive[
          GrayLevel[0.], 
-         Thickness[0.001]]}, {35., 
+         Thickness[0.001]]}, {40., 
         FormBox[
          TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {0., 0.}, 
         Directive[
          GrayLevel[0.], 
-         Thickness[0.001]]}}, False}, {{{100., 
-        FormBox["100", TraditionalForm], {0., 0.}, 
+         Thickness[0.001]]}}, False}, {{{2., 
+        FormBox["2", TraditionalForm], {0., 0.}, 
         Directive[
          GrayLevel[0.], 
-         Thickness[0.001]]}, {150., 
-        FormBox["150", TraditionalForm], {0., 0.}, 
+         Thickness[0.001]]}, {3., 
+        FormBox["3", TraditionalForm], {0., 0.}, 
         Directive[
          GrayLevel[0.], 
-         Thickness[0.001]]}, {200., 
-        FormBox["200", TraditionalForm], {0., 0.}, 
+         Thickness[0.001]]}, {4., 
+        FormBox["4", TraditionalForm], {0., 0.}, 
         Directive[
          GrayLevel[0.], 
-         Thickness[0.001]]}, {250., 
-        FormBox["250", TraditionalForm], {0., 0.}, 
+         Thickness[0.001]]}, {5., 
+        FormBox["5", TraditionalForm], {0., 0.}, 
         Directive[
          GrayLevel[0.], 
-         Thickness[0.001]]}, {300., 
-        FormBox["300", TraditionalForm], {0., 0.}, 
+         Thickness[0.001]]}, {6., 
+        FormBox["6", TraditionalForm], {0., 0.}, 
         Directive[
          GrayLevel[0.], 
-         Thickness[0.001]]}, {350., 
-        FormBox["350", TraditionalForm], {0., 0.}, 
+         Thickness[0.001]]}, {7., 
+        FormBox["7", TraditionalForm], {0., 0.}, 
         Directive[
          GrayLevel[0.], 
-         Thickness[0.001]]}, {400., 
-        FormBox["400", TraditionalForm], {0., 0.}, 
-        Directive[
-         GrayLevel[0.], 
-         Thickness[0.001]]}, {450., 
-        FormBox["450", TraditionalForm], {0., 0.}, 
-        Directive[
-         GrayLevel[0.], 
-         Thickness[0.001]]}, {50., 
+         Thickness[0.001]]}, {1., 
         FormBox[
          TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {0., 0.}, 
         Directive[
          GrayLevel[0.], 
-         Thickness[0.001]]}, {500., 
+         Thickness[0.001]]}, {8., 
         FormBox[
          TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {0., 0.}, 
         Directive[
@@ -1265,39 +1762,33 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$10647, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$27847, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$10647, ggplot`Private`min$, 
-       ggplot`Private`max$, {}]]}, {{{100., 
+      ggplot`Private`yScaleType$27847, ggplot`Private`min$, 
+       ggplot`Private`max$, {}]]}, {{{2., 
        Directive[
         GrayLevel[0.6], 
-        Thickness[0.0008]]}, {150., 
+        Thickness[0.0008]]}, {3., 
        Directive[
         GrayLevel[0.6], 
-        Thickness[0.0008]]}, {200., 
+        Thickness[0.0008]]}, {4., 
        Directive[
         GrayLevel[0.6], 
-        Thickness[0.0008]]}, {250., 
+        Thickness[0.0008]]}, {5., 
        Directive[
         GrayLevel[0.6], 
-        Thickness[0.0008]]}, {300., 
+        Thickness[0.0008]]}, {6., 
        Directive[
         GrayLevel[0.6], 
-        Thickness[0.0008]]}, {350., 
+        Thickness[0.0008]]}, {7., 
        Directive[
         GrayLevel[0.6], 
-        Thickness[0.0008]]}, {400., 
-       Directive[
-        GrayLevel[0.6], 
-        Thickness[0.0008]]}, {450., 
-       Directive[
-        GrayLevel[0.6], 
-        Thickness[0.0008]]}, {50., 
+        Thickness[0.0008]]}, {1., 
        Directive[
         GrayLevel[0.85], 
-        Thickness[0.0008]]}, {500., 
+        Thickness[0.0008]]}, {8., 
        Directive[
         GrayLevel[0.85], 
         Thickness[0.0008]]}}, {{10., 
@@ -1315,10 +1806,13 @@ Cell[BoxData[
         Thickness[0.0008]]}, {30., 
        Directive[
         GrayLevel[0.6], 
+        Thickness[0.0008]]}, {35., 
+       Directive[
+        GrayLevel[0.6], 
         Thickness[0.0008]]}, {5., 
        Directive[
         GrayLevel[0.85], 
-        Thickness[0.0008]]}, {35., 
+        Thickness[0.0008]]}, {40., 
        Directive[
         GrayLevel[0.85], 
         Thickness[0.0008]]}}}],
@@ -1327,354 +1821,11 @@ Cell[BoxData[
   ImageSize->400,
   LabelStyle->Directive[12, FontFamily -> "Arial"],
   PlotRangeClipping->True]], "Output",
- CellChangeTimes->{{3.798130204530026*^9, 3.798130217342368*^9}},
- CellLabel->"Out[50]=",ImageCache->GraphicsData["CompressedBitmap", "\<\
-eJztXQm4FMW1Hu/M3I0d3ABxYRFFXFBQ2UVAjIqKC4r4QCT6MGQx7obELSYG
-E2NiIhpRxC1Rkc3dxKioGIziCsRoookYNEjckmgCyetXf3X9Rc3cul3dM3Mv
-023P983Ara7uqv/vWs45darO+GnnzDjtK9POOWP6tJ3HnTXtzBlnTD9750O+
-dpZIym6VyWTfy2RqVu2cwf+9TIY/RZ/38dMkuUnqPjIh55144oleQ0OD/D76
-6KPy2kPNZR4/frynyvUefPDBqs7cTibkvU8//dR7/vnnvQULFnjPPvust3Hj
-xkxnde2TTz7xfvOb33h33XWXd//993vvvPNOpk5ea7QW8u9//9tbvny5t3Dh
-Qu/FF1+Uf+OztLjwNjIhKzNccsklXufOncVfeF1ZyfSUKVO8t99+O1Mj0/Le
-scceW/C6Vq9era5lvf3335/JIs1/7nPPPecdcsgh3lZbbSX48PNtu+228m1u
-2LBBpCFfbQEIEIBy6+vrWZXtt9/e+973vudt2rTJr/ziYiCNqsCPP/7YGzVq
-lLyvVv7mvD333FM//Kijjsqqt/Pyyy/r5H333TernvDkk096tbX+vXWq/B13
-3FFCMaEZVc7Uq3zjxo2T7wo5ZLUW2utZ75188sm6cHwBeNGiRfKNnXTSSTnF
-t6huAd+izvpdiDrr9I8++sjbeuut1bVab5tttpGE/frXv5aArrvuOq937968
-deeddy54rMCiXk/OmzRpkqwFajNt2jS+AvFf/Xbl7z3F0BpkQt576qmnCqDN
-nTtXvee896Mf/ajgmsCXaeZ91KhbbrnlFp0smpH3yiuv6Mf97W9/83r06KGv
-v/TSSxneZzYpfK+++mp93/z58wueKfpWM++rQVXutNNO03eMGTOmViXvt99+
-IZpWjUoGtUyeOHEiHzJ27FidLF4ac5sAxEOY+9BDD9XJZ5xxRnC10XGY+Ze/
-/CWfYeJ3VxsjE0aRX/ziF96f/vSnvCIRAxHI4x133HFHxlZ38QJZLpojk3fY
-YQd73evV8//1r38VvMC//OUvGT7omWeeCQGgzgDwyCOPeGeddZa32267ZVUv
-QOXXr19f0As4mK1YsUI3d7aav/71rwUVEhVspisQgmCr4I7/+7//0xD+/Oc/
-h4CQU8li5PNuv/127/DDD/fq6uryqpo1NTXeFVdcITPZuBeF1Kq6iLJxp3nJ
-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
-XOuQGAbsxuEUSYokRZIiSZGkSFIkKZIUSYokRZIiSZGkSFIkKZIUSYokRZIi
-SZGkSFIkKZIUSYokRZIiSZGkSFIkKZIUSYokRZIiSZGkSFIkKZIUSYokRVIt
-SE6Xv4UnGOBoGvMEgxmxRPZFleY6H+C0WKKbrtJcu/C/aLm3+tGdqtJcO92n
-W+6NDzrXVvJTLfdWP7ppKs21bzve6Fybp6dZ7o0POtcu5nijc+1Ejjc6127i
-eKNz7QiONzrXrt54jpmstWtnbjxnc9batbs23uhcO2TjKUWz1q5drv8bS3R+
-rTfvWkV0BO5ajae2mhy9O0WSIkmRpEhSJCmSlkrrKH+DT6c9JjFow54He1Ri
-EPMsF5cN+MjEIObZsy67sK1+8UbsshUfkRjEPLvJZT9OHmKXTfnwxCF22ZmT
-h9hle04eYpc9OnmIXTZqG+Kj5W+9HN1uueUWGfUNAYSGDBkiI1jiCN0PPvig
-S6yJcZm3bUO6Ka5RyOGJzY2NjTIaAgxanSz3Vj8znN5dpnFb/Zi2adMmHSyU
-hucjjjhCpiNHh1gyQ+HWZVYPYuayyy5rwioC2zFfe8u9dmb8LusHNENXxgGA
-CML41ltvWfnd0qy5zPU2JYi97+WXX2Y0Pt1LV61a1aQMN2vNRErkGbaI34Du
-K3QVHQMCh+NjvBNjne4c1UAsX7JrpWBCALFotsUSLQLnlU6sNdaiLzr36tWr
-4O3jb0QfQI5qChvgj9v2ozWPDSDTiNGkyezTp0/lyGQsYhxqj7C3KKJGTT9T
-p071HnjgAalhQ15t3769jpQJzVsMC/Luhioi2pZGSQTDGqPgUGJBNCIVxb1S
-ZOYL4uTge+ONN+pwLrgFb5DXJk2a1Cot1Xdv9M1kCL9nM5OdHpFQtOZiETCb
-zWLsrSShOe+UU07RyePGjSPPaJhMhhyxevXqVmmM5MllhLMthtuex96uJL+C
-3o4wTcxXMT7N2E9z585lPDMzLsu8efNag0quTbusezafkCAqbQPnySefXHkq
-IX++++673iuvvOL94x//IJUYO5n7vPPOaw0q6QTrMhvanIeCqERaMZWI1Fwx
-KjupZMNqgHfVmpy5DI+nRORMtATGPtXPQ3hz6oDhZXIHZ4ceeqhOvuiii1qD
-s33lb/CCSz91n2ne5Axx9NFHU9G36mK2MokBshOmbDyJehIiGqk4jhG0QIdw
-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
-cSV4ZfJGPq5XtbGUHE9mfCtAvVz5FVMfhmypzkK2PProo6XA+vbbb9erbIiT
-K9QrqXf2799fZp04caJsca+//no7S7nx5GVqiiRFkiJJkXzOkPje3/VyDfC0
-007z9t57b69jx45S7ILpDXa2N99807b9OZ6A6Wog1BttSaVogMmQkeFt25/j
-iZhuAtA8ttlmmwLbMdxOkI4ctu3P8UZs6Al61QE256jPq37EFFAXLFigEdOh
-csmSJTqfbYNZvBEb6ywaMSTV5CI2li81YiziJQ8xFVLY5om4vUK8adMmnc+2
-UTTeiLECX4wYGn11IuZ4C5PFxo0b5QpaO/zaPBEjNfcOCnttba2+UF3tm9jH
-jRun3xgd+tesWaPvPigkFX3lb7Brtm1TQtDosMsuu0Rmz39evTSh3HLLLd5X
-v/pV6RswZMgQ76STTpIWgA8++GBiyMdVhmRjgU6T/Oqrr0YmuY9Kc3l1H2i5
-l0SbAiSJnj59emSiTasbfaZpg2psbJSLFbBVHdeqTKNU5aeayanaYLWgoaEB
-X8EWfrOw2kZmv7dKc3mJH2C51zz1RK0Jam9QLDxTfA87ytSrNEwnXEancAz8
-apqxnv/UUuzXS0+ik08+WRtv4bEpOr70nRbXbKO/DXAvleZyMN/fci8bwvz5
-85vI0HDfDio3iGj4yhQ/D16mzDehFYnOweVBkyyavE3pCyLW5slt7vQdZLmX
-NlMMoHS6pQsK1kF+/vOfyxxhFVDu03n55ZfpPajHo1WrVul8R7cqsVzdgcIp
-+mRYYnuqNGNV0bp52EYsNXtMCHALgNs8hy7IDyNHjpTuuWFbGImFf1VxXeBd
-2LrEtlHEYoCDgUYNC7bCbcTuotIwFGCcNAVLcz/yQMu9/vl4/tIlHPauuOIK
-ubIOP+iwsxLJNPw1NJl9+vTZQmTCeUr1QSyMRSXT3IZCMs1tzTYyw4Kh5xRk
-aky6psiD1syJrjW7db7AOwnNAC4SNruRjbWdVZq5DYXyvbkNuhKsYatSsaAI
-cQHaSWuzVivnN7KGL2T03XffvdE78MADxYPUNCwzh5WhSKbpvk0yzd3U5ZDJ
-Pmu48es+i/VC5mtNMrNYdvR23XXXsnUAMmhuSyGD5k7sSjBoG/Ug37Uug5Q8
-IEVizDVrUw6D5h4VDoPmLm7bZB2VQaQVM4idXluCwVpZMn2ooJz/9Kc/xXap
-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\
-\>", "ImageResolution" -> \
-144.],ExpressionUUID->"2c184322-c95a-47cb-96ad-5e843fdbee1c"]
+ CellChangeTimes->{{3.798130204530026*^9, 3.798130217342368*^9}, {
+   3.798131240876541*^9, 3.798131261306172*^9}, 3.798131447177719*^9, 
+   3.798131494514862*^9, 3.7981317447571*^9},
+ CellLabel->
+  "Out[121]=",ExpressionUUID->"ed566904-6f49-440b-99e0-ee96a46887a2"]
 }, Open  ]],
 
 Cell["Need to be able to handle this kind of case", "Text",
@@ -1719,7 +1870,7 @@ Cell[BoxData[
   "]"}]], "Input",
  CellChangeTimes->{{3.798042054229535*^9, 3.798042076179853*^9}, {
   3.798129858953928*^9, 3.79812985947945*^9}},
- CellLabel->"In[8]:=",ExpressionUUID->"7bce61b0-0fe0-45d7-b3f0-b8b477bc29e2"],
+ CellLabel->"In[84]:=",ExpressionUUID->"7bce61b0-0fe0-45d7-b3f0-b8b477bc29e2"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -1813,11 +1964,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$6281, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$23726, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$6281, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$23726, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -1893,11 +2044,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$6281, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$23726, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$6281, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$23726, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{0., 
        Directive[
         GrayLevel[0.6], 
@@ -1953,8 +2104,9 @@ Cell[BoxData[
   LabelStyle->Directive[12, FontFamily -> "Arial"],
   PlotRangeClipping->True]], "Output",
  CellChangeTimes->{{3.798042055709667*^9, 3.798042077799855*^9}, 
-   3.798042394817997*^9, 3.7981031589782753`*^9, 3.798129860371592*^9},
- CellLabel->"Out[8]=",ExpressionUUID->"174c2e00-d079-4d7e-bf2c-e8f8e0541304"]
+   3.798042394817997*^9, 3.7981031589782753`*^9, 3.798129860371592*^9, 
+   3.7981315015899487`*^9},
+ CellLabel->"Out[84]=",ExpressionUUID->"c0951598-0ace-4c80-9b01-7f3cb118cf4d"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1977,7 +2129,7 @@ Cell[BoxData[
   "]"}]], "Input",
  CellChangeTimes->{{3.798041909216905*^9, 3.798041937653179*^9}, {
   3.798041973722246*^9, 3.798042039450014*^9}},
- CellLabel->"In[9]:=",ExpressionUUID->"9760db91-3531-44d5-a6fa-487e6c6ad83b"],
+ CellLabel->"In[85]:=",ExpressionUUID->"9760db91-3531-44d5-a6fa-487e6c6ad83b"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -2071,11 +2223,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$6322, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$23767, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$6322, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$23767, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -2151,11 +2303,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$6322, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$23767, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$6322, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$23767, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{0., 
        Directive[
         GrayLevel[0.6], 
@@ -2213,8 +2365,8 @@ Cell[BoxData[
  CellChangeTimes->{{3.798041925363673*^9, 3.7980419381391973`*^9}, {
    3.798041976161656*^9, 3.798041981425838*^9}, {3.7980420241748543`*^9, 
    3.798042040088587*^9}, 3.7980423948647213`*^9, 3.7981031606825733`*^9, 
-   3.798129869947987*^9},
- CellLabel->"Out[9]=",ExpressionUUID->"8f2030c2-5f39-42cc-b51c-67200b3ef08b"]
+   3.798129869947987*^9, 3.798131502479607*^9},
+ CellLabel->"Out[85]=",ExpressionUUID->"2cefbeaa-cab5-4bcb-9fd2-e16aa9a4e7a2"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2235,7 +2387,7 @@ Cell[BoxData[
      RowBox[{"\"\<color\>\"", "\[Rule]", "Red"}]}], "]"}]}], "\n", 
   "]"}]], "Input",
  CellChangeTimes->{{3.798041831904724*^9, 3.798041899133821*^9}},
- CellLabel->"In[10]:=",ExpressionUUID->"f853a625-e318-4ce4-b1c9-cea2e9ed5af9"],
+ CellLabel->"In[86]:=",ExpressionUUID->"f853a625-e318-4ce4-b1c9-cea2e9ed5af9"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -2329,11 +2481,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$6368, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$23813, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$6368, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$23813, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -2409,11 +2561,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$6368, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$23813, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$6368, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$23813, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{0., 
        Directive[
         GrayLevel[0.6], 
@@ -2469,8 +2621,9 @@ Cell[BoxData[
   LabelStyle->Directive[12, FontFamily -> "Arial"],
   PlotRangeClipping->True]], "Output",
  CellChangeTimes->{{3.798041857739769*^9, 3.798041899397518*^9}, 
-   3.7980423949113894`*^9, 3.798103162272152*^9, 3.798129871750517*^9},
- CellLabel->"Out[10]=",ExpressionUUID->"7454f4be-4f98-4bdb-b734-99f1540ca36b"]
+   3.7980423949113894`*^9, 3.798103162272152*^9, 3.798129871750517*^9, 
+   3.7981315042940807`*^9},
+ CellLabel->"Out[86]=",ExpressionUUID->"43d5da63-c19e-466f-89b2-b56c0169b63a"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2490,7 +2643,7 @@ Cell[BoxData[
     RowBox[{"geomSmooth", "[", 
      RowBox[{"\"\<color\>\"", "\[Rule]", "Red"}], "]"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.7980417443249073`*^9, 3.798041818353265*^9}},
- CellLabel->"In[11]:=",ExpressionUUID->"6773186e-e945-4291-9dce-ad3820a26730"],
+ CellLabel->"In[87]:=",ExpressionUUID->"6773186e-e945-4291-9dce-ad3820a26730"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -2563,11 +2716,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$6409, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$23854, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$6409, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$23854, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -2647,11 +2800,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$6409, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$23854, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$6409, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$23854, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -2710,8 +2863,8 @@ Cell[BoxData[
   LabelStyle->Directive[12, FontFamily -> "Arial"],
   PlotRangeClipping->True]], "Output",
  CellChangeTimes->{{3.7980417684077*^9, 3.798041818928802*^9}, 
-   3.798042394976362*^9, 3.798129873647707*^9},
- CellLabel->"Out[11]=",ExpressionUUID->"8e5b7d17-1341-4661-bdd9-5d07248ad1fe"]
+   3.798042394976362*^9, 3.798129873647707*^9, 3.798131507603683*^9},
+ CellLabel->"Out[87]=",ExpressionUUID->"7f187bf2-1af3-4763-8ee2-3d93dfdb41d8"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2740,7 +2893,7 @@ Cell[BoxData[
   3.798041263940764*^9, 3.798041265560059*^9}, {3.798041474021562*^9, 
   3.798041479593553*^9}, {3.798041563423902*^9, 3.7980415775800877`*^9}, {
   3.7980416500395193`*^9, 3.798041655255863*^9}},
- CellLabel->"In[12]:=",ExpressionUUID->"08f68d46-5b4e-4eb8-9d0f-500ef74b8d0a"],
+ CellLabel->"In[88]:=",ExpressionUUID->"08f68d46-5b4e-4eb8-9d0f-500ef74b8d0a"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -2797,11 +2950,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$6569, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24001, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$6569, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24001, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -2881,11 +3034,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$6569, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24001, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$6569, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24001, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -2955,8 +3108,9 @@ Cell[BoxData[
    3.7980414147075157`*^9, {3.798041476745852*^9, 3.798041479924114*^9}, 
    3.7980415337371807`*^9, {3.79804156474695*^9, 3.798041578152705*^9}, {
    3.798041642612546*^9, 3.7980416556168537`*^9}, {3.798041714892784*^9, 
-   3.7980417217028847`*^9}, 3.798042395009768*^9, 3.798129875617861*^9},
- CellLabel->"Out[12]=",ExpressionUUID->"3988a018-9186-4db3-a266-325ab1569cbb"]
+   3.7980417217028847`*^9}, 3.798042395009768*^9, 3.798129875617861*^9, 
+   3.798131509509183*^9},
+ CellLabel->"Out[88]=",ExpressionUUID->"ebad2cbf-e032-4fa7-8ef0-62498a7018f7"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2974,7 +3128,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.798040692845735*^9, 3.79804071117579*^9}, {
   3.798040846166779*^9, 3.798040851695936*^9}, {3.798041081281068*^9, 
   3.7980410854399014`*^9}, {3.798041120597785*^9, 3.798041141217412*^9}},
- CellLabel->"In[13]:=",ExpressionUUID->"853ca746-ec1d-44b4-be78-ed2ea7323eee"],
+ CellLabel->"In[89]:=",ExpressionUUID->"853ca746-ec1d-44b4-be78-ed2ea7323eee"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -3022,11 +3176,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$6613, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24045, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$6613, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24045, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -3106,11 +3260,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$6613, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24045, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$6613, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24045, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -3172,8 +3326,8 @@ Cell[BoxData[
   3.7980410225991497`*^9, {3.798041076375757*^9, 3.7980410859479113`*^9}, {
    3.798041128457103*^9, 3.798041141964151*^9}, {3.798041377435144*^9, 
    3.798041382346572*^9}, 3.798041721777677*^9, 3.798042395041724*^9, 
-   3.798129880883449*^9},
- CellLabel->"Out[13]=",ExpressionUUID->"cb1591be-aea0-476f-aa6a-ce2a0dfca6fb"]
+   3.798129880883449*^9, 3.798131512763607*^9},
+ CellLabel->"Out[89]=",ExpressionUUID->"00942a14-d907-4b57-ba8f-99c342deb91e"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3190,7 +3344,7 @@ Cell[BoxData[
    3.7980391340901937`*^9, {3.798039241213666*^9, 3.798039260563737*^9}, {
    3.798039886974725*^9, 3.798039904942543*^9}, {3.79804003633144*^9, 
    3.798040036694948*^9}},
- CellLabel->"In[14]:=",ExpressionUUID->"f48c3b78-30e5-48f6-8953-0c9c21ee2d43"],
+ CellLabel->"In[90]:=",ExpressionUUID->"f48c3b78-30e5-48f6-8953-0c9c21ee2d43"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -3227,11 +3381,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$6650, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24082, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$6650, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24082, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -3311,11 +3465,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$6650, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24082, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$6650, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24082, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -3380,8 +3534,9 @@ Cell[BoxData[
    3.798039892446265*^9, 3.798039907534766*^9}, {3.798039973400517*^9, 
    3.798039993191123*^9}, 3.798040037498888*^9, 3.7980411142072487`*^9, 
    3.798041194965769*^9, 3.798041382438671*^9, 3.798041721839903*^9, 
-   3.798042395072893*^9, 3.7981298834652987`*^9},
- CellLabel->"Out[14]=",ExpressionUUID->"54677c19-9655-4749-b7ae-35579d631158"]
+   3.798042395072893*^9, 3.7981298834652987`*^9, {3.7981314580990343`*^9, 
+   3.798131462097239*^9}, 3.798131514430079*^9},
+ CellLabel->"Out[90]=",ExpressionUUID->"539af5de-c1bb-4be1-aae6-c3a779dae755"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3407,7 +3562,7 @@ Cell[BoxData[
    3.797241134569943*^9, 3.797241148148067*^9}, {3.797241262506796*^9, 
    3.797241263475514*^9}, {3.798038414106069*^9, 3.7980384144665003`*^9}, {
    3.798038835579419*^9, 3.7980388458946543`*^9}},
- CellLabel->"In[15]:=",ExpressionUUID->"12ac9355-d543-48ec-a6a5-51b551e2bbf4"],
+ CellLabel->"In[91]:=",ExpressionUUID->"12ac9355-d543-48ec-a6a5-51b551e2bbf4"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -3483,11 +3638,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$6686, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24118, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$6686, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24118, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{0., 
         FormBox["0", TraditionalForm], {0., 0.}, 
         Directive[
@@ -3557,11 +3712,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$6686, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24118, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$6686, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24118, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{3.794688*^9, 
        Directive[
         GrayLevel[0.6], 
@@ -3617,8 +3772,8 @@ Cell[BoxData[
   3.798038415052006*^9, 3.798038592894869*^9, {3.7980386529564457`*^9, 
    3.7980386778620863`*^9}, {3.798038829597754*^9, 3.798038846097992*^9}, 
    3.798041196805955*^9, 3.79804138247033*^9, 3.798041721900383*^9, 
-   3.798042395104184*^9, 3.7981298854564667`*^9},
- CellLabel->"Out[15]=",ExpressionUUID->"753ffa5d-b481-47c4-bc91-3366c760a8b4"]
+   3.798042395104184*^9, 3.7981298854564667`*^9, 3.798131516096189*^9},
+ CellLabel->"Out[91]=",ExpressionUUID->"ece205ad-9139-47ce-8edb-2838ea3b4f17"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3631,7 +3786,7 @@ Cell[BoxData[
     RowBox[{"\"\<y\>\"", "\[Rule]", "\"\<mpg\>\""}], ",", 
     RowBox[{"geomPoint", "[", "]"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.798037858831718*^9, 3.7980378639928093`*^9}},
- CellLabel->"In[16]:=",ExpressionUUID->"29c13e24-282f-4ac1-9f1d-b421d3c24fa5"],
+ CellLabel->"In[92]:=",ExpressionUUID->"29c13e24-282f-4ac1-9f1d-b421d3c24fa5"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -3668,11 +3823,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$6728, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24158, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$6728, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24158, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -3752,11 +3907,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$6728, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24158, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$6728, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24158, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -3817,8 +3972,8 @@ Cell[BoxData[
  CellChangeTimes->{3.798037865374629*^9, 3.798038102062929*^9, 
   3.7980383058163977`*^9, 3.798038847376183*^9, 3.798041198489113*^9, 
   3.7980413825383263`*^9, 3.7980417219625893`*^9, 3.798042395136849*^9, 
-  3.7981298882892847`*^9},
- CellLabel->"Out[16]=",ExpressionUUID->"fa971c49-c8dd-4964-9077-ceb6a7b9afbc"]
+  3.7981298882892847`*^9, 3.798131518362019*^9},
+ CellLabel->"Out[92]=",ExpressionUUID->"8255c1ee-4b22-409c-9c16-d18b62f6b075"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3831,7 +3986,7 @@ Cell[BoxData[
    RowBox[{"\"\<y\>\"", "\[Rule]", "\"\<mpg\>\""}], ",", 
    RowBox[{"geomPoint", "[", "]"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.7980370799149427`*^9, 3.79803708823621*^9}},
- CellLabel->"In[17]:=",ExpressionUUID->"a1e02f27-61a4-436c-a40f-164d148eb38e"],
+ CellLabel->"In[93]:=",ExpressionUUID->"a1e02f27-61a4-436c-a40f-164d148eb38e"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -3868,11 +4023,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$6764, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24194, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$6764, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24194, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -3952,11 +4107,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$6764, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24194, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$6764, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24194, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -4019,8 +4174,9 @@ Cell[BoxData[
    3.7980374017801647`*^9, 3.798037541762393*^9, 3.798037609494231*^9, 
    3.79803773028679*^9, 3.798038107974798*^9, 3.798038309154723*^9, 
    3.798038856627887*^9, 3.798041199346187*^9, 3.798041382595929*^9, 
-   3.798041722020506*^9, 3.798042395167674*^9, 3.798129890593658*^9},
- CellLabel->"Out[17]=",ExpressionUUID->"d541b122-16c7-4293-9f04-9e43e22a1a3b"]
+   3.798041722020506*^9, 3.798042395167674*^9, 3.798129890593658*^9, 
+   3.7981315236362267`*^9},
+ CellLabel->"Out[93]=",ExpressionUUID->"1445f0c2-3744-4632-9db5-74970d4eaf7d"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4042,7 +4198,7 @@ Cell[BoxData[
       RowBox[{"Opacity", "[", "0.2", "]"}]}]}], "]"}], ",", "\n", "\t", 
    RowBox[{"\"\<data\>\"", "\[Rule]", "mtcars"}]}], "\n", "]"}]], "Input",
  CellChangeTimes->{{3.798032792487418*^9, 3.798032801261674*^9}},
- CellLabel->"In[19]:=",ExpressionUUID->"3ff547e2-18e5-489f-a924-952af4fed96e"],
+ CellLabel->"In[94]:=",ExpressionUUID->"3ff547e2-18e5-489f-a924-952af4fed96e"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -4083,11 +4239,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$6841, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24230, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$6841, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24230, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{25., 
         FormBox["25", TraditionalForm], {0., 0.}, 
         Directive[
@@ -4179,11 +4335,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$6841, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24230, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$6841, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24230, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -4258,8 +4414,8 @@ Cell[BoxData[
    3.79803761683692*^9, 3.7980381189773817`*^9, 3.798038317217925*^9, 
    3.798038861322809*^9, 3.798041200922432*^9, 3.7980413826536427`*^9, 
    3.79804172207944*^9, 3.7980423951990013`*^9, 3.798129894528401*^9, 
-   3.798129933206729*^9},
- CellLabel->"Out[19]=",ExpressionUUID->"444427f5-fe18-49d0-9966-5ed3c3c26288"]
+   3.798129933206729*^9, 3.798131527719467*^9},
+ CellLabel->"Out[94]=",ExpressionUUID->"436c5ad1-9e1a-4f7e-9bc0-80fb9faedc25"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4275,7 +4431,7 @@ Cell[BoxData[
    RowBox[{"scaleXLog", "[", "]"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.797961244167575*^9, 3.797961256148181*^9}, {
   3.797962179642342*^9, 3.797962187571663*^9}},
- CellLabel->"In[20]:=",ExpressionUUID->"5a3bdc56-3b39-4657-9d63-ce50e6416616"],
+ CellLabel->"In[95]:=",ExpressionUUID->"5a3bdc56-3b39-4657-9d63-ce50e6416616"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -4361,11 +4517,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$6882, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24271, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$6882, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24271, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -4445,11 +4601,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$6882, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24271, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$6882, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24271, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{4.605170185988092, 
        Directive[
         GrayLevel[0.6], 
@@ -4513,8 +4669,8 @@ Cell[BoxData[
    3.79803755652388*^9, 3.798037671957178*^9, 3.7980381208205423`*^9, {
    3.798038319826743*^9, 3.7980383236807337`*^9}, 3.798038862817211*^9, 
    3.798041202567542*^9, 3.7980413827133293`*^9, 3.7980417221397743`*^9, 
-   3.7980423952330008`*^9, 3.798129939449387*^9},
- CellLabel->"Out[20]=",ExpressionUUID->"ede87dd7-6b84-4745-be80-6fe06872dd43"]
+   3.7980423952330008`*^9, 3.798129939449387*^9, 3.798131529757369*^9},
+ CellLabel->"Out[95]=",ExpressionUUID->"5b1264cb-08e0-42d8-a7d7-34d69a1b6a40"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4528,7 +4684,7 @@ Cell[BoxData[
    RowBox[{"geomPoint", "[", "]"}], ",", 
    RowBox[{"geomSmooth", "[", "]"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.798032536390809*^9, 3.7980325565757017`*^9}},
- CellLabel->"In[21]:=",ExpressionUUID->"8ce55751-fa3f-4e68-8382-6a91b651149f"],
+ CellLabel->"In[96]:=",ExpressionUUID->"8ce55751-fa3f-4e68-8382-6a91b651149f"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -4582,11 +4738,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$6924, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24311, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$6924, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24311, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -4666,11 +4822,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$6924, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24311, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$6924, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24311, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -4732,8 +4888,8 @@ Cell[BoxData[
   3.798033505234171*^9, 3.798037621114519*^9, 3.79803812163885*^9, 
   3.7980383254161*^9, 3.7980388647989902`*^9, 3.798041203259173*^9, 
   3.798041382772911*^9, 3.798041722198965*^9, 3.7980423952644157`*^9, 
-  3.798129955705772*^9},
- CellLabel->"Out[21]=",ExpressionUUID->"24c4261b-38fe-4b16-a418-9d01557f0c33"]
+  3.798129955705772*^9, 3.79813153154383*^9},
+ CellLabel->"Out[96]=",ExpressionUUID->"e127238b-9f0b-4884-bf56-56ce42f9d139"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4757,7 +4913,7 @@ Cell[BoxData[
 
  CellChangeTimes->{{3.797958400762953*^9, 3.797958405094294*^9}, {
   3.7980333640332193`*^9, 3.7980333656611633`*^9}},
- CellLabel->"In[22]:=",ExpressionUUID->"36fcb09e-208a-42fd-af80-5bd66d33147f"],
+ CellLabel->"In[97]:=",ExpressionUUID->"36fcb09e-208a-42fd-af80-5bd66d33147f"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -4798,11 +4954,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$7066, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24453, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$7066, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24453, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{25., 
         FormBox["25", TraditionalForm], {0., 0.}, 
         Directive[
@@ -4894,11 +5050,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$7066, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24453, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$7066, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24453, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -4970,8 +5126,8 @@ Cell[BoxData[
    3.79803336626124*^9}, 3.798033514009651*^9, 3.7980376251931477`*^9, 
    3.798038125319206*^9, 3.798038327921872*^9, 3.7980388666434793`*^9, 
    3.798041204656191*^9, 3.798041382835556*^9, 3.798041722261683*^9, 
-   3.798042395296191*^9, 3.798129974891728*^9},
- CellLabel->"Out[22]=",ExpressionUUID->"415b899d-6694-4467-9f2f-f22a0a44836a"]
+   3.798042395296191*^9, 3.798129974891728*^9, 3.79813153358792*^9},
+ CellLabel->"Out[97]=",ExpressionUUID->"cbe52689-421f-42c6-9371-753b21f7ba6d"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4992,7 +5148,7 @@ Cell[BoxData[
   3.797943050459899*^9}, {3.79794349017997*^9, 3.797943517144169*^9}, {
   3.797944144407645*^9, 3.7979441448663187`*^9}, {3.79794441909109*^9, 
   3.797944421607376*^9}},
- CellLabel->"In[23]:=",ExpressionUUID->"f633d10b-709a-45f6-8416-2ce15879e5e5"],
+ CellLabel->"In[98]:=",ExpressionUUID->"f633d10b-709a-45f6-8416-2ce15879e5e5"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -5034,11 +5190,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$7107, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24494, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$7107, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24494, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -5118,11 +5274,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$7107, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24494, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$7107, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24494, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -5185,8 +5341,9 @@ Cell[BoxData[
    3.7979444221815157`*^9}, 3.79794535875454*^9, 3.79794587410662*^9, 
    3.7979462844048557`*^9, 3.7980381423993063`*^9, 3.79803833403411*^9, 
    3.798038871988058*^9, 3.798041206510911*^9, 3.7980413828953943`*^9, 
-   3.7980417223218937`*^9, 3.79804239532935*^9, 3.798129977580055*^9},
- CellLabel->"Out[23]=",ExpressionUUID->"e2b634ea-f805-4da0-98eb-7d402ab036ae"]
+   3.7980417223218937`*^9, 3.79804239532935*^9, 3.798129977580055*^9, 
+   3.7981315354931383`*^9},
+ CellLabel->"Out[98]=",ExpressionUUID->"724308e9-9acf-437d-92fd-960ea546431e"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -5202,7 +5359,7 @@ Cell[BoxData[
     RowBox[{"scaleYLog", "[", "]"}], ",", "\n", "\t", 
     RowBox[{"scaleXLog", "[", "]"}]}], "\n", "\t", "]"}]}]], "Input",
  CellChangeTimes->{{3.798038167706159*^9, 3.798038181670587*^9}},
- CellLabel->"In[24]:=",ExpressionUUID->"afe2f8b2-fe2b-4ef5-b9fd-a42838c73f1a"],
+ CellLabel->"In[99]:=",ExpressionUUID->"afe2f8b2-fe2b-4ef5-b9fd-a42838c73f1a"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -5296,11 +5453,11 @@ v0DC4YzLmT+vSlkcAOx5y/M=
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$7144, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24531, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$7144, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24531, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{2.70805020110221, 
         FormBox["15", TraditionalForm], {0., 0.}, 
         Directive[
@@ -5380,11 +5537,11 @@ v0DC4YzLmT+vSlkcAOx5y/M=
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$7144, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24531, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$7144, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24531, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{4.605170185988092, 
        Directive[
         GrayLevel[0.6], 
@@ -5444,8 +5601,9 @@ v0DC4YzLmT+vSlkcAOx5y/M=
   PlotRangeClipping->True]], "Output",
  CellChangeTimes->{3.798038185697442*^9, 3.798038335699874*^9, 
   3.7980388748457813`*^9, 3.798041207263217*^9, 3.798041382953588*^9, 
-  3.798041722379458*^9, 3.7980423953605223`*^9, 3.798129987851615*^9},
- CellLabel->"Out[24]=",ExpressionUUID->"505e5755-ea97-4f7f-8f8e-e791093003e9"]
+  3.798041722379458*^9, 3.7980423953605223`*^9, 3.798129987851615*^9, 
+  3.798131537199641*^9},
+ CellLabel->"Out[99]=",ExpressionUUID->"4406efc9-21e9-42b3-af6a-56894f4a95fa"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -5463,7 +5621,8 @@ Cell[BoxData[
      RowBox[{"\"\<y\>\"", "\[Rule]", "\"\<mpg\>\""}]}], "]"}], ",", 
    RowBox[{"scaleYLog", "[", "]"}], ",", 
    RowBox[{"scaleXLog", "[", "]"}]}], "]"}]], "Input",
- CellLabel->"In[25]:=",ExpressionUUID->"792d4a34-c826-4c4f-a259-81cf676c0dab"],
+ CellLabel->
+  "In[100]:=",ExpressionUUID->"792d4a34-c826-4c4f-a259-81cf676c0dab"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -5557,11 +5716,11 @@ v0DC4YzLmT+vSlkcAOx5y/M=
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$7286, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24673, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$7286, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24673, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{2.70805020110221, 
         FormBox["15", TraditionalForm], {0., 0.}, 
         Directive[
@@ -5641,11 +5800,11 @@ v0DC4YzLmT+vSlkcAOx5y/M=
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$7286, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24673, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$7286, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24673, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{4.605170185988092, 
        Directive[
         GrayLevel[0.6], 
@@ -5707,8 +5866,9 @@ v0DC4YzLmT+vSlkcAOx5y/M=
   3.797246415093439*^9, 3.797945995240624*^9, 3.797946284510418*^9, 
   3.798038193815868*^9, 3.79803833847661*^9, 3.7980388764292088`*^9, 
   3.798041209130547*^9, 3.7980413830137672`*^9, 3.798041722438047*^9, 
-  3.798042395393086*^9, 3.798129995352035*^9},
- CellLabel->"Out[25]=",ExpressionUUID->"3101b5b4-dcf2-424c-9058-b5f6227a5256"]
+  3.798042395393086*^9, 3.798129995352035*^9, 3.798131538867343*^9},
+ CellLabel->
+  "Out[100]=",ExpressionUUID->"1d7959f6-d085-4d2a-a605-21ad3f71816e"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -5732,7 +5892,8 @@ Cell[BoxData[
    3.797244546467455*^9}, {3.7972446512071*^9, 3.797244651621271*^9}, {
    3.797244802282682*^9, 3.797244834837625*^9}, {3.7972450469800997`*^9, 
    3.79724505526898*^9}, {3.797245089498487*^9, 3.7972450898088417`*^9}},
- CellLabel->"In[26]:=",ExpressionUUID->"4cbc2298-e87a-46d4-8f47-46b52acdea7a"],
+ CellLabel->
+  "In[101]:=",ExpressionUUID->"4cbc2298-e87a-46d4-8f47-46b52acdea7a"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -5805,11 +5966,11 @@ E4bHHwAxf87/
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$7428, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24815, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$7428, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24815, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{2.302585092994046, 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -5893,11 +6054,11 @@ E4bHHwAxf87/
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$7428, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24815, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$7428, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24815, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{4.605170185988092, 
        Directive[
         GrayLevel[0.6], 
@@ -5968,8 +6129,9 @@ E4bHHwAxf87/
    3.797945996418098*^9, 3.7979462845546923`*^9, 3.798038195626004*^9, 
    3.79803834030693*^9, 3.798038878033225*^9, 3.798041211183559*^9, 
    3.798041383074769*^9, 3.798041722497356*^9, 3.7980423954239197`*^9, 
-   3.798130002146096*^9},
- CellLabel->"Out[26]=",ExpressionUUID->"113ddf9a-5f42-49a2-9042-fea74da11e3a"]
+   3.798130002146096*^9, 3.79813154043426*^9},
+ CellLabel->
+  "Out[101]=",ExpressionUUID->"9b85a642-25ab-4be0-88e4-cfc40a4c354c"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -5983,7 +6145,8 @@ Cell[BoxData[
      RowBox[{"\"\<y\>\"", "\[Rule]", "\"\<mpg\>\""}]}], "]"}]}], 
   "]"}]], "Input",
  CellChangeTimes->{{3.7977834534977283`*^9, 3.797783515089863*^9}},
- CellLabel->"In[27]:=",ExpressionUUID->"d2e75022-5554-4d20-93a6-dfa970f3b772"],
+ CellLabel->
+  "In[102]:=",ExpressionUUID->"d2e75022-5554-4d20-93a6-dfa970f3b772"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -6020,11 +6183,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$7473, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24860, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$7473, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24860, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -6104,11 +6267,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$7473, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24860, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$7473, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24860, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -6171,8 +6334,10 @@ Cell[BoxData[
    3.797783456521657*^9, 3.797783515508655*^9}, 3.7979459990207376`*^9, 
    3.797946284597815*^9, 3.798038197217084*^9, 3.798038341128891*^9, 
    3.798038879609713*^9, 3.798041212822953*^9, 3.79804138310157*^9, 
-   3.798041722556703*^9, 3.798042395454401*^9, 3.798130004389029*^9},
- CellLabel->"Out[27]=",ExpressionUUID->"8ae37bfb-6399-4e70-9daa-851fa3422613"]
+   3.798041722556703*^9, 3.798042395454401*^9, 3.798130004389029*^9, 
+   3.798131542718068*^9},
+ CellLabel->
+  "Out[102]=",ExpressionUUID->"fdc0844d-9e75-4e9f-b314-bb027b7ec9c0"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -6205,7 +6370,8 @@ Cell[BoxData[{
    3.797241019413411*^9}, {3.7972410661920643`*^9, 3.797241066359316*^9}, {
    3.797241134569943*^9, 3.797241148148067*^9}, {3.797241262506796*^9, 
    3.797241263475514*^9}},
- CellLabel->"In[28]:=",ExpressionUUID->"32872071-929d-478b-8919-d9e17e9bd80c"],
+ CellLabel->
+  "In[103]:=",ExpressionUUID->"32872071-929d-478b-8919-d9e17e9bd80c"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -6281,11 +6447,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$7509, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24896, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$7509, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24896, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{0., 
         FormBox["0", TraditionalForm], {0., 0.}, 
         Directive[
@@ -6355,11 +6521,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$7509, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24896, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$7509, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24896, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{3.794688*^9, 
        Directive[
         GrayLevel[0.6], 
@@ -6438,8 +6604,10 @@ Cell[BoxData[
    3.7972464152801037`*^9, 3.797946001600647*^9, 3.797946284640912*^9, 
    3.798038200287384*^9, {3.7980383449674587`*^9, 3.798038349737472*^9}, 
    3.79803888108006*^9, 3.798041214472579*^9, 3.798041383169715*^9, 
-   3.798041722616089*^9, 3.798042395484665*^9, 3.798130007354719*^9},
- CellLabel->"Out[28]=",ExpressionUUID->"6d870c09-536d-4b94-a4ab-6af68a3cc1a1"],
+   3.798041722616089*^9, 3.798042395484665*^9, 3.798130007354719*^9, 
+   3.798131545142167*^9},
+ CellLabel->
+  "Out[103]=",ExpressionUUID->"645fa8b4-3806-4355-aa39-7afcc1b5d099"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -6518,11 +6686,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$7516, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24903, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$7516, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24903, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{3.794688*^9, 
         FormBox["\"Apr\"", TraditionalForm], {0., 0.}, 
         Directive[
@@ -6592,11 +6760,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$7516, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24903, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$7516, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24903, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{0., 
        Directive[
         GrayLevel[0.6], 
@@ -6675,8 +6843,10 @@ Cell[BoxData[
    3.7972464152801037`*^9, 3.797946001600647*^9, 3.797946284640912*^9, 
    3.798038200287384*^9, {3.7980383449674587`*^9, 3.798038349737472*^9}, 
    3.79803888108006*^9, 3.798041214472579*^9, 3.798041383169715*^9, 
-   3.798041722616089*^9, 3.798042395484665*^9, 3.798130007375952*^9},
- CellLabel->"Out[29]=",ExpressionUUID->"245444a7-06a5-49bc-bcc9-f49e9f684682"]
+   3.798041722616089*^9, 3.798042395484665*^9, 3.798130007354719*^9, 
+   3.798131545163217*^9},
+ CellLabel->
+  "Out[104]=",ExpressionUUID->"ba41f8c7-e2ee-4a29-9b7e-7c443fe8c589"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -6697,7 +6867,8 @@ Cell[BoxData[
  CellChangeTimes->{{3.7971835968516273`*^9, 3.797183652837735*^9}, {
   3.797183876666809*^9, 3.7971838768779984`*^9}, {3.797199819817895*^9, 
   3.797199832124113*^9}, {3.7972411161306*^9, 3.7972411301345797`*^9}},
- CellLabel->"In[30]:=",ExpressionUUID->"6d0ab414-9db4-4279-ba14-85e546090e7b"],
+ CellLabel->
+  "In[105]:=",ExpressionUUID->"6d0ab414-9db4-4279-ba14-85e546090e7b"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -6751,11 +6922,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$7587, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$24974, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$7587, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$24974, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -6835,11 +7006,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$7587, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$24974, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$7587, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$24974, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -6901,8 +7072,9 @@ Cell[BoxData[
   3.797246415385325*^9, 3.7979460048070793`*^9, 3.7979462847028437`*^9, 
   3.79803822759376*^9, 3.798038895853723*^9, 3.7980412161857147`*^9, 
   3.798041383251054*^9, 3.7980417226986933`*^9, 3.79804239554956*^9, 
-  3.79813001038021*^9},
- CellLabel->"Out[30]=",ExpressionUUID->"2432ba4f-400a-4cc8-9acd-76a9d3abc27c"]
+  3.79813001038021*^9, 3.798131548017427*^9},
+ CellLabel->
+  "Out[105]=",ExpressionUUID->"3c38f173-94c0-404d-8887-465a92659101"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -6927,7 +7099,8 @@ Cell[BoxData[{
  RowBox[{"\t\t"}]}], "Input",
  CellChangeTimes->{{3.797166642472369*^9, 3.797166672237439*^9}, {
   3.797166822799231*^9, 3.797166874223669*^9}},
- CellLabel->"In[31]:=",ExpressionUUID->"76f37988-ca96-431b-9f6a-96f7f21f398c"],
+ CellLabel->
+  "In[106]:=",ExpressionUUID->"76f37988-ca96-431b-9f6a-96f7f21f398c"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -7006,11 +7179,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$7729, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$25116, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$7729, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$25116, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{0., 
         FormBox["0", TraditionalForm], {0., 0.}, 
         Directive[
@@ -7080,11 +7253,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$7729, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$25116, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$7729, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$25116, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{3.794688*^9, 
        Directive[
         GrayLevel[0.6], 
@@ -7143,8 +7316,9 @@ Cell[BoxData[
    3.797246367766271*^9, 3.79724641545175*^9, 3.797946007053492*^9, 
    3.797946284744359*^9, 3.798038897548337*^9, 3.798041217733624*^9, 
    3.798041383287418*^9, 3.798041722734758*^9, 3.7980423955846987`*^9, 
-   3.7981300124439583`*^9},
- CellLabel->"Out[31]=",ExpressionUUID->"244cb3f2-05fc-4579-8ac5-351eea5fdf71"],
+   3.7981300124439583`*^9, 3.798131549747308*^9},
+ CellLabel->
+  "Out[106]=",ExpressionUUID->"c469d342-69bf-4e2c-8b98-19365fc62cc3"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -7223,11 +7397,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$7738, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$25125, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$7738, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$25125, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{3.794688*^9, 
         FormBox["\"Apr\"", TraditionalForm], {0., 0.}, 
         Directive[
@@ -7297,11 +7471,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$7738, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$25125, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$7738, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$25125, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{0., 
        Directive[
         GrayLevel[0.6], 
@@ -7360,8 +7534,9 @@ Cell[BoxData[
    3.797246367766271*^9, 3.79724641545175*^9, 3.797946007053492*^9, 
    3.797946284744359*^9, 3.798038897548337*^9, 3.798041217733624*^9, 
    3.798041383287418*^9, 3.798041722734758*^9, 3.7980423955846987`*^9, 
-   3.798130012466219*^9},
- CellLabel->"Out[32]=",ExpressionUUID->"09206edb-5263-47bf-80d9-1cf0a251fe7a"]
+   3.7981300124439583`*^9, 3.7981315497684803`*^9},
+ CellLabel->
+  "Out[107]=",ExpressionUUID->"cb974f11-95a9-46af-b3f4-138f3cc3990a"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -7385,7 +7560,8 @@ Cell[BoxData[
   3.79709065704597*^9}, {3.79716471463752*^9, 3.797164718110388*^9}, {
   3.797164850323814*^9, 3.797164877266487*^9}, {3.797166176001871*^9, 
   3.7971661772938004`*^9}},
- CellLabel->"In[33]:=",ExpressionUUID->"7734a5e2-f9df-4a1d-b302-23bf74201ddb"],
+ CellLabel->
+  "In[108]:=",ExpressionUUID->"7734a5e2-f9df-4a1d-b302-23bf74201ddb"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -7582,11 +7758,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$7809, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$25196, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$7809, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$25196, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{15., 
         FormBox["15", TraditionalForm], {0., 0.}, 
         Directive[
@@ -7662,11 +7838,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$7809, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$25196, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$7809, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$25196, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{2., 
        Directive[
         GrayLevel[0.6], 
@@ -7730,8 +7906,10 @@ Cell[BoxData[
    3.797185493608501*^9, 3.7972413998008623`*^9, 3.7972463678672743`*^9, 
    3.7972464155475483`*^9, 3.797946009813949*^9, 3.7979462848187323`*^9, 
    3.7980388998217154`*^9, 3.798041219331566*^9, 3.798041383381226*^9, 
-   3.7980417228847933`*^9, 3.7980423956697903`*^9, 3.798130015574107*^9},
- CellLabel->"Out[33]=",ExpressionUUID->"1a822430-9260-490c-9d6a-2b11ebedbbf2"]
+   3.7980417228847933`*^9, 3.7980423956697903`*^9, 3.798130015574107*^9, 
+   3.798131551250615*^9},
+ CellLabel->
+  "Out[108]=",ExpressionUUID->"0935d937-aa15-4115-9e18-f06feac51b20"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -7775,7 +7953,8 @@ Cell[BoxData[{
   3.797089339026598*^9}, {3.7970895817448053`*^9, 3.797089650850729*^9}, {
   3.7970896942899017`*^9, 3.797089754847291*^9}, {3.7980389089211283`*^9, 
   3.79803891714743*^9}},
- CellLabel->"In[34]:=",ExpressionUUID->"2fb68eba-4628-4f11-a329-c50fd7713aa2"],
+ CellLabel->
+  "In[109]:=",ExpressionUUID->"2fb68eba-4628-4f11-a329-c50fd7713aa2"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -7972,11 +8151,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$8556, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$25943, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$8556, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$25943, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{15., 
         FormBox["15", TraditionalForm], {0., 0.}, 
         Directive[
@@ -8052,11 +8231,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$8556, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$25943, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$8556, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$25943, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{2., 
        Directive[
         GrayLevel[0.6], 
@@ -8123,8 +8302,10 @@ Cell[BoxData[
    3.797241402825768*^9, 3.797246367925383*^9, 3.797246415617634*^9, 
    3.797946011523553*^9, 3.79794628487297*^9, {3.798038902613051*^9, 
    3.798038918552361*^9}, 3.798041222446259*^9, 3.7980413835119667`*^9, 
-   3.7980417229519567`*^9, 3.798042395804359*^9, 3.798130017175809*^9},
- CellLabel->"Out[34]=",ExpressionUUID->"8d9c47fb-6994-4a19-87b2-def26184779b"],
+   3.7980417229519567`*^9, 3.798042395804359*^9, 3.798130017175809*^9, 
+   3.79813155363284*^9},
+ CellLabel->
+  "Out[109]=",ExpressionUUID->"9f60c2ea-b88a-449e-9c68-8c70dba600ff"],
 
 Cell[BoxData[
  TemplateBox[{
@@ -8132,7 +8313,7 @@ Cell[BoxData[
    "\"The rank of the design matrix \\!\\(\\*RowBox[{\\\"1\\\"}]\\) is less \
 than the number of terms \\!\\(\\*RowBox[{\\\"2\\\"}]\\) in the model. The \
 model and results based upon it may contain significant numerical error.\"", 
-   2, 35, 1, 30574100927096433618, "Local"},
+   2, 110, 3, 30574100927096433618, "Local"},
   "MessageTemplate"]], "Message", "MSG",
  CellChangeTimes->{
   3.79709026817347*^9, 3.7970906762331667`*^9, 3.797090736303461*^9, 
@@ -8142,10 +8323,10 @@ model and results based upon it may contain significant numerical error.\"",
    3.7972463679841843`*^9, 3.797246415684729*^9, 3.797946011583227*^9, 
    3.7979462849256773`*^9, {3.7980389027368717`*^9, 3.798038918695641*^9}, 
    3.79804122257413*^9, 3.798041383640259*^9, 3.798041723067711*^9, 
-   3.798042395934616*^9, 3.7981300173028803`*^9},
+   3.798042395934616*^9, 3.7981300173028803`*^9, 3.798131553756899*^9},
  CellLabel->
   "During evaluation of \
-In[34]:=",ExpressionUUID->"31ce275e-4b13-4501-9f69-b33e761883df"],
+In[109]:=",ExpressionUUID->"85ee9172-ac4f-4dc6-867e-8ddcf64b2306"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -8376,11 +8557,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$9277, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$26664, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$9277, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$26664, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{15., 
         FormBox["15", TraditionalForm], {0., 0.}, 
         Directive[
@@ -8456,11 +8637,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$9277, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$26664, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$9277, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$26664, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{2., 
        Directive[
         GrayLevel[0.6], 
@@ -8527,8 +8708,10 @@ Cell[BoxData[
    3.797241402825768*^9, 3.797246367925383*^9, 3.797246415617634*^9, 
    3.797946011523553*^9, 3.79794628487297*^9, {3.798038902613051*^9, 
    3.798038918552361*^9}, 3.798041222446259*^9, 3.7980413835119667`*^9, 
-   3.7980417229519567`*^9, 3.798042395804359*^9, 3.798130017386483*^9},
- CellLabel->"Out[35]=",ExpressionUUID->"33e950e0-ac86-4192-8577-aecc7fe9c642"]
+   3.7980417229519567`*^9, 3.798042395804359*^9, 3.798130017175809*^9, 
+   3.798131553771764*^9},
+ CellLabel->
+  "Out[110]=",ExpressionUUID->"cb5ed63e-8769-499d-8591-2e0eebe00c05"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -8553,7 +8736,8 @@ Cell[BoxData[
    3.797074539466909*^9}, {3.7970799283488626`*^9, 3.797079932313027*^9}, {
    3.7970802990450783`*^9, 3.797080330823305*^9}, {3.7972464434370003`*^9, 
    3.7972464480806713`*^9}, {3.7980389560923033`*^9, 3.798038959811387*^9}},
- CellLabel->"In[36]:=",ExpressionUUID->"80115178-65db-421c-9cce-71e9812b0090"],
+ CellLabel->
+  "In[111]:=",ExpressionUUID->"80115178-65db-421c-9cce-71e9812b0090"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -8599,11 +8783,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$10086, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$27460, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$10086, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$27460, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{0., 
         FormBox["0", TraditionalForm], {0., 0.}, 
         Directive[
@@ -8676,11 +8860,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$10086, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$27460, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$10086, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$27460, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{-100., 
        Directive[
         GrayLevel[0.6], 
@@ -8736,8 +8920,9 @@ Cell[BoxData[
   3.797246454774131*^9, 3.7979460196896276`*^9, 3.797946285030801*^9, {
    3.798038950819384*^9, 3.798038960269898*^9}, 3.798041229568589*^9, 
    3.7980413837716227`*^9, 3.7980417231953278`*^9, 3.798042396069899*^9, 
-   3.79813002154751*^9},
- CellLabel->"Out[36]=",ExpressionUUID->"ba7f4303-a6f3-42e5-9374-7c0464f0750f"]
+   3.79813002154751*^9, 3.798131557292021*^9},
+ CellLabel->
+  "Out[111]=",ExpressionUUID->"2992ea2c-562d-4e3d-a8dc-dd61a0b139fb"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -8763,7 +8948,8 @@ Cell[BoxData[{
    3.792111739686221*^9, 3.792111740094235*^9}, {3.792112005156447*^9, 
    3.7921120104230547`*^9}, {3.797010981192748*^9, 3.7970110549000807`*^9}, 
    3.797069713615075*^9},
- CellLabel->"In[37]:=",ExpressionUUID->"33fd9bb7-2613-4e68-9081-966ae4e3f1d4"],
+ CellLabel->
+  "In[112]:=",ExpressionUUID->"33fd9bb7-2613-4e68-9081-966ae4e3f1d4"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -8800,11 +8986,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$10132, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$27506, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$10132, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$27506, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -8884,11 +9070,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$10132, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$27506, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$10132, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$27506, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -8962,8 +9148,9 @@ Cell[BoxData[
    3.797241410286236*^9, 3.79724636831542*^9, 3.7972464160090933`*^9, 
    3.797946021252235*^9, 3.797946285069982*^9, 3.798038962955917*^9, 
    3.798041231081111*^9, 3.798041383804747*^9, 3.798041723215932*^9, 
-   3.798042396095908*^9, 3.7981300236355047`*^9},
- CellLabel->"Out[37]=",ExpressionUUID->"5531b191-7163-48b5-89ec-90873b98fd3b"]
+   3.798042396095908*^9, 3.7981300236355047`*^9, 3.798131558948893*^9},
+ CellLabel->
+  "Out[112]=",ExpressionUUID->"4f4ac108-9dea-443a-9948-11df20f2ebb8"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -8994,7 +9181,8 @@ Cell[BoxData[
    "]"}]}]], "Input",
  CellChangeTimes->{{3.7970111573208513`*^9, 3.797011272417734*^9}, {
   3.797011657965374*^9, 3.7970116601911173`*^9}},
- CellLabel->"In[38]:=",ExpressionUUID->"474ecf60-1056-4127-85bd-480afa17dace"],
+ CellLabel->
+  "In[114]:=",ExpressionUUID->"474ecf60-1056-4127-85bd-480afa17dace"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -9024,11 +9212,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$10168, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$27577, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$10168, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$27577, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{16., 
         FormBox["16", TraditionalForm], {0., 0.}, 
         Directive[
@@ -9104,11 +9292,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$10168, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$27577, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$10168, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$27577, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -9172,8 +9360,10 @@ Cell[BoxData[
    3.797185493958061*^9, 3.7972414228318*^9, 3.7972463683954687`*^9, 
    3.7972464160824623`*^9, 3.7979460226355133`*^9, 3.797946285090007*^9, 
    3.7980389676609087`*^9, 3.798041233468237*^9, 3.798041383836495*^9, 
-   3.798041723250248*^9, 3.798042396131394*^9, 3.798130025720248*^9},
- CellLabel->"Out[38]=",ExpressionUUID->"4c85aa47-aa62-4c5b-b80b-4684e3df6658"]
+   3.798041723250248*^9, 3.798042396131394*^9, 3.798130025720248*^9, {
+   3.7981315605501957`*^9, 3.798131567033402*^9}},
+ CellLabel->
+  "Out[114]=",ExpressionUUID->"45113e16-1048-4d42-94a1-ce86247a6a43"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -9229,7 +9419,8 @@ Cell[BoxData[
   3.7921035997815733`*^9, 3.792103605605455*^9}, {3.792103760015522*^9, 
   3.792103766189704*^9}, {3.792105373674095*^9, 3.792105373966669*^9}, {
   3.797069810736022*^9, 3.797069836122059*^9}},
- CellLabel->"In[39]:=",ExpressionUUID->"77c534a0-f9e6-4e70-84a7-08465f7c3d01"],
+ CellLabel->
+  "In[115]:=",ExpressionUUID->"77c534a0-f9e6-4e70-84a7-08465f7c3d01"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -9283,11 +9474,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$10203, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$27612, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$10203, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$27612, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -9367,11 +9558,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$10203, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$27612, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$10203, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$27612, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -9443,8 +9634,9 @@ Cell[BoxData[
    3.797246368475851*^9, 3.797246416138846*^9, 3.797946033938303*^9, 
    3.7979462851338654`*^9, 3.798038971481492*^9, 3.798041236420518*^9, 
    3.798041383870474*^9, 3.798041723284831*^9, 3.79804239616877*^9, 
-   3.798130029691831*^9},
- CellLabel->"Out[39]=",ExpressionUUID->"aaeb31a1-f99f-4fc1-a3b0-2eda8afdf63c"]
+   3.798130029691831*^9, 3.798131569905284*^9},
+ CellLabel->
+  "Out[115]=",ExpressionUUID->"501d957f-a5d4-43f5-9bcc-0afd183e4975"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -9461,7 +9653,8 @@ Cell[BoxData[
  CellChangeTimes->{{3.7920879569108257`*^9, 3.792087960858388*^9}, {
   3.7920881718068666`*^9, 3.792088187395097*^9}, {3.792112383558646*^9, 
   3.7921123950855007`*^9}, {3.797069853178837*^9, 3.797069871199348*^9}},
- CellLabel->"In[40]:=",ExpressionUUID->"3def1b9d-8fe1-47b3-81d0-62cf854e0b35"],
+ CellLabel->
+  "In[116]:=",ExpressionUUID->"3def1b9d-8fe1-47b3-81d0-62cf854e0b35"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -9506,11 +9699,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$10241, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$27650, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$10241, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$27650, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -9590,11 +9783,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$10241, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$27650, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$10241, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$27650, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -9665,8 +9858,10 @@ Cell[BoxData[
    3.7971854940673237`*^9, 3.797241422993802*^9, 3.797246368530698*^9, 
    3.797246416194845*^9, 3.797946035609074*^9, 3.797946285176982*^9, 
    3.798038976926526*^9, 3.798041241428267*^9, 3.798041383900497*^9, 
-   3.7980417233158712`*^9, 3.798042396200473*^9, 3.798130031699457*^9},
- CellLabel->"Out[40]=",ExpressionUUID->"42d4cfa1-7ab4-4b9b-92a3-e72f1dcba433"]
+   3.7980417233158712`*^9, 3.798042396200473*^9, 3.798130031699457*^9, 
+   3.798131571749851*^9},
+ CellLabel->
+  "Out[116]=",ExpressionUUID->"e804464b-041c-4717-b988-77bb726ec7d7"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -9681,7 +9876,8 @@ Cell[BoxData[
      RowBox[{"\"\<size\>\"", "\[Rule]", "\"\<cyl\>\""}]}], "]"}], 
    "]"}]}]], "Input",
  CellChangeTimes->{{3.7970698884017143`*^9, 3.7970698898072243`*^9}},
- CellLabel->"In[41]:=",ExpressionUUID->"a0068a9d-4958-4c01-8f89-f03336699afd"],
+ CellLabel->
+  "In[117]:=",ExpressionUUID->"a0068a9d-4958-4c01-8f89-f03336699afd"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -9726,11 +9922,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$10279, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$27688, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$10279, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$27688, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -9810,11 +10006,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$10279, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$27688, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$10279, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$27688, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -9879,8 +10075,10 @@ Cell[BoxData[
   3.797185136282559*^9, 3.797185494119691*^9, 3.7972414230693827`*^9, 
   3.797246368589286*^9, 3.797246416252454*^9, 3.797946036364442*^9, 
   3.797946285216065*^9, 3.79804124325781*^9, 3.79804138393115*^9, 
-  3.798041723347329*^9, 3.798042396230941*^9, 3.7981300333513603`*^9},
- CellLabel->"Out[41]=",ExpressionUUID->"5b912e5c-77ed-49fb-88bb-5b8f180d54f0"]
+  3.798041723347329*^9, 3.798042396230941*^9, 3.7981300333513603`*^9, 
+  3.7981315735555773`*^9},
+ CellLabel->
+  "Out[117]=",ExpressionUUID->"e2559c06-102d-4f57-b001-f27b962ba9e3"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -9900,7 +10098,8 @@ Cell[BoxData[
      RowBox[{"\"\<color\>\"", "\[Rule]", "\"\<cyl\>\""}], ",", 
      RowBox[{"\"\<size\>\"", "\[Rule]", "20"}]}], "]"}], "]"}]}]], "Input",
  CellChangeTimes->{{3.797069929937289*^9, 3.797069938576893*^9}},
- CellLabel->"In[42]:=",ExpressionUUID->"40fe7d5a-78ea-4954-8084-501076e121db"],
+ CellLabel->
+  "In[118]:=",ExpressionUUID->"40fe7d5a-78ea-4954-8084-501076e121db"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -9954,11 +10153,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$10317, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$27726, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$10317, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$27726, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -10038,11 +10237,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$10317, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$27726, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$10317, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$27726, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -10107,8 +10306,10 @@ Cell[BoxData[
   3.797185136337*^9, 3.797185494172194*^9, 3.797241423134087*^9, 
   3.797246368647191*^9, 3.797246416303772*^9, 3.79794603860632*^9, 
   3.797946285255669*^9, 3.7980412459772053`*^9, 3.798041383962006*^9, 
-  3.798041723378017*^9, 3.7980423962618647`*^9, 3.7981300358880653`*^9},
- CellLabel->"Out[42]=",ExpressionUUID->"0199ef1b-d18a-486d-86e8-2dc31cb44b38"]
+  3.798041723378017*^9, 3.7980423962618647`*^9, 3.7981300358880653`*^9, 
+  3.798131576043291*^9},
+ CellLabel->
+  "Out[118]=",ExpressionUUID->"ffe0fbc9-5367-4861-a512-94bdf1ba29c4"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -10132,7 +10333,8 @@ Cell[BoxData[
  CellChangeTimes->{{3.792083821691087*^9, 3.79208382663682*^9}, {
   3.797069970572217*^9, 3.797069992935261*^9}, {3.798041253158298*^9, 
   3.798041255264697*^9}},
- CellLabel->"In[43]:=",ExpressionUUID->"c45f343e-0447-4a4c-b1ba-76bfb1325e0b"],
+ CellLabel->
+  "In[119]:=",ExpressionUUID->"c45f343e-0447-4a4c-b1ba-76bfb1325e0b"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -10196,11 +10398,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$10355, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$27764, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$10355, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$27764, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{10., 
         FormBox["10", TraditionalForm], {0., 0.}, 
         Directive[
@@ -10280,11 +10482,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$10355, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$27764, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$10355, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$27764, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{100., 
        Directive[
         GrayLevel[0.6], 
@@ -10352,8 +10554,10 @@ Cell[BoxData[
    3.7971854942254*^9, 3.797241423198463*^9, 3.797246368703438*^9, 
    3.797246416358375*^9, 3.7979460408730383`*^9, 3.797946285296321*^9, {
    3.7980412486261*^9, 3.7980412558736343`*^9}, 3.798041384001268*^9, 
-   3.798041723408719*^9, 3.7980423962933826`*^9, 3.798130039580119*^9},
- CellLabel->"Out[43]=",ExpressionUUID->"f9e0bd40-3c91-4409-b8fb-74108d1851e2"]
+   3.798041723408719*^9, 3.7980423962933826`*^9, 3.798130039580119*^9, 
+   3.7981315783776073`*^9},
+ CellLabel->
+  "Out[119]=",ExpressionUUID->"0d97388c-c915-4655-a765-de68cd45572f"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -10368,7 +10572,8 @@ Cell[BoxData[
      RowBox[{"\"\<color\>\"", "\[Rule]", "\"\<class\>\""}]}], "]"}], 
    "]"}]}]], "Input",
  CellChangeTimes->{{3.797070787117021*^9, 3.7970707884678707`*^9}},
- CellLabel->"In[44]:=",ExpressionUUID->"d7d4ea2f-aa13-4790-b917-aa9f02b2d4c3"],
+ CellLabel->
+  "In[120]:=",ExpressionUUID->"d7d4ea2f-aa13-4790-b917-aa9f02b2d4c3"],
 
 Cell[BoxData[
  GraphicsBox[{
@@ -10492,11 +10697,11 @@ Cell[BoxData[
   FrameTicks->FrontEndValueCache[{{
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`yScaleType$10397, ggplot`Private`min$, 
+       ggplot`Private`yScaleType$27806, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}, {
       Function[{ggplot`Private`min$, ggplot`Private`max$}, 
        ggplot`ticks[
-       ggplot`Private`xScaleType$10397, ggplot`Private`min$, 
+       ggplot`Private`xScaleType$27806, ggplot`Private`min$, 
         ggplot`Private`max$, {}]], False}}, {{{{15., 
         FormBox["15", TraditionalForm], {0., 0.}, 
         Directive[
@@ -10572,11 +10777,11 @@ Cell[BoxData[
   GridLines->FrontEndValueCache[{
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`xScaleType$10397, ggplot`Private`min$, 
+      ggplot`Private`xScaleType$27806, ggplot`Private`min$, 
        ggplot`Private`max$, {}]], 
      Function[{ggplot`Private`min$, ggplot`Private`max$}, 
       ggplot`gridLines[
-      ggplot`Private`yScaleType$10397, ggplot`Private`min$, 
+      ggplot`Private`yScaleType$27806, ggplot`Private`min$, 
        ggplot`Private`max$, {}]]}, {{{2., 
        Directive[
         GrayLevel[0.6], 
@@ -10638,8 +10843,9 @@ Cell[BoxData[
   3.797185494335169*^9, 3.797241423384954*^9, 3.797246368825932*^9, 
   3.7972464164825363`*^9, 3.797946044429287*^9, 3.797946285460396*^9, 
   3.798041284500111*^9, 3.798041384093837*^9, 3.798041723456065*^9, 
-  3.798042396355102*^9, 3.798130041891019*^9},
- CellLabel->"Out[44]=",ExpressionUUID->"6482ea2f-8c9c-4221-aaf9-d0c802a2377f"]
+  3.798042396355102*^9, 3.798130041891019*^9, 3.7981315792341537`*^9},
+ CellLabel->
+  "Out[120]=",ExpressionUUID->"474c6f48-0ddd-4783-9339-ff44cf2f76b8"]
 }, Open  ]],
 
 Cell["Columns", "Text",
@@ -22078,8 +22284,8 @@ Cell[BoxData["ImageForwardTransformation"], "Input",
 706b359c5f83"]
 }, Open  ]]
 },
-WindowSize->{1190, 862},
-WindowMargins->{{Automatic, 179}, {21, Automatic}},
+WindowSize->{840, 956},
+WindowMargins->{{0, Automatic}, {-29, Automatic}},
 TaggingRules->{"TryRealOnly" -> False},
 Magnification:>1.25 Inherited,
 FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (March 13, 2020)",
@@ -22098,333 +22304,341 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 703, 13, 64, "Input",ExpressionUUID->"ddfcc8d6-fd7d-4d54-9b99-9a2ae2ec34db"],
-Cell[1286, 37, 6170, 87, 42, "Output",ExpressionUUID->"5eddd86b-53c3-406d-ab2e-5cf836f663a2"],
-Cell[7459, 126, 28138, 476, 77, "Output",ExpressionUUID->"92883b0e-08f6-4bff-8606-50de9c368e75"]
+Cell[580, 22, 703, 13, 116, "Input",ExpressionUUID->"ddfcc8d6-fd7d-4d54-9b99-9a2ae2ec34db"],
+Cell[1286, 37, 6292, 89, 42, "Output",ExpressionUUID->"4a57b1ab-8cea-479a-b599-206d95e3dd30"],
+Cell[7581, 128, 28264, 478, 77, "Output",ExpressionUUID->"7dfbf8f7-3f68-49e9-befa-8d424cae87e7"]
 }, Open  ]],
-Cell[35612, 605, 196, 3, 37, "Input",ExpressionUUID->"d48058b5-d98b-4859-be2a-5f5560cf4684"],
+Cell[35860, 609, 196, 3, 37, "Input",ExpressionUUID->"d48058b5-d98b-4859-be2a-5f5560cf4684"],
 Cell[CellGroupData[{
-Cell[35833, 612, 149, 2, 37, "Input",ExpressionUUID->"2abf42e7-6529-465b-ada2-a13d3d5a4db1"],
-Cell[35985, 616, 4471, 63, 42, "Output",ExpressionUUID->"fa0e231b-a922-4043-9b57-cd4b4207d59c"]
+Cell[36081, 616, 149, 2, 37, "Input",ExpressionUUID->"2abf42e7-6529-465b-ada2-a13d3d5a4db1"],
+Cell[36233, 620, 4471, 63, 42, "Output",ExpressionUUID->"fa0e231b-a922-4043-9b57-cd4b4207d59c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[40493, 684, 368, 6, 64, "Input",ExpressionUUID->"a565ab5e-e970-4234-9783-222b2a891bd7"],
+Cell[40741, 688, 369, 6, 64, "Input",ExpressionUUID->"a565ab5e-e970-4234-9783-222b2a891bd7"],
 Cell[CellGroupData[{
-Cell[40886, 694, 173, 3, 32, "Echo",ExpressionUUID->"45dd102a-1fc5-4b99-a30f-1b54374aa5c7"],
-Cell[41062, 699, 146, 3, 32, "Echo",ExpressionUUID->"dda2c334-c6aa-4e9b-97d9-855ec768ad56"]
+Cell[41135, 698, 173, 3, 32, "Echo",ExpressionUUID->"01034b69-6c34-4124-b2d1-6720c6287e32"],
+Cell[41311, 703, 148, 3, 32, "Echo",ExpressionUUID->"ac8bb778-08ef-4114-9778-7acd00ffef49"]
 }, Open  ]]
 }, Open  ]],
-Cell[41235, 706, 155, 3, 44, "Text",ExpressionUUID->"f1d32814-a856-4c85-91b9-d0cc05aee266"],
-Cell[41393, 711, 1860, 50, 116, "Input",ExpressionUUID->"da49e7bc-10e2-444f-bc5b-480f227cb620"],
+Cell[41486, 710, 155, 3, 44, "Text",ExpressionUUID->"f1d32814-a856-4c85-91b9-d0cc05aee266"],
+Cell[41644, 715, 2202, 61, 272, "Input",ExpressionUUID->"da49e7bc-10e2-444f-bc5b-480f227cb620"],
 Cell[CellGroupData[{
-Cell[43278, 765, 202, 3, 56, "Subsubsection",ExpressionUUID->"31c0f46a-b20e-4014-98af-b1aa733504b8"],
-Cell[43483, 770, 259, 6, 43, "Text",ExpressionUUID->"7879877f-a50d-4acf-88ac-7bfef096d8ce"],
+Cell[43871, 780, 202, 3, 56, "Subsubsection",ExpressionUUID->"31c0f46a-b20e-4014-98af-b1aa733504b8"],
+Cell[44076, 785, 259, 6, 43, "Text",ExpressionUUID->"7879877f-a50d-4acf-88ac-7bfef096d8ce"],
 Cell[CellGroupData[{
-Cell[43767, 780, 1030, 29, 91, "Input",ExpressionUUID->"49349785-adf6-487b-909d-f977e020475d"],
-Cell[44800, 811, 424, 8, 470, "Output",ExpressionUUID->"ea4766d4-fdc9-440a-aa30-50830bfee631"]
+Cell[44360, 795, 1030, 29, 91, "Input",ExpressionUUID->"49349785-adf6-487b-909d-f977e020475d"],
+Cell[45393, 826, 424, 8, 470, "Output",ExpressionUUID->"ea4766d4-fdc9-440a-aa30-50830bfee631"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[45261, 824, 1348, 34, 143, "Input",ExpressionUUID->"7de8c32d-864b-4dab-8c25-546bae1ffdb6"],
-Cell[46612, 860, 426, 11, 146, "Output",ExpressionUUID->"efbd2a1b-5ed7-4834-b6ee-ed7293cb1b7f"]
+Cell[45854, 839, 1348, 34, 143, "Input",ExpressionUUID->"7de8c32d-864b-4dab-8c25-546bae1ffdb6"],
+Cell[47205, 875, 426, 11, 146, "Output",ExpressionUUID->"efbd2a1b-5ed7-4834-b6ee-ed7293cb1b7f"]
 }, Open  ]],
-Cell[47053, 874, 177, 3, 36, "Input",ExpressionUUID->"29febc38-66de-4168-8e0d-3da980823ae6"],
+Cell[47646, 889, 177, 3, 36, "Input",ExpressionUUID->"29febc38-66de-4168-8e0d-3da980823ae6"],
 Cell[CellGroupData[{
-Cell[47255, 881, 480, 13, 36, "Input",ExpressionUUID->"df135893-4224-42d0-90b4-c6a9a2bd6c6c"],
-Cell[47738, 896, 9335, 226, 810, "Output",ExpressionUUID->"e9f59a51-4ffb-4e07-a993-d39c98d6904d"]
+Cell[47848, 896, 480, 13, 36, "Input",ExpressionUUID->"df135893-4224-42d0-90b4-c6a9a2bd6c6c"],
+Cell[48331, 911, 9335, 226, 810, "Output",ExpressionUUID->"e9f59a51-4ffb-4e07-a993-d39c98d6904d"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[57122, 1128, 233, 4, 45, "Subsubsection",ExpressionUUID->"df6968c3-0099-4d94-be20-8dca1844582d"],
+Cell[57715, 1143, 233, 4, 45, "Subsubsection",ExpressionUUID->"df6968c3-0099-4d94-be20-8dca1844582d"],
 Cell[CellGroupData[{
-Cell[57380, 1136, 452, 10, 37, "Input",ExpressionUUID->"b6027324-e261-4621-906a-86afd547800d"],
-Cell[57835, 1148, 27243, 528, 383, 6041, 180, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"2c184322-c95a-47cb-96ad-5e843fdbee1c"]
+Cell[57973, 1151, 236, 5, 37, "Input",ExpressionUUID->"4a4107af-c8f0-442d-9726-b9a560db16d9"],
+Cell[58212, 1158, 593, 12, 69, "Output",ExpressionUUID->"f24abfba-dfad-4888-9600-3a1eb3844285"]
 }, Open  ]],
-Cell[85093, 1679, 220, 3, 64, "Text",ExpressionUUID->"b36f65ed-05fb-4e02-b48a-4f2b48808242"],
-Cell[85316, 1684, 755, 18, 116, "Input",ExpressionUUID->"ab45797e-890b-437a-ae18-82e78e07d241"],
 Cell[CellGroupData[{
-Cell[86096, 1706, 746, 15, 116, "Input",ExpressionUUID->"7bce61b0-0fe0-45d7-b3f0-b8b477bc29e2"],
-Cell[86845, 1723, 9568, 233, 383, "Output",ExpressionUUID->"174c2e00-d079-4d7e-bf2c-e8f8e0541304"]
+Cell[58842, 1175, 691, 17, 142, "Input",ExpressionUUID->"85be8148-db0d-42b8-b08f-577d3edbe70d"],
+Cell[59536, 1194, 17485, 349, 385, "Output",ExpressionUUID->"be474bad-fd92-415d-b1ef-fb2aad7b3bd8"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[96450, 1961, 822, 18, 116, "Input",ExpressionUUID->"9760db91-3531-44d5-a6fa-487e6c6ad83b"],
-Cell[97275, 1981, 9674, 235, 383, "Output",ExpressionUUID->"8f2030c2-5f39-42cc-b51c-67200b3ef08b"]
+Cell[77058, 1548, 621, 13, 37, "Input",ExpressionUUID->"b6027324-e261-4621-906a-86afd547800d"],
+Cell[77682, 1563, 10362, 264, 383, "Output",ExpressionUUID->"ed566904-6f49-440b-99e0-ee96a46887a2"]
 }, Open  ]],
+Cell[88059, 1830, 220, 3, 64, "Text",ExpressionUUID->"b36f65ed-05fb-4e02-b48a-4f2b48808242"],
+Cell[88282, 1835, 755, 18, 116, "Input",ExpressionUUID->"ab45797e-890b-437a-ae18-82e78e07d241"],
 Cell[CellGroupData[{
-Cell[106986, 2221, 744, 16, 116, "Input",ExpressionUUID->"f853a625-e318-4ce4-b1c9-cea2e9ed5af9"],
-Cell[107733, 2239, 9569, 233, 383, "Output",ExpressionUUID->"7454f4be-4f98-4bdb-b734-99f1540ca36b"]
+Cell[89062, 1857, 747, 15, 116, "Input",ExpressionUUID->"7bce61b0-0fe0-45d7-b3f0-b8b477bc29e2"],
+Cell[89812, 1874, 9601, 234, 383, "Output",ExpressionUUID->"c0951598-0ace-4c80-9b01-7f3cb118cf4d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[117339, 2477, 721, 15, 90, "Input",ExpressionUUID->"6773186e-e945-4291-9dce-ad3820a26730"],
-Cell[118063, 2494, 8170, 219, 383, "Output",ExpressionUUID->"8e5b7d17-1341-4661-bdd9-5d07248ad1fe"]
+Cell[99450, 2113, 823, 18, 116, "Input",ExpressionUUID->"9760db91-3531-44d5-a6fa-487e6c6ad83b"],
+Cell[100276, 2133, 9701, 235, 383, "Output",ExpressionUUID->"2cefbeaa-cab5-4bcb-9fd2-e16aa9a4e7a2"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[126270, 2718, 1235, 24, 142, "Input",ExpressionUUID->"08f68d46-5b4e-4eb8-9d0f-500ef74b8d0a"],
-Cell[127508, 2744, 8029, 214, 385, "Output",ExpressionUUID->"3988a018-9186-4db3-a266-325ab1569cbb"]
+Cell[110014, 2373, 744, 16, 116, "Input",ExpressionUUID->"f853a625-e318-4ce4-b1c9-cea2e9ed5af9"],
+Cell[110761, 2391, 9601, 234, 383, "Output",ExpressionUUID->"43d5da63-c19e-466f-89b2-b56c0169b63a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[135574, 2963, 665, 13, 37, "Input",ExpressionUUID->"853ca746-ec1d-44b4-be78-ed2ea7323eee"],
-Cell[136242, 2978, 6715, 197, 383, "Output",ExpressionUUID->"cb1591be-aea0-476f-aa6a-ce2a0dfca6fb"]
+Cell[120399, 2630, 721, 15, 90, "Input",ExpressionUUID->"6773186e-e945-4291-9dce-ad3820a26730"],
+Cell[121123, 2647, 8196, 219, 383, "Output",ExpressionUUID->"7f187bf2-1af3-4763-8ee2-3d93dfdb41d8"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[142994, 3180, 575, 12, 37, "Input",ExpressionUUID->"f48c3b78-30e5-48f6-8953-0c9c21ee2d43"],
-Cell[143572, 3194, 6668, 189, 383, "Output",ExpressionUUID->"54677c19-9655-4749-b7ae-35579d631158"]
+Cell[129356, 2871, 1235, 24, 142, "Input",ExpressionUUID->"08f68d46-5b4e-4eb8-9d0f-500ef74b8d0a"],
+Cell[130594, 2897, 8059, 215, 385, "Output",ExpressionUUID->"ebad2cbf-e032-4fa7-8ef0-62498a7018f7"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[150277, 3388, 1262, 21, 64, "Input",ExpressionUUID->"12ac9355-d543-48ec-a6a5-51b551e2bbf4"],
-Cell[151542, 3411, 8674, 209, 369, "Output",ExpressionUUID->"753ffa5d-b481-47c4-bc91-3366c760a8b4"]
+Cell[138690, 3117, 665, 13, 37, "Input",ExpressionUUID->"853ca746-ec1d-44b4-be78-ed2ea7323eee"],
+Cell[139358, 3132, 6741, 197, 383, "Output",ExpressionUUID->"00942a14-d907-4b57-ba8f-99c342deb91e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[160253, 3625, 413, 8, 64, "Input",ExpressionUUID->"29c13e24-282f-4ac1-9f1d-b421d3c24fa5"],
-Cell[160669, 3635, 6351, 185, 383, "Output",ExpressionUUID->"fa971c49-c8dd-4964-9077-ceb6a7b9afbc"]
+Cell[146136, 3334, 575, 12, 37, "Input",ExpressionUUID->"f48c3b78-30e5-48f6-8953-0c9c21ee2d43"],
+Cell[146714, 3348, 6746, 190, 383, "Output",ExpressionUUID->"539af5de-c1bb-4be1-aae6-c3a779dae755"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[167057, 3825, 423, 8, 37, "Input",ExpressionUUID->"a1e02f27-61a4-436c-a40f-164d148eb38e"],
-Cell[167483, 3835, 6535, 187, 383, "Output",ExpressionUUID->"d541b122-16c7-4293-9f04-9e43e22a1a3b"]
+Cell[153497, 3543, 1262, 21, 64, "Input",ExpressionUUID->"12ac9355-d543-48ec-a6a5-51b551e2bbf4"],
+Cell[154762, 3566, 8700, 209, 369, "Output",ExpressionUUID->"ece205ad-9139-47ce-8edb-2838ea3b4f17"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[174055, 4027, 803, 17, 142, "Input",ExpressionUUID->"3ff547e2-18e5-489f-a924-952af4fed96e"],
-Cell[174861, 4046, 7460, 215, 379, "Output",ExpressionUUID->"444427f5-fe18-49d0-9966-5ed3c3c26288"]
+Cell[163499, 3780, 413, 8, 64, "Input",ExpressionUUID->"29c13e24-282f-4ac1-9f1d-b421d3c24fa5"],
+Cell[163915, 3790, 6377, 185, 383, "Output",ExpressionUUID->"8255c1ee-4b22-409c-9c16-d18b62f6b075"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[182358, 4266, 554, 11, 37, "Input",ExpressionUUID->"5a3bdc56-3b39-4657-9d63-ce50e6416616"],
-Cell[182915, 4279, 10096, 237, 383, "Output",ExpressionUUID->"ede87dd7-6b84-4745-be80-6fe06872dd43"]
+Cell[170329, 3980, 423, 8, 37, "Input",ExpressionUUID->"a1e02f27-61a4-436c-a40f-164d148eb38e"],
+Cell[170755, 3990, 6567, 188, 383, "Output",ExpressionUUID->"1445f0c2-3744-4632-9db5-74970d4eaf7d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[193048, 4521, 467, 9, 37, "Input",ExpressionUUID->"8ce55751-fa3f-4e68-8382-6a91b651149f"],
-Cell[193518, 4532, 7490, 203, 383, "Output",ExpressionUUID->"24c4261b-38fe-4b16-a418-9d01557f0c33"]
+Cell[177359, 4183, 803, 17, 142, "Input",ExpressionUUID->"3ff547e2-18e5-489f-a924-952af4fed96e"],
+Cell[178165, 4202, 7486, 215, 379, "Output",ExpressionUUID->"436c5ad1-9e1a-4f7e-9bc0-80fb9faedc25"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[201045, 4740, 841, 19, 116, "Input",ExpressionUUID->"36fcb09e-208a-42fd-af80-5bd66d33147f"],
-Cell[201889, 4761, 7265, 212, 379, "Output",ExpressionUUID->"415b899d-6694-4467-9f2f-f22a0a44836a"]
+Cell[185688, 4422, 554, 11, 37, "Input",ExpressionUUID->"5a3bdc56-3b39-4657-9d63-ce50e6416616"],
+Cell[186245, 4435, 10122, 237, 383, "Output",ExpressionUUID->"5b1264cb-08e0-42d8-a7d7-34d69a1b6a40"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[209191, 4978, 811, 16, 64, "Input",ExpressionUUID->"f633d10b-709a-45f6-8416-2ce15879e5e5"],
-Cell[210005, 4996, 6739, 192, 383, "Output",ExpressionUUID->"e2b634ea-f805-4da0-98eb-7d402ab036ae"]
+Cell[196404, 4677, 467, 9, 37, "Input",ExpressionUUID->"8ce55751-fa3f-4e68-8382-6a91b651149f"],
+Cell[196874, 4688, 7515, 203, 383, "Output",ExpressionUUID->"e127238b-9f0b-4884-bf56-56ce42f9d139"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[216781, 5193, 601, 11, 194, "Input",ExpressionUUID->"afe2f8b2-fe2b-4ef5-b9fd-a42838c73f1a"],
-Cell[217385, 5206, 10302, 241, 390, "Output",ExpressionUUID->"505e5755-ea97-4f7f-8f8e-e791093003e9"]
+Cell[204426, 4896, 841, 19, 116, "Input",ExpressionUUID->"36fcb09e-208a-42fd-af80-5bd66d33147f"],
+Cell[205270, 4917, 7290, 212, 379, "Output",ExpressionUUID->"cbe52689-421f-42c6-9371-753b21f7ba6d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[227724, 5452, 587, 13, 64, "Input",ExpressionUUID->"792d4a34-c826-4c4f-a259-81cf676c0dab"],
-Cell[228314, 5467, 10419, 243, 390, "Output",ExpressionUUID->"3101b5b4-dcf2-424c-9058-b5f6227a5256"]
+Cell[212597, 5134, 811, 16, 64, "Input",ExpressionUUID->"f633d10b-709a-45f6-8416-2ce15879e5e5"],
+Cell[213411, 5152, 6771, 193, 383, "Output",ExpressionUUID->"724308e9-9acf-437d-92fd-960ea546431e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[238770, 5715, 1041, 19, 64, "Input",ExpressionUUID->"4cbc2298-e87a-46d4-8f47-46b52acdea7a"],
-Cell[239814, 5736, 9554, 235, 389, "Output",ExpressionUUID->"113ddf9a-5f42-49a2-9042-fea74da11e3a"]
+Cell[220219, 5350, 601, 11, 194, "Input",ExpressionUUID->"afe2f8b2-fe2b-4ef5-b9fd-a42838c73f1a"],
+Cell[220823, 5363, 10331, 242, 390, "Output",ExpressionUUID->"4406efc9-21e9-42b3-af6a-56894f4a95fa"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[249405, 5976, 400, 9, 37, "Input",ExpressionUUID->"d2e75022-5554-4d20-93a6-dfa970f3b772"],
-Cell[249808, 5987, 6490, 187, 383, "Output",ExpressionUUID->"8ae37bfb-6399-4e70-9daa-851fa3422613"]
+Cell[231191, 5610, 591, 14, 64, "Input",ExpressionUUID->"792d4a34-c826-4c4f-a259-81cf676c0dab"],
+Cell[231785, 5626, 10449, 244, 390, "Output",ExpressionUUID->"1d7959f6-d085-4d2a-a605-21ad3f71816e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[256335, 6179, 1472, 28, 116, "Input",ExpressionUUID->"32872071-929d-478b-8919-d9e17e9bd80c"],
-Cell[257810, 6209, 10396, 232, 369, "Output",ExpressionUUID->"6d870c09-536d-4b94-a4ab-6af68a3cc1a1"],
-Cell[268209, 6443, 10757, 235, 368, "Output",ExpressionUUID->"245444a7-06a5-49bc-bcc9-f49e9f684682"]
+Cell[242271, 5875, 1045, 20, 64, "Input",ExpressionUUID->"4cbc2298-e87a-46d4-8f47-46b52acdea7a"],
+Cell[243319, 5897, 9583, 236, 389, "Output",ExpressionUUID->"9b85a642-25ab-4be0-88e4-cfc40a4c354c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[279003, 6683, 756, 16, 64, "Input",ExpressionUUID->"6d0ab414-9db4-4279-ba14-85e546090e7b"],
-Cell[279762, 6701, 7494, 203, 383, "Output",ExpressionUUID->"2432ba4f-400a-4cc8-9acd-76a9d3abc27c"]
+Cell[252939, 6138, 404, 10, 37, "Input",ExpressionUUID->"d2e75022-5554-4d20-93a6-dfa970f3b772"],
+Cell[253346, 6150, 6524, 189, 383, "Output",ExpressionUUID->"fdc0844d-9e75-4e9f-b314-bb027b7ec9c0"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[287293, 6909, 854, 20, 142, "Input",ExpressionUUID->"76f37988-ca96-431b-9f6a-96f7f21f398c"],
-Cell[288150, 6931, 9225, 215, 369, "Output",ExpressionUUID->"244cb3f2-05fc-4579-8ac5-351eea5fdf71"],
-Cell[297378, 7148, 9223, 215, 368, "Output",ExpressionUUID->"09206edb-5263-47bf-80d9-1cf0a251fe7a"]
+Cell[259907, 6344, 1476, 29, 116, "Input",ExpressionUUID->"32872071-929d-478b-8919-d9e17e9bd80c"],
+Cell[261386, 6375, 10430, 234, 369, "Output",ExpressionUUID->"645fa8b4-3806-4355-aa39-7afcc1b5d099"],
+Cell[271819, 6611, 10791, 237, 368, "Output",ExpressionUUID->"ba41f8c7-e2ee-4a29-9b7e-7c443fe8c589"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[306638, 7368, 894, 19, 142, "Input",ExpressionUUID->"7734a5e2-f9df-4a1d-b302-23bf74201ddb"],
-Cell[307535, 7389, 16491, 344, 383, "Output",ExpressionUUID->"1a822430-9260-490c-9d6a-2b11ebedbbf2"]
+Cell[282647, 6853, 760, 17, 64, "Input",ExpressionUUID->"6d0ab414-9db4-4279-ba14-85e546090e7b"],
+Cell[283410, 6872, 7524, 204, 383, "Output",ExpressionUUID->"3c38f173-94c0-404d-8887-465a92659101"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[324063, 7738, 1690, 39, 298, "Input",ExpressionUUID->"2fb68eba-4628-4f11-a329-c50fd7713aa2"],
-Cell[325756, 7779, 16645, 347, 383, "Output",ExpressionUUID->"8d9c47fb-6994-4a19-87b2-def26184779b"],
-Cell[342404, 8128, 1050, 19, 50, "Message",ExpressionUUID->"31ce275e-4b13-4501-9f69-b33e761883df"],
-Cell[343457, 8149, 17874, 381, 383, "Output",ExpressionUUID->"33e950e0-ac86-4192-8577-aecc7fe9c642"]
+Cell[290971, 7081, 858, 21, 142, "Input",ExpressionUUID->"76f37988-ca96-431b-9f6a-96f7f21f398c"],
+Cell[291832, 7104, 9255, 216, 369, "Output",ExpressionUUID->"c469d342-69bf-4e2c-8b98-19365fc62cc3"],
+Cell[301090, 7322, 9257, 216, 368, "Output",ExpressionUUID->"cb974f11-95a9-46af-b3f4-138f3cc3990a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[361368, 8535, 1078, 20, 64, "Input",ExpressionUUID->"80115178-65db-421c-9cce-71e9812b0090"],
-Cell[362449, 8557, 6382, 182, 379, "Output",ExpressionUUID->"ba7f4303-a6f3-42e5-9374-7c0464f0750f"]
+Cell[310384, 7543, 898, 20, 142, "Input",ExpressionUUID->"7734a5e2-f9df-4a1d-b302-23bf74201ddb"],
+Cell[311285, 7565, 16525, 346, 383, "Output",ExpressionUUID->"0935d937-aa15-4115-9e18-f06feac51b20"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[368868, 8744, 864, 21, 64, "Input",ExpressionUUID->"33fd9bb7-2613-4e68-9081-966ae4e3f1d4"],
-Cell[369735, 8767, 7267, 198, 383, "Output",ExpressionUUID->"5531b191-7163-48b5-89ec-90873b98fd3b"]
+Cell[327847, 7916, 1694, 40, 298, "Input",ExpressionUUID->"2fb68eba-4628-4f11-a329-c50fd7713aa2"],
+Cell[329544, 7958, 16678, 349, 383, "Output",ExpressionUUID->"9f60c2ea-b88a-449e-9c68-8c70dba600ff"],
+Cell[346225, 8309, 1074, 19, 50, "Message",ExpressionUUID->"85ee9172-ac4f-4dc6-867e-8ddcf64b2306"],
+Cell[347302, 8330, 17908, 383, 383, "Output",ExpressionUUID->"cb5ed63e-8769-499d-8591-2e0eebe00c05"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[377039, 8970, 1039, 26, 142, "Input",ExpressionUUID->"474ecf60-1056-4127-85bd-480afa17dace"],
-Cell[378081, 8998, 6197, 177, 386, "Output",ExpressionUUID->"4c85aa47-aa62-4c5b-b80b-4684e3df6658"]
+Cell[365247, 8718, 1082, 21, 64, "Input",ExpressionUUID->"80115178-65db-421c-9cce-71e9812b0090"],
+Cell[366332, 8741, 6408, 183, 379, "Output",ExpressionUUID->"2992ea2c-562d-4e3d-a8dc-dd61a0b139fb"]
 }, Open  ]],
-Cell[384293, 9178, 1203, 23, 90, "Input",ExpressionUUID->"9ef7c964-2d29-42b8-a7f2-9552bc9d0437"],
 Cell[CellGroupData[{
-Cell[385521, 9205, 1163, 26, 116, "Input",ExpressionUUID->"77c534a0-f9e6-4e70-84a7-08465f7c3d01"],
-Cell[386687, 9233, 7652, 213, 383, "Output",ExpressionUUID->"aaeb31a1-f99f-4fc1-a3b0-2eda8afdf63c"]
+Cell[372777, 8929, 868, 22, 64, "Input",ExpressionUUID->"33fd9bb7-2613-4e68-9081-966ae4e3f1d4"],
+Cell[373648, 8953, 7293, 199, 383, "Output",ExpressionUUID->"4f4ac108-9dea-443a-9948-11df20f2ebb8"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[394376, 9451, 626, 12, 64, "Input",ExpressionUUID->"3def1b9d-8fe1-47b3-81d0-62cf854e0b35"],
-Cell[395005, 9465, 7436, 203, 383, "Output",ExpressionUUID->"42d4cfa1-7ab4-4b9b-92a3-e72f1dcba433"]
+Cell[380978, 9157, 1043, 27, 142, "Input",ExpressionUUID->"474ecf60-1056-4127-85bd-480afa17dace"],
+Cell[382024, 9186, 6253, 179, 386, "Output",ExpressionUUID->"45113e16-1048-4d42-94a1-ce86247a6a43"]
 }, Open  ]],
+Cell[388292, 9368, 1203, 23, 90, "Input",ExpressionUUID->"9ef7c964-2d29-42b8-a7f2-9552bc9d0437"],
 Cell[CellGroupData[{
-Cell[402478, 9673, 479, 10, 64, "Input",ExpressionUUID->"a0068a9d-4958-4c01-8f89-f03336699afd"],
-Cell[402960, 9685, 7051, 197, 383, "Output",ExpressionUUID->"5b912e5c-77ed-49fb-88bb-5b8f180d54f0"]
+Cell[389520, 9395, 1167, 27, 116, "Input",ExpressionUUID->"77c534a0-f9e6-4e70-84a7-08465f7c3d01"],
+Cell[390690, 9424, 7678, 214, 383, "Output",ExpressionUUID->"501d957f-a5d4-43f5-9bcc-0afd183e4975"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[410048, 9887, 692, 15, 90, "Input",ExpressionUUID->"40fe7d5a-78ea-4954-8084-501076e121db"],
-Cell[410743, 9904, 7247, 206, 383, "Output",ExpressionUUID->"0199ef1b-d18a-486d-86e8-2dc31cb44b38"]
+Cell[398405, 9643, 630, 13, 64, "Input",ExpressionUUID->"3def1b9d-8fe1-47b3-81d0-62cf854e0b35"],
+Cell[399038, 9658, 7466, 205, 383, "Output",ExpressionUUID->"e804464b-041c-4717-b988-77bb726ec7d7"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[418027, 10115, 878, 19, 142, "Input",ExpressionUUID->"c45f343e-0447-4a4c-b1ba-76bfb1325e0b"],
-Cell[418908, 10136, 8055, 219, 383, "Output",ExpressionUUID->"f9e0bd40-3c91-4409-b8fb-74108d1851e2"]
+Cell[406541, 9868, 483, 11, 64, "Input",ExpressionUUID->"a0068a9d-4958-4c01-8f89-f03336699afd"],
+Cell[407027, 9881, 7082, 199, 383, "Output",ExpressionUUID->"e2559c06-102d-4f57-b001-f27b962ba9e3"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[427000, 10360, 478, 10, 64, "Input",ExpressionUUID->"d7d4ea2f-aa13-4790-b917-aa9f02b2d4c3"],
-Cell[427481, 10372, 10716, 269, 383, "Output",ExpressionUUID->"6482ea2f-8c9c-4221-aaf9-d0c802a2377f"]
+Cell[414146, 10085, 696, 16, 90, "Input",ExpressionUUID->"40fe7d5a-78ea-4954-8084-501076e121db"],
+Cell[414845, 10103, 7276, 208, 383, "Output",ExpressionUUID->"ffe0fbc9-5367-4861-a512-94bdf1ba29c4"]
 }, Open  ]],
-Cell[438212, 10644, 153, 3, 44, "Text",ExpressionUUID->"9534f1c2-e1fd-49c5-afe4-a15279d6383e"],
-Cell[438368, 10649, 780, 15, 64, "Input",ExpressionUUID->"c2dc1f97-dede-47a0-b224-51834d3e0617"]
+Cell[CellGroupData[{
+Cell[422158, 10316, 882, 20, 142, "Input",ExpressionUUID->"c45f343e-0447-4a4c-b1ba-76bfb1325e0b"],
+Cell[423043, 10338, 8087, 221, 383, "Output",ExpressionUUID->"0d97388c-c915-4655-a765-de68cd45572f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[431167, 10564, 482, 11, 64, "Input",ExpressionUUID->"d7d4ea2f-aa13-4790-b917-aa9f02b2d4c3"],
+Cell[431652, 10577, 10744, 270, 383, "Output",ExpressionUUID->"474c6f48-0ddd-4783-9339-ff44cf2f76b8"]
+}, Open  ]],
+Cell[442411, 10850, 153, 3, 44, "Text",ExpressionUUID->"9534f1c2-e1fd-49c5-afe4-a15279d6383e"],
+Cell[442567, 10855, 780, 15, 64, "Input",ExpressionUUID->"c2dc1f97-dede-47a0-b224-51834d3e0617"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[439185, 10669, 203, 3, 56, "Subsubsection",ExpressionUUID->"a242e120-2efd-4350-abd3-272ab0c62560"],
-Cell[439391, 10674, 171, 3, 37, "Input",ExpressionUUID->"a11a2e2b-2c4d-470c-8540-7603a14c89c8"],
-Cell[439565, 10679, 170, 3, 37, "Input",ExpressionUUID->"eb7632a6-901d-4402-ab46-a707d8cca02d"],
-Cell[439738, 10684, 484, 13, 37, "Input",ExpressionUUID->"2c4e9e08-a74a-46e0-8163-a4ca40b1b3ca"],
+Cell[443384, 10875, 203, 3, 56, "Subsubsection",ExpressionUUID->"a242e120-2efd-4350-abd3-272ab0c62560"],
+Cell[443590, 10880, 171, 3, 37, "Input",ExpressionUUID->"a11a2e2b-2c4d-470c-8540-7603a14c89c8"],
+Cell[443764, 10885, 170, 3, 37, "Input",ExpressionUUID->"eb7632a6-901d-4402-ab46-a707d8cca02d"],
+Cell[443937, 10890, 484, 13, 37, "Input",ExpressionUUID->"2c4e9e08-a74a-46e0-8163-a4ca40b1b3ca"],
 Cell[CellGroupData[{
-Cell[440247, 10701, 178, 3, 37, "Input",ExpressionUUID->"16e8f1d0-f366-4adf-b228-28a41e66bfaa"],
-Cell[440428, 10706, 4889, 106, 277, "Output",ExpressionUUID->"c267719b-c56b-497f-a3f7-7f4a09a4ccbe"]
+Cell[444446, 10907, 178, 3, 37, "Input",ExpressionUUID->"16e8f1d0-f366-4adf-b228-28a41e66bfaa"],
+Cell[444627, 10912, 4889, 106, 277, "Output",ExpressionUUID->"c267719b-c56b-497f-a3f7-7f4a09a4ccbe"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[445354, 10817, 360, 8, 37, "Input",ExpressionUUID->"894662c3-377d-4a5b-9e64-a55187297930"],
-Cell[445717, 10827, 1416, 27, 425, "Output",ExpressionUUID->"3aabfe78-d3ff-4a4e-abbe-f6fdc846f55c"]
+Cell[449553, 11023, 360, 8, 37, "Input",ExpressionUUID->"894662c3-377d-4a5b-9e64-a55187297930"],
+Cell[449916, 11033, 1416, 27, 425, "Output",ExpressionUUID->"3aabfe78-d3ff-4a4e-abbe-f6fdc846f55c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[447170, 10859, 760, 20, 37, "Input",ExpressionUUID->"a2840189-d1e9-4e5f-a660-b5e1b5fdea55"],
-Cell[447933, 10881, 1519, 27, 292, "Output",ExpressionUUID->"c7f8522c-e62b-4257-99b9-9f8b7fe46de8"]
+Cell[451369, 11065, 760, 20, 37, "Input",ExpressionUUID->"a2840189-d1e9-4e5f-a660-b5e1b5fdea55"],
+Cell[452132, 11087, 1519, 27, 292, "Output",ExpressionUUID->"c7f8522c-e62b-4257-99b9-9f8b7fe46de8"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[449489, 10913, 391, 8, 37, "Input",ExpressionUUID->"18022a57-67cf-431a-a488-bfbbba8c578a"],
-Cell[449883, 10923, 5623, 158, 148, "Output",ExpressionUUID->"8abc62ed-abaa-4718-9973-3b681f35a203"]
+Cell[453688, 11119, 391, 8, 37, "Input",ExpressionUUID->"18022a57-67cf-431a-a488-bfbbba8c578a"],
+Cell[454082, 11129, 5623, 158, 148, "Output",ExpressionUUID->"8abc62ed-abaa-4718-9973-3b681f35a203"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[455543, 11086, 336, 7, 37, "Input",ExpressionUUID->"4241fbab-ffe7-4170-9384-a15bd31b534a"],
-Cell[455882, 11095, 982, 19, 473, "Output",ExpressionUUID->"6037a959-4e2c-4b7e-88c7-0dabaefa4aea"]
+Cell[459742, 11292, 336, 7, 37, "Input",ExpressionUUID->"4241fbab-ffe7-4170-9384-a15bd31b534a"],
+Cell[460081, 11301, 982, 19, 473, "Output",ExpressionUUID->"6037a959-4e2c-4b7e-88c7-0dabaefa4aea"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[456901, 11119, 228, 3, 37, "Input",ExpressionUUID->"4658dea3-d929-4e46-954e-e4db7b6b447e"],
-Cell[457132, 11124, 1037, 18, 148, "Output",ExpressionUUID->"19d4f674-f7ce-48b5-be0d-6f1226ab50ca"]
+Cell[461100, 11325, 228, 3, 37, "Input",ExpressionUUID->"4658dea3-d929-4e46-954e-e4db7b6b447e"],
+Cell[461331, 11330, 1037, 18, 148, "Output",ExpressionUUID->"19d4f674-f7ce-48b5-be0d-6f1226ab50ca"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[458206, 11147, 225, 3, 37, "Input",ExpressionUUID->"8e00888a-e9e1-4f54-8ec3-ac246069ac2a"],
-Cell[458434, 11152, 879, 16, 122, "Output",ExpressionUUID->"867ed325-16f2-40de-a02e-507229661cf4"]
+Cell[462405, 11353, 225, 3, 37, "Input",ExpressionUUID->"8e00888a-e9e1-4f54-8ec3-ac246069ac2a"],
+Cell[462633, 11358, 879, 16, 122, "Output",ExpressionUUID->"867ed325-16f2-40de-a02e-507229661cf4"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[459350, 11173, 842, 22, 65, "Input",ExpressionUUID->"6b5a2872-ba38-4969-b674-0b041d2daff4"],
-Cell[460195, 11197, 883, 21, 75, "Output",ExpressionUUID->"1354a38c-27dd-4dbe-8329-9ba20887fbc3"],
-Cell[461081, 11220, 883, 21, 75, "Output",ExpressionUUID->"35d2586d-74d6-47e2-96c0-cfb0519c315c"]
+Cell[463549, 11379, 842, 22, 65, "Input",ExpressionUUID->"6b5a2872-ba38-4969-b674-0b041d2daff4"],
+Cell[464394, 11403, 883, 21, 75, "Output",ExpressionUUID->"1354a38c-27dd-4dbe-8329-9ba20887fbc3"],
+Cell[465280, 11426, 883, 21, 75, "Output",ExpressionUUID->"35d2586d-74d6-47e2-96c0-cfb0519c315c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[462001, 11246, 434, 10, 37, "Input",ExpressionUUID->"0de91f58-5224-489a-94ce-1464f380b74c"],
-Cell[462438, 11258, 1661, 42, 55, "Output",ExpressionUUID->"c5c2e1c7-cc3a-45bc-bed0-61e28e8c5730"]
+Cell[466200, 11452, 434, 10, 37, "Input",ExpressionUUID->"0de91f58-5224-489a-94ce-1464f380b74c"],
+Cell[466637, 11464, 1661, 42, 55, "Output",ExpressionUUID->"c5c2e1c7-cc3a-45bc-bed0-61e28e8c5730"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[464136, 11305, 487, 12, 37, "Input",ExpressionUUID->"bd00e2be-7833-4827-9151-7a7ecc7a0a4b"],
-Cell[464626, 11319, 1607, 40, 55, "Output",ExpressionUUID->"e217946e-ff5c-4944-960f-d20bcf5d8391"]
+Cell[468335, 11511, 487, 12, 37, "Input",ExpressionUUID->"bd00e2be-7833-4827-9151-7a7ecc7a0a4b"],
+Cell[468825, 11525, 1607, 40, 55, "Output",ExpressionUUID->"e217946e-ff5c-4944-960f-d20bcf5d8391"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[466270, 11364, 230, 3, 37, "Input",ExpressionUUID->"28243656-866b-4d59-9f83-453993fcb329"],
-Cell[466503, 11369, 1398, 26, 148, "Output",ExpressionUUID->"85f9da07-6fc2-4195-aca0-190e521f53b5"]
+Cell[470469, 11570, 230, 3, 37, "Input",ExpressionUUID->"28243656-866b-4d59-9f83-453993fcb329"],
+Cell[470702, 11575, 1398, 26, 148, "Output",ExpressionUUID->"85f9da07-6fc2-4195-aca0-190e521f53b5"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[467938, 11400, 720, 18, 37, "Input",ExpressionUUID->"12d28baa-fbca-4660-8082-4f34041f6dae"],
-Cell[468661, 11420, 1124, 22, 450, "Output",ExpressionUUID->"ae905221-8d35-4046-bb3b-47b26e46c59b"]
+Cell[472137, 11606, 720, 18, 37, "Input",ExpressionUUID->"12d28baa-fbca-4660-8082-4f34041f6dae"],
+Cell[472860, 11626, 1124, 22, 450, "Output",ExpressionUUID->"ae905221-8d35-4046-bb3b-47b26e46c59b"]
 }, Open  ]],
-Cell[469800, 11445, 167, 3, 37, "Input",ExpressionUUID->"b95b9eaa-df33-4c97-8421-809b0257fd04"],
+Cell[473999, 11651, 167, 3, 37, "Input",ExpressionUUID->"b95b9eaa-df33-4c97-8421-809b0257fd04"],
 Cell[CellGroupData[{
-Cell[469992, 11452, 392, 9, 37, "Input",ExpressionUUID->"244eff9b-7d48-46d4-a401-2c6348410fa5"],
-Cell[470387, 11463, 465, 11, 42, "Output",ExpressionUUID->"6124d71b-ead9-4956-92ed-23bfabbcdac0"]
+Cell[474191, 11658, 392, 9, 37, "Input",ExpressionUUID->"244eff9b-7d48-46d4-a401-2c6348410fa5"],
+Cell[474586, 11669, 465, 11, 42, "Output",ExpressionUUID->"6124d71b-ead9-4956-92ed-23bfabbcdac0"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[470889, 11479, 152, 3, 37, "Input",ExpressionUUID->"11b54353-b9d5-4630-9090-a93a7e55597f"],
-Cell[471044, 11484, 4850, 106, 227, "Output",ExpressionUUID->"4e8bdd81-1430-460c-9b85-4da5eb96d75b"]
+Cell[475088, 11685, 152, 3, 37, "Input",ExpressionUUID->"11b54353-b9d5-4630-9090-a93a7e55597f"],
+Cell[475243, 11690, 4850, 106, 227, "Output",ExpressionUUID->"4e8bdd81-1430-460c-9b85-4da5eb96d75b"]
 }, Open  ]],
-Cell[475909, 11593, 3637, 106, 143, "Input",ExpressionUUID->"a7ee2f94-7f74-4ced-a644-ecb22befc1a9"],
+Cell[480108, 11799, 3637, 106, 143, "Input",ExpressionUUID->"a7ee2f94-7f74-4ced-a644-ecb22befc1a9"],
 Cell[CellGroupData[{
-Cell[479571, 11703, 530, 13, 37, "Input",ExpressionUUID->"704517e9-5026-4a02-b007-deb83e411402"],
-Cell[480104, 11718, 2164, 38, 270, "Output",ExpressionUUID->"616395f4-a6cc-469a-9105-6acbe5d3455d"]
+Cell[483770, 11909, 530, 13, 37, "Input",ExpressionUUID->"704517e9-5026-4a02-b007-deb83e411402"],
+Cell[484303, 11924, 2164, 38, 270, "Output",ExpressionUUID->"616395f4-a6cc-469a-9105-6acbe5d3455d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[482305, 11761, 1522, 38, 91, "Input",ExpressionUUID->"800bf275-79f8-4c59-be39-ddb329e5dd7a"],
-Cell[483830, 11801, 1036, 19, 273, "Output",ExpressionUUID->"cfb47cb2-e4a0-4ada-a40a-0721a38c7f87"],
-Cell[484869, 11822, 1176, 22, 273, "Output",ExpressionUUID->"80eb9c29-f744-4a19-9dc5-af118e3f37f4"]
+Cell[486504, 11967, 1522, 38, 91, "Input",ExpressionUUID->"800bf275-79f8-4c59-be39-ddb329e5dd7a"],
+Cell[488029, 12007, 1036, 19, 273, "Output",ExpressionUUID->"cfb47cb2-e4a0-4ada-a40a-0721a38c7f87"],
+Cell[489068, 12028, 1176, 22, 273, "Output",ExpressionUUID->"80eb9c29-f744-4a19-9dc5-af118e3f37f4"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[486082, 11849, 433, 9, 65, "Input",ExpressionUUID->"0a8a1aca-3bb9-445a-8ac1-026c9c249b62"],
-Cell[486518, 11860, 2722, 61, 300, "Output",ExpressionUUID->"96feda5b-cdb0-48af-a474-c0baa8471c66"],
-Cell[489243, 11923, 8411, 204, 293, "Output",ExpressionUUID->"3d3331d4-d94d-4895-9b3b-168e0ce9259a"]
+Cell[490281, 12055, 433, 9, 65, "Input",ExpressionUUID->"0a8a1aca-3bb9-445a-8ac1-026c9c249b62"],
+Cell[490717, 12066, 2722, 61, 300, "Output",ExpressionUUID->"96feda5b-cdb0-48af-a474-c0baa8471c66"],
+Cell[493442, 12129, 8411, 204, 293, "Output",ExpressionUUID->"3d3331d4-d94d-4895-9b3b-168e0ce9259a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[497691, 12132, 449, 11, 37, "Input",ExpressionUUID->"69d76c58-3076-4b99-9e01-7259406a8bad"],
-Cell[498143, 12145, 4296, 135, 156, "Output",ExpressionUUID->"bffe3687-bc03-4872-bede-fada29993311"]
+Cell[501890, 12338, 449, 11, 37, "Input",ExpressionUUID->"69d76c58-3076-4b99-9e01-7259406a8bad"],
+Cell[502342, 12351, 4296, 135, 156, "Output",ExpressionUUID->"bffe3687-bc03-4872-bede-fada29993311"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[502476, 12285, 496, 13, 37, "Input",ExpressionUUID->"23e15922-f944-4c6a-9fd6-b192aad8cf89"],
-Cell[502975, 12300, 6237, 198, 201, "Output",ExpressionUUID->"a9e2a349-de78-4f44-afb5-b749d46a39eb"]
+Cell[506675, 12491, 496, 13, 37, "Input",ExpressionUUID->"23e15922-f944-4c6a-9fd6-b192aad8cf89"],
+Cell[507174, 12506, 6237, 198, 201, "Output",ExpressionUUID->"a9e2a349-de78-4f44-afb5-b749d46a39eb"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[509249, 12503, 451, 11, 37, "Input",ExpressionUUID->"1f32591f-147c-4d8b-b7ca-3e976a141aa8"],
-Cell[509703, 12516, 6187, 197, 201, "Output",ExpressionUUID->"fd010ca5-075e-49dc-bf7a-767f365bbc2b"]
+Cell[513448, 12709, 451, 11, 37, "Input",ExpressionUUID->"1f32591f-147c-4d8b-b7ca-3e976a141aa8"],
+Cell[513902, 12722, 6187, 197, 201, "Output",ExpressionUUID->"fd010ca5-075e-49dc-bf7a-767f365bbc2b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[515927, 12718, 625, 16, 65, "Input",ExpressionUUID->"8378f28e-5922-4c1f-8d69-1fd54d0d28e9"],
-Cell[516555, 12736, 3594, 120, 122, "Output",ExpressionUUID->"2a6a69da-2473-4906-8831-eb25a2f420f0"],
-Cell[520152, 12858, 3594, 120, 122, "Output",ExpressionUUID->"30ad4a52-02e6-4068-b8d4-1f3ac7d5f83f"]
+Cell[520126, 12924, 625, 16, 65, "Input",ExpressionUUID->"8378f28e-5922-4c1f-8d69-1fd54d0d28e9"],
+Cell[520754, 12942, 3594, 120, 122, "Output",ExpressionUUID->"2a6a69da-2473-4906-8831-eb25a2f420f0"],
+Cell[524351, 13064, 3594, 120, 122, "Output",ExpressionUUID->"30ad4a52-02e6-4068-b8d4-1f3ac7d5f83f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[523783, 12983, 428, 11, 37, "Input",ExpressionUUID->"b14ba975-2138-455d-8169-52b8f9fce929"],
-Cell[524214, 12996, 3605, 123, 96, "Output",ExpressionUUID->"a54e1938-550d-4d66-a0a7-71673ca0d784"]
+Cell[527982, 13189, 428, 11, 37, "Input",ExpressionUUID->"b14ba975-2138-455d-8169-52b8f9fce929"],
+Cell[528413, 13202, 3605, 123, 96, "Output",ExpressionUUID->"a54e1938-550d-4d66-a0a7-71673ca0d784"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[527856, 13124, 236, 5, 37, "Input",ExpressionUUID->"a082ae02-c4a9-42aa-b0b2-98f9cd7cb768"],
-Cell[528095, 13131, 52539, 1372, 648, "Output",ExpressionUUID->"39571969-2c9e-44e4-9bfb-1e41dd0cbf74"]
+Cell[532055, 13330, 236, 5, 37, "Input",ExpressionUUID->"a082ae02-c4a9-42aa-b0b2-98f9cd7cb768"],
+Cell[532294, 13337, 52539, 1372, 648, "Output",ExpressionUUID->"39571969-2c9e-44e4-9bfb-1e41dd0cbf74"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[580671, 14508, 219, 4, 37, "Input",ExpressionUUID->"78e22eef-e784-4d8f-8e75-cbc57afa891a"],
-Cell[580893, 14514, 2467, 63, 70, "Output",ExpressionUUID->"6ddcce0f-2368-46f5-a49f-eff1aea15dc3"]
+Cell[584870, 14714, 219, 4, 37, "Input",ExpressionUUID->"78e22eef-e784-4d8f-8e75-cbc57afa891a"],
+Cell[585092, 14720, 2467, 63, 70, "Output",ExpressionUUID->"6ddcce0f-2368-46f5-a49f-eff1aea15dc3"]
 }, Open  ]],
-Cell[583375, 14580, 5997, 152, 353, "Input",ExpressionUUID->"a931ecd2-a0c6-41e5-b53b-aa3997be2d1a"],
+Cell[587574, 14786, 5997, 152, 353, "Input",ExpressionUUID->"a931ecd2-a0c6-41e5-b53b-aa3997be2d1a"],
 Cell[CellGroupData[{
-Cell[589397, 14736, 164, 4, 37, "Input",ExpressionUUID->"b763c05d-d250-4ae6-9787-fbd6698cde3d"],
-Cell[589564, 14742, 42516, 1118, 306, "Output",ExpressionUUID->"64c5b273-3241-4c47-8c34-379609c8451e"]
+Cell[593596, 14942, 164, 4, 37, "Input",ExpressionUUID->"b763c05d-d250-4ae6-9787-fbd6698cde3d"],
+Cell[593763, 14948, 42516, 1118, 306, "Output",ExpressionUUID->"64c5b273-3241-4c47-8c34-379609c8451e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[632117, 15865, 283, 6, 37, "Input",ExpressionUUID->"df521c12-f69d-414d-be46-b9b97c24368c"],
-Cell[632403, 15873, 42464, 1117, 306, "Output",ExpressionUUID->"5f448f85-31cf-4dc2-9cc7-9224f66e5000"]
+Cell[636316, 16071, 283, 6, 37, "Input",ExpressionUUID->"df521c12-f69d-414d-be46-b9b97c24368c"],
+Cell[636602, 16079, 42464, 1117, 306, "Output",ExpressionUUID->"5f448f85-31cf-4dc2-9cc7-9224f66e5000"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[674904, 16995, 382, 8, 37, "Input",ExpressionUUID->"7183aa70-f7a1-4caa-9e17-ea57363f4b99"],
-Cell[675289, 17005, 46016, 1194, 332, "Output",ExpressionUUID->"ab911ace-debb-4564-b165-f7e51fc4b68d"]
+Cell[679103, 17201, 382, 8, 37, "Input",ExpressionUUID->"7183aa70-f7a1-4caa-9e17-ea57363f4b99"],
+Cell[679488, 17211, 46016, 1194, 332, "Output",ExpressionUUID->"ab911ace-debb-4564-b165-f7e51fc4b68d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[721342, 18204, 394, 11, 37, "Input",ExpressionUUID->"22c2f39b-e790-487f-aaa4-ae4ebe1769ad"],
-Cell[721739, 18217, 776, 25, 42, "Output",ExpressionUUID->"bf3f19da-0638-418a-b3c7-fa0f5a5ccab2"]
+Cell[725541, 18410, 394, 11, 37, "Input",ExpressionUUID->"22c2f39b-e790-487f-aaa4-ae4ebe1769ad"],
+Cell[725938, 18423, 776, 25, 42, "Output",ExpressionUUID->"bf3f19da-0638-418a-b3c7-fa0f5a5ccab2"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[722552, 18247, 608, 14, 91, "Input",ExpressionUUID->"50cbfee5-a418-404b-b5aa-320f6a182787"],
-Cell[723163, 18263, 41707, 1089, 306, "Output",ExpressionUUID->"adcfe62e-a3ba-4b7a-8c88-71367d932ac1"],
-Cell[764873, 19354, 66056, 1717, 463, "Output",ExpressionUUID->"41bdabd0-8160-4c62-b32a-014e481dc434"]
+Cell[726751, 18453, 608, 14, 91, "Input",ExpressionUUID->"50cbfee5-a418-404b-b5aa-320f6a182787"],
+Cell[727362, 18469, 41707, 1089, 306, "Output",ExpressionUUID->"adcfe62e-a3ba-4b7a-8c88-71367d932ac1"],
+Cell[769072, 19560, 66056, 1717, 463, "Output",ExpressionUUID->"41bdabd0-8160-4c62-b32a-014e481dc434"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[830966, 21076, 1475, 39, 91, "Input",ExpressionUUID->"0cc1d40f-99a4-4272-8f49-0b66a6c569fb"],
-Cell[832444, 21117, 8135, 248, 305, "Output",ExpressionUUID->"537caf9f-bedd-483e-8b4d-f41b9363eb60"],
-Cell[840582, 21367, 11008, 323, 305, "Output",ExpressionUUID->"ce72b934-7645-405b-a387-686713fc0967"],
-Cell[851593, 21692, 5863, 140, 305, "Output",ExpressionUUID->"83b3b3ee-2827-44ff-af5e-a442a074e86d"]
+Cell[835165, 21282, 1475, 39, 91, "Input",ExpressionUUID->"0cc1d40f-99a4-4272-8f49-0b66a6c569fb"],
+Cell[836643, 21323, 8135, 248, 305, "Output",ExpressionUUID->"537caf9f-bedd-483e-8b4d-f41b9363eb60"],
+Cell[844781, 21573, 11008, 323, 305, "Output",ExpressionUUID->"ce72b934-7645-405b-a387-686713fc0967"],
+Cell[855792, 21898, 5863, 140, 305, "Output",ExpressionUUID->"83b3b3ee-2827-44ff-af5e-a442a074e86d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[857493, 21837, 1524, 39, 143, "Input",ExpressionUUID->"f026becd-59f6-486c-93be-88f99560b6dd"],
-Cell[859020, 21878, 3975, 84, 253, "Output",ExpressionUUID->"b0069aaf-c232-4207-b4bc-09e7d4413bdd"]
+Cell[861692, 22043, 1524, 39, 143, "Input",ExpressionUUID->"f026becd-59f6-486c-93be-88f99560b6dd"],
+Cell[863219, 22084, 3975, 84, 253, "Output",ExpressionUUID->"b0069aaf-c232-4207-b4bc-09e7d4413bdd"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[863032, 21967, 315, 7, 37, "Input",ExpressionUUID->"b835c0e0-93b7-44bb-93cb-331f5b3208a5"],
-Cell[863350, 21976, 3750, 95, 1801, "Output",ExpressionUUID->"b957f182-a59e-4aaa-bf06-3358ea7c8246"]
+Cell[867231, 22173, 315, 7, 37, "Input",ExpressionUUID->"b835c0e0-93b7-44bb-93cb-331f5b3208a5"],
+Cell[867549, 22182, 3750, 95, 1801, "Output",ExpressionUUID->"b957f182-a59e-4aaa-bf06-3358ea7c8246"]
 }, Open  ]],
-Cell[867115, 22074, 176, 3, 37, "Input",ExpressionUUID->"570b3353-fdb7-408d-a138-706b359c5f83"]
+Cell[871314, 22280, 176, 3, 37, "Input",ExpressionUUID->"570b3353-fdb7-408d-a138-706b359c5f83"]
 }, Open  ]]
 }
 ]

@@ -50,7 +50,7 @@ reconcileAesthetics[dataset_, func_Function, "color"] := Module[{newDataset, gro
 reconcileAesthetics[dataset_, _, "color"] := Throw[Echo["Unclear on how to determine the color"];Null];
 
 (* Helper functions for colors *)
-ggplotColorsFunc[1] := Black;
+ggplotColorsFunc[1] := {Black};
 ggplotColorsFunc[numberOfSeries_?IntegerQ] /; numberOfSeries > 1 := Drop[LCHColor[0.65, 0.6, #] & /@ (Subdivide[30, 390, numberOfSeries]/390), -1];
 ggplotColorsFunc[___] := ggplotColorsFunc[1];
 

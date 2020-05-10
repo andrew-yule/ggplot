@@ -7,6 +7,8 @@
 - Also need to be able to use functions inside x and y (i.e. "x" -> `Function[#x * 5]`)
 - Scaling (ensure correct functionality and continue to add additional scaling functions)
 - Legends
-- geoms other than lines and points
+- Faceting
+- geoms other than lines and points (columns, histograms, box plots etc.)
+- Textual axes (for things like bar chart)
 - Coordinates
 - Labels
