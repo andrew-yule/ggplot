@@ -26,4 +26,6 @@ Get["ggplot`scale`"];
 Get["ggplot`scaleDate`"];
 Get["ggplot`scaleLog`"];
 
+Get["ggplot`legend`"];
+
 Echo[Style["ggplot v" <> ToString[PacletFind["ggplot"][[1]]["Version"]]]];
