@@ -5,7 +5,7 @@
 
 PacletObject[<|
   "Name" -> "ggplot",
-  "Version" -> "0.1",
+  "Version" -> "0.2",
   "WolframVersion" -> "12.0+",
   "Description" -> "A grammar of graphics library for Mathematica",
   "Creator" -> "andrewyule",
