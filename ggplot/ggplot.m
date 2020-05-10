@@ -24,6 +24,7 @@ SetOptions[ggplot,
   ImageSize -> 400, AspectRatio -> 7/10, Frame -> True, Axes -> False,
   ImageMargins -> Automatic,
   LabelStyle -> Directive[12, FontFamily -> "Arial"],
+  FrameLabel -> Automatic,
   FrameStyle -> Directive[GrayLevel[0.6], Thickness[0.0008`]],
   FrameTicksStyle -> Directive[Black, Opacity[1]],
   FrameTicks -> Automatic, GridLines -> Automatic,  Background -> White,
@@ -32,13 +33,26 @@ SetOptions[ggplot,
 Attributes[ggplot] = {HoldAllComplete};
 ggplot[ds_?validDatasetQ, args___?argPatternQ] := ggplot["data" -> ds, args];
 ggplot[args___?argPatternQ][ds_?validDatasetQ] := ggplot["data" -> ds, args];
-ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] > 0 := Catch[Module[{options, dataset, points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
+ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] > 0 := Catch[Module[{options, dataset, defaultXLabel, defaultYLabel, frameLabel, points, lines, smoothLines, columns, abLines, hLines, vLines, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
 
   options = Cases[Hold@{args}, _Rule, {2}];
 
   dataset = Lookup[options, "data", {}];
 
   options = Join[options, {"data" -> dataset, "x" -> Lookup[options, "x", Null], "y" -> Lookup[options, "y", Null]}];
+
+  (* Default x and y labels *)
+  defaultXLabel = First@Cases[Hold@args, ("x" -> xlbl_) :> ToString[xlbl], {0, Infinity}];
+  defaultYLabel = First@Cases[Hold@args, ("y" -> ylbl_) :> ToString[ylbl], {0, Infinity}];
+  frameLabel = Lookup[options, FrameLabel, OptionValue[ggplot, FrameLabel]]; (* allow default FrameLabel style to be given as well and have it trump any other labeling unless it's 'Automatic'*)
+  frameLabel = Which[
+    frameLabel === Automatic,
+    {defaultXLabel, defaultYLabel} /. str_?StringQ :> Style[str, Opacity[1], FontColor -> Black],
+    MatchQ[frameLabel, {{_?StringQ, _?StringQ}, {_?StringQ, _?StringQ}} | {_?StringQ, _?StringQ} | _?StringQ],
+    frameLabel /. str_?StringQ :> Style[str, Opacity[1], FontColor -> Black],
+    True,
+    frameLabel
+  ];
 
   (* Get all scaling information *)
   xScaleType = reconcileXScales[Hold@{args}]; (* returns Linear / Date / Log / Log10 / Log2 *)
@@ -70,11 +84,7 @@ ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] >
   ];
 
   graphic = Graphics[graphicsPrimitives,
-    FrameLabel ->
-        If[MatchQ[Lookup[options, FrameLabel, OptionValue[ggplot, FrameLabel]], {{_?StringQ, _?StringQ}, {_?StringQ, _?StringQ}} | {_?StringQ, _?StringQ} | _?StringQ],
-          (Lookup[options, FrameLabel, OptionValue[ggplot, FrameLabel]] /. str_?StringQ :> Style[str, Opacity[1], FontColor -> Black]),
-          Lookup[options, FrameLabel, OptionValue[ggplot, FrameLabel]]
-        ],
+    FrameLabel        -> frameLabel,
     PlotStyle         -> Lookup[options, PlotStyle, OptionValue[ggplot, PlotStyle]],
     ImageSize         -> Lookup[options, ImageSize, OptionValue[ggplot, ImageSize]],
     AspectRatio       -> Lookup[options, AspectRatio, OptionValue[ggplot, AspectRatio]],
