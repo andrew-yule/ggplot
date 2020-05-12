@@ -11,7 +11,7 @@ ggplot::xOrYNotGiven        = "A geom was given without specifying the x or y ma
 ggplot::xInterceptNotGiven  = "No xIntercept value was given for geomHLine";
 ggplot::yInterceptNotGiven  = "No yIntercept value was given for geomHLine";
 ggplot::shapeContinuous     = "A continuous variable can not be mapped to a shape";
-ggplot::shapeCount          = "More than 5 discrete shapes are present, aborting... (this should be fixed)";
+ggplot::shapeCount          = "More than 7 discrete shapes are present, aborting... (this should be fixed)";
 
 validDatasetQ[dataset_] := MatchQ[dataset, {_?AssociationQ..}];
 

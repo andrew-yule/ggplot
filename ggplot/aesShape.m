@@ -47,8 +47,8 @@ reconcileAesthetics[dataset_, func_Function, "shape"] := Module[{newDataset, gro
   newDataset
 ];
 
-shapesFunc[numberOfSeries_?IntegerQ] /; Between[numberOfSeries, {1, 5}] := {"\[FilledCircle]", "\[FilledUpTriangle]", "\[FilledSquare]", "\[FivePointedStar]", "\[FilledDiamond]"}[[1;;numberOfSeries]];
-shapesFunc[numberOfSeries_?IntegerQ] /; numberOfSeries > 5 := (Message[ggplot::shapeContinuous]; Throw[Null];)
+shapesFunc[numberOfSeries_?IntegerQ] /; Between[numberOfSeries, {1, 7}] := {"\[FilledCircle]", "\[FilledUpTriangle]", "\[FilledSquare]", "\[FivePointedStar]", "\[FilledDiamond]", "\[FilledRectangle]", "\[FilledDownTriangle]"}[[1;;numberOfSeries]];
+shapesFunc[numberOfSeries_?IntegerQ] /; numberOfSeries > 7 := (Message[ggplot::shapeCount]; Throw[Null];)
 
 End[];
 
