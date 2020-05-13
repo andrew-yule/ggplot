@@ -21,6 +21,7 @@ Get["ggplot`geomCol`"];
 Get["ggplot`geomParityLine`"];
 Get["ggplot`geomHLine`"];
 Get["ggplot`geomVLine`"];
+Get["ggplot`geomHistogram`"];
 
 Get["ggplot`scale`"];
 Get["ggplot`scaleDate`"];

@@ -8,13 +8,14 @@ BeginPackage["ggplot`"];
 ggplot::usage         = "TBD";
 
 (* Geoms *)
-geomPoint::usage      = "TBD";
-geomLine::usage       = "TBD";
-geomSmooth::usage     = "TBD";
-geomCol::usage        = "TBD";
-geomParityLine::usage = "TBD";
-geomHLine::usage      = "TBD";
-geomVLine::usage      = "TBD";
+geomPoint::usage        = "TBD";
+geomLine::usage         = "TBD";
+geomSmooth::usage       = "TBD";
+geomCol::usage          = "TBD";
+geomParityLine::usage   = "TBD";
+geomHLine::usage        = "TBD";
+geomVLine::usage        = "TBD";
+geomHistogram::usage    = "TBD";
 
 (* Scales *)
 scaleXLinear::usage   = "TBD";
