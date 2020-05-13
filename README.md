@@ -51,3 +51,11 @@ scaleYDate
 mpg//ggplot[geomPoint["x"->"displ","y"->"cty","color"->"class"]]
 ```
 ![](Imgs/Mpg_Example1.png)
+
+```
+economics//
+	ggplot[
+		"x"->"date","y"->"uempmed",geomLine[],scaleXDate[]
+	]
+```
+![](Imgs/Economics_Example1.png)
