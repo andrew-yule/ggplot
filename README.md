@@ -1,5 +1,37 @@
 # ggplot: A grammar of graphics implementation for Wolfram Language
 
+## General usage
+
+```
+ggplot[dataset, "x" -> "var", "y" -> "var", additional aesthetics and geoms...]
+
+ggplot["data" -> dataset, "x" -> "var", "y" -> "var", additional aesthetics and geoms...]
+
+dataset //
+    ggplot["x" -> "var", "y" -> "var", additional aesthetics and geoms...]
+```
+
+## Currently supported geoms
+
+```
+geomPoint[]
+geomLine[]
+geomSmooth[]
+geomParityLine[]
+geomHLine[]
+geomVLine[]
+```
+
+## Currently support scales
+
+```
+scaleXLinear[]
+scaleXLog[]
+scaleXDate
+scaleYLinear[]
+scaleYLog[]
+scaleYDate
+```
 
 ## Major functionality still to work or working through:
 
@@ -12,3 +44,10 @@
 - Textual axes (for things like bar chart)
 - Coordinates
 - Labels
+
+## Examples
+
+```
+mpg//ggplot[geomPoint["x"->"displ","y"->"cty","color"->"class"]]
+```
+![](Imgs/Mpg_Example1.png)
