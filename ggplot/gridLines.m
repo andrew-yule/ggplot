@@ -19,7 +19,7 @@ formatGridLines[list_?ListQ, opts : OptionsPattern[]] := ReplaceAll[list, {
 
 (* Publicly accessbile tick functions *)
 
-gridLines["Linear" | "Identity", min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := formatGridLines[ticks["Linear", min, max, opts]];
+gridLines["Linear" | "Identity", min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := formatGridLines[ticks["Linear", min, max, opts], opts];
 
 (* Special method for handling Dates because we want to go just a little bit further beyond min/max than defaults will do *)
 gridLines["Date", min : (_?NumericQ | _?DateObjectQ), max : (_?NumericQ | _?DateObjectQ), opts: OptionsPattern[]] := Module[{dateTicks, newMin, newMax, dateGridLines},
@@ -30,11 +30,11 @@ gridLines["Date", min : (_?NumericQ | _?DateObjectQ), max : (_?NumericQ | _?Date
   dateGridLines
 ];
 
-gridLines["Log", min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := formatGridLines[ticks["Log", min, max, opts]];
-gridLines["Log10", min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := formatGridLines[ticks["Log10", min, max, opts]];
-gridLines["Log2", min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := formatGridLines[ticks["Log2", min, max, opts]];
+gridLines["Log", min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := formatGridLines[ticks["Log", min, max, opts], opts];
+gridLines["Log10", min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := formatGridLines[ticks["Log10", min, max, opts], opts];
+gridLines["Log2", min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := formatGridLines[ticks["Log2", min, max, opts], opts];
 
-gridLines["Discrete", lbls_?ListQ, opts : OptionsPattern[]] := formatGridLines[ticks["Discrete", lbls, opts]];
+gridLines["Discrete", lbls_?ListQ, opts : OptionsPattern[]] := formatGridLines[ticks["Discrete", lbls, opts], opts];
 
 End[];
 

@@ -34,14 +34,14 @@ minorTickStyle2::usage                  = "TBD";
 majorTickLength2::usage                 = "TBD";
 minorTickLength2::usage                 = "TBD";
 
-Options[ticks] = {numberOfMajorTicks2 -> 8, numberOfMinorTicksPerMajorTick2 -> 1, majorTickStyle2 -> Directive[GrayLevel[0], Thickness[0.001`]], minorTickStyle2 -> Directive[GrayLevel[0], Thickness[0.001`]], majorTickLength2 -> {0., 0.}, minorTickLength2 -> {0., 0.}, DateTicksFormat -> Automatic};
+Options[ticks] = {numberOfMajorTicks2 -> 8, numberOfMinorTicksPerMajorTick2 -> 1, majorTickStyle2 -> Directive[GrayLevel[0], Thickness[0.001`]], minorTickStyle2 -> Directive[GrayLevel[0], Thickness[0.001`]], majorTickLength2 -> {0., 0.}, minorTickLength2 -> {0., 0.}, DateTicksFormat -> Automatic, majorGridLineStyle2 -> Directive[GrayLevel[0.6], Thickness[0.0008]], minorGridLineStyle2 -> Directive[GrayLevel[0.85], Thickness[0.0008]]};
 
 (* GridLines*)
 gridLines::usage            = "TBD";
 majorGridLineStyle2::usage  = "TBD";
 minorGridLineStyle2::usage  = "TBD";
 
-Options[gridLines] = {numberOfMajorTicks2 -> 8, numberOfMinorTicksPerMajorTick2 -> 1, majorGridLineStyle2 -> Directive[GrayLevel[0.6], Thickness[0.0008]], minorGridLineStyle2 -> Directive[GrayLevel[0.85], Thickness[0.0008]]};
+Options[gridLines] = Options[ticks];
 
 Begin["`Private`"];
 
