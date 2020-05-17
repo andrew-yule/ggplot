@@ -9,15 +9,21 @@ Begin["`Private`"];
 
 (* TODO: the options here are still created and referenced in Alex, need to reconcile that somehow *)
 
-(* Main tick creation function *)
-ticks[list_?ListQ, opts : OptionsPattern[]] := ReplaceAll[list, {
+(* Options are actual symbols so they are referenced in ggplotSymbolDeclaration *)
+
+(* Main tick formatting functions *)
+
+Options[formatTicks] = Options[ticks];
+formatTicks[list_?ListQ, opts : OptionsPattern[]] := ReplaceAll[list, {
   (*Major ticks*)
   {value_?NumericQ, display : Except[(_?StringQ | _Spacer)], tickDistance_} :> {value, display, OptionValue[majorTickLength2], OptionValue[majorTickStyle2]},
   (*Minor ticks*)
   {value_?NumericQ, display : (_?StringQ | _Spacer), tickDistance_} :> {value, display, OptionValue[minorTickLength2], OptionValue[minorTickStyle2]}
 }];
 
-ticks[min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := ticks[Charting`ScaledTicks["Identity"][min, max, {OptionValue[numberOfMajorTicks2], OptionValue[numberOfMinorTicksPerMajorTick2]}], opts];
+(* Publicly accessbile tick functions *)
+
+ticks["Linear" | "Identity", min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := formatTicks[Charting`ScaledTicks["Identity"][min, max, {OptionValue[numberOfMajorTicks2], OptionValue[numberOfMinorTicksPerMajorTick2]}], opts];
 
 (* Special method for handling Dates*)
 ticks["Date", min : (_?NumericQ | _?DateObjectQ), max : (_?NumericQ | _?DateObjectQ), opts: OptionsPattern[]] := Module[{dateTicks, newMin, newMax},
@@ -28,8 +34,20 @@ ticks["Date", min : (_?NumericQ | _?DateObjectQ), max : (_?NumericQ | _?DateObje
   dateTicks
 ];
 
-(* Main method if Log, Log10, Log2, or Reverse is passed in *)
-ticks[func_?StringQ, min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := ticks[Charting`ScaledTicks[func][min, max, {OptionValue[numberOfMajorTicks2], OptionValue[numberOfMinorTicksPerMajorTick2]}], opts];
+(* Log, Log10, Log2, or Reverse *)
+ticks["Log", min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := formatTicks[Charting`ScaledTicks["Log"][min, max, {OptionValue[numberOfMajorTicks2], OptionValue[numberOfMinorTicksPerMajorTick2]}], opts];
+ticks["Log10", min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := formatTicks[Charting`ScaledTicks["Log10"][min, max, {OptionValue[numberOfMajorTicks2], OptionValue[numberOfMinorTicksPerMajorTick2]}], opts];
+ticks["Log2", min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := formatTicks[Charting`ScaledTicks["Log2"][min, max, {OptionValue[numberOfMajorTicks2], OptionValue[numberOfMinorTicksPerMajorTick2]}], opts];
+
+(* Special method for handling discrete ticks (i.e. things like strings) *)
+ticks["Discrete", lbls_?ListQ, opts : OptionsPattern[]] := Module[{numberOfLabels, majorTicks, minorTicks, allTicks},
+  numberOfLabels = Length[lbls];
+  {majorTicks, minorTicks} = FindDivisions[{1, numberOfLabels}, {numberOfLabels, OptionValue[numberOfMinorTicksPerMajorTick2]}];
+  majorTicks = MapIndexed[Function[{value, index}, {value, lbls[[First@index]], OptionValue[majorTickLength2], OptionValue[majorTickStyle2]}], majorTicks];
+  minorTicks = Map[Function[{value}, {value, "", OptionValue[minorTickLength2], OptionValue[minorTickStyle2]}], DeleteDuplicates[Flatten[minorTicks]]];
+  allTicks = Join[majorTicks, minorTicks];
+  allTicks
+];
 
 (* TODO: Add support for directly passing in a list of major and minor ticks similar to how we did it for linearTicks in Alex *)
 
