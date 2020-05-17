@@ -76,12 +76,12 @@ ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] >
   graphicsPrimitives = {points, lines, smoothLines, abLines, hLines, vLines, histograms} // Flatten;
 
   (* Tick / GridLine functions passed into ggplot FrameTicks -> _ call *)
-  With[{tickOptions = FilterRules[{options}, Options[ticks]], gridLineOptions = FilterRules[{options}, Options[gridLines]]},
-    xTickFunc = Function[{min, max}, ticks[xScaleType, min, max, tickOptions]];
-    yTickFunc = Function[{min, max}, ticks[yScaleType, min, max, tickOptions]];
+  With[{tickAndGridLineOptions = FilterRules[{options}, {Options[ticks], Options[gridLines]}]},
+    xTickFunc = Function[{min, max}, ticks[xScaleType, min, max, tickAndGridLineOptions]];
+    yTickFunc = Function[{min, max}, ticks[yScaleType, min, max, tickAndGridLineOptions]];
 
-    xGridLineFunc = Function[{min, max}, gridLines[xScaleType, min, max, gridLineOptions]];
-    yGridLineFunc = Function[{min, max}, gridLines[yScaleType, min, max, gridLineOptions]]
+    xGridLineFunc = Function[{min, max}, gridLines[xScaleType, min, max, tickAndGridLineOptions]];
+    yGridLineFunc = Function[{min, max}, gridLines[yScaleType, min, max, tickAndGridLineOptions]]
   ];
 
   graphic = Graphics[graphicsPrimitives,
