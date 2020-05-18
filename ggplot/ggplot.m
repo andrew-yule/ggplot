@@ -19,7 +19,7 @@ Attributes[argPatternQ] = {HoldAllComplete};
 argPatternQ[expr___] := MatchQ[Hold[expr], Hold[(_Rule | geomPoint[___] | geomLine[___] | geomSmooth[___] | geomVLine[___] | geomHLine[___] | geomParityLine[___] | geomHistogram[___] | geomCol[___] | scaleXDate[___] | scaleXLinear[___] | scaleXLog[___] | scaleYDate[___] | scaleYLinear[___] | scaleYLog[___]) ...]];
 
 (* Main ggplot method and entry point *)
-Options[ggplot] = Join[{"data" -> {}}, Options[ListLinePlot], Options[ticks], Options[gridLines] (*{DateTicksFormat -> Automatic}*)];
+Options[ggplot] = DeleteDuplicates[Join[{"data" -> {}}, Options[ListLinePlot], Options[ticks], Options[gridLines]]];
 SetOptions[ggplot,
   ImageSize -> 400, AspectRatio -> 7/10, Frame -> True, Axes -> False,
   ImageMargins -> Automatic,
@@ -33,17 +33,16 @@ SetOptions[ggplot,
 Attributes[ggplot] = {HoldAllComplete};
 ggplot[ds_?validDatasetQ, args___?argPatternQ] := ggplot["data" -> ds, args];
 ggplot[args___?argPatternQ][ds_?validDatasetQ] := ggplot["data" -> ds, args];
-ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] > 0 := Catch[Module[{options, dataset, defaultXLabel, defaultYLabel, frameLabel, points, lines, smoothLines, columns, abLines, hLines, vLines, histograms, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
-
-  options = Cases[Hold@{args}, _Rule, {2}];
-
+ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] > 0 := Catch[Module[{heldArgs, options, dataset, defaultXLabel, defaultYLabel, frameLabel, points, lines, smoothLines, columns, abLines, hLines, vLines, histograms, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
+  
+  heldArgs = Hold[args];
+  options = Cases[heldArgs, _Rule, 1];
   dataset = Lookup[options, "data", {}];
-
   options = Join[options, {"data" -> dataset, "x" -> Lookup[options, "x", Null], "y" -> Lookup[options, "y", Null]}];
 
   (* Default x and y labels *)
-  defaultXLabel = First@Cases[Hold@args, ("x" -> xlbl_) :> ToString[xlbl], {0, Infinity}];
-  defaultYLabel = Quiet[Check[First@Cases[Hold@args, ("y" -> ylbl_) :> ToString[ylbl], {0, Infinity}], ""]];
+  defaultXLabel = First@Cases[heldArgs, ("x" -> xlbl_) :> ToString[xlbl], {0, Infinity}];
+  defaultYLabel = Quiet[Check[First@Cases[heldArgs, ("y" -> ylbl_) :> ToString[ylbl], {0, Infinity}], ""]];
   frameLabel = Lookup[options, FrameLabel, OptionValue[ggplot, FrameLabel]]; (* allow default FrameLabel style to be given as well and have it trump any other labeling unless it's 'Automatic'*)
   frameLabel = Which[
     frameLabel === Automatic,
@@ -55,21 +54,27 @@ ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] >
   ];
 
   (* Get all scaling information *)
-  xScaleType = reconcileXScales[Hold@{args}]; (* returns Linear / Date / Log / Log10 / Log2 *)
-  yScaleType = reconcileYScales[Hold@{args}]; (* returns Linear / Date / Log / Log10 / Log2 *)
+  xScaleType = reconcileXScales[heldArgs]; (* returns Discrete / Linear / Date / Log / Log10 / Log2 *)
+  yScaleType = reconcileYScales[heldArgs]; (* returns Discrete / Linear / Date / Log / Log10 / Log2 *)
 
   (* Creating scaling functions to use for x and y *)
-  xScaleFunc = With[{f = ToExpression[xScaleType /. "Linear" | "Date" -> "Identity"]}, Function[f[#]]];
-  yScaleFunc = With[{f = ToExpression[yScaleType /. "Linear" | "Date" -> "Identity"]}, Function[f[#]]];
-
-  (* Compile all geom information *)
-  points      = Cases[Hold@{args}, geomPoint[opts___]      :> geomPoint[opts,      FilterRules[options, Options[geomPoint]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
-  lines       = Cases[Hold@{args}, geomLine[opts___]       :> geomLine[opts,       FilterRules[options, Options[geomLine]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
-  smoothLines = Cases[Hold@{args}, geomSmooth[opts___]     :> geomSmooth[opts,     FilterRules[options, Options[geomSmooth]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
-  abLines     = Cases[Hold@{args}, geomParityLine[opts___] :> geomParityLine[opts, FilterRules[options, Options[geomParityLine]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
-  hLines      = Cases[Hold@{args}, geomHLine[opts___]      :> geomHLine[opts,      FilterRules[options, Options[geomHLine]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
-  vLines      = Cases[Hold@{args}, geomVLine[opts___]      :> geomVLine[opts,      FilterRules[options, Options[geomVLine]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
-  histograms  = Cases[Hold@{args}, geomHistogram[opts___]  :> geomHistogram[opts,  FilterRules[options, Options[geomHistogram]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  xScaleFunc = If[xScaleType == "Discrete",
+    createDiscreteScaleFunc["x", heldArgs],
+    With[{f = ToExpression[xScaleType /. "Linear" | "Date" -> "Identity"]}, Function[f[#]]]
+  ];
+  yScaleFunc = If[yScaleType == "Discrete",
+    createDiscreteScaleFunc["y", heldArgs],
+    With[{f = ToExpression[yScaleType /. "Linear" | "Date" -> "Identity"]}, Function[f[#]]]
+  ];
+  
+  (* Compile all geom information which will create graphics primitives *)
+  points      = Cases[heldArgs, geomPoint[opts___]      :> geomPoint[opts,      FilterRules[options, Options[geomPoint]],      "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  lines       = Cases[heldArgs, geomLine[opts___]       :> geomLine[opts,       FilterRules[options, Options[geomLine]],       "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  smoothLines = Cases[heldArgs, geomSmooth[opts___]     :> geomSmooth[opts,     FilterRules[options, Options[geomSmooth]],     "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  abLines     = Cases[heldArgs, geomParityLine[opts___] :> geomParityLine[opts, FilterRules[options, Options[geomParityLine]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  hLines      = Cases[heldArgs, geomHLine[opts___]      :> geomHLine[opts,      FilterRules[options, Options[geomHLine]],      "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  vLines      = Cases[heldArgs, geomVLine[opts___]      :> geomVLine[opts,      FilterRules[options, Options[geomVLine]],      "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  histograms  = Cases[heldArgs, geomHistogram[opts___]  :> geomHistogram[opts,  FilterRules[options, Options[geomHistogram]],  "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
   (* columns need a lot more work to sort through *)
   (*columns     = Cases[{geoms}, geomCol[aesthetics__] :> geomCol[dataset, aesthetics, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];*)
 
