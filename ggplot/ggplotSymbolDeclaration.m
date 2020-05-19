@@ -5,7 +5,10 @@
 
 BeginPackage["ggplot`"];
 
-ggplot::usage         = "TBD";
+ggplot::usage             = "TBD";
+ggplotThemeWhite::usage   = "TBD";
+ggplotThemeGray::usage = "TBD";
+ggplotSetTheme::usage     = "TBD";
 
 (* Geoms *)
 geomPoint::usage        = "TBD";

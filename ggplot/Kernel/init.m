@@ -30,4 +30,8 @@ Get["ggplot`scaleLog`"];
 
 Get["ggplot`legend`"];
 
+Get["ggplot`themes`"];
+(* Set default theme *)
+ggplotSetTheme[ggplotThemeWhite];
+
 Echo[Style["ggplot v" <> ToString[PacletFind["ggplot"][[1]]["Version"]]]];

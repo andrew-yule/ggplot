@@ -20,16 +20,7 @@ argPatternQ[expr___] := MatchQ[Hold[expr], Hold[(_Rule | geomPoint[___] | geomLi
 
 (* Main ggplot method and entry point *)
 Options[ggplot] = DeleteDuplicates[Join[{"data" -> {}}, Options[ListLinePlot], Options[ticks], Options[gridLines]]];
-SetOptions[ggplot,
-  ImageSize -> 400, AspectRatio -> 7/10, Frame -> True, Axes -> False,
-  ImageMargins -> Automatic,
-  LabelStyle -> Directive[12, FontFamily -> "Arial"],
-  FrameLabel -> Automatic,
-  FrameStyle -> Directive[GrayLevel[0.6], Thickness[0.0008`]],
-  FrameTicksStyle -> Directive[Black, Opacity[1]],
-  FrameTicks -> Automatic, GridLines -> Automatic,  Background -> White,
-  PlotRange -> All, PlotRangeClipping -> True
-];
+(* Options for ggplot are set further below in themes *)
 Attributes[ggplot] = {HoldAllComplete};
 ggplot[ds_?validDatasetQ, args___?argPatternQ] := ggplot["data" -> ds, args];
 ggplot[args___?argPatternQ][ds_?validDatasetQ] := ggplot["data" -> ds, args];
@@ -127,6 +118,8 @@ ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] >
     Background        -> Lookup[options, Background, OptionValue[ggplot, Background]],
     ImageMargins      -> Lookup[options, ImageMargins, OptionValue[ggplot, ImageMargins]],
     PlotRangeClipping -> Lookup[options, PlotRangeClipping, OptionValue[ggplot, PlotRangeClipping]],
+    Prolog            -> Lookup[options, Prolog, OptionValue[ggplot, Prolog]],
+    Method            -> Lookup[options, Method, OptionValue[ggplot, Method]],
     FilterRules[{options}, Options[ListLinePlot]]
   ];
 
