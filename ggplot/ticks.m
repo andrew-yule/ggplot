@@ -47,6 +47,7 @@ ticks["Discrete", lbls_?ListQ, opts : OptionsPattern[]] := Module[{numberOfLabel
     Join[FindDivisions[{1, numberOfLabels}, {numberOfLabels}], {{}}],
     FindDivisions[{1, numberOfLabels}, {numberOfLabels, OptionValue[numberOfMinorTicksPerMajorTick2]}]
   ];
+
   (* Note: using NumberForm as a little trick on the label as String will mess up pattern matching when creating gridlines *)
   majorTicks = MapIndexed[Function[{value, index}, {value, NumberForm[lbls[[First@index]]], OptionValue[majorTickLength2], OptionValue[majorTickStyle2]}], majorTicks];
   minorTicks = Map[Function[{value}, {value, Spacer[{0, 0}], OptionValue[minorTickLength2], OptionValue[minorTickStyle2]}], DeleteDuplicates[Flatten[minorTicks]]];

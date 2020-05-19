@@ -33,7 +33,7 @@ SetOptions[ggplot,
 Attributes[ggplot] = {HoldAllComplete};
 ggplot[ds_?validDatasetQ, args___?argPatternQ] := ggplot["data" -> ds, args];
 ggplot[args___?argPatternQ][ds_?validDatasetQ] := ggplot["data" -> ds, args];
-ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] > 0 := Catch[Module[{heldArgs, options, dataset, defaultXLabel, defaultYLabel, frameLabel, points, lines, smoothLines, columns, abLines, hLines, vLines, histograms, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
+ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] > 0 := Catch[Module[{heldArgs, options, dataset, defaultXLabel, defaultYLabel, frameLabel, points, lines, smoothLines, columns, abLines, hLines, vLines, histograms, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xDiscreteLabels, yDiscreteLabels, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
   
   heldArgs = Hold[args];
   options = Cases[heldArgs, _Rule, 1];
@@ -66,7 +66,10 @@ ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] >
     createDiscreteScaleFunc["y", heldArgs],
     With[{f = ToExpression[yScaleType /. "Linear" | "Date" -> "Identity"]}, Function[f[#]]]
   ];
-  
+
+  If[xScaleType == "Discrete", xDiscreteLabels = createDiscreteScaleLabels["x", heldArgs]];
+  If[yScaleType == "Discrete", yDiscreteLabels = createDiscreteScaleLabels["y", heldArgs]];
+
   (* Compile all geom information which will create graphics primitives *)
   points      = Cases[heldArgs, geomPoint[opts___]      :> geomPoint[opts,      FilterRules[options, Options[geomPoint]],      "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
   lines       = Cases[heldArgs, geomLine[opts___]       :> geomLine[opts,       FilterRules[options, Options[geomLine]],       "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
@@ -82,11 +85,23 @@ ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] >
 
   (* Tick / GridLine functions passed into ggplot FrameTicks -> _ call *)
   With[{tickAndGridLineOptions = FilterRules[{options}, {Options[ticks], Options[gridLines]}]},
-    xTickFunc = Function[{min, max}, ticks[xScaleType, min, max, tickAndGridLineOptions]];
-    yTickFunc = Function[{min, max}, ticks[yScaleType, min, max, tickAndGridLineOptions]];
+    xTickFunc = If[xScaleType == "Discrete",
+      ticks[xScaleType, xDiscreteLabels, tickAndGridLineOptions],
+      Function[{min, max}, ticks[xScaleType, min, max, tickAndGridLineOptions]]
+    ];
+    yTickFunc = If[yScaleType == "Discrete",
+      ticks[yScaleType, yDiscreteLabels, tickAndGridLineOptions],
+      Function[{min, max}, ticks[yScaleType, min, max, tickAndGridLineOptions]]
+    ];
 
-    xGridLineFunc = Function[{min, max}, gridLines[xScaleType, min, max, tickAndGridLineOptions]];
-    yGridLineFunc = Function[{min, max}, gridLines[yScaleType, min, max, tickAndGridLineOptions]]
+    xGridLineFunc = If[xScaleType == "Discrete",
+      gridLines[xScaleType, xDiscreteLabels, tickAndGridLineOptions],
+      Function[{min, max}, gridLines[xScaleType, min, max, tickAndGridLineOptions]]
+    ];
+    yGridLineFunc = If[yScaleType == "Discrete",
+      gridLines[yScaleType, yDiscreteLabels, tickAndGridLineOptions],
+      Function[{min, max}, gridLines[yScaleType, min, max, tickAndGridLineOptions]]
+    ];
   ];
 
   graphic = Graphics[graphicsPrimitives,
