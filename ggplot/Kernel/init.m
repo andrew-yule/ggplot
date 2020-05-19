@@ -16,6 +16,7 @@ Get["ggplot`aesThickness`"];
 
 Get["ggplot`geomPoint`"];
 Get["ggplot`geomLine`"];
+Get["ggplot`geomPath`"];
 Get["ggplot`geomSmooth`"];
 Get["ggplot`geomCol`"];
 Get["ggplot`geomParityLine`"];

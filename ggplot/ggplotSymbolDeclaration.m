@@ -10,6 +10,7 @@ ggplot::usage         = "TBD";
 (* Geoms *)
 geomPoint::usage        = "TBD";
 geomLine::usage         = "TBD";
+geomPath::usage         = "TBD";
 geomSmooth::usage       = "TBD";
 geomCol::usage          = "TBD";
 geomParityLine::usage   = "TBD";

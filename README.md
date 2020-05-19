@@ -16,6 +16,7 @@ dataset //
 ```
 geomPoint[]
 geomLine[]
+geomPath[]
 geomSmooth[]
 geomParityLine[]
 geomHLine[]

@@ -7,10 +7,10 @@ BeginPackage["ggplot`"];
 
 Begin["`Private`"];
 
-(* geomLine implementation *)
+(* geomPath implementation *)
 
-Options[geomLine] = {"data" -> {}, "x" -> Null, "y" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
-geomLine[opts : OptionsPattern[]] /; Count[Hold[opts], ("data" -> _), {0, Infinity}] > 0 := Module[{newDataset, groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
+Options[geomPath] = {"data" -> {}, "x" -> Null, "y" -> Null, "color" -> Null, "thickness" -> Null, "alpha" -> Null, "dashing" -> Null, "xScaleFunc" -> Function[Identity[#]], "yScaleFunc" -> Function[Identity[#]]};
+geomPath[opts : OptionsPattern[]] /; Count[Hold[opts], ("data" -> _), {0, Infinity}] > 0 := Module[{newDataset, groupbyKeys, colorFunc, thicknessFunc, alphaFunc, lineTypeFunc, output},
   (* Ensure X/Y has been given *)
   If[OptionValue["x"] === Null || OptionValue["y"] === Null, Message[ggplot::xOrYNotGiven]; Throw[Null];];
 
@@ -34,7 +34,7 @@ geomLine[opts : OptionsPattern[]] /; Count[Hold[opts], ("data" -> _), {0, Infini
                 #[[1, "color_aes"]],
                 #[[1, "alpha_aes"]],
                 #[[1, "thickness_aes"]],
-                Line@Map[Function[point, {OptionValue["xScaleFunc"]@point[[1]], OptionValue["yScaleFunc"]@point[[2]]}]]@Sort@Transpose[{#[[All, OptionValue["x"]]], #[[All, OptionValue["y"]]]}]
+                Line@Map[Function[point, {OptionValue["xScaleFunc"]@point[[1]], OptionValue["yScaleFunc"]@point[[2]]}]]@Transpose[{#[[All, OptionValue["x"]]], #[[All, OptionValue["y"]]]}]
             } &];
 
   output

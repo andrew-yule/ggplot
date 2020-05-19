@@ -16,7 +16,7 @@ ggplot::shapeCount          = "More than 7 discrete shapes are present, aborting
 validDatasetQ[dataset_] := MatchQ[dataset, {_?AssociationQ..}];
 
 Attributes[argPatternQ] = {HoldAllComplete};
-argPatternQ[expr___] := MatchQ[Hold[expr], Hold[(_Rule | geomPoint[___] | geomLine[___] | geomSmooth[___] | geomVLine[___] | geomHLine[___] | geomParityLine[___] | geomHistogram[___] | geomCol[___] | scaleXDate[___] | scaleXLinear[___] | scaleXLog[___] | scaleYDate[___] | scaleYLinear[___] | scaleYLog[___]) ...]];
+argPatternQ[expr___] := MatchQ[Hold[expr], Hold[(_Rule | geomPoint[___] | geomLine[___] | geomPath[___] | geomSmooth[___] | geomVLine[___] | geomHLine[___] | geomParityLine[___] | geomHistogram[___] | geomCol[___] | scaleXDate[___] | scaleXLinear[___] | scaleXLog[___] | scaleYDate[___] | scaleYLinear[___] | scaleYLog[___]) ...]];
 
 (* Main ggplot method and entry point *)
 Options[ggplot] = DeleteDuplicates[Join[{"data" -> {}}, Options[ListLinePlot], Options[ticks], Options[gridLines]]];
@@ -33,7 +33,7 @@ SetOptions[ggplot,
 Attributes[ggplot] = {HoldAllComplete};
 ggplot[ds_?validDatasetQ, args___?argPatternQ] := ggplot["data" -> ds, args];
 ggplot[args___?argPatternQ][ds_?validDatasetQ] := ggplot["data" -> ds, args];
-ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] > 0 := Catch[Module[{heldArgs, options, dataset, defaultXLabel, defaultYLabel, frameLabel, points, lines, smoothLines, columns, abLines, hLines, vLines, histograms, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xDiscreteLabels, yDiscreteLabels, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
+ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] > 0 := Catch[Module[{heldArgs, options, dataset, defaultXLabel, defaultYLabel, frameLabel, points, lines, paths, smoothLines, columns, abLines, hLines, vLines, histograms, graphicsPrimitives, xScaleType, yScaleType, xScaleFunc, yScaleFunc, xDiscreteLabels, yDiscreteLabels, xTickFunc, yTickFunc, xGridLineFunc, yGridLineFunc, graphic},
   
   heldArgs = Hold[args];
   options = Cases[heldArgs, _Rule, 1];
@@ -73,6 +73,7 @@ ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] >
   (* Compile all geom information which will create graphics primitives *)
   points      = Cases[heldArgs, geomPoint[opts___]      :> geomPoint[opts,      FilterRules[options, Options[geomPoint]],      "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
   lines       = Cases[heldArgs, geomLine[opts___]       :> geomLine[opts,       FilterRules[options, Options[geomLine]],       "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
+  paths       = Cases[heldArgs, geomPath[opts___]       :> geomPath[opts,       FilterRules[options, Options[geomPath]],       "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
   smoothLines = Cases[heldArgs, geomSmooth[opts___]     :> geomSmooth[opts,     FilterRules[options, Options[geomSmooth]],     "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
   abLines     = Cases[heldArgs, geomParityLine[opts___] :> geomParityLine[opts, FilterRules[options, Options[geomParityLine]], "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
   hLines      = Cases[heldArgs, geomHLine[opts___]      :> geomHLine[opts,      FilterRules[options, Options[geomHLine]],      "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];
@@ -81,7 +82,7 @@ ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] >
   (* columns need a lot more work to sort through *)
   (*columns     = Cases[{geoms}, geomCol[aesthetics__] :> geomCol[dataset, aesthetics, "xScaleFunc" -> xScaleFunc, "yScaleFunc" -> yScaleFunc], {0, Infinity}];*)
 
-  graphicsPrimitives = {points, lines, smoothLines, abLines, hLines, vLines, histograms} // Flatten;
+  graphicsPrimitives = {points, lines, paths, smoothLines, abLines, hLines, vLines, histograms} // Flatten;
 
   (* Tick / GridLine functions passed into ggplot FrameTicks -> _ call *)
   With[{tickAndGridLineOptions = FilterRules[{options}, {Options[ticks], Options[gridLines]}]},
