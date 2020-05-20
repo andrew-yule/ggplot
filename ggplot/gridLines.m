@@ -36,6 +36,10 @@ gridLines["Log2", min_?NumericQ, max_?NumericQ, opts : OptionsPattern[]] := form
 
 gridLines["Discrete", lbls_?ListQ, opts : OptionsPattern[]] := formatGridLines[ticks["Discrete", lbls, opts], opts];
 
+(* If using the ggplotThemeGray, we need to put the gridlines in the Prolog as the gray background will cover them otherwise so these are helper functions for that *)
+convertGridLinesToActualLinesForProlog["X" gridLines_] := gridLines /. {line_, d_Directive} :> {d, InfiniteLine[{{line, 0}, {line, 1}}]};
+convertGridLinesToActualLinesForProlog["Y" gridLines_] := gridLines /. {line_, d_Directive} :> {d, InfiniteLine[{{0, line}, {1, line}}]};
+
 End[];
 
 EndPackage[];

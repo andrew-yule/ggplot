@@ -7,8 +7,9 @@ BeginPackage["ggplot`"];
 
 ggplot::usage             = "TBD";
 ggplotThemeWhite::usage   = "TBD";
-ggplotThemeGray::usage = "TBD";
+ggplotThemeGray::usage    = "TBD";
 ggplotSetTheme::usage     = "TBD";
+$ggplotTheme::usage       = "TBD";
 
 (* Geoms *)
 geomPoint::usage        = "TBD";

@@ -42,6 +42,7 @@ ggplotSetTheme[ggplotThemeWhite] := Module[{},
   Options[gridLines] = Options[ticks];
   Options[formatTicks] = Options[ticks];
   Options[formatGridLines] = Options[ticks];
+  $ggplotTheme = ggplotThemeWhite;
 ];
 
 ggplotSetTheme[ggplotThemeGray] := Module[{},
@@ -77,6 +78,7 @@ ggplotSetTheme[ggplotThemeGray] := Module[{},
   Options[gridLines] = Options[ticks];
   Options[formatTicks] = Options[ticks];
   Options[formatGridLines] = Options[ticks];
+  $ggplotTheme = ggplotThemeGray;
 ];
 
 End[];
