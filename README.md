@@ -23,7 +23,7 @@ geomHLine[]
 geomVLine[]
 ```
 
-## Currently support scales
+## Currently supported scales
 
 ```
 scaleXLinear[]
