@@ -367,7 +367,7 @@ WoL/qiBFqTXIVzMo6B9rn1BFvObwdGzNKpejqF9u8PfiopfLLUU4/wGCBLmC
      DisplayFunction :> Identity, Frame -> {{False, False}, {False, False}}, 
      FrameLabel -> {{None, None}, {None, None}}, 
      FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
-     GridLines -> {None, None}, GridLinesStyle -> Directive[
+     gridLines2 -> {None, None}, GridLinesStyle -> Directive[
        GrayLevel[0.5, 0.4]], 
      Method -> {
       "OptimizePlotMarkers" -> True, 
@@ -385,7 +385,7 @@ WoL/qiBFqTXIVzMo6B9rn1BFvObwdGzNKpejqF9u8PfiopfLLUU4/wGCBLmC
         Scaled[0.02], 
         Scaled[0.02]}, {
         Scaled[0.02], 
-        Scaled[0.08090169943749476]}}, Ticks -> {Automatic, Automatic}}],
+        Scaled[0.08090169943749476]}}, ticks2 -> {Automatic, Automatic}}],
    FormBox[
     FormBox[
      TemplateBox[{"\"Female\"", "\"Male\"", "\"Missing\""}, "PointLegend", 
@@ -892,7 +892,7 @@ AABOEm/u
      DisplayFunction :> Identity, Frame -> {{False, False}, {False, False}}, 
      FrameLabel -> {{None, None}, {None, None}}, 
      FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
-     GridLines -> {None, None}, GridLinesStyle -> Directive[
+     gridLines2 -> {None, None}, GridLinesStyle -> Directive[
        GrayLevel[0.5, 0.4]], 
      Method -> {
       "OptimizePlotMarkers" -> True, 
@@ -910,7 +910,7 @@ AABOEm/u
         Scaled[0.02], 
         Scaled[0.02]}, {
         Scaled[0.02], 
-        Scaled[0.08090169943749476]}}, Ticks -> {Automatic, Automatic}}],
+        Scaled[0.08090169943749476]}}, ticks2 -> {Automatic, Automatic}}],
    FormBox[
     FormBox[
      TemplateBox[{
@@ -3797,7 +3797,7 @@ Cell[BoxData[
   AspectRatio->NCache[
     Rational[7, 10], 0.7],
   Frame->True,
-  GridLines->Automatic]], "Output",
+  gridLines2->Automatic]], "Output",
  CellChangeTimes->{{3.7823074422611313`*^9, 3.782307495693059*^9}, {
    3.782307637381547*^9, 3.7823076665953207`*^9}, {3.7823077509118977`*^9, 
    3.782307794337607*^9}, {3.782319028670329*^9, 3.7823190711487827`*^9}, {
@@ -7914,7 +7914,7 @@ Cell[BoxData[
   AspectRatio->NCache[
     Rational[7, 10], 0.7],
   Frame->True,
-  GridLines->Automatic]], "Output",
+  gridLines2->Automatic]], "Output",
  CellChangeTimes->{
   3.782340905057637*^9, 3.782340974870767*^9, 3.782341054208825*^9, {
    3.782341106709238*^9, 3.782341118156876*^9}, {3.782389752104278*^9, 
@@ -15927,7 +15927,7 @@ Cell[BoxData[
   AspectRatio->NCache[
     Rational[7, 10], 0.7],
   Frame->True,
-  GridLines->Automatic]], "Output",
+  gridLines2->Automatic]], "Output",
  CellChangeTimes->{
   3.782340905057637*^9, 3.782340974870767*^9, 3.782341054208825*^9, {
    3.782341106709238*^9, 3.782341118156876*^9}, {3.782389752104278*^9, 
@@ -17689,7 +17689,7 @@ voJf/59cBrzpvwFVBdqa
   Frame->{{True, True}, {True, True}},
   FrameLabel->{{None, None}, {None, None}},
   FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
-  GridLines->{Automatic, Automatic},
+  gridLines2->{Automatic, Automatic},
   GridLinesStyle->Directive[
     GrayLevel[0.5, 0.4]],
   Method->{
@@ -17710,7 +17710,7 @@ voJf/59cBrzpvwFVBdqa
      Scaled[0.02]}, {
      Scaled[0.02], 
      Scaled[0.05]}},
-  Ticks->{Automatic, Automatic}]], "Output",
+  ticks2->{Automatic, Automatic}]], "Output",
  CellChangeTimes->{3.785860327236511*^9, 3.785860367756452*^9, 
   3.7858604658398933`*^9, 3.785860534179782*^9, 3.785861262219455*^9},
  CellLabel->"Out[25]=",ExpressionUUID->"6fe064b3-f6da-41ce-b49c-2cadb9fff688"]
@@ -18976,7 +18976,7 @@ UTcvZH/E0E9JkG+wmw+4X8n+KeC9xf1P74O/7Ljd8A==
   Frame->{{True, True}, {True, True}},
   FrameLabel->{{None, None}, {None, None}},
   FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
-  GridLines->{Automatic, Automatic},
+  gridLines2->{Automatic, Automatic},
   GridLinesStyle->Directive[
     GrayLevel[0.5, 0.4]],
   Method->{
@@ -18997,7 +18997,7 @@ UTcvZH/E0E9JkG+wmw+4X8n+KeC9xf1P74O/7Ljd8A==
      Scaled[0.02]}, {
      Scaled[0.02], 
      Scaled[0.05]}},
-  Ticks->{Automatic, Automatic}]], "Output",
+  ticks2->{Automatic, Automatic}]], "Output",
  CellChangeTimes->{{3.7823924474577713`*^9, 3.782392452909411*^9}, {
    3.782392486019884*^9, 3.782392550870738*^9}, {3.7823925938566628`*^9, 
    3.7823926182794027`*^9}, 3.782392661217635*^9, 3.782392812590467*^9, 
@@ -20459,7 +20459,7 @@ N//eGZ/MNwO2/4ft/4vY/zD+0P+ir7evDRHd8A==
   Frame->{{True, True}, {True, True}},
   FrameLabel->{{None, None}, {None, None}},
   FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
-  GridLines->{Automatic, Automatic},
+  gridLines2->{Automatic, Automatic},
   GridLinesStyle->Directive[
     GrayLevel[0.5, 0.4]],
   Method->{
@@ -20480,7 +20480,7 @@ N//eGZ/MNwO2/4ft/4vY/zD+0P+ir7evDRHd8A==
      Scaled[0.02]}, {
      Scaled[0.02], 
      Scaled[0.05]}},
-  Ticks->{Automatic, Automatic}]], "Output",
+  ticks2->{Automatic, Automatic}]], "Output",
  CellChangeTimes->{{3.7824874345907097`*^9, 3.782487457656311*^9}, 
    3.782556548635433*^9, 3.7826025702434397`*^9, 3.782603856245336*^9, 
    3.78260411654643*^9, 3.782604653120797*^9, 3.782823373141425*^9, 
@@ -21967,7 +21967,7 @@ UTcvZH/E0E9JkG+wmw+4X8n+KeC9xf1P74O/7Ljd8A==
   Frame->{{True, True}, {True, True}},
   FrameLabel->{{None, None}, {None, None}},
   FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
-  GridLines->{Automatic, Automatic},
+  gridLines2->{Automatic, Automatic},
   GridLinesStyle->Directive[
     GrayLevel[0.5, 0.4]],
   Method->{
@@ -21988,7 +21988,7 @@ UTcvZH/E0E9JkG+wmw+4X8n+KeC9xf1P74O/7Ljd8A==
      Scaled[0.02]}, {
      Scaled[0.02], 
      Scaled[0.05]}},
-  Ticks->{Automatic, Automatic}]], "Output",
+  ticks2->{Automatic, Automatic}]], "Output",
  CellChangeTimes->{3.7824874904354773`*^9, 3.7826025710484657`*^9, 
   3.782603857335209*^9, 3.782604117386712*^9, 3.7826046643742247`*^9, 
   3.782823378019266*^9, 3.785714600689385*^9, 3.785860587966457*^9, 
@@ -22133,7 +22133,7 @@ zLCOr2f44/978n1JPTd6T3bR/bKC8yncG4ew3fA=
   Frame->{{True, True}, {True, True}},
   FrameLabel->{{None, None}, {None, None}},
   FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
-  GridLines->{Automatic, Automatic},
+  gridLines2->{Automatic, Automatic},
   GridLinesStyle->Directive[
     GrayLevel[0.5, 0.4]],
   Method->{
@@ -22154,7 +22154,7 @@ zLCOr2f44/978n1JPTd6T3bR/bKC8yncG4ew3fA=
      Scaled[0.02]}, {
      Scaled[0.02], 
      Scaled[0.05]}},
-  Ticks->{Automatic, Automatic}]], "Output",
+  ticks2->{Automatic, Automatic}]], "Output",
  CellChangeTimes->{{3.782604770522472*^9, 3.7826047849553423`*^9}, 
    3.7827363959688187`*^9, 3.782823386966713*^9, 3.785714608147627*^9, 
    3.785860599544952*^9, 3.7858612720842333`*^9},
@@ -23750,7 +23750,7 @@ ZHovIx8lX9XxZPmp9mdtMPkpscdHA+b7Zp6Pkr/+AZB4uUI=
   Frame->{{True, True}, {True, True}},
   FrameLabel->{{None, None}, {None, None}},
   FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
-  GridLines->{Automatic, Automatic},
+  gridLines2->{Automatic, Automatic},
   GridLinesStyle->Directive[
     GrayLevel[0.5, 0.4]],
   Method->{
@@ -23771,7 +23771,7 @@ ZHovIx8lX9XxZPmp9mdtMPkpscdHA+b7Zp6Pkr/+AZB4uUI=
      Scaled[0.02]}, {
      Scaled[0.02], 
      Scaled[0.05]}},
-  Ticks->{Automatic, Automatic}]], "Output",
+  ticks2->{Automatic, Automatic}]], "Output",
  CellChangeTimes->{
   3.782823394493314*^9, {3.782823469624363*^9, 3.782823478701775*^9}, 
    3.785714610944326*^9, 3.785860606640729*^9, 3.785861274555416*^9},
@@ -24994,7 +24994,7 @@ N//eGZ/MNwO2/4ft/4vY/zD+0P+ir7evDRHd8A==
   Frame->{{True, True}, {True, True}},
   FrameLabel->{{None, None}, {None, None}},
   FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
-  GridLines->{Automatic, Automatic},
+  gridLines2->{Automatic, Automatic},
   GridLinesStyle->Directive[
     GrayLevel[0.5, 0.4]],
   Method->{
@@ -25015,7 +25015,7 @@ N//eGZ/MNwO2/4ft/4vY/zD+0P+ir7evDRHd8A==
      Scaled[0.02]}, {
      Scaled[0.02], 
      Scaled[0.05]}},
-  Ticks->{Automatic, Automatic}]], "Output",
+  ticks2->{Automatic, Automatic}]], "Output",
  CellChangeTimes->{{3.78571480552136*^9, 3.785714824433379*^9}, 
    3.7858606152796183`*^9, 3.785861277149623*^9, 3.7858627242577353`*^9},
  CellLabel->"Out[75]=",ImageCache->GraphicsData["CompressedBitmap", "\<\
@@ -27618,7 +27618,7 @@ kX8irtZFMj/EQ//R+Gv9XqTvH82f971Ivyf+AGtFR54=
         FormBox[
          TemplateBox[{0., 0.}, "Spacer2"], TraditionalForm], {0.005, 0.}, {
          AbsoluteThickness[0.1]}}}}}],
-  GridLines->{{0.6931471805599453, 1.0986122886681098`, 1.3862943611198906`, 
+  gridLines2->{{0.6931471805599453, 1.0986122886681098`, 1.3862943611198906`, 
     1.6094379124341003`, 1.791759469228055, 1.9459101490553132`}, {
     2.70805020110221, 2.995732273553991, 3.2188758248682006`, 
     3.4011973816621555`, 3.5553480614894135`, 3.6888794541139363`, 
@@ -27644,7 +27644,7 @@ kX8irtZFMj/EQ//R+Gv9XqTvH82f971Ivyf+AGtFR54=
      Scaled[0.02]}, {
      Scaled[0.02], 
      Scaled[0.05]}},
-  Ticks->{Quiet[
+  ticks2->{Quiet[
      Charting`ScaledTicks[{Log, Exp}][#, #2, {6, 6}]]& , Quiet[
      Charting`ScaledTicks[{Log, Exp}][#, #2, {6, 6}]]& }]], "Output",
  CellChangeTimes->{{3.785861955058354*^9, 3.785861971202684*^9}, 

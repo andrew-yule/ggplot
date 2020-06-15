@@ -16,10 +16,10 @@ ggplot::shapeCount          = "More than 7 discrete shapes are present, aborting
 validDatasetQ[dataset_] := MatchQ[dataset, {_?AssociationQ..}];
 
 Attributes[argPatternQ] = {HoldAllComplete};
-argPatternQ[expr___] := MatchQ[Hold[expr], Hold[(_Rule | geomPoint[___] | geomLine[___] | geomPath[___] | geomSmooth[___] | geomVLine[___] | geomHLine[___] | geomParityLine[___] | geomHistogram[___] | geomCol[___] | scaleXDate[___] | scaleXLinear[___] | scaleXLog[___] | scaleYDate[___] | scaleYLinear[___] | scaleYLog[___]) ...]];
+argPatternQ[expr___] := MatchQ[Hold[expr], Hold[(_Rule | geomPoint[___] | geomLine[___] | geomPath[___] | geomSmooth[___] | geomVLine[___] | geomHLine[___] | geomParityLine[___] | geomHistogram[___] | geomCol[___] | scaleXDate2[___] | scaleXLinear2[___] | scaleXLog2[___] | scaleYDate2[___] | scaleYLinear2[___] | scaleYLog2[___]) ...]];
 
 (* Main ggplot method and entry point *)
-Options[ggplot] = DeleteDuplicates[Join[{"data" -> {}}, Options[ListLinePlot], Options[ticks], Options[gridLines]]];
+Options[ggplot] = DeleteDuplicates[Join[{"data" -> {}}, Options[ListLinePlot], Options[ticks2], Options[gridLines2]]];
 (* Options for ggplot are set further below in themes *)
 Attributes[ggplot] = {HoldAllComplete};
 ggplot[ds_?validDatasetQ, args___?argPatternQ] := ggplot["data" -> ds, args];
@@ -76,23 +76,23 @@ ggplot[args___?argPatternQ] /; Count[Hold[args], ("data" -> _), {0, Infinity}] >
   graphicsPrimitives = {points, lines, paths, smoothLines, abLines, hLines, vLines, histograms} // Flatten;
 
   (* Tick / GridLine functions passed into ggplot FrameTicks -> _ call *)
-  With[{tickAndGridLineOptions = FilterRules[{options}, {Options[ticks], Options[gridLines]}]},
+  With[{tickAndGridLineOptions = FilterRules[{options}, {Options[ticks2], Options[gridLines2]}]},
     xTickFunc = If[xScaleType == "Discrete",
-      ticks[xScaleType, xDiscreteLabels, tickAndGridLineOptions],
-      Function[{min, max}, ticks[xScaleType, min, max, tickAndGridLineOptions]]
+      ticks2[xScaleType, xDiscreteLabels, tickAndGridLineOptions],
+      Function[{min, max}, ticks2[xScaleType, min, max, tickAndGridLineOptions]]
     ];
     yTickFunc = If[yScaleType == "Discrete",
-      ticks[yScaleType, yDiscreteLabels, tickAndGridLineOptions],
-      Function[{min, max}, ticks[yScaleType, min, max, tickAndGridLineOptions]]
+      ticks2[yScaleType, yDiscreteLabels, tickAndGridLineOptions],
+      Function[{min, max}, ticks2[yScaleType, min, max, tickAndGridLineOptions]]
     ];
 
     xGridLineFunc = If[xScaleType == "Discrete",
-      gridLines[xScaleType, xDiscreteLabels, tickAndGridLineOptions],
-      Function[{min, max}, gridLines[xScaleType, min, max, tickAndGridLineOptions]]
+      gridLines2[xScaleType, xDiscreteLabels, tickAndGridLineOptions],
+      Function[{min, max}, gridLines2[xScaleType, min, max, tickAndGridLineOptions]]
     ];
     yGridLineFunc = If[yScaleType == "Discrete",
-      gridLines[yScaleType, yDiscreteLabels, tickAndGridLineOptions],
-      Function[{min, max}, gridLines[yScaleType, min, max, tickAndGridLineOptions]]
+      gridLines2[yScaleType, yDiscreteLabels, tickAndGridLineOptions],
+      Function[{min, max}, gridLines2[yScaleType, min, max, tickAndGridLineOptions]]
     ];
   ];
 

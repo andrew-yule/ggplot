@@ -26,12 +26,12 @@ geomVLine[]
 ## Currently supported scales
 
 ```
-scaleXLinear[]
-scaleXLog[]
-scaleXDate
-scaleYLinear[]
-scaleYLog[]
-scaleYDate
+scaleXLinear2[]
+scaleXLog2[]
+scaleXDate2
+scaleYLinear2[]
+scaleYLog2[]
+scaleYDate2
 ```
 
 ## Major functionality still to work or working through:
@@ -56,7 +56,7 @@ mpg//ggplot[geomPoint["x"->"displ","y"->"cty","color"->"class"]]
 ```
 economics//
 	ggplot[
-		"x"->"date","y"->"uempmed",geomLine[],scaleXDate[]
+		"x"->"date","y"->"uempmed",geomLine[],scaleXDate2[]
 	]
 ```
 ![](Imgs/Economics_Example1.png)
